@@ -1,0 +1,992 @@
+import { useState } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search, Globe, Shield, Zap, Check, X, ArrowRight, Crown, Clock, Users, Sparkles, ExternalLink, Copy, Wallet, Infinity as InfinityIcon, Award, Link2, Download, Share2, CheckCircle2 } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { Button } from "@/components/ui/button";
+
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { usePageAnalytics } from "@/hooks/use-analytics";
+import { GlassCard } from "@/components/glass-card";
+import { apiRequest } from "@/lib/queryClient";
+import { WalletButton } from "@/components/wallet-button";
+import { useWallet } from "@/hooks/use-wallet";
+import { toast } from "sonner";
+
+import deepSpaceBg from "@assets/generated_images/deep_space_station.jpg";
+import cyberpunkBg from "@assets/generated_images/cyberpunk_neon_city.jpg";
+import quantumBg from "@assets/generated_images/quantum_dimension_realm.jpg";
+import medievalBg from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import fantasyBg from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
+import blockchainBg from "@assets/generated_images/futuristic_blockchain_network_activity_monitor.jpg";
+
+interface DomainSearchResult {
+  available: boolean;
+  name: string;
+  tld: string;
+  pricePerYearCents: number;
+  priceLifetimeCents: number;
+  earlyAdopterPriceCents: number;
+  isPremium: boolean;
+  tier: string;
+  isReserved: boolean;
+  isEarlyAdopterPeriod: boolean;
+  earlyAdopterDiscount: number;
+  domain?: BlockchainDomain;
+}
+
+interface BlockchainDomain {
+  id: string;
+  name: string;
+  tld: string;
+  ownerAddress: string;
+  registeredAt: string;
+  expiresAt: string | null;
+  ownershipType: "term" | "lifetime";
+  isPremium: boolean;
+  primaryWallet?: string;
+  description?: string;
+  website?: string;
+}
+
+interface DomainStats {
+  totalDomains: number;
+  totalOwners: number;
+  premiumCount: number;
+}
+
+function formatPrice(cents: number): string {
+  return `$${(cents / 100).toFixed(2)}`;
+}
+
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+const pricingTiers = [
+  { chars: "1-2 chars", yearly: "Reserved", lifetime: "Enterprise", tag: "Reserved", gradient: "from-red-500 via-rose-400 to-red-600", isReserved: true, image: deepSpaceBg },
+  { chars: "3 chars", yearly: "$350/year", lifetime: "$8,750", tag: "Ultra Premium", gradient: "from-purple-500 via-teal-400 to-purple-600", image: quantumBg },
+  { chars: "4 chars", yearly: "$120/year", lifetime: "$3,000", tag: "Premium", gradient: "from-purple-500 to-violet-600", image: cyberpunkBg },
+  { chars: "5 chars", yearly: "$45/year", lifetime: "$1,125", tag: "Standard+", gradient: "from-blue-500 to-indigo-600", image: medievalBg },
+  { chars: "6-10 chars", yearly: "$20/year", lifetime: "$500", tag: "Standard", gradient: "from-cyan-500 to-teal-600", image: fantasyBg },
+  { chars: "11+ chars", yearly: "$12/year", lifetime: "$300", tag: "Economy", gradient: "from-emerald-500 to-green-600", image: blockchainBg },
+];
+
+function FloatingParticle({ delay, duration, x }: { delay: number; duration: number; x: number }) {
+  return (
+    <motion.div
+      className="absolute w-1 h-1 rounded-full bg-primary/40"
+      style={{ left: `${x}%`, bottom: 0 }}
+      animate={{
+        y: [0, -400],
+        opacity: [0, 1, 0],
+        scale: [0.5, 1, 0.5],
+      }}
+      transition={{
+        duration,
+        delay,
+        repeat: Infinity,
+        ease: "easeOut",
+      }}
+    />
+  );
+}
+
+export default function DomainsPage() {
+  usePageAnalytics();
+  const queryClient = useQueryClient();
+  const { evmAddress, solanaAddress, isConnected } = useWallet();
+  const [, setLocation] = useLocation();
+  const walletAddress = evmAddress || solanaAddress;
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResult, setSearchResult] = useState<DomainSearchResult | null>(null);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showRegisterDialog, setShowRegisterDialog] = useState(false);
+  const [selectedYears, setSelectedYears] = useState(1);
+  const [ownershipType, setOwnershipType] = useState<"term" | "lifetime">("term");
+  const [ownerCode, setOwnerCode] = useState("");
+  const [isOwnerMode, setIsOwnerMode] = useState(false);
+  const [isOwnerAuthenticated, setIsOwnerAuthenticated] = useState(() => {
+    return sessionStorage.getItem("ownerDomainAuth") === "true";
+  });
+  const [ownerAuthLoading, setOwnerAuthLoading] = useState(false);
+  const [showCertificate, setShowCertificate] = useState(false);
+  const [registeredDomain, setRegisteredDomain] = useState<{ name: string; tld: string; ownershipType: string; registeredAt: string; expiresAt?: string; txHash: string } | null>(null);
+
+  const handleOwnerAuth = async () => {
+    if (!ownerCode || ownerCode.length < 16) {
+      toast.error("Owner code must be at least 16 characters");
+      return;
+    }
+    setOwnerAuthLoading(true);
+    try {
+      const res = await fetch("/api/owner/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ secret: ownerCode }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        sessionStorage.setItem("ownerDomainAuth", "true");
+        sessionStorage.setItem("ownerToken", data.token);
+        setIsOwnerAuthenticated(true);
+        setOwnerCode("");
+        toast.success("Owner access granted!");
+      } else {
+        toast.error("Invalid owner code");
+      }
+    } catch {
+      toast.error("Authentication failed");
+    } finally {
+      setOwnerAuthLoading(false);
+    }
+  };
+
+  const handleOwnerLogout = () => {
+    sessionStorage.removeItem("ownerDomainAuth");
+    sessionStorage.removeItem("ownerToken");
+    setIsOwnerAuthenticated(false);
+    toast.success("Logged out of owner mode");
+  };
+
+  const { data: stats } = useQuery<DomainStats>({
+    queryKey: ["/api/domains/stats"],
+  });
+
+  const { data: recentDomains } = useQuery<BlockchainDomain[]>({
+    queryKey: ["/api/domains/recent"],
+  });
+
+  const { data: myDomains } = useQuery<BlockchainDomain[]>({
+    queryKey: ["/api/domains/owner", walletAddress],
+    enabled: !!walletAddress,
+  });
+
+  const registerMutation = useMutation({
+    mutationFn: async (data: { name: string; ownerAddress: string; ownershipType: "term" | "lifetime"; years?: number; ownerCode?: string }) => {
+      const res = await apiRequest("POST", "/api/domains/register", data);
+      return res.json();
+    },
+    onSuccess: (data: any) => {
+      setShowRegisterDialog(false);
+      setRegisteredDomain({
+        name: data.domain?.name || searchResult?.name || "",
+        tld: data.domain?.tld || "tlid",
+        ownershipType: data.domain?.ownershipType || ownershipType,
+        registeredAt: data.domain?.registeredAt || new Date().toISOString(),
+        expiresAt: data.domain?.expiresAt,
+        txHash: data.txHash || `0x${Array.from({ length: 64 }, () => Math.floor(Math.random() * 16).toString(16)).join("")}`,
+      });
+      setShowCertificate(true);
+      setSearchResult(null);
+      setSearchQuery("");
+      setOwnershipType("term");
+      queryClient.invalidateQueries({ queryKey: ["/api/domains/stats"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/domains/recent"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/domains/owner", walletAddress] });
+    },
+    onError: (error: any) => {
+      toast.error(error.message || "Failed to register domain");
+    },
+  });
+
+  const handleSearch = async () => {
+    if (!searchQuery.trim()) return;
+    
+    setIsSearching(true);
+    try {
+      const normalizedName = searchQuery.toLowerCase().replace(/\.tlid$/, "").trim();
+      const res = await fetch(`/api/domains/search/${encodeURIComponent(normalizedName)}`);
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || `Search failed with status ${res.status}`);
+      }
+      const result = await res.json();
+      setSearchResult(result);
+    } catch (error: any) {
+      toast.error(error.message || "Failed to search domain");
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  const handleRegister = () => {
+    if (!searchResult) return;
+    
+    // Owner mode: use special owner address, no wallet needed
+    const ownerAddress = isOwnerAuthenticated 
+      ? "owner:" + sessionStorage.getItem("ownerToken")?.slice(0, 16)
+      : walletAddress;
+    
+    if (!ownerAddress) {
+      toast.error("Please connect a wallet or login as owner");
+      return;
+    }
+    
+    registerMutation.mutate({
+      name: searchResult.name,
+      ownerAddress,
+      ownershipType,
+      years: ownershipType === "term" ? selectedYears : undefined,
+      ownerCode: isOwnerAuthenticated ? (sessionStorage.getItem("ownerToken") ?? undefined) : undefined,
+    });
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    toast.success("Copied to clipboard");
+  };
+
+  return (
+    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 via-slate-900 to-black text-white">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <FloatingParticle
+            key={i}
+            delay={i * 0.3}
+            duration={4 + Math.random() * 3}
+            x={Math.random() * 100}
+          />
+        ))}
+      </div>
+
+      <header className="relative z-10 border-b border-white/10 backdrop-blur-xl bg-black/20">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <WalletButton />
+          </div>
+        </div>
+      </header>
+
+      <main className="relative z-10 container mx-auto px-4 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 mb-6">
+            <Globe className="w-4 h-4 text-cyan-400" />
+            <span className="text-sm font-medium bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Blockchain Domain Service
+            </span>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Your Identity on Trust Layer
+            </span>
+          </h1>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto mb-8">
+            Claim your unique .tlid domain name. Link wallets, websites, and social profiles to a single memorable address.
+          </p>
+
+          <div className="max-w-xl mx-auto relative" data-testid="domain-search-container">
+            <div className="relative">
+              <Input
+                type="text"
+                placeholder="Domain search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                className="w-full h-14 pl-5 pr-32 text-lg bg-white/5 border-white/20 rounded-2xl focus:border-cyan-500/50"
+                data-testid="input-domain-search"
+              />
+              <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                <Badge variant="outline" className="border-cyan-500/30 text-cyan-400">
+                  .tlid
+                </Badge>
+                <Button
+                  onClick={handleSearch}
+                  disabled={isSearching || !searchQuery.trim()}
+                  className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600"
+                  data-testid="button-search-domain"
+                >
+                  {isSearching ? (
+                    <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity }}>
+                      <Search className="w-4 h-4" />
+                    </motion.div>
+                  ) : (
+                    <Search className="w-4 h-4" />
+                  )}
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Owner Access Code Toggle */}
+          <div className="mt-4 text-center">
+            {isOwnerAuthenticated ? (
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30">
+                <Crown className="w-4 h-4 text-purple-400" />
+                <span className="text-sm text-purple-400 font-medium">Owner Mode Active</span>
+                <button
+                  onClick={handleOwnerLogout}
+                  className="ml-2 text-xs text-white/50 hover:text-white transition-colors underline"
+                  data-testid="button-owner-logout"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <>
+                <button
+                  onClick={() => setIsOwnerMode(!isOwnerMode)}
+                  className="text-xs text-white/30 hover:text-white/50 transition-colors"
+                  data-testid="button-toggle-owner-mode"
+                >
+                  {isOwnerMode ? "Hide owner access" : "Owner access"}
+                </button>
+                {isOwnerMode && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-2 flex flex-col items-center gap-2"
+                  >
+                    <Input
+                      type="password"
+                      placeholder="Enter owner access code..."
+                      value={ownerCode}
+                      onChange={(e) => setOwnerCode(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && handleOwnerAuth()}
+                      className="max-w-xs bg-white/5 border-purple-500/30 text-white text-center"
+                      data-testid="input-owner-code"
+                    />
+                    <Button
+                      onClick={handleOwnerAuth}
+                      disabled={ownerAuthLoading || !ownerCode}
+                      className="bg-purple-500 hover:bg-purple-600 text-black font-medium"
+                      data-testid="button-submit-owner-code"
+                    >
+                      {ownerAuthLoading ? "Authenticating..." : "Submit"}
+                    </Button>
+                  </motion.div>
+                )}
+              </>
+            )}
+          </div>
+        </motion.div>
+
+        <AnimatePresence>
+          {searchResult && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="max-w-xl mx-auto mb-12"
+            >
+              <GlassCard className={`p-6 ${searchResult.available ? "border-emerald-500/50" : "border-red-500/50"}`}>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${searchResult.available ? "bg-emerald-500/20" : "bg-red-500/20"}`}>
+                      {searchResult.available ? (
+                        <Check className="w-5 h-5 text-emerald-400" />
+                      ) : (
+                        <X className="w-5 h-5 text-red-400" />
+                      )}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">
+                        {searchResult.name}.{searchResult.tld}
+                      </h3>
+                      <p className={`text-sm ${searchResult.available ? "text-emerald-400" : "text-red-400"}`}>
+                        {searchResult.available ? "Available" : "Taken"}
+                      </p>
+                    </div>
+                  </div>
+                  {searchResult.isPremium && (
+                    <Badge className="bg-gradient-to-r from-purple-500 to-teal-500 text-black">
+                      <Crown className="w-3 h-3 mr-1" /> Premium
+                    </Badge>
+                  )}
+                </div>
+
+                {searchResult.available ? (
+                  searchResult.isReserved ? (
+                    <div className="space-y-4">
+                      <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-center">
+                        <p className="text-red-400 font-medium">Reserved Domain</p>
+                        <p className="text-sm text-white/60 mt-1">
+                          1-2 character domains are reserved for enterprise customers and special auctions.
+                        </p>
+                      </div>
+                      <Button disabled className="w-full opacity-50" data-testid="button-register-domain">
+                        Contact for Enterprise Pricing
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {searchResult.isEarlyAdopterPeriod && (
+                        <div className="p-2 rounded-lg bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-center">
+                          <p className="text-xs text-emerald-400 font-medium">
+                            Early Adopter Pricing: 30% OFF Annual Plans
+                          </p>
+                        </div>
+                      )}
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="p-3 rounded-lg bg-white/5 text-center">
+                          <p className="text-xs text-white/60 mb-1">Yearly Rental</p>
+                          {searchResult.isEarlyAdopterPeriod ? (
+                            <>
+                              <p className="text-sm text-white/40 line-through">
+                                {formatPrice(searchResult.pricePerYearCents)}/yr
+                              </p>
+                              <p className="text-lg font-bold text-emerald-400">
+                                {formatPrice(searchResult.earlyAdopterPriceCents)}/yr
+                              </p>
+                            </>
+                          ) : (
+                            <p className="text-lg font-bold text-white">
+                              {formatPrice(searchResult.pricePerYearCents)}/yr
+                            </p>
+                          )}
+                        </div>
+                        <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 text-center">
+                          <p className="text-xs text-cyan-400 mb-1 flex items-center justify-center gap-1">
+                            <InfinityIcon className="w-3 h-3" /> Own Forever
+                          </p>
+                          <p className="text-lg font-bold text-cyan-400">
+                            {formatPrice(searchResult.priceLifetimeCents)}
+                          </p>
+                        </div>
+                      </div>
+                      <p className="text-xs text-center text-white/40">
+                        {searchResult.tier} tier domain
+                      </p>
+                      <Button
+                        onClick={() => {
+                          if (!isConnected && !isOwnerAuthenticated) {
+                            setLocation("/wallet");
+                          } else {
+                            setShowRegisterDialog(true);
+                          }
+                        }}
+                        className={`w-full ${isOwnerAuthenticated ? "bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600" : "bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600"}`}
+                        data-testid="button-register-domain"
+                      >
+                        {isOwnerAuthenticated ? (
+                          <>
+                            <Crown className="w-4 h-4 mr-2" />
+                            Register as Owner (Free)
+                          </>
+                        ) : isConnected ? (
+                          <>Register Now</>
+                        ) : (
+                          <>
+                            <Wallet className="w-4 h-4 mr-2" />
+                            Connect Wallet to Register
+                          </>
+                        )}
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  )
+                ) : (
+                  <div className="space-y-3">
+                    <div className="p-3 rounded-lg bg-white/5">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-white/60">Owner</span>
+                        <button
+                          onClick={() => copyToClipboard(searchResult.domain?.ownerAddress || "")}
+                          className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
+                        >
+                          <span className="font-mono text-sm">
+                            {searchResult.domain?.ownerAddress?.slice(0, 6)}...{searchResult.domain?.ownerAddress?.slice(-4)}
+                          </span>
+                          <Copy className="w-3 h-3" />
+                        </button>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-white/60">Ownership</span>
+                        <span className="text-white flex items-center gap-1">
+                          {searchResult.domain?.ownershipType === "lifetime" ? (
+                            <>
+                              <InfinityIcon className="w-4 h-4 text-cyan-400" />
+                              <span className="text-cyan-400">Forever</span>
+                            </>
+                          ) : (
+                            <>Expires {searchResult.domain?.expiresAt && formatDate(searchResult.domain.expiresAt)}</>
+                          )}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </GlassCard>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12"
+        >
+          {pricingTiers.map((tier, idx) => (
+            <div key={idx} className="relative overflow-hidden rounded-xl border border-white/10 p-4 text-center group hover:border-white/20 transition-all">
+              <img 
+                src={tier.image} 
+                alt="" 
+                className="absolute inset-0 w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+              <div className="relative z-10">
+                <Badge className={`mb-2 bg-gradient-to-r ${tier.gradient} text-white`}>
+                  {tier.tag}
+                </Badge>
+                <p className="text-white/60 text-sm mb-2">{tier.chars}</p>
+                <div className="space-y-1">
+                  <p className="text-lg font-bold text-white">{tier.yearly}</p>
+                  <p className="text-sm text-cyan-400 flex items-center justify-center gap-1">
+                    <InfinityIcon className="w-3 h-3" /> {tier.lifetime}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {stats && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+          >
+            <GlassCard className="p-6 text-center">
+              <Globe className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
+              <p className="text-3xl font-bold text-white">{stats.totalDomains.toLocaleString()}</p>
+              <p className="text-white/60">Domains Registered</p>
+            </GlassCard>
+            <GlassCard className="p-6 text-center">
+              <Users className="w-8 h-8 text-purple-400 mx-auto mb-2" />
+              <p className="text-3xl font-bold text-white">{stats.totalOwners.toLocaleString()}</p>
+              <p className="text-white/60">Unique Owners</p>
+            </GlassCard>
+            <GlassCard className="p-6 text-center">
+              <Crown className="w-8 h-8 text-purple-400 mx-auto mb-2" />
+              <p className="text-3xl font-bold text-white">{stats.premiumCount.toLocaleString()}</p>
+              <p className="text-white/60">Premium Domains</p>
+            </GlassCard>
+          </motion.div>
+        )}
+
+        {myDomains && myDomains.length > 0 && (
+          <motion.div
+            id="my-domains"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mb-12 scroll-mt-24"
+          >
+            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+              <Wallet className="w-6 h-6 text-cyan-400" />
+              My Domains
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {myDomains.map((domain) => (
+                <GlassCard key={domain.id} className="p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-lg font-bold text-white">
+                      {domain.name}.{domain.tld}
+                    </h3>
+                    {domain.isPremium && (
+                      <Badge className="bg-gradient-to-r from-purple-500 to-teal-500 text-black">
+                        <Crown className="w-3 h-3" />
+                      </Badge>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-white/60 mb-3">
+                    {domain.ownershipType === "lifetime" ? (
+                      <>
+                        <InfinityIcon className="w-4 h-4 text-cyan-400" />
+                        <span className="text-cyan-400">Owned Forever</span>
+                      </>
+                    ) : (
+                      <>
+                        <Clock className="w-4 h-4" />
+                        <span>Expires {domain.expiresAt && formatDate(domain.expiresAt)}</span>
+                      </>
+                    )}
+                  </div>
+                  <Link href={`/domain/${domain.name}`}>
+                    <Button variant="outline" size="sm" className="w-full" data-testid={`button-manage-domain-${domain.id}`}>
+                      Manage Domain
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </GlassCard>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {recentDomains && recentDomains.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+              <Sparkles className="w-6 h-6 text-purple-400" />
+              Recently Registered
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {recentDomains.slice(0, 8).map((domain) => (
+                <GlassCard key={domain.id} className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="font-bold text-white">
+                        {domain.name}.{domain.tld}
+                      </h3>
+                      <p className="text-sm text-white/60">
+                        {formatDate(domain.registeredAt)}
+                      </p>
+                    </div>
+                    {domain.isPremium && (
+                      <Crown className="w-5 h-5 text-purple-400" />
+                    )}
+                  </div>
+                </GlassCard>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mt-16"
+        >
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            Why .tlid Domains?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <GlassCard className="p-6">
+              <Shield className="w-10 h-10 text-cyan-400 mb-4" />
+              <h3 className="text-lg font-bold text-white mb-2">Blockchain Verified</h3>
+              <p className="text-white/60">
+                Every domain is secured on the Trust Layer with tamper-proof ownership records.
+              </p>
+            </GlassCard>
+            <GlassCard className="p-6">
+              <Globe className="w-10 h-10 text-purple-400 mb-4" />
+              <h3 className="text-lg font-bold text-white mb-2">Universal Identity</h3>
+              <p className="text-white/60">
+                Link multiple wallets, websites, and social profiles to a single memorable name.
+              </p>
+            </GlassCard>
+            <GlassCard className="p-6">
+              <Zap className="w-10 h-10 text-pink-400 mb-4" />
+              <h3 className="text-lg font-bold text-white mb-2">Instant Transfers</h3>
+              <p className="text-white/60">
+                Send and receive tokens using human-readable names instead of complex addresses.
+              </p>
+            </GlassCard>
+          </div>
+        </motion.div>
+      </main>
+
+      <Dialog open={showRegisterDialog} onOpenChange={setShowRegisterDialog}>
+        <DialogContent className="bg-slate-900 border-white/10 text-white max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl">Register Domain</DialogTitle>
+            <DialogDescription className="text-white/60">
+              Complete your domain registration
+            </DialogDescription>
+          </DialogHeader>
+          
+          {searchResult && !searchResult.isReserved && (
+            <div className="space-y-4 py-4">
+              <div className="p-4 rounded-lg bg-white/5 border border-white/10">
+                <div className="flex items-center justify-between">
+                  <span className="text-white/60">Domain</span>
+                  <span className="text-lg font-bold text-white">
+                    {searchResult.name}.{searchResult.tld}
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <label className="text-sm text-white/60 mb-2 block">Ownership Type</label>
+                <div className="grid grid-cols-2 gap-2">
+                  <Button
+                    variant={ownershipType === "term" ? "default" : "outline"}
+                    onClick={() => setOwnershipType("term")}
+                    className={ownershipType === "term" ? "bg-cyan-500 hover:bg-cyan-600" : ""}
+                    data-testid="button-ownership-term"
+                  >
+                    <Clock className="w-4 h-4 mr-2" />
+                    Yearly Rental
+                  </Button>
+                  <Button
+                    variant={ownershipType === "lifetime" ? "default" : "outline"}
+                    onClick={() => setOwnershipType("lifetime")}
+                    className={ownershipType === "lifetime" ? "bg-gradient-to-r from-cyan-500 to-purple-500" : ""}
+                    data-testid="button-ownership-lifetime"
+                  >
+                    <InfinityIcon className="w-4 h-4 mr-2" />
+                    Own Forever
+                  </Button>
+                </div>
+              </div>
+
+              {ownershipType === "term" && (
+                <div>
+                  <label className="text-sm text-white/60 mb-2 block">Registration Period</label>
+                  <div className="flex gap-2">
+                    {[1, 2, 5, 10].map((years) => (
+                      <Button
+                        key={years}
+                        variant={selectedYears === years ? "default" : "outline"}
+                        onClick={() => setSelectedYears(years)}
+                        className={selectedYears === years ? "bg-cyan-500 hover:bg-cyan-600" : ""}
+                        size="sm"
+                        data-testid={`button-years-${years}`}
+                      >
+                        {years}yr
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {isOwnerAuthenticated ? (
+                <div className="p-4 rounded-lg bg-purple-500/10 border border-purple-500/30">
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <Crown className="w-5 h-5 text-purple-400" />
+                    <span className="text-purple-400 font-bold">Owner Mode Active</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-white/60">Owner Price</span>
+                    <span className="text-xl font-bold text-emerald-400">FREE</span>
+                  </div>
+                  <p className="text-xs text-purple-400/70 text-center mt-2">
+                    Domains registered as owner are free with lifetime ownership
+                  </p>
+                </div>
+              ) : (
+                <div className="p-4 rounded-lg bg-white/5 border border-white/10">
+                  {ownershipType === "term" ? (
+                    <>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-white/60">Price per year</span>
+                        {searchResult.isEarlyAdopterPeriod ? (
+                          <div className="text-right">
+                            <span className="text-sm text-white/40 line-through mr-2">
+                              {formatPrice(searchResult.pricePerYearCents)}
+                            </span>
+                            <span className="text-emerald-400">
+                              {formatPrice(searchResult.earlyAdopterPriceCents)}
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="text-white">{formatPrice(searchResult.pricePerYearCents)}</span>
+                        )}
+                      </div>
+                      {searchResult.isEarlyAdopterPeriod && (
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-emerald-400 text-sm">Early Adopter Discount</span>
+                          <span className="text-emerald-400 text-sm">-30%</span>
+                        </div>
+                      )}
+                      <div className="flex items-center justify-between pt-2 border-t border-white/10">
+                        <span className="text-white/60">Total ({selectedYears} {selectedYears === 1 ? "year" : "years"})</span>
+                        <span className="text-xl font-bold text-cyan-400">
+                          {formatPrice((searchResult.isEarlyAdopterPeriod ? searchResult.earlyAdopterPriceCents : searchResult.pricePerYearCents) * selectedYears)}
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-white/60 flex items-center gap-1">
+                          <InfinityIcon className="w-3 h-3" /> Lifetime Ownership
+                        </span>
+                        <span className="text-xl font-bold text-cyan-400">
+                          {formatPrice(searchResult.priceLifetimeCents)}
+                        </span>
+                      </div>
+                      <p className="text-xs text-white/40">
+                        One-time payment. Never pay renewal fees again.
+                      </p>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {searchResult.isEarlyAdopterPeriod && ownershipType === "term" && (
+                <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+                  <p className="text-xs text-emerald-400 text-center">
+                    + FREE Chronicles Sponsorship Slot (Early Adopter Exclusive)
+                  </p>
+                </div>
+              )}
+
+              <Button
+                onClick={handleRegister}
+                disabled={registerMutation.isPending}
+                className={`w-full ${isOwnerAuthenticated ? "bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600" : "bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600"}`}
+                data-testid="button-confirm-register"
+              >
+                {registerMutation.isPending ? "Registering..." : (
+                  isOwnerAuthenticated ? (
+                    <>
+                      <Crown className="w-4 h-4 mr-2" />
+                      Register as Owner (Free)
+                    </>
+                  ) : (
+                    "Confirm Registration"
+                  )
+                )}
+              </Button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
+
+      <Dialog open={showCertificate} onOpenChange={setShowCertificate}>
+        <DialogContent className="bg-slate-950 border-white/10 text-white max-w-lg p-0 overflow-hidden">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/10 via-purple-500/5 to-transparent pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500" />
+
+            <div className="p-6 pt-8">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ type: "spring", duration: 0.6 }}
+                className="text-center mb-6"
+              >
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-2 border-cyan-500/50 flex items-center justify-center">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.3, type: "spring" }}
+                  >
+                    <CheckCircle2 className="w-10 h-10 text-emerald-400" />
+                  </motion.div>
+                </div>
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                  Registration Complete
+                </h2>
+                <p className="text-white/60 mt-1">Your domain is live and ready to use</p>
+              </motion.div>
+
+              {registeredDomain && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="space-y-4"
+                >
+                  <div className="p-5 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <Award className="w-5 h-5 text-cyan-400" />
+                      <span className="text-xs uppercase tracking-wider text-cyan-400 font-medium">Domain Certificate</span>
+                    </div>
+                    <h3 className="text-3xl font-bold text-white mt-2">
+                      {registeredDomain.name}.{registeredDomain.tld}
+                    </h3>
+                    <p className="text-sm text-white/50 mt-2 font-mono">
+                      TX: {registeredDomain.txHash.slice(0, 10)}...{registeredDomain.txHash.slice(-8)}
+                    </p>
+                    <div className="flex items-center justify-center gap-4 mt-3 text-xs text-white/60">
+                      <span>Registered: {formatDate(registeredDomain.registeredAt)}</span>
+                      {registeredDomain.ownershipType === "lifetime" ? (
+                        <span className="flex items-center gap-1 text-cyan-400">
+                          <InfinityIcon className="w-3 h-3" /> Forever
+                        </span>
+                      ) : registeredDomain.expiresAt ? (
+                        <span>Expires: {formatDate(registeredDomain.expiresAt)}</span>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                      <Globe className="w-4 h-4 text-cyan-400" />
+                      Your Domain is Ready
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-sm text-white">Instant access at your URL</p>
+                          <button
+                            onClick={() => copyToClipboard(`https://${registeredDomain.name}.tlid.io`)}
+                            className="text-xs text-cyan-400 hover:text-cyan-300 flex items-center gap-1 mt-0.5"
+                          >
+                            https://{registeredDomain.name}.tlid.io
+                            <Copy className="w-3 h-3" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-sm text-white">Blockchain verified ownership</p>
+                          <p className="text-xs text-white/50">Recorded on Trust Layer with tamper-proof records</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-sm text-white">No setup required</p>
+                          <p className="text-xs text-white/50">Your domain resolves automatically - no DNS configuration needed</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-sm text-white">Link wallets and websites</p>
+                          <p className="text-xs text-white/50">Connect your crypto wallets, websites, and social profiles from your domain dashboard</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <Link href={`/domain/${registeredDomain.name}`}>
+                      <Button className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600" data-testid="button-manage-new-domain">
+                        <Link2 className="w-4 h-4 mr-2" />
+                        Manage Domain
+                      </Button>
+                    </Link>
+                    <Button
+                      variant="outline"
+                      className="w-full border-white/20"
+                      onClick={() => {
+                        const text = `I just registered ${registeredDomain.name}.${registeredDomain.tld} on Trust Layer! My verified blockchain identity is live at https://${registeredDomain.name}.tlid.io`;
+                        if (navigator.share) {
+                          navigator.share({ title: "My Trust Layer Domain", text, url: `https://${registeredDomain.name}.tlid.io` });
+                        } else {
+                          copyToClipboard(text);
+                          toast.success("Share text copied to clipboard!");
+                        }
+                      }}
+                      data-testid="button-share-domain"
+                    >
+                      <Share2 className="w-4 h-4 mr-2" />
+                      Share
+                    </Button>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+    </div>
+  );
+}

@@ -1,0 +1,1893 @@
+import { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
+import {
+  TrendingUp, Users, MessageCircle, Shield, Gift, Coins, ArrowLeft,
+  Send, Zap, Clock, AlertTriangle, ChevronDown, ChevronUp, Trophy,
+  Info, ExternalLink, Wallet, Volume2, VolumeX, Settings, History, Rocket,
+  Target, Percent, Layers, Lock, Unlock, BarChart3, Sparkles, Crown
+} from "lucide-react";
+import { GlassCard } from "@/components/glass-card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/use-auth";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import orbyFlying from "@assets/generated_images/orby_flying_cape_transparent.png";
+
+interface SweepsBalance {
+  goldCoins: string;
+  sweepsCoins: string;
+}
+
+const MAX_MULTIPLIER = 5000;
+const HOUSE_EDGE = 0.015;
+const MIN_PROGRESSIVE_FLOOR = 0.05;
+
+function formatSIG(amount: number): string {
+  return amount.toLocaleString(undefined, { maximumFractionDigits: 2 });
+}
+
+type BetMode = "standard" | "progressive" | "autoTP" | "autoProgressive";
+
+interface Bet {
+  id: string;
+  username: string;
+  amount: number;
+  mode: BetMode;
+  autoCashout?: number;
+  progressivePercent?: number;
+  autoProgressiveConfig?: {
+    stepPercent: number;
+    intervalPercent: number;
+    nextTrigger: number;
+  };
+  status: "active" | "cashed" | "crashed" | "partial" | "waiting";
+  cashoutMultiplier?: number;
+  payout?: number;
+  partialCashouts: { multiplier: number; percent: number; amount: number }[];
+  securedAmount: number;
+  ridingAmount: number;
+}
+
+interface ChatMessage {
+  id: string;
+  username: string;
+  message: string;
+  timestamp: Date;
+}
+
+const REWARD_TIERS = [
+  { name: "Bronze", minWager: 0, rewardRate: 0.001, color: "text-cyan-400", bg: "from-cyan-500/20", icon: "🥉" },
+  { name: "Silver", minWager: 10000, rewardRate: 0.002, color: "text-gray-300", bg: "from-gray-400/20", icon: "🥈" },
+  { name: "Gold", minWager: 100000, rewardRate: 0.003, color: "text-teal-400", bg: "from-teal-500/20", icon: "🥇" },
+  { name: "Platinum", minWager: 1000000, rewardRate: 0.005, color: "text-purple-400", bg: "from-purple-500/20", icon: "💎" },
+  { name: "Diamond", minWager: 10000000, rewardRate: 0.01, color: "text-cyan-400", bg: "from-cyan-500/20", icon: "👑" },
+];
+
+function generateServerSeedHash(): string {
+  const chars = "0123456789abcdef";
+  let hash = "";
+  for (let i = 0; i < 64; i++) {
+    hash += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return hash;
+}
+
+function generateCrashPoint(): number {
+  const e = 2 ** 52;
+  const h = Math.floor(Math.random() * e);
+  const crashPoint = Math.floor((100 * e - h) / (e - h)) / 100;
+  return Math.min(Math.max(1, crashPoint / (1 + HOUSE_EDGE)), MAX_MULTIPLIER);
+}
+
+function NeonWaveform({ multiplier, crashed, progress }: { multiplier: number; crashed: boolean; progress: number }) {
+  const intensity = Math.min(multiplier / 10, 1);
+  
+  return (
+    <div className="absolute inset-0 overflow-hidden touch-pan-y pointer-events-none">
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: crashed 
+            ? "radial-gradient(ellipse 120% 100% at 50% 120%, #1a0505 0%, #0a0000 40%, #050000 100%)"
+            : "radial-gradient(ellipse 120% 100% at 50% 120%, #1B0E3F 0%, #0B0420 40%, #050210 100%)",
+        }}
+      />
+      
+      <div 
+        className="absolute inset-0 opacity-30"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          mixBlendMode: "overlay",
+        }}
+      />
+      
+      <motion.div 
+        className="absolute inset-0"
+        style={{
+          background: crashed 
+            ? "radial-gradient(ellipse 80% 50% at 30% 70%, rgba(239,68,68,0.15) 0%, transparent 70%)"
+            : "radial-gradient(ellipse 80% 50% at 30% 70%, rgba(255,79,216,0.12) 0%, transparent 70%)",
+        }}
+        animate={{ 
+          opacity: [0.5, 0.8, 0.5],
+          x: [0, 20, 0],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="absolute inset-0"
+        style={{
+          background: crashed 
+            ? "radial-gradient(ellipse 60% 40% at 70% 60%, rgba(249,115,22,0.1) 0%, transparent 70%)"
+            : "radial-gradient(ellipse 60% 40% at 70% 60%, rgba(76,244,255,0.08) 0%, transparent 70%)",
+        }}
+        animate={{ 
+          opacity: [0.3, 0.6, 0.3],
+          x: [0, -15, 0],
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
+      
+      {!crashed && (
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(135deg, transparent 0%, rgba(255,79,216,0.03) 25%, rgba(76,244,255,0.03) 50%, rgba(255,201,76,0.02) 75%, transparent 100%)",
+            backgroundSize: "200% 200%",
+          }}
+          animate={{
+            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+        />
+      )}
+      
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%)",
+        }}
+      />
+      
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)",
+        }}
+      />
+      
+      <svg className="absolute inset-0 w-full h-full opacity-40" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="gridGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor={crashed ? "#ef4444" : "#FF4FD8"} stopOpacity="0" />
+            <stop offset="50%" stopColor={crashed ? "#ef4444" : "#FF4FD8"} stopOpacity="0.3" />
+            <stop offset="100%" stopColor={crashed ? "#ef4444" : "#4CF4FF"} stopOpacity="0.1" />
+          </linearGradient>
+        </defs>
+        {[...Array(20)].map((_, i) => (
+          <line
+            key={`h-${i}`}
+            x1="0%"
+            y1={`${5 + i * 5}%`}
+            x2="100%"
+            y2={`${5 + i * 5}%`}
+            stroke="url(#gridGrad)"
+            strokeWidth="0.5"
+            opacity={0.3 - (i * 0.01)}
+          />
+        ))}
+        {[...Array(30)].map((_, i) => (
+          <motion.line
+            key={`v-${i}`}
+            x1={`${i * 3.5}%`}
+            y1="100%"
+            x2={`${50 + (i - 15) * 1.5}%`}
+            y2="0%"
+            stroke="url(#gridGrad)"
+            strokeWidth="0.5"
+            opacity={0.2}
+            animate={{ opacity: [0.1, 0.25, 0.1] }}
+            transition={{ duration: 4, repeat: Infinity, delay: i * 0.1 }}
+          />
+        ))}
+      </svg>
+      
+      {[...Array(50)].map((_, i) => (
+        <motion.div
+          key={`star-${i}`}
+          className="absolute rounded-full"
+          style={{
+            width: Math.random() * 2 + 1,
+            height: Math.random() * 2 + 1,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: i % 4 === 0 ? "#FF4FD8" : i % 4 === 1 ? "#4CF4FF" : i % 4 === 2 ? "#FFC94C" : "#ffffff",
+          }}
+          animate={{
+            opacity: [0.2, 0.8, 0.2],
+            scale: [0.8, 1.2, 0.8],
+          }}
+          transition={{
+            duration: 2 + Math.random() * 3,
+            repeat: Infinity,
+            delay: Math.random() * 5,
+          }}
+        />
+      ))}
+      
+      {!crashed && [...Array(15)].map((_, i) => (
+        <motion.div
+          key={`floater-${i}`}
+          className="absolute rounded-full blur-sm"
+          style={{
+            width: 4 + Math.random() * 8,
+            height: 4 + Math.random() * 8,
+            left: `${10 + Math.random() * 80}%`,
+            background: `radial-gradient(circle, ${
+              i % 3 === 0 ? "rgba(255,79,216,0.6)" : 
+              i % 3 === 1 ? "rgba(76,244,255,0.6)" : 
+              "rgba(255,201,76,0.5)"
+            }, transparent)`,
+          }}
+          animate={{
+            y: [0, -150 - intensity * 100],
+            x: [0, (Math.random() - 0.5) * 50],
+            opacity: [0, 0.8, 0],
+            scale: [0.5, 1, 0.3],
+          }}
+          transition={{
+            duration: 4 - intensity * 2,
+            repeat: Infinity,
+            delay: i * 0.3,
+            ease: "easeOut",
+          }}
+        />
+      ))}
+      
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-24"
+        style={{
+          background: crashed 
+            ? "linear-gradient(to top, rgba(239,68,68,0.3), transparent)"
+            : "linear-gradient(to top, rgba(255,79,216,0.15), transparent)",
+        }}
+        animate={{ opacity: [0.5, 0.8, 0.5] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      />
+      
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-1"
+        style={{
+          background: crashed 
+            ? "linear-gradient(90deg, transparent 0%, #ef4444 20%, #f97316 50%, #ef4444 80%, transparent 100%)"
+            : "linear-gradient(90deg, transparent 0%, #FF4FD8 20%, #4CF4FF 50%, #FF4FD8 80%, transparent 100%)",
+          boxShadow: crashed
+            ? "0 0 30px rgba(239,68,68,1), 0 0 60px rgba(239,68,68,0.5), 0 -10px 40px rgba(239,68,68,0.3)"
+            : "0 0 30px rgba(255,79,216,1), 0 0 60px rgba(76,244,255,0.5), 0 -10px 40px rgba(255,79,216,0.3)",
+        }}
+        animate={{ 
+          opacity: [0.7, 1, 0.7],
+          boxShadow: crashed ? undefined : [
+            "0 0 30px rgba(255,79,216,1), 0 0 60px rgba(76,244,255,0.5), 0 -10px 40px rgba(255,79,216,0.3)",
+            "0 0 40px rgba(76,244,255,1), 0 0 80px rgba(255,79,216,0.6), 0 -15px 50px rgba(76,244,255,0.4)",
+            "0 0 30px rgba(255,79,216,1), 0 0 60px rgba(76,244,255,0.5), 0 -10px 40px rgba(255,79,216,0.3)",
+          ],
+        }}
+        transition={{ duration: 2, repeat: Infinity }}
+      />
+      
+      {crashed && (
+        <>
+          <motion.div
+            className="absolute inset-0 bg-red-500/20"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          />
+          {[...Array(25)].map((_, i) => (
+            <motion.div
+              key={`explosion-${i}`}
+              className="absolute rounded-full"
+              style={{
+                width: 4 + Math.random() * 10,
+                height: 4 + Math.random() * 10,
+                left: "50%",
+                top: "40%",
+                background: i % 3 === 0 
+                  ? "radial-gradient(circle, #ff6b6b, #ee5a5a)" 
+                  : i % 3 === 1
+                  ? "radial-gradient(circle, #ffa502, #ff7f00)"
+                  : "radial-gradient(circle, #ffd93d, #ffb800)",
+                boxShadow: "0 0 15px rgba(255,107,107,0.8)",
+              }}
+              initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+              animate={{
+                x: Math.cos(i * 14.4 * Math.PI / 180) * (80 + Math.random() * 80),
+                y: Math.sin(i * 14.4 * Math.PI / 180) * (60 + Math.random() * 60),
+                opacity: 0,
+                scale: 0,
+              }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+            />
+          ))}
+        </>
+      )}
+    </div>
+  );
+}
+
+function OrbyFlyer({ multiplier, crashed, cashedOut, hasPartialCashout }: { multiplier: number; crashed: boolean; cashedOut: boolean; hasPartialCashout: boolean }) {
+  const intensity = Math.min(multiplier / 10, 1);
+  const trailCount = 12;
+  
+  return (
+    <div className="relative w-full h-full pointer-events-none">
+      {!crashed && [...Array(trailCount)].map((_, i) => (
+        <motion.div
+          key={`trail-${i}`}
+          className="absolute rounded-full"
+          style={{
+            width: 8 - i * 0.5,
+            height: 8 - i * 0.5,
+            background: cashedOut
+              ? `radial-gradient(circle, rgba(74,222,128,${0.8 - i * 0.06}), transparent)`
+              : `radial-gradient(circle, rgba(76,244,255,${0.8 - i * 0.06}), rgba(255,79,216,${0.4 - i * 0.03}), transparent)`,
+            boxShadow: cashedOut
+              ? `0 0 ${12 - i}px rgba(74,222,128,${0.6 - i * 0.04})`
+              : `0 0 ${12 - i}px rgba(76,244,255,${0.6 - i * 0.04})`,
+            left: `${-5 - i * 3}%`,
+            top: `${50 + i * 5}%`,
+          }}
+          animate={{
+            opacity: [0.8 - i * 0.05, 0.4 - i * 0.03, 0.8 - i * 0.05],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 0.3,
+            repeat: Infinity,
+            delay: i * 0.02,
+          }}
+        />
+      ))}
+      
+      {!crashed && (
+        <motion.div
+          className="absolute -left-6 bottom-0 w-20 h-20 blur-md"
+          style={{
+            background: cashedOut
+              ? "radial-gradient(ellipse at top right, rgba(74,222,128,0.6), rgba(74,222,128,0.3), transparent)"
+              : "radial-gradient(ellipse at top right, rgba(76,244,255,0.6), rgba(255,79,216,0.4), transparent)",
+          }}
+          animate={{
+            opacity: [0.5, 0.8, 0.5],
+            scaleX: [0.8, 1.2, 0.8],
+          }}
+          transition={{ duration: 0.2, repeat: Infinity }}
+        />
+      )}
+      
+      <motion.div
+        className="absolute left-0 top-0 w-16 h-16 sm:w-20 sm:h-20"
+        animate={{
+          rotate: crashed ? [0, 180, 540] : cashedOut ? [0, -3, 0] : [0, -5, 0],
+          scale: crashed ? [1, 0.5, 0] : cashedOut ? [1.1, 1.15, 1.1] : [1, 1.04, 1],
+        }}
+        transition={{
+          duration: crashed ? 1 : 1.5,
+          repeat: crashed ? 0 : Infinity,
+          ease: crashed ? "easeIn" : "easeInOut",
+        }}
+      >
+        <motion.div
+          className="absolute -inset-2 rounded-full blur-xl"
+          style={{
+            background: crashed 
+              ? "radial-gradient(circle, rgba(239,68,68,0.8), rgba(249,115,22,0.5), transparent)"
+              : cashedOut
+              ? "radial-gradient(circle, rgba(74,222,128,0.8), rgba(16,185,129,0.5), transparent)"
+              : "radial-gradient(circle, rgba(76,244,255,0.6), rgba(255,79,216,0.4), transparent)",
+          }}
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.6, 1, 0.6],
+          }}
+          transition={{ duration: 0.8, repeat: Infinity }}
+        />
+        
+        <img 
+          src={orbyFlying}
+          alt="Orby"
+          className="w-full h-full object-contain"
+          style={{
+            transform: "scaleX(-1)",
+            filter: crashed 
+              ? "drop-shadow(0 0 20px rgba(239,68,68,0.8)) brightness(0.8) saturate(0.5)"
+              : cashedOut
+              ? "drop-shadow(0 0 25px rgba(74,222,128,0.9)) brightness(1.3) saturate(1.2)"
+              : `drop-shadow(0 0 ${15 + intensity * 10}px rgba(76,244,255,0.9)) drop-shadow(0 0 ${25 + intensity * 15}px rgba(255,79,216,0.6)) brightness(1.2) saturate(1.1)`,
+          }}
+        />
+      </motion.div>
+      
+      {crashed && (
+        <>
+          <motion.div
+            className="absolute left-6 top-6 w-20 h-20"
+            initial={{ scale: 0, opacity: 1 }}
+            animate={{ scale: [0, 2, 3], opacity: [1, 0.8, 0] }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div 
+              className="w-full h-full rounded-full"
+              style={{
+                background: "radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,150,100,0.6), rgba(100,100,100,0.4), transparent)",
+              }}
+            />
+          </motion.div>
+          
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={`smoke-${i}`}
+              className="absolute rounded-full"
+              style={{
+                width: 20 + Math.random() * 30,
+                height: 20 + Math.random() * 30,
+                left: "20%",
+                top: "20%",
+                background: `radial-gradient(circle, rgba(${80 + i * 15},${80 + i * 15},${80 + i * 15},0.8), transparent)`,
+              }}
+              initial={{ x: 0, y: 0, scale: 0.5, opacity: 0.9 }}
+              animate={{
+                x: (Math.random() - 0.5) * 120,
+                y: (Math.random() - 0.5) * 100 - 30,
+                scale: [0.5, 1.5, 2],
+                opacity: [0.9, 0.6, 0],
+              }}
+              transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.05 }}
+            />
+          ))}
+          
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={`spark-${i}`}
+              className="absolute w-2 h-2 rounded-full"
+              style={{
+                left: "25%",
+                top: "25%",
+                background: i % 2 === 0 ? "#ff6b6b" : "#ffa500",
+                boxShadow: `0 0 8px ${i % 2 === 0 ? "#ff6b6b" : "#ffa500"}`,
+              }}
+              initial={{ x: 0, y: 0, opacity: 1 }}
+              animate={{
+                x: Math.cos(i * 30 * Math.PI / 180) * (50 + Math.random() * 50),
+                y: Math.sin(i * 30 * Math.PI / 180) * (40 + Math.random() * 40),
+                opacity: 0,
+                scale: 0,
+              }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            />
+          ))}
+        </>
+      )}
+      
+      {cashedOut && (
+        <>
+          {[...Array(16)].map((_, i) => (
+            <motion.div
+              key={`sparkle-${i}`}
+              className="absolute text-lg"
+              style={{
+                left: "30%",
+                top: "30%",
+              }}
+              initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+              animate={{
+                x: Math.cos(i * 22.5 * Math.PI / 180) * 80,
+                y: Math.sin(i * 22.5 * Math.PI / 180) * 60,
+                opacity: 0,
+                scale: 0,
+                rotate: 360,
+              }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+            >
+              {i % 3 === 0 ? "✨" : i % 3 === 1 ? "💫" : "⭐"}
+            </motion.div>
+          ))}
+        </>
+      )}
+    </div>
+  );
+}
+
+function CrashHistoryStrip({ history }: { history: number[] }) {
+  return (
+    <GlassCard className="p-2 md:p-3">
+      <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide">
+        <span className="text-[9px] md:text-[10px] text-muted-foreground shrink-0 uppercase tracking-wider font-medium">History:</span>
+        {history.map((h, i) => (
+          <motion.div
+            key={i}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: i * 0.03 }}
+          >
+            <Badge
+              className={`text-[10px] md:text-xs font-mono shrink-0 px-2 py-0.5 ${
+                h < 1.5 ? "bg-red-500/30 text-red-400 border-red-500/50" : 
+                h < 2 ? "bg-cyan-500/30 text-cyan-400 border-cyan-500/50" : 
+                h < 3 ? "bg-teal-500/30 text-teal-400 border-teal-500/50" : 
+                h < 5 ? "bg-green-500/30 text-green-400 border-green-500/50" : 
+                h < 10 ? "bg-cyan-500/30 text-cyan-400 border-cyan-500/50" :
+                "bg-purple-500/30 text-purple-400 border-purple-500/50 animate-pulse"
+              }`}
+            >
+              {h.toFixed(2)}x
+            </Badge>
+          </motion.div>
+        ))}
+      </div>
+    </GlassCard>
+  );
+}
+
+function LiveLedger({ secured, riding, lost }: { secured: number; riding: number; lost: number }) {
+  return (
+    <motion.div 
+      className="grid grid-cols-3 gap-2 p-3 rounded-xl bg-black/40 border border-white/10"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
+      <div className="text-center">
+        <div className="flex items-center justify-center gap-1 mb-1">
+          <Lock className="w-3 h-3 text-green-400" />
+          <span className="text-[10px] text-muted-foreground uppercase">Secured</span>
+        </div>
+        <p className="text-sm font-bold text-green-400 font-mono">{formatSIG(secured)}</p>
+      </div>
+      <div className="text-center border-x border-white/10">
+        <div className="flex items-center justify-center gap-1 mb-1">
+          <Rocket className="w-3 h-3 text-teal-400" />
+          <span className="text-[10px] text-muted-foreground uppercase">Riding</span>
+        </div>
+        <p className="text-sm font-bold text-teal-400 font-mono">{formatSIG(riding)}</p>
+      </div>
+      <div className="text-center">
+        <div className="flex items-center justify-center gap-1 mb-1">
+          <AlertTriangle className="w-3 h-3 text-red-400" />
+          <span className="text-[10px] text-muted-foreground uppercase">Lost</span>
+        </div>
+        <p className="text-sm font-bold text-red-400 font-mono">{formatSIG(lost)}</p>
+      </div>
+    </motion.div>
+  );
+}
+
+function PartialCashoutChips({ cashouts }: { cashouts: { multiplier: number; percent: number; amount: number }[] }) {
+  if (cashouts.length === 0) return null;
+  
+  return (
+    <div className="flex flex-wrap gap-1 mt-2">
+      {cashouts.map((c, i) => (
+        <motion.div
+          key={i}
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/20 border border-green-500/40"
+        >
+          <Sparkles className="w-3 h-3 text-green-400" />
+          <span className="text-[10px] font-mono text-green-400">
+            {c.percent}% @ {c.multiplier.toFixed(2)}x = {c.amount.toFixed(1)}
+          </span>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+export default function CrashGame() {
+  const { user } = useAuth();
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+  const isConnected = !!user;
+  const isDemo = !user;
+  const username = user?.firstName || user?.email?.split("@")[0] || "Player";
+  
+  const [currencyType, setCurrencyType] = useState<"GC" | "SC">("GC");
+  
+  const { data: sweepsBalance } = useQuery<SweepsBalance>({
+    queryKey: ["/api/sweeps/balance"],
+    enabled: !!user,
+  });
+
+  const gameMutation = useMutation({
+    mutationFn: async (data: { gameType: string; currencyType: string; betAmount: number }) => {
+      const res = await apiRequest("POST", "/api/sweeps/play", data);
+      return res.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/sweeps/balance"] });
+    },
+  });
+
+  const cashoutMutation = useMutation({
+    mutationFn: async (data: { roundKey: string; cashoutMultiplier: number }) => {
+      const res = await apiRequest("POST", "/api/sweeps/crash/cashout", data);
+      return res.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/sweeps/balance"] });
+    },
+  });
+
+  const serverCrashPointRef = useRef<number | null>(null);
+  const roundKeyRef = useRef<string | null>(null);
+
+  const [betAmount, setBetAmount] = useState("100");
+  const [multiplier, setMultiplier] = useState(1.0);
+  const [hasBet, setHasBet] = useState(false);
+  const [crashed, setCrashed] = useState(false);
+  const [cashedOut, setCashedOut] = useState(false);
+  const [crashPoint, setCrashPoint] = useState<number | null>(null);
+  const [roundStatus, setRoundStatus] = useState<"waiting" | "running" | "crashed">("waiting");
+  const [countdown, setCountdown] = useState(20);
+  const [serverSeedHash, setServerSeedHash] = useState(generateServerSeedHash());
+  const [pendingRewards, setPendingRewards] = useState(0);
+  const [totalWagered, setTotalWagered] = useState(0);
+  const [currentTier, setCurrentTier] = useState(REWARD_TIERS[0]);
+  const [demoBalance, setDemoBalance] = useState(10000);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [showFairness, setShowFairness] = useState(false);
+  const [roundNumber, setRoundNumber] = useState(Math.floor(Math.random() * 99999));
+  
+  const [betMode, setBetMode] = useState<BetMode>("standard");
+  const [progressivePercent, setProgressivePercent] = useState(50);
+  const [autoTPTarget, setAutoTPTarget] = useState("2.0");
+  const [autoProgStep, setAutoProgStep] = useState("30");
+  const [autoProgInterval, setAutoProgInterval] = useState("30");
+  
+  const [securedAmount, setSecuredAmount] = useState(0);
+  const [ridingAmount, setRidingAmount] = useState(0);
+  const [lostAmount, setLostAmount] = useState(0);
+  const [partialCashouts, setPartialCashouts] = useState<{ multiplier: number; percent: number; amount: number }[]>([]);
+  const [nextAutoProgTrigger, setNextAutoProgTrigger] = useState<number | null>(null);
+  const [lockedStake, setLockedStake] = useState(0);
+  const [lockedMode, setLockedMode] = useState<BetMode>("standard");
+  const [myBetId, setMyBetId] = useState<string | null>(null);
+  
+  const [bets, setBets] = useState<Bet[]>([]);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
+    { id: "1", username: "CryptoWhale", message: "Let's go! 🚀", timestamp: new Date() },
+    { id: "2", username: "MoonBoy", message: "2x secured 💰", timestamp: new Date() },
+    { id: "3", username: "DegenKing", message: "Who's riding to 10x?", timestamp: new Date() },
+  ]);
+  const [chatInput, setChatInput] = useState("");
+  
+  const [nextAirdrop, setNextAirdrop] = useState(7200);
+  const [airdropPool, setAirdropPool] = useState(12500);
+  
+  const [history, setHistory] = useState<number[]>([1.23, 2.45, 1.02, 5.67, 1.89, 3.21, 1.05, 8.92, 2.34, 1.67]);
+  const [leaderboardTab, setLeaderboardTab] = useState<"daily" | "weekly" | "alltime">("daily");
+  
+  const leaderboardData = {
+    daily: [
+      { rank: 1, username: "CryptoKing", wagered: 125000, profit: 45200, multiplier: 287.5 },
+      { rank: 2, username: "MoonRider", wagered: 89000, profit: 32100, multiplier: 156.2 },
+      { rank: 3, username: "DegenMaster", wagered: 67500, profit: 28400, multiplier: 342.1 },
+      { rank: 4, username: "WhaleBoy", wagered: 54200, profit: 19800, multiplier: 89.5 },
+      { rank: 5, username: "DiamondHands", wagered: 42100, profit: 15600, multiplier: 124.8 },
+    ],
+    weekly: [
+      { rank: 1, username: "MegaWhale", wagered: 892000, profit: 324500, multiplier: 1245.8 },
+      { rank: 2, username: "CryptoKing", wagered: 675000, profit: 198700, multiplier: 892.3 },
+      { rank: 3, username: "LuckyDegen", wagered: 534000, profit: 156200, multiplier: 567.4 },
+      { rank: 4, username: "MoonRider", wagered: 423000, profit: 112400, multiplier: 445.2 },
+      { rank: 5, username: "ProGambler", wagered: 356000, profit: 89500, multiplier: 312.6 },
+    ],
+    alltime: [
+      { rank: 1, username: "LegendWhale", wagered: 12500000, profit: 4250000, multiplier: 4892.5 },
+      { rank: 2, username: "MegaWhale", wagered: 8920000, profit: 2890000, multiplier: 3567.2 },
+      { rank: 3, username: "CryptoKing", wagered: 6750000, profit: 1980000, multiplier: 2845.8 },
+      { rank: 4, username: "DiamondLegend", wagered: 5340000, profit: 1560000, multiplier: 2234.5 },
+      { rank: 5, username: "VeteranDegen", wagered: 4230000, profit: 1124000, multiplier: 1892.3 },
+    ],
+  };
+  
+  const prizePool = {
+    daily: 5000,
+    weekly: 25000,
+    alltime: 100000,
+  };
+
+  const gameLoopRef = useRef<number | null>(null);
+  const roundStartTimeRef = useRef<number>(0);
+  const waitingStartTimeRef = useRef<number>(Date.now());
+  const crashPointRef = useRef<number>(0);
+  const ridingAmountRef = useRef<number>(0);
+  const isRunningRef = useRef<boolean>(false);
+  const lastAirdropTickRef = useRef<number>(Date.now());
+
+  useEffect(() => {
+    ridingAmountRef.current = ridingAmount;
+  }, [ridingAmount]);
+
+  useEffect(() => {
+    const tier = REWARD_TIERS.slice().reverse().find(t => totalWagered >= t.minWager) || REWARD_TIERS[0];
+    setCurrentTier(tier);
+  }, [totalWagered]);
+
+  useEffect(() => {
+    const COUNTDOWN_DURATION = 20;
+    const CRASH_COOLDOWN = 3000;
+    
+    const gameLoop = (timestamp: number) => {
+      if (lastAirdropTickRef.current + 1000 < timestamp) {
+        lastAirdropTickRef.current = timestamp;
+        setNextAirdrop(prev => prev > 0 ? prev - 1 : 7200);
+      }
+      
+      if (!isRunningRef.current) {
+        const elapsed = (Date.now() - waitingStartTimeRef.current) / 1000;
+        const remaining = Math.max(0, Math.ceil(COUNTDOWN_DURATION - elapsed));
+        setCountdown(remaining);
+        
+        if (remaining <= 0) {
+          isRunningRef.current = true;
+          roundStartTimeRef.current = Date.now();
+          if (serverCrashPointRef.current !== null) {
+            crashPointRef.current = serverCrashPointRef.current;
+            serverCrashPointRef.current = null;
+          } else {
+            crashPointRef.current = generateCrashPoint();
+          }
+          
+          setRoundStatus("running");
+          setMultiplier(1.0);
+          setCrashed(false);
+          setCashedOut(false);
+          setCrashPoint(null);
+          setHasBet(false);
+          setSecuredAmount(0);
+          setRidingAmount(0);
+          setLostAmount(0);
+          setPartialCashouts([]);
+          setNextAutoProgTrigger(null);
+          setLockedStake(0);
+          setLockedMode("standard");
+          setMyBetId(null);
+          setRoundNumber(prev => prev + 1);
+        }
+      } else {
+        const elapsed = (Date.now() - roundStartTimeRef.current) / 1000;
+        const baseGrowth = 0.10;
+        const acceleration = 0.015;
+        const newMultiplier = 1.0 + (baseGrowth * elapsed) + (acceleration * elapsed * elapsed);
+        
+        if (newMultiplier >= crashPointRef.current) {
+          const finalCrash = crashPointRef.current;
+          setMultiplier(finalCrash);
+          setCrashed(true);
+          setCrashPoint(finalCrash);
+          setRoundStatus("crashed");
+          
+          setLostAmount(ridingAmountRef.current);
+          setRidingAmount(0);
+          ridingAmountRef.current = 0;
+          
+          setBets(prev => prev.map(b => b.status === "active" ? { ...b, status: "crashed" as const } : b));
+          setHistory(prev => [finalCrash, ...prev.slice(0, 9)]);
+          
+          setTimeout(() => {
+            isRunningRef.current = false;
+            waitingStartTimeRef.current = Date.now();
+            setRoundStatus("waiting");
+            setCountdown(COUNTDOWN_DURATION);
+            setBets([]);
+            setServerSeedHash(generateServerSeedHash());
+          }, CRASH_COOLDOWN);
+        } else {
+          setMultiplier(newMultiplier);
+        }
+      }
+      
+      gameLoopRef.current = requestAnimationFrame(gameLoop);
+    };
+    
+    gameLoopRef.current = requestAnimationFrame(gameLoop);
+    
+    return () => {
+      if (gameLoopRef.current) {
+        cancelAnimationFrame(gameLoopRef.current);
+      }
+    };
+  }, []);
+
+  const executePartialCashout = useCallback((percent: number, mult: number) => {
+    if (ridingAmount <= 0 || cashedOut) return;
+    
+    const cashoutAmount = ridingAmount * (percent / 100) * (1 - HOUSE_EDGE);
+    const newRiding = ridingAmount * (1 - percent / 100);
+    
+    const newCashout = { multiplier: mult, percent, amount: cashoutAmount };
+    
+    setSecuredAmount(prev => prev + cashoutAmount);
+    setRidingAmount(newRiding);
+    setPartialCashouts(prev => [...prev, newCashout]);
+    if (isDemo) {
+      setDemoBalance(prev => prev + cashoutAmount);
+    }
+    
+    if (myBetId) {
+      setBets(prev => prev.map(b => 
+        b.id === myBetId 
+          ? { 
+              ...b, 
+              securedAmount: b.securedAmount + cashoutAmount,
+              ridingAmount: newRiding,
+              partialCashouts: [...b.partialCashouts, newCashout],
+              status: "partial" as const
+            }
+          : b
+      ));
+    }
+    
+    const reward = cashoutAmount * currentTier.rewardRate;
+    setPendingRewards(prev => prev + reward);
+    
+    toast({
+      title: `Partial Cashout! 💰`,
+      description: `Secured ${percent}% (+${cashoutAmount.toFixed(2)} SIG) at ${mult.toFixed(2)}x`,
+    });
+    
+    if (newRiding < lockedStake * MIN_PROGRESSIVE_FLOOR) {
+      setCashedOut(true);
+      if (myBetId) {
+        setBets(prev => prev.map(b => b.id === myBetId ? { ...b, status: "cashed" as const, ridingAmount: 0 } : b));
+      }
+      toast({
+        title: "Fully Cashed Out!",
+        description: "Remaining amount below minimum threshold",
+      });
+    }
+  }, [ridingAmount, cashedOut, lockedStake, currentTier, toast, myBetId, isDemo]);
+
+  useEffect(() => {
+    if (roundStatus === "running" && hasBet && !cashedOut && lockedMode === "autoTP") {
+      const target = parseFloat(autoTPTarget);
+      if (!isNaN(target) && multiplier >= target) {
+        const payout = ridingAmount * (1 - HOUSE_EDGE);
+        setSecuredAmount(prev => prev + payout);
+        setRidingAmount(0);
+        setCashedOut(true);
+        if (isDemo) {
+          setDemoBalance(prev => prev + payout);
+        } else {
+          if (roundKeyRef.current) {
+            cashoutMutation.mutate({
+              roundKey: roundKeyRef.current,
+              cashoutMultiplier: target,
+            });
+          }
+        }
+        
+        if (myBetId) {
+          setBets(prev => prev.map(b => 
+            b.id === myBetId 
+              ? { 
+                  ...b, 
+                  status: "cashed" as const, 
+                  cashoutMultiplier: target, 
+                  payout,
+                  securedAmount: payout,
+                  ridingAmount: 0,
+                  partialCashouts: [{ multiplier: target, percent: 100, amount: payout }]
+                }
+              : b
+          ));
+        }
+        
+        const reward = payout * currentTier.rewardRate;
+        setPendingRewards(prev => prev + reward);
+        
+        toast({
+          title: "Auto Take Profit! 🎯",
+          description: `+${payout.toFixed(2)} SIG at ${target.toFixed(2)}x`,
+        });
+      }
+    }
+  }, [multiplier, roundStatus, hasBet, cashedOut, lockedMode, autoTPTarget, ridingAmount, toast, myBetId, currentTier, isDemo, cashoutMutation, currencyType, lockedStake]);
+
+  useEffect(() => {
+    if (roundStatus === "running" && hasBet && !cashedOut && lockedMode === "autoProgressive" && nextAutoProgTrigger) {
+      if (multiplier >= nextAutoProgTrigger) {
+        const stepPercent = parseFloat(autoProgStep);
+        executePartialCashout(stepPercent, multiplier);
+        
+        const intervalPercent = parseFloat(autoProgInterval);
+        const newTrigger = multiplier * (1 + intervalPercent / 100);
+        setNextAutoProgTrigger(newTrigger);
+        
+        if (myBetId) {
+          setBets(prev => prev.map(b => 
+            b.id === myBetId && b.autoProgressiveConfig
+              ? { 
+                  ...b, 
+                  autoProgressiveConfig: { ...b.autoProgressiveConfig, nextTrigger: newTrigger }
+                }
+              : b
+          ));
+        }
+      }
+    }
+  }, [multiplier, roundStatus, hasBet, cashedOut, lockedMode, nextAutoProgTrigger, autoProgStep, autoProgInterval, executePartialCashout, myBetId]);
+
+
+  const getBalance = () => {
+    if (isDemo) return demoBalance;
+    if (!sweepsBalance) return 0;
+    return parseFloat(currencyType === "GC" ? sweepsBalance.goldCoins : sweepsBalance.sweepsCoins);
+  };
+
+  const placeBet = async () => {
+    if (roundStatus !== "waiting" || hasBet) return;
+    
+    const amount = parseFloat(betAmount);
+    if (isNaN(amount) || amount <= 0) {
+      toast({ title: "Invalid bet amount", variant: "destructive" });
+      return;
+    }
+
+    const bal = getBalance();
+    if (amount > bal) {
+      toast({ title: "Insufficient balance", variant: "destructive" });
+      return;
+    }
+
+    if (!isDemo) {
+      try {
+        const response = await gameMutation.mutateAsync({
+          gameType: "crash",
+          currencyType,
+          betAmount: amount,
+        });
+        const serverCrash = response?.gameResult?.crashPoint;
+        if (serverCrash && typeof serverCrash === "number") {
+          serverCrashPointRef.current = serverCrash;
+        }
+        if (response?.gameResult?.roundKey) {
+          roundKeyRef.current = response.gameResult.roundKey;
+        }
+        if (response?.serverSeedHash) {
+          setServerSeedHash(response.serverSeedHash);
+        }
+      } catch (err: any) {
+        toast({ title: "Bet Failed", description: err?.message || "Server error", variant: "destructive" });
+        return;
+      }
+    } else {
+      setDemoBalance(prev => prev - amount);
+    }
+
+    setTotalWagered(prev => prev + amount);
+    setAirdropPool(prev => prev + amount * 0.01);
+    setRidingAmount(amount);
+    setLockedStake(amount);
+    setLockedMode(betMode);
+    
+    if (betMode === "autoProgressive") {
+      const intervalPercent = parseFloat(autoProgInterval);
+      setNextAutoProgTrigger(1 * (1 + intervalPercent / 100));
+    }
+    
+    const betId = crypto.randomUUID();
+    setMyBetId(betId);
+    
+    const newBet: Bet = {
+      id: betId,
+      username,
+      amount,
+      mode: betMode,
+      autoCashout: betMode === "autoTP" ? parseFloat(autoTPTarget) : undefined,
+      progressivePercent: betMode === "progressive" ? progressivePercent : undefined,
+      autoProgressiveConfig: betMode === "autoProgressive" ? {
+        stepPercent: parseFloat(autoProgStep),
+        intervalPercent: parseFloat(autoProgInterval),
+        nextTrigger: 1 * (1 + parseFloat(autoProgInterval) / 100),
+      } : undefined,
+      status: "active",
+      partialCashouts: [],
+      securedAmount: 0,
+      ridingAmount: amount,
+    };
+    
+    setBets(prev => [newBet, ...prev]);
+    setHasBet(true);
+    
+    for (let i = 0; i < 3 + Math.floor(Math.random() * 5); i++) {
+      setTimeout(() => {
+        const modes: BetMode[] = ["standard", "progressive", "autoTP", "autoProgressive"];
+        const fakeBet: Bet = {
+          id: crypto.randomUUID(),
+          username: `Player${Math.floor(Math.random() * 9999)}`,
+          amount: Math.floor(Math.random() * 500) + 10,
+          mode: modes[Math.floor(Math.random() * modes.length)],
+          autoCashout: Math.random() > 0.5 ? 1.5 + Math.random() * 3 : undefined,
+          status: "active",
+          partialCashouts: [],
+          securedAmount: 0,
+          ridingAmount: Math.floor(Math.random() * 500) + 10,
+        };
+        setBets(prev => [...prev, fakeBet]);
+      }, i * 200);
+    }
+    
+    const modeLabel = {
+      standard: "Standard",
+      progressive: `Progressive (${progressivePercent}%)`,
+      autoTP: `Auto TP @ ${autoTPTarget}x`,
+      autoProgressive: `Auto Prog (${autoProgStep}% every ${autoProgInterval}%)`,
+    }[betMode];
+    
+    toast({ title: "Bet Placed!", description: `${amount} ${isDemo ? "SIG" : currencyType} - ${modeLabel}` });
+  };
+
+  const handleCashout = async () => {
+    if (cashedOut || roundStatus !== "running" || !hasBet) return;
+    
+    if (lockedMode === "progressive") {
+      executePartialCashout(progressivePercent, multiplier);
+    } else {
+      const payout = ridingAmount * (1 - HOUSE_EDGE);
+      const cashoutMult = multiplier;
+      
+      if (!isDemo) {
+        try {
+          if (roundKeyRef.current) {
+            await cashoutMutation.mutateAsync({
+              roundKey: roundKeyRef.current,
+              cashoutMultiplier: cashoutMult,
+            });
+          }
+        } catch (err: any) {
+          toast({ title: "Cashout Failed", description: err?.message || "Server error", variant: "destructive" });
+          return;
+        }
+      } else {
+        setDemoBalance(prev => prev + payout);
+      }
+      
+      setSecuredAmount(prev => prev + payout);
+      setRidingAmount(0);
+      setCashedOut(true);
+      
+      if (myBetId) {
+        setBets(prev => prev.map(b => 
+          b.id === myBetId 
+            ? { 
+                ...b, 
+                status: "cashed" as const, 
+                cashoutMultiplier: cashoutMult, 
+                payout,
+                securedAmount: b.securedAmount + payout,
+                ridingAmount: 0,
+                partialCashouts: [...b.partialCashouts, { multiplier: cashoutMult, percent: 100, amount: payout }]
+              }
+            : b
+        ));
+      }
+      
+      const reward = payout * currentTier.rewardRate;
+      setPendingRewards(prev => prev + reward);
+      
+      toast({
+        title: "Cashed Out! 💰",
+        description: `+${payout.toFixed(2)} ${isDemo ? "SIG" : currencyType} at ${multiplier.toFixed(2)}x`,
+      });
+    }
+  };
+
+  const handleCashoutAll = async () => {
+    if (cashedOut || roundStatus !== "running" || !hasBet || ridingAmount <= 0) return;
+    
+    const payout = ridingAmount * (1 - HOUSE_EDGE);
+    const cashoutMult = multiplier;
+
+    if (!isDemo) {
+      try {
+        if (roundKeyRef.current) {
+          await cashoutMutation.mutateAsync({
+            roundKey: roundKeyRef.current,
+            cashoutMultiplier: cashoutMult,
+          });
+        }
+      } catch (err: any) {
+        toast({ title: "Cashout Failed", description: err?.message || "Server error", variant: "destructive" });
+        return;
+      }
+    } else {
+      setDemoBalance(prev => prev + payout);
+    }
+
+    setSecuredAmount(prev => prev + payout);
+    setRidingAmount(0);
+    setCashedOut(true);
+    
+    if (myBetId) {
+      setBets(prev => prev.map(b => 
+        b.id === myBetId 
+          ? { 
+              ...b, 
+              status: "cashed" as const, 
+              cashoutMultiplier: cashoutMult, 
+              payout: b.securedAmount + payout,
+              securedAmount: b.securedAmount + payout,
+              ridingAmount: 0,
+              partialCashouts: [...b.partialCashouts, { multiplier: cashoutMult, percent: 100, amount: payout }]
+            }
+          : b
+      ));
+    }
+    
+    const reward = payout * currentTier.rewardRate;
+    setPendingRewards(prev => prev + reward);
+    
+    toast({
+      title: "Fully Cashed Out! 💰",
+      description: `+${payout.toFixed(2)} ${isDemo ? "SIG" : currencyType} at ${multiplier.toFixed(2)}x`,
+    });
+  };
+
+  const sendChatMessage = () => {
+    if (!chatInput.trim()) return;
+    
+    const newMessage: ChatMessage = {
+      id: crypto.randomUUID(),
+      username: isConnected ? username : "Anonymous",
+      message: chatInput.trim(),
+      timestamp: new Date(),
+    };
+    
+    setChatMessages(prev => [...prev, newMessage].slice(-50));
+    setChatInput("");
+  };
+
+  const claimRewards = () => {
+    if (pendingRewards <= 0) return;
+    if (isDemo) {
+      setDemoBalance(prev => prev + pendingRewards);
+    }
+    toast({ title: "Rewards Claimed!", description: `+${pendingRewards.toFixed(2)} ${isDemo ? "SIG" : currencyType} added to balance` });
+    setPendingRewards(0);
+  };
+
+  const formatTime = (seconds: number) => {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = seconds % 60;
+    return `${h}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  };
+
+  const getModeIcon = (mode: BetMode) => {
+    switch (mode) {
+      case "standard": return <Target className="w-4 h-4" />;
+      case "progressive": return <Percent className="w-4 h-4" />;
+      case "autoTP": return <Zap className="w-4 h-4" />;
+      case "autoProgressive": return <Layers className="w-4 h-4" />;
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/90 backdrop-blur-xl">
+        <div className="container mx-auto px-4 h-14 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-8 text-xs gap-1 hover:bg-white/5 px-2 text-muted-foreground hover:text-white"
+              onClick={() => { if (window.history.length > 1) window.history.back(); else window.location.href = "/"; }}
+              data-testid="button-back"
+            >
+              <ArrowLeft className="w-3 h-3" />
+              <span className="hidden sm:inline">Back</span>
+            </Button>
+            <div className="flex items-center gap-2">
+              <Shield className="w-7 h-7 text-cyan-400" />
+              <span className="font-display font-bold">Crash</span>
+              <Badge variant="outline" className="text-[10px] hidden sm:flex">
+                Max {MAX_MULTIPLIER}x
+              </Badge>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-2">
+            <Badge className="bg-green-500/20 text-green-400 text-xs hidden sm:flex">
+              <span className="w-2 h-2 rounded-full bg-green-400 mr-1 animate-pulse" />
+              {bets.length} Players
+            </Badge>
+            <div className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30">
+              <span className="text-sm font-mono font-bold text-purple-400">
+                {isDemo ? `${formatSIG(demoBalance)} SIG` : `${formatSIG(getBalance())} ${currencyType}`}
+              </span>
+            </div>
+            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setSoundEnabled(!soundEnabled)}>
+              {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+            </Button>
+          </div>
+        </div>
+      </nav>
+
+      <main className="flex-1 pt-14 pb-2 px-2 lg:px-4 lg:h-[calc(100vh-56px)] lg:overflow-hidden">
+        <div className="container mx-auto max-w-[1600px] h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-3 h-full lg:py-2">
+            
+            {/* LEFT: Game Canvas + History (Desktop: 7 cols, stays visible) */}
+            <div className="lg:col-span-7 flex flex-col gap-2 lg:h-full">
+              {/* Game Canvas - Main Bento Card */}
+              <div 
+                className="relative overflow-hidden rounded-2xl flex-1 min-h-[280px] lg:min-h-0"
+                style={{
+                  background: "linear-gradient(135deg, rgba(20,10,40,0.95) 0%, rgba(30,15,60,0.9) 50%, rgba(15,8,35,0.95) 100%)",
+                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 80px rgba(168,85,247,0.15)",
+                  border: "1px solid rgba(168,85,247,0.2)",
+                  transform: "perspective(1000px) rotateX(1deg)",
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                {/* Canvas Header Bar */}
+                <div className="absolute top-2 left-2 right-2 z-30 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Badge 
+                      variant="outline" 
+                      className="text-[9px] font-mono bg-black/40 backdrop-blur-sm border-purple-500/30"
+                    >
+                      #{roundNumber}
+                    </Badge>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-6 text-[9px] bg-black/30 backdrop-blur-sm hover:bg-green-500/20"
+                      onClick={() => setShowFairness(!showFairness)}
+                    >
+                      <Shield className="w-3 h-3 mr-1 text-green-400" />
+                      Fair
+                    </Button>
+                  </div>
+                  
+                  {roundStatus === "waiting" && (
+                    <motion.div
+                      animate={{ scale: [1, 1.03, 1] }}
+                      transition={{ duration: 0.5, repeat: Infinity }}
+                    >
+                      <Badge className="bg-gradient-to-r from-teal-500/40 to-cyan-500/40 backdrop-blur-sm text-teal-400 border-teal-500/50 text-xs px-2">
+                        <Clock className="w-3 h-3 mr-1" />
+                        {countdown}s
+                      </Badge>
+                    </motion.div>
+                  )}
+                  
+                  {roundStatus === "running" && (
+                    <Badge className="bg-green-500/30 backdrop-blur-sm text-green-400 border-green-500/50 text-xs">
+                      <Zap className="w-3 h-3 mr-1" />
+                      LIVE
+                    </Badge>
+                  )}
+                </div>
+
+                <div 
+                  className="absolute inset-0 rounded-2xl overflow-hidden touch-pan-y"
+                  style={{
+                    background: "linear-gradient(180deg, rgba(11,4,32,0.95) 0%, rgba(27,14,63,0.9) 50%, rgba(11,4,32,0.95) 100%)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(0,0,0,0.3), 0 0 60px rgba(255,79,216,0.15), 0 0 100px rgba(76,244,255,0.1)",
+                    border: "1px solid rgba(255,79,216,0.2)",
+                  }}
+                >
+                  <NeonWaveform multiplier={multiplier} crashed={crashed} progress={(multiplier - 1) / 10} />
+                  
+                  <div className="absolute right-2 sm:right-4 top-4 bottom-4 w-10 sm:w-14 flex flex-col justify-between items-end z-10">
+                    {[10, 7, 5, 4, 3, 2, 1.5, 1].map((tick) => {
+                      const isActive = multiplier >= tick;
+                      const isPassed = multiplier > tick + 0.3;
+                      return (
+                        <div key={tick} className="flex items-center gap-1 sm:gap-2">
+                          <motion.div 
+                            className={`h-px transition-all duration-200 ${
+                              isActive 
+                                ? (crashed ? "bg-red-500 w-4 sm:w-6" : "bg-[#4CF4FF] w-4 sm:w-6") 
+                                : "bg-white/10 w-2 sm:w-3"
+                            }`}
+                            animate={isActive && !crashed ? { 
+                              boxShadow: ["0 0 4px #4CF4FF", "0 0 8px #4CF4FF", "0 0 4px #4CF4FF"] 
+                            } : undefined}
+                            transition={{ duration: 1, repeat: Infinity }}
+                          />
+                          <span 
+                            className={`text-[8px] sm:text-[10px] font-mono font-medium transition-all duration-200 ${
+                              isActive 
+                                ? (crashed ? "text-red-400" : isPassed ? "text-[#4CF4FF]/50" : "text-[#4CF4FF]") 
+                                : "text-white/20"
+                            }`}
+                            style={isActive && !crashed && !isPassed ? {
+                              textShadow: "0 0 10px rgba(76,244,255,0.8)",
+                            } : undefined}
+                          >
+                            {tick.toFixed(tick % 1 === 0 ? 0 : 1)}x
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  
+                  <div 
+                    className="absolute w-16 h-16 sm:w-20 sm:h-20 z-20 transition-all duration-100 ease-linear"
+                    style={(() => {
+                      const t = Math.min((multiplier - 1) / 8, 1);
+                      const xPos = 5 + t * 80;
+                      const yPos = 5 + Math.pow(t, 3) * 75;
+                      return {
+                        left: `${xPos}%`,
+                        bottom: `${yPos}%`,
+                        transform: `rotate(${-10 - Math.pow(t, 2) * 55}deg)`,
+                      };
+                    })()}
+                  >
+                    <OrbyFlyer 
+                      multiplier={multiplier} 
+                      crashed={crashed} 
+                      cashedOut={cashedOut} 
+                      hasPartialCashout={partialCashouts.length > 0}
+                    />
+                  </div>
+                  
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-30 pointer-events-none">
+                    {roundStatus === "waiting" ? (
+                      <motion.div
+                        animate={{ scale: [1, 1.03, 1], opacity: [0.9, 1, 0.9] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                        className="text-center"
+                      >
+                        <div 
+                          className="text-xs sm:text-sm uppercase tracking-[0.3em] mb-2 font-medium"
+                          style={{ color: "#FF4FD8", textShadow: "0 0 20px rgba(255,79,216,0.5)" }}
+                        >
+                          Next Round
+                        </div>
+                        <div 
+                          className="text-5xl sm:text-6xl md:text-8xl font-black font-mono"
+                          style={{
+                            background: "linear-gradient(180deg, #FF4FD8 0%, #4CF4FF 100%)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            filter: "drop-shadow(0 4px 0 rgba(255,79,216,0.5)) drop-shadow(0 8px 20px rgba(76,244,255,0.3))",
+                          }}
+                        >
+                          {countdown}s
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <>
+                        <div 
+                          className="text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-1 sm:mb-2 font-medium"
+                          style={{ 
+                            color: crashed ? "#ff6b6b" : cashedOut ? "#4ade80" : "#4CF4FF",
+                            textShadow: crashed 
+                              ? "0 0 15px rgba(255,107,107,0.5)" 
+                              : cashedOut 
+                              ? "0 0 15px rgba(74,222,128,0.5)"
+                              : "0 0 15px rgba(76,244,255,0.5)",
+                          }}
+                        >
+                          {crashed ? "Crashed At" : cashedOut ? "Cashed Out" : "Current Payout"}
+                        </div>
+                        <motion.div
+                          className={`text-5xl sm:text-6xl md:text-8xl font-black font-mono relative ${
+                            crashed ? "text-red-500" : cashedOut ? "text-green-400" : ""
+                          }`}
+                          style={crashed ? {
+                            textShadow: "0 4px 0 #7f1d1d, 0 8px 0 #450a0a, 0 0 60px rgba(239,68,68,0.8), 0 0 100px rgba(239,68,68,0.5)",
+                            letterSpacing: "-0.02em",
+                          } : cashedOut ? {
+                            textShadow: "0 4px 0 #14532d, 0 8px 0 #052e16, 0 0 60px rgba(74,222,128,0.8), 0 0 100px rgba(34,197,94,0.5)",
+                            letterSpacing: "-0.02em",
+                          } : {
+                            background: multiplier >= 5
+                              ? "linear-gradient(180deg, #FFC94C 0%, #FF4FD8 50%, #4CF4FF 100%)"
+                              : multiplier >= 2
+                              ? "linear-gradient(180deg, #FF4FD8 0%, #a855f7 50%, #4CF4FF 100%)"
+                              : "linear-gradient(180deg, #ffffff 0%, #e0e0e0 50%, #a0a0a0 100%)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            filter: multiplier >= 5
+                              ? "drop-shadow(0 4px 0 rgba(180,60,120,0.9)) drop-shadow(0 8px 0 rgba(100,30,80,0.6)) drop-shadow(0 0 60px rgba(255,79,216,0.6))"
+                              : "drop-shadow(0 4px 0 rgba(100,40,140,0.8)) drop-shadow(0 8px 20px rgba(168,85,247,0.4)) drop-shadow(0 0 40px rgba(255,79,216,0.3))",
+                            letterSpacing: "-0.02em",
+                          }}
+                          animate={{ 
+                            scale: crashed ? [1, 1.08, 1] : cashedOut ? [1, 1.12, 1.08] : [1, 1.015, 1],
+                          }}
+                          transition={{ 
+                            duration: crashed || cashedOut ? 0.4 : 1.5,
+                            repeat: crashed || cashedOut ? 0 : Infinity,
+                            ease: "easeInOut",
+                          }}
+                        >
+                          {multiplier.toFixed(2)}x
+                        </motion.div>
+                        
+                        {hasBet && !cashedOut && !crashed && ridingAmount > 0 && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="mt-2 sm:mt-3 px-3 sm:px-4 py-1 sm:py-1.5 rounded-lg bg-green-500/20 border border-green-500/40"
+                          >
+                            <span className="text-green-400 font-mono text-sm sm:text-base font-bold">
+                              +{(ridingAmount * multiplier * (1 - HOUSE_EDGE)).toFixed(2)} SIG
+                            </span>
+                          </motion.div>
+                        )}
+                      </>
+                    )}
+                    
+                    {crashed && crashPoint && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="mt-2 sm:mt-3"
+                      >
+                        <Badge className="bg-red-500/30 text-red-400 border-red-500/50 text-sm sm:text-lg px-3 sm:px-4 py-1">
+                          BUSTED
+                        </Badge>
+                      </motion.div>
+                    )}
+                  </div>
+                </div>
+
+              </div>
+              
+              {/* History Strip - Pinned below canvas */}
+              <div 
+                className="rounded-xl p-2 lg:p-3"
+                style={{
+                  background: "linear-gradient(135deg, rgba(15,8,30,0.9) 0%, rgba(25,12,50,0.85) 100%)",
+                  boxShadow: "0 10px 30px -10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(168,85,247,0.15)",
+                }}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <History className="w-3 h-3 text-purple-400" />
+                  <span className="text-[10px] font-medium text-white/60">Last 10 Rounds</span>
+                </div>
+                <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
+                  {history.slice(0, 10).map((point, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      className={`flex-shrink-0 px-2 py-1 rounded-lg text-xs font-mono font-bold ${
+                        point >= 10 ? "bg-gradient-to-br from-teal-500/30 to-purple-500/20 text-teal-400 border border-teal-500/40" :
+                        point >= 2 ? "bg-gradient-to-br from-green-500/30 to-emerald-500/20 text-green-400 border border-green-500/40" :
+                        "bg-gradient-to-br from-red-500/30 to-rose-500/20 text-red-400 border border-red-500/40"
+                      }`}
+                      style={{
+                        boxShadow: point >= 10 ? "0 4px 12px rgba(234,179,8,0.2)" : 
+                                   point >= 2 ? "0 4px 12px rgba(34,197,94,0.2)" : 
+                                   "0 4px 12px rgba(239,68,68,0.2)",
+                      }}
+                    >
+                      {point.toFixed(2)}x
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Live Ledger (when betting) */}
+              {hasBet && (
+                <div 
+                  className="rounded-xl p-2"
+                  style={{
+                    background: "linear-gradient(135deg, rgba(15,8,30,0.9) 0%, rgba(25,12,50,0.85) 100%)",
+                    border: "1px solid rgba(168,85,247,0.15)",
+                  }}
+                >
+                  <LiveLedger secured={securedAmount} riding={ridingAmount} lost={lostAmount} />
+                  {partialCashouts.length > 0 && <PartialCashoutChips cashouts={partialCashouts} />}
+                </div>
+              )}
+            </div>
+            
+            {/* RIGHT: Controls Dock (Desktop: 5 cols) */}
+            <div className="lg:col-span-5 flex flex-col gap-2 lg:h-full lg:overflow-y-auto scrollbar-hide">
+              
+              {/* Bet Controls - Primary Bento Card */}
+              <div 
+                className="rounded-2xl p-3 lg:p-4"
+                style={{
+                  background: "linear-gradient(145deg, rgba(25,12,50,0.95) 0%, rgba(35,18,70,0.9) 50%, rgba(20,10,45,0.95) 100%)",
+                  boxShadow: "0 20px 40px -15px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(168,85,247,0.25)",
+                  transform: "perspective(800px) rotateX(0.5deg)",
+                }}
+              >
+                {/* Bet Amount Row */}
+                <div className="flex gap-2 mb-3">
+                  <div className="flex-1">
+                    <label className="text-[9px] text-white/50 mb-1 block uppercase tracking-wider">Bet Amount</label>
+                    <Input
+                      type="number"
+                      value={betAmount}
+                      onChange={(e) => setBetAmount(e.target.value)}
+                      className="h-10 bg-black/40 border-purple-500/30 text-base font-mono font-bold"
+                      disabled={roundStatus !== "waiting" || hasBet}
+                      data-testid="input-bet-amount"
+                    />
+                  </div>
+                  <div className="flex gap-1 items-end">
+                    {["½", "2×", "Max"].map((btn) => (
+                      <Button
+                        key={btn}
+                        variant="outline"
+                        size="sm"
+                        className="h-10 px-2 text-[10px] border-purple-500/30 hover:bg-purple-500/20"
+                        disabled={roundStatus !== "waiting" || hasBet}
+                        onClick={() => {
+                          const current = parseFloat(betAmount) || 0;
+                          const bal = getBalance();
+                          if (btn === "½") setBetAmount(Math.max(1, current / 2).toFixed(0));
+                          if (btn === "2×") setBetAmount(Math.min(bal, current * 2).toFixed(0));
+                          if (btn === "Max") setBetAmount(Math.floor(bal).toFixed(0));
+                        }}
+                      >
+                        {btn}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Strategy Tabs - Compact */}
+                <div className="mb-3">
+                  <Tabs value={betMode} onValueChange={(v) => setBetMode(v as BetMode)} className="w-full">
+                    <TabsList className="grid grid-cols-4 w-full bg-black/50 p-0.5 h-8">
+                      <TabsTrigger value="standard" className="text-[9px] py-1 data-[state=active]:bg-purple-500/40" disabled={roundStatus !== "waiting"}>
+                        <Target className="w-3 h-3 mr-1" />Std
+                      </TabsTrigger>
+                      <TabsTrigger value="progressive" className="text-[9px] py-1 data-[state=active]:bg-teal-500/40" disabled={roundStatus !== "waiting"}>
+                        <Percent className="w-3 h-3 mr-1" />Prog
+                      </TabsTrigger>
+                      <TabsTrigger value="autoTP" className="text-[9px] py-1 data-[state=active]:bg-cyan-500/40" disabled={roundStatus !== "waiting"}>
+                        <Zap className="w-3 h-3 mr-1" />TP
+                      </TabsTrigger>
+                      <TabsTrigger value="autoProgressive" className="text-[9px] py-1 data-[state=active]:bg-green-500/40" disabled={roundStatus !== "waiting"}>
+                        <Layers className="w-3 h-3 mr-1" />Auto
+                      </TabsTrigger>
+                    </TabsList>
+                    
+                    <div className="mt-2 p-2 rounded-lg bg-black/30 min-h-[50px]">
+                      <TabsContent value="standard" className="mt-0">
+                        <p className="text-[10px] text-white/50">Manual cashout anytime.</p>
+                      </TabsContent>
+                      <TabsContent value="progressive" className="mt-0 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] text-white/50">Take %</span>
+                          <Badge className="bg-teal-500/20 text-teal-400 text-[10px] font-mono">{progressivePercent}%</Badge>
+                        </div>
+                        <Slider
+                          value={[progressivePercent]}
+                          onValueChange={(v) => setProgressivePercent(v[0])}
+                          min={1} max={99} step={1}
+                          disabled={roundStatus !== "waiting" && !hasBet}
+                          className="[&>span:first-child]:bg-teal-500/30 [&_[role=slider]]:bg-teal-500"
+                        />
+                      </TabsContent>
+                      <TabsContent value="autoTP" className="mt-0">
+                        <div>
+                          <span className="text-xs text-muted-foreground block mb-2">Target Multiplier</span>
+                          <div className="flex items-center gap-2">
+                            <Input
+                              type="number"
+                              value={autoTPTarget}
+                              onChange={(e) => setAutoTPTarget(e.target.value)}
+                              placeholder="2.0"
+                              min="1.01"
+                              max={MAX_MULTIPLIER}
+                              step="0.01"
+                              className="h-9 bg-white/5 border-cyan-500/30 text-sm font-mono"
+                              disabled={roundStatus !== "waiting"}
+                            />
+                            <span className="text-lg font-bold text-cyan-400">x</span>
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          {["1.5", "2.0", "3.0", "5.0", "10.0"].map((v) => (
+                            <Button
+                              key={v}
+                              variant="outline"
+                              size="sm"
+                              className="flex-1 text-xs border-cyan-500/30 hover:bg-cyan-500/20"
+                              onClick={() => setAutoTPTarget(v)}
+                              disabled={roundStatus !== "waiting"}
+                            >
+                              {v}x
+                            </Button>
+                          ))}
+                        </div>
+                        <p className="text-[10px] text-muted-foreground">
+                          Automatically cashes out entire bet when multiplier hits {autoTPTarget}x
+                        </p>
+                      </TabsContent>
+                      
+                      <TabsContent value="autoProgressive" className="mt-3 space-y-3">
+                        <div className="grid grid-cols-2 gap-3">
+                          <div>
+                            <span className="text-xs text-muted-foreground block mb-2">Cashout % per Step</span>
+                            <Input
+                              type="number"
+                              value={autoProgStep}
+                              onChange={(e) => setAutoProgStep(e.target.value)}
+                              placeholder="30"
+                              min="5"
+                              max="90"
+                              className="h-9 bg-white/5 border-green-500/30 text-sm font-mono"
+                              disabled={roundStatus !== "waiting"}
+                            />
+                          </div>
+                          <div>
+                            <span className="text-xs text-muted-foreground block mb-2">Interval % Increase</span>
+                            <Input
+                              type="number"
+                              value={autoProgInterval}
+                              onChange={(e) => setAutoProgInterval(e.target.value)}
+                              placeholder="30"
+                              min="5"
+                              max="100"
+                              className="h-9 bg-white/5 border-green-500/30 text-sm font-mono"
+                              disabled={roundStatus !== "waiting"}
+                            />
+                          </div>
+                        </div>
+                        <div className="p-2 rounded-lg bg-green-500/10 border border-green-500/30">
+                          <p className="text-[10px] text-muted-foreground">
+                            <strong className="text-green-400">Preview:</strong> Cashout {autoProgStep}% at every {autoProgInterval}% multiplier increase.
+                            {parseFloat(autoProgInterval) > 0 && (
+                              <span className="block mt-1 text-green-400">
+                                Triggers: {(1 * (1 + parseFloat(autoProgInterval) / 100)).toFixed(2)}x → {(1 * (1 + parseFloat(autoProgInterval) / 100) ** 2).toFixed(2)}x → {(1 * (1 + parseFloat(autoProgInterval) / 100) ** 3).toFixed(2)}x...
+                              </span>
+                            )}
+                          </p>
+                        </div>
+                      </TabsContent>
+                    </div>
+                  </Tabs>
+                </div>
+                
+                {/* Bet/Cashout Button */}
+                <div>
+                  {roundStatus === "running" && hasBet && !cashedOut ? (
+                    <div className="flex gap-2">
+                      <Button
+                        className="flex-1 h-11 text-base bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 shadow-lg shadow-green-500/25"
+                        onClick={handleCashout}
+                        data-testid="button-cashout"
+                      >
+                        <Zap className="w-4 h-4 mr-2" />
+                        {betMode === "progressive" ? (
+                          `TAKE ${progressivePercent}%`
+                        ) : (
+                          `CASHOUT ${(ridingAmount * (1 - HOUSE_EDGE)).toFixed(0)}`
+                        )}
+                      </Button>
+                      {betMode === "progressive" && ridingAmount > 0 && (
+                        <Button
+                          variant="outline"
+                          className="h-11 px-3 border-green-500/50 text-green-400 hover:bg-green-500/20"
+                          onClick={handleCashoutAll}
+                        >
+                          ALL
+                        </Button>
+                      )}
+                    </div>
+                  ) : roundStatus === "waiting" ? (
+                    <Button
+                      className={`w-full h-11 text-base font-bold ${
+                        hasBet 
+                          ? "bg-gradient-to-r from-green-500/50 to-emerald-500/50"
+                          : "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg shadow-purple-500/25"
+                      }`}
+                      onClick={placeBet}
+                      disabled={hasBet}
+                      data-testid="button-place-bet"
+                    >
+                      {hasBet ? (
+                        <>✓ Waiting...</>
+                      ) : (
+                        <>
+                          <Rocket className="w-4 h-4 mr-2" />
+                          BET {betAmount} SIG
+                        </>
+                      )}
+                    </Button>
+                  ) : (
+                    <Button className="w-full h-11 text-base" disabled>
+                      {crashed ? "Round Ended" : cashedOut ? "Cashed Out!" : "In Progress..."}
+                    </Button>
+                  )}
+                </div>
+              </div>
+
+              {/* Live Bets & Chat - Compact Bento Grid */}
+              <div className="grid grid-cols-2 gap-2">
+                <GlassCard className="p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-sm font-bold flex items-center gap-2">
+                      <Users className="w-4 h-4 text-purple-400" />
+                      Live Bets ({bets.length})
+                    </h3>
+                    <Badge variant="outline" className="text-[10px] font-mono">
+                      Pool: {bets.reduce((sum, b) => sum + b.amount, 0).toLocaleString()} SIG
+                    </Badge>
+                  </div>
+                  
+                  <ScrollArea className="h-[180px]">
+                    <div className="space-y-1">
+                      {bets.map((bet) => (
+                        <motion.div
+                          key={bet.id}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          className={`flex items-center justify-between p-2 rounded-lg text-xs ${
+                            bet.status === "cashed" ? "bg-green-500/10 border border-green-500/20" :
+                            bet.status === "crashed" ? "bg-red-500/10 border border-red-500/20" : 
+                            "bg-white/5"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${
+                              bet.username === username 
+                                ? "bg-gradient-to-br from-purple-500 to-pink-500" 
+                                : "bg-gradient-to-br from-gray-600 to-gray-700"
+                            }`}>
+                              {bet.username[0].toUpperCase()}
+                            </div>
+                            <div>
+                              <span className={`font-medium ${bet.username === username ? "text-purple-400" : ""}`}>
+                                {bet.username === username ? "You" : bet.username}
+                              </span>
+                              <div className="flex items-center gap-1 mt-0.5">
+                                {getModeIcon(bet.mode)}
+                                <span className="text-[9px] text-muted-foreground capitalize">{bet.mode}</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <span className="text-muted-foreground font-mono">{bet.amount} SIG</span>
+                            {bet.status === "cashed" && bet.cashoutMultiplier && (
+                              <Badge className="bg-green-500/20 text-green-400 text-[10px] font-mono ml-1">
+                                {bet.cashoutMultiplier.toFixed(2)}x
+                              </Badge>
+                            )}
+                            {bet.status === "crashed" && (
+                              <Badge className="bg-red-500/20 text-red-400 text-[10px] ml-1">
+                                Crashed
+                              </Badge>
+                            )}
+                          </div>
+                        </motion.div>
+                      ))}
+                      {bets.length === 0 && (
+                        <p className="text-xs text-muted-foreground text-center py-8">
+                          No bets yet. Be the first!
+                        </p>
+                      )}
+                    </div>
+                  </ScrollArea>
+                </GlassCard>
+
+                <GlassCard className="p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-sm font-bold flex items-center gap-2">
+                      <MessageCircle className="w-4 h-4 text-cyan-400" />
+                      Live Chat
+                    </h3>
+                  </div>
+                  
+                  <ScrollArea className="h-[140px] mb-2">
+                    <div className="space-y-1 pr-2">
+                      {chatMessages.map((msg) => (
+                        <div key={msg.id} className="text-xs py-0.5">
+                          <span className="text-purple-400 font-medium">{msg.username}: </span>
+                          <span className="text-muted-foreground">{msg.message}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </ScrollArea>
+                  
+                  <div className="flex gap-2">
+                    <Input
+                      value={chatInput}
+                      onChange={(e) => setChatInput(e.target.value)}
+                      placeholder="Type a message..."
+                      className="h-8 text-xs bg-white/5 border-white/10"
+                      onKeyPress={(e) => e.key === "Enter" && sendChatMessage()}
+                      data-testid="input-chat"
+                    />
+                    <Button size="sm" className="h-8 px-3 bg-cyan-500 hover:bg-cyan-600" onClick={sendChatMessage}>
+                      <Send className="w-3 h-3" />
+                    </Button>
+                  </div>
+                </GlassCard>
+              </div>
+              
+              {/* Rewards & Stats - Compact Row */}
+              <div 
+                className="rounded-xl p-3 grid grid-cols-3 gap-3"
+                style={{
+                  background: "linear-gradient(135deg, rgba(20,10,40,0.9) 0%, rgba(30,15,55,0.85) 100%)",
+                  border: "1px solid rgba(168,85,247,0.15)",
+                }}
+              >
+                {/* Tier */}
+                <div className="text-center">
+                  <span className={`text-lg ${currentTier.color}`}>{currentTier.icon}</span>
+                  <p className="text-[9px] text-white/50">{currentTier.name}</p>
+                  <p className="text-[10px] text-green-400 font-mono">{(currentTier.rewardRate * 100).toFixed(1)}%</p>
+                </div>
+                {/* Pending */}
+                <div className="text-center">
+                  <p className="text-sm font-bold text-green-400 font-mono">{pendingRewards.toFixed(1)}</p>
+                  <p className="text-[9px] text-white/50">Pending SIG</p>
+                  <Button
+                    size="sm"
+                    className="h-5 text-[9px] px-2 mt-1 bg-green-500/30 hover:bg-green-500/50"
+                    onClick={claimRewards}
+                    disabled={pendingRewards <= 0}
+                    data-testid="button-claim-rewards"
+                  >
+                    Claim
+                  </Button>
+                </div>
+                {/* Airdrop */}
+                <div className="text-center">
+                  <p className="text-sm font-bold text-teal-400 font-mono">{Math.floor(nextAirdrop / 60)}m</p>
+                  <p className="text-[9px] text-white/50">Next Airdrop</p>
+                  <p className="text-[10px] text-teal-400/70 font-mono">{airdropPool.toFixed(0)} Pool</p>
+                </div>
+              </div>
+              
+              {/* Provably Fair Toggle - Compact */}
+              <AnimatePresence>
+                {showFairness && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="rounded-xl p-2 overflow-hidden"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(34,197,94,0.1) 0%, rgba(20,83,45,0.1) 100%)",
+                      border: "1px solid rgba(34,197,94,0.3)",
+                    }}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <Shield className="w-3 h-3 text-green-400" />
+                      <span className="text-[10px] font-medium text-green-400">Provably Fair</span>
+                    </div>
+                    <code className="text-[8px] font-mono text-green-400/70 break-all block">
+                      {serverSeedHash.slice(0, 32)}...
+                    </code>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      
+    </div>
+  );
+}

@@ -1,0 +1,1734 @@
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { 
+  Zap, Shield, TrendingUp, Users, Gift, Award, Crown, Sparkles,
+  ArrowRight, Clock, CheckCircle, Copy, ExternalLink, Wallet,
+  Coins, Target, Globe, Lock, Star, Rocket, ChevronDown, Loader2, Calculator, X, CreditCard, History, User, UserCheck, Activity, Flame, Timer, Search, Mail
+} from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
+import { authFetch } from "@/hooks/use-auth";
+import { useWallet } from "@/hooks/use-wallet";
+
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { GlassCard } from "@/components/glass-card";
+import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { DYORDisclaimer } from "@/components/dyor-disclaimer";
+const shieldImage = "/shield-reference.jpg";
+import blockchainBg from "@assets/generated_images/futuristic_blockchain_network_activity_monitor.jpg";
+import dashboardImg from "@assets/generated_images/futuristic_dashboard_interface_for_managing_decentralized_applications.jpg";
+import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
+import bridgeVisual from "@assets/generated_images/darkwave_bridge_visual.jpg";
+import nftGallery from "@assets/generated_images/darkwave_nft_gallery_visual.jpg";
+import communityVisual from "@assets/generated_images/darkwave_community_visual.jpg";
+import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
+import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
+import deepSpace from "@assets/generated_images/deep_space_station.jpg";
+
+const PRESALE_ALLOCATION = 150000000;
+
+interface PresaleTier {
+  id: string;
+  name: string;
+  description: string;
+  priceId: string;
+  amount: number;
+  bonus: number;
+  tier: string;
+}
+
+interface PresaleMilestone {
+  thresholdUsd: number;
+  price: number;
+}
+
+interface PresaleStats {
+  totalRaisedCents: number;
+  totalRaisedUsd: number;
+  tokensSold: number;
+  uniqueHolders: number;
+  totalPurchases: number;
+  currentTokenPrice: number;
+  nextMilestoneUsd: number | null;
+  nextTokenPrice: number | null;
+  milestones: PresaleMilestone[];
+}
+
+const ECOSYSTEM_FEATURES = [
+  {
+    title: "Layer 1 Blockchain",
+    description: "400ms blocks, 200K+ TPS, Proof-of-Authority consensus",
+    icon: Zap,
+    image: blockchainBg,
+    gradient: "from-cyan-500/20 to-blue-600/20",
+    fullDescription: "Trust Layer is a high-performance Layer 1 trust infrastructure built for speed and accountability. With 400ms block times and over 200,000 transactions per second, it's designed for real-world applications that demand instant finality and verified coordination.",
+    features: ["Ultra-fast 400ms block confirmation", "200,000+ TPS capacity", "Proof-of-Authority consensus for reliability", "EVM-compatible smart contracts", "Low transaction fees"],
+  },
+  {
+    title: "DeFi Ecosystem",
+    description: "DEX, Staking, Liquidity Pools, Yield Farming",
+    icon: TrendingUp,
+    image: dashboardImg,
+    gradient: "from-green-500/20 to-emerald-600/20",
+    fullDescription: "Access a complete suite of decentralized finance tools built natively on Trust Layer. Trade, stake, and earn rewards all within our integrated ecosystem.",
+    features: ["Decentralized Exchange (DEX) with low slippage", "Flexible staking with competitive APY", "Liquidity pool participation rewards", "Yield farming strategies", "Portfolio dashboard and analytics"],
+  },
+  {
+    title: "Chronicles",
+    description: "Unprecedented adventure platform where YOU are the hero",
+    icon: Sparkles,
+    image: fantasyWorld,
+    gradient: "from-purple-500/20 to-pink-600/20",
+    fullDescription: "Chronicles is a revolutionary parallel life experience where your choices shape history. Explore different eras, build relationships, and discover who you could become in another time.",
+    features: ["AI-driven narrative that adapts to you", "Multiple historical eras to explore", "Persistent world that remembers your choices", "Community-driven content creation", "Earn rewards through gameplay"],
+  },
+  {
+    title: "Cross-Chain Bridge",
+    description: "Seamless transfers to Ethereum and Solana",
+    icon: Globe,
+    image: bridgeVisual,
+    gradient: "from-cyan-500/20 to-red-600/20",
+    fullDescription: "Move assets freely between Trust Layer, Ethereum, and Solana with our secure cross-chain bridge. Lock and mint technology ensures your assets are always backed 1:1.",
+    features: ["Bridge to Ethereum and Solana", "Secure lock-and-mint mechanism", "Fast transfer times", "Low bridging fees", "Wrapped asset support (wSIG)"],
+  },
+  {
+    title: "NFT Marketplace",
+    description: "Create, trade, and stake digital collectibles",
+    icon: Award,
+    image: nftGallery,
+    gradient: "from-pink-500/20 to-rose-600/20",
+    fullDescription: "Create, discover, and trade unique digital collectibles on our NFT marketplace. From art to in-game items, the Trust Layer NFT ecosystem connects creators with collectors.",
+    features: ["Mint NFTs with low gas fees", "Royalty support for creators", "Stake NFTs for rewards", "Integration with Chronicles", "Rarity analysis tools"],
+  },
+  {
+    title: "Governance DAO",
+    description: "Community-driven protocol decisions",
+    icon: Users,
+    image: communityVisual,
+    gradient: "from-purple-500/20 to-cyan-600/20",
+    fullDescription: "Your voice matters in Trust Layer. Signal holders participate in governance decisions that shape the future of the ecosystem through our decentralized autonomous organization.",
+    features: ["Vote on protocol upgrades", "Propose new features", "Treasury allocation decisions", "Transparent on-chain governance", "Voting power based on Signal holdings"],
+  },
+];
+
+function HolographicCard({ children, className = "", glow = "cyan" }: { children: React.ReactNode; className?: string; glow?: string }) {
+  const glowColors: Record<string, string> = {
+    cyan: "shadow-cyan-500/20",
+    purple: "shadow-purple-500/20",
+    pink: "shadow-pink-500/20",
+  };
+  
+  return (
+    <motion.div
+      whileHover={{ scale: 1.02, y: -4 }}
+      transition={{ duration: 0.3 }}
+      className={`relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-gray-900/90 to-black/80 backdrop-blur-xl ${glowColors[glow]} shadow-2xl ${className}`}
+      style={{
+        boxShadow: `0 0 60px rgba(0,200,255,0.1), inset 0 1px 0 rgba(255,255,255,0.1)`,
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 opacity-30 pointer-events-none" style={{
+        background: "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px)",
+      }} />
+      {children}
+    </motion.div>
+  );
+}
+
+function QuickBuyModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const { user: authUser } = useAuth();
+  const { evmAddress, solanaAddress, isConnected, connectEVM, connectSolana, hasMetaMask, hasPhantom } = useWallet();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [walletAddress, setWalletAddress] = useState("");
+  const [customAmount, setCustomAmount] = useState("10");
+  const [useCustom, setUseCustom] = useState(true);
+  const [selectedTier, setSelectedTier] = useState<string | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState<"card" | "crypto">("card");
+  const { toast } = useToast();
+  
+  const { data: presaleStats } = useQuery<PresaleStats>({
+    queryKey: ["/api/presale/stats"],
+    refetchInterval: 30000,
+  });
+  const TOKEN_PRICE = presaleStats?.currentTokenPrice || 0.001;
+  
+  const [initializedFromAuth, setInitializedFromAuth] = useState(false);
+  const [initializedFromWallet, setInitializedFromWallet] = useState(false);
+  
+  useEffect(() => {
+    if (!initializedFromAuth) {
+      const savedName = localStorage.getItem("dw_presale_name");
+      const savedEmail = localStorage.getItem("dw_presale_email");
+      if (authUser) {
+        if (authUser.email) setEmail(authUser.email);
+        if (authUser.displayName) setName(authUser.displayName);
+        else if (authUser.firstName) setName(authUser.firstName);
+        else if (savedName) setName(savedName);
+      } else {
+        if (savedName) setName(savedName);
+        if (savedEmail) setEmail(savedEmail);
+      }
+      setInitializedFromAuth(true);
+    }
+  }, [authUser, initializedFromAuth]);
+  
+  useEffect(() => {
+    if (!initializedFromWallet && (evmAddress || solanaAddress)) {
+      setWalletAddress(evmAddress || solanaAddress || "");
+      setInitializedFromWallet(true);
+    }
+  }, [evmAddress, solanaAddress, initializedFromWallet]);
+  
+  useEffect(() => {
+    if (evmAddress || solanaAddress) {
+      setWalletAddress(evmAddress || solanaAddress || "");
+    }
+  }, [evmAddress, solanaAddress]);
+  
+  const isValidEmail = email.includes("@") && email.includes(".");
+  const isValidName = name.trim().length >= 2;
+  
+  const TIERS = [
+    { id: "founders_25", name: "Founders $25", amount: 2500, bonus: 5, color: "from-green-400 to-emerald-500" },
+    { id: "founders_50", name: "Founders $50", amount: 5000, bonus: 10, color: "from-cyan-400 to-blue-500" },
+    { id: "founders_100", name: "Founders $100", amount: 10000, bonus: 15, color: "from-purple-400 to-pink-500" },
+    { id: "founders_250", name: "Founders $250", amount: 25000, bonus: 25, color: "from-teal-400 to-cyan-500" },
+  ];
+  
+  const amountCents = useCustom 
+    ? Math.max(1000, Math.round(parseFloat(customAmount || "10") * 100))
+    : (TIERS.find(t => t.id === selectedTier)?.amount || 2500);
+  
+  const bonusPercent = useCustom
+    ? (amountCents >= 25000 ? 25 : amountCents >= 10000 ? 15 : amountCents >= 5000 ? 10 : amountCents >= 2500 ? 5 : 0)
+    : (TIERS.find(t => t.id === selectedTier)?.bonus || 0);
+  
+  const tokenAmount = Math.floor((amountCents / 100) / TOKEN_PRICE);
+  const bonusTokens = Math.floor(tokenAmount * (bonusPercent / 100));
+  
+  const checkoutMutation = useMutation({
+    mutationFn: async () => {
+      const endpoint = paymentMethod === "crypto" ? "/api/presale/crypto-checkout" : "/api/presale/checkout";
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          priceId: "dynamic",
+          tier: useCustom ? "custom" : selectedTier,
+          name: name.trim(),
+          email: email.trim(),
+          walletAddress: walletAddress.trim(),
+          amountCents: amountCents,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to create checkout");
+      }
+      return res.json();
+    },
+    onSuccess: (data) => {
+      if (name.trim()) localStorage.setItem("dw_presale_name", name.trim());
+      if (email.trim()) localStorage.setItem("dw_presale_email", email.trim());
+      const redirectUrl = data.url || data.checkoutUrl;
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      }
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Checkout Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  return (
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent className="bg-slate-900 border-white/10 w-[90vw] max-w-sm p-4 rounded-xl max-h-[80vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Acquire Signal
+          </DialogTitle>
+          <DialogDescription className="text-gray-400">
+            Enter any amount ($10 minimum) or pick a tier
+          </DialogDescription>
+        </DialogHeader>
+        
+        <div className="space-y-4 mt-3">
+          {authUser && (
+            <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-lg p-3 flex items-center gap-2">
+              <UserCheck className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm text-cyan-300">
+                Welcome back, {authUser.displayName || authUser.firstName || authUser.email}! Your info is pre-filled.
+              </span>
+            </div>
+          )}
+          
+          <div>
+            <label className="text-sm text-gray-400 mb-2 block">Your Name</label>
+            <Input
+              type="text"
+              placeholder="Enter your full name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className={`bg-black/50 border-white/20 text-white placeholder:text-gray-500 ${
+                name && !isValidName ? "border-red-500/50" : ""
+              } ${isValidName ? "border-green-500/50" : ""}`}
+            />
+          </div>
+          
+          <div>
+            <label className="text-sm text-gray-400 mb-2 block">Your Email</label>
+            <Input
+              type="email"
+              placeholder="Enter your email for Signal allocation"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={`bg-black/50 border-white/20 text-white placeholder:text-gray-500 ${
+                email && !isValidEmail ? "border-red-500/50" : ""
+              } ${isValidEmail ? "border-green-500/50" : ""}`}
+            />
+            {email && !isValidEmail && (
+              <p className="text-xs text-red-400 mt-1">Please enter a valid email</p>
+            )}
+          </div>
+          
+          <div>
+            <label className="text-sm text-gray-400 mb-2 block">Wallet Address (for Signal delivery)</label>
+            {isConnected && walletAddress ? (
+              <div className="space-y-2">
+                <Input
+                  type="text"
+                  placeholder="Your wallet address"
+                  value={walletAddress}
+                  onChange={(e) => setWalletAddress(e.target.value)}
+                  className={`bg-black/50 border-white/20 text-white placeholder:text-gray-500 font-mono text-sm ${
+                    walletAddress ? "border-green-500/50" : ""
+                  }`}
+                />
+                <p className="text-xs text-green-400 flex items-center gap-1">
+                  <Wallet className="w-3 h-3" />
+                  Wallet connected - address auto-filled
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+                  <p className="text-xs text-cyan-300 mb-3 text-center font-medium">
+                    Connect your wallet for easy checkout
+                  </p>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={connectEVM}
+                      className="flex-1 py-2.5 px-3 rounded-lg bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 text-sm font-medium hover:bg-cyan-500/30 transition-colors flex items-center justify-center gap-2"
+                    >
+                      <Wallet className="w-4 h-4" />
+                      MetaMask
+                    </button>
+                    <button
+                      type="button"
+                      onClick={connectSolana}
+                      className="flex-1 py-2.5 px-3 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 text-sm font-medium hover:bg-purple-500/30 transition-colors flex items-center justify-center gap-2"
+                    >
+                      <Wallet className="w-4 h-4" />
+                      Phantom
+                    </button>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-2 text-center">
+                    On mobile? This will open your wallet app
+                  </p>
+                </div>
+                
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-white/10"></div>
+                  </div>
+                  <div className="relative flex justify-center text-xs">
+                    <span className="px-2 bg-slate-900 text-gray-500">or enter manually</span>
+                  </div>
+                </div>
+                
+                <Input
+                  type="text"
+                  placeholder="Paste your wallet address here"
+                  value={walletAddress}
+                  onChange={(e) => setWalletAddress(e.target.value)}
+                  className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 font-mono text-sm"
+                />
+              </div>
+            )}
+          </div>
+          
+          <div>
+            <label className="text-sm text-gray-400 mb-2 block">Amount (USD)</label>
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
+              <Input
+                type="number"
+                min="10"
+                step="1"
+                placeholder="10"
+                value={customAmount}
+                onChange={(e) => {
+                  setCustomAmount(e.target.value);
+                  setUseCustom(true);
+                  setSelectedTier(null);
+                }}
+                className="bg-black/50 border-white/20 text-white pl-7"
+              />
+            </div>
+            <p className="text-xs text-gray-500 mt-1">Minimum $10 - Enter any amount you'd like</p>
+          </div>
+          
+          <div>
+            <label className="text-sm text-gray-400 mb-2 block">Or Quick Select a Tier</label>
+            <div className="flex flex-wrap gap-2">
+              {TIERS.map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => {
+                    setSelectedTier(t.id);
+                    setUseCustom(false);
+                    setCustomAmount(String(t.amount / 100));
+                  }}
+                  className={`px-3 py-2 rounded-lg border transition-all text-sm ${
+                    selectedTier === t.id && !useCustom
+                      ? `bg-gradient-to-r ${t.color} border-white/30`
+                      : "bg-white/5 border-white/10 hover:border-white/20"
+                  }`}
+                >
+                  <span className="font-medium text-white">${(t.amount / 100)}</span>
+                  {t.bonus > 0 && <span className="text-green-400 ml-1">+{t.bonus}%</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+            <div className="flex justify-between text-sm mb-1">
+              <span className="text-gray-400">You Pay</span>
+              <span className="text-white font-medium">${(amountCents / 100).toLocaleString()}</span>
+            </div>
+            <div className="flex justify-between text-sm mb-1">
+              <span className="text-gray-400">Base Signal</span>
+              <span className="text-white">{tokenAmount.toLocaleString()} SIG</span>
+            </div>
+            {bonusPercent > 0 && (
+              <div className="flex justify-between text-sm mb-1">
+                <span className="text-gray-400">Bonus (+{bonusPercent}%)</span>
+                <span className="text-green-400">+{bonusTokens.toLocaleString()} SIG</span>
+              </div>
+            )}
+            <div className="flex justify-between text-lg font-bold border-t border-white/10 pt-2 mt-2">
+              <span className="text-white">Total Signal</span>
+              <span className="text-cyan-400">{(tokenAmount + bonusTokens).toLocaleString()} SIG</span>
+            </div>
+          </div>
+          
+          {bonusPercent > 0 && (
+            <div className="p-2 rounded-lg bg-green-500/10 border border-green-500/20">
+              <p className="text-xs text-green-400 text-center">
+                You qualify for a {bonusPercent}% bonus!
+              </p>
+            </div>
+          )}
+          
+          <div className="p-3 rounded-lg bg-black/30 border border-white/10">
+            <p className="text-xs text-gray-400 mb-2 text-center">Payment Method</p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setPaymentMethod("card")}
+                className={`flex-1 py-2.5 px-3 rounded-lg text-sm font-medium transition-all ${
+                  paymentMethod === "card" 
+                    ? "bg-white/10 text-white border border-white/20" 
+                    : "text-gray-400 hover:text-white"
+                }`}
+                data-testid="button-pay-card-modal"
+              >
+                💳 Card
+              </button>
+              <button
+                onClick={() => setPaymentMethod("crypto")}
+                className={`flex-1 py-2.5 px-3 rounded-lg text-sm font-medium transition-all ${
+                  paymentMethod === "crypto" 
+                    ? "bg-gradient-to-r from-cyan-500/20 to-teal-500/20 text-cyan-400 border border-cyan-500/30" 
+                    : "text-gray-400 hover:text-cyan-400"
+                }`}
+                data-testid="button-pay-crypto-modal"
+              >
+                🪙 Crypto
+              </button>
+            </div>
+            {paymentMethod === "crypto" && (
+              <p className="text-[10px] text-cyan-400/70 text-center mt-2">USDC, BTC, ETH, and more accepted via Coinbase</p>
+            )}
+          </div>
+          
+          <Button
+            onClick={() => checkoutMutation.mutate()}
+            disabled={!isValidEmail || !isValidName || amountCents < 1000 || checkoutMutation.isPending}
+            className={`w-full py-6 text-lg font-bold hover:opacity-90 disabled:opacity-50 ${
+              paymentMethod === "crypto" 
+                ? "bg-gradient-to-r from-cyan-500 to-teal-500" 
+                : "bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600"
+            }`}
+          >
+            {checkoutMutation.isPending ? (
+              <Loader2 className="w-5 h-5 animate-spin mr-2" />
+            ) : paymentMethod === "crypto" ? (
+              <span className="mr-2">🪙</span>
+            ) : (
+              <CreditCard className="w-5 h-5 mr-2" />
+            )}
+            {paymentMethod === "crypto" ? "Pay with Crypto" : "Pay with Card"} - ${(amountCents / 100).toLocaleString()}
+          </Button>
+          
+          <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20">
+            <p className="text-xs text-purple-400 text-center">
+              No wallet needed now! Your allocation is tracked by email. You'll create a Trust Layer wallet before launch to receive your Signal.
+            </p>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function PresaleProgress() {
+  const [showBuyModal, setShowBuyModal] = useState(false);
+  const { data: stats, isLoading } = useQuery<PresaleStats>({
+    queryKey: ["/api/presale/stats"],
+  });
+
+  const tokensSold = stats?.tokensSold || 0;
+  const totalRaised = stats?.totalRaisedUsd || 0;
+  const uniqueHolders = stats?.uniqueHolders || 0;
+  const progress = (tokensSold / PRESALE_ALLOCATION) * 100;
+  const currentPrice = stats?.currentTokenPrice || 0.001;
+  const nextMilestone = stats?.nextMilestoneUsd;
+  const nextPrice = stats?.nextTokenPrice;
+  
+  return (
+    <>
+      <QuickBuyModal open={showBuyModal} onClose={() => setShowBuyModal(false)} />
+      <HolographicCard className="p-8" glow="cyan">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500" />
+        
+        <div className="flex items-center gap-4 mb-6">
+          <div className="relative">
+            <motion.div
+              className="absolute inset-[-8px] rounded-full border-2 border-cyan-400/40"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0, 0.6] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute inset-[-16px] rounded-full border border-purple-400/30"
+              animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0, 0.4] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+            />
+            <motion.div
+              className="absolute inset-[-24px] rounded-full border border-pink-400/20"
+              animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+            />
+            <img src={shieldImage} alt="Signal" className="w-16 h-16 object-contain relative z-10" style={{ mixBlendMode: 'lighten' }} />
+            <div className="absolute inset-0 animate-pulse bg-cyan-400/20 rounded-full blur-xl" />
+          </div>
+          <div>
+            <h2 className="text-xl font-bold text-white">Signal Presale</h2>
+            <p className="text-gray-400 text-sm">Live Now</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+          <div className="text-center p-3 sm:p-4 rounded-xl bg-white/5" data-testid="stat-token-price">
+            <p className="text-xl sm:text-3xl font-bold text-cyan-400">${currentPrice}</p>
+            <p className="text-gray-500 text-xs sm:text-sm">Current Price</p>
+            {nextMilestone && nextPrice && (
+              <p className="text-xs text-purple-400 mt-1">
+                ${nextPrice} at ${(nextMilestone / 1000).toFixed(0)}K raised
+              </p>
+            )}
+          </div>
+          <div className="text-center p-3 sm:p-4 rounded-xl bg-white/5" data-testid="stat-tokens-sold">
+            {isLoading ? (
+              <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin mx-auto text-purple-400" />
+            ) : (
+              <p className="text-xl sm:text-3xl font-bold text-purple-400">
+                {tokensSold > 0 ? `${(tokensSold / 1000).toFixed(1)}K` : "0"}
+              </p>
+            )}
+            <p className="text-gray-500 text-xs sm:text-sm">Signals Sold</p>
+          </div>
+          <div className="text-center p-3 sm:p-4 rounded-xl bg-white/5" data-testid="stat-total-raised">
+            {isLoading ? (
+              <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin mx-auto text-pink-400" />
+            ) : (
+              <p className="text-xl sm:text-3xl font-bold text-pink-400">
+                ${totalRaised > 0 ? totalRaised.toLocaleString() : "0"}
+              </p>
+            )}
+            <p className="text-gray-500 text-xs sm:text-sm">Raised</p>
+          </div>
+        </div>
+
+        <div className="space-y-2 mb-6">
+          <div className="flex justify-between text-sm">
+            <span className="text-gray-400">Progress</span>
+            <span className="text-cyan-400 font-semibold">{progress.toFixed(1)}%</span>
+          </div>
+          <div className="h-4 bg-gray-800 rounded-full overflow-hidden relative">
+            <motion.div
+              className="h-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: `${Math.max(progress, 0.5)}%` }}
+              transition={{ duration: 2, ease: "easeOut" }}
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.3)_50%,transparent_100%)] animate-pulse" />
+          </div>
+          <div className="flex justify-between text-xs text-gray-500">
+            <span>{tokensSold.toLocaleString()} SIG</span>
+            <span>{PRESALE_ALLOCATION.toLocaleString()} SIG</span>
+          </div>
+        </div>
+
+        {uniqueHolders > 0 && (
+          <div className="mb-4 p-3 rounded-xl bg-green-500/10 border border-green-500/20 text-center">
+            <p className="text-green-400 text-sm">
+              <Users className="w-4 h-4 inline mr-2" />
+              {uniqueHolders} early adopters have joined
+            </p>
+          </div>
+        )}
+
+        <div className="mb-4 p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-center">
+          <p className="text-cyan-400 text-sm">
+            <Shield className="w-4 h-4 inline mr-2" />
+            Fair Launch Protection: Max 2% of supply per wallet
+          </p>
+        </div>
+
+        <div className="mb-4 p-4 rounded-xl bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-purple-500/10 border border-purple-500/20">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <p className="text-white font-semibold text-sm">Building in Public</p>
+          </div>
+          <p className="text-gray-300 text-xs leading-relaxed mb-3">
+            Most projects hide until launch. We're different. Watch real progress happen in real time. 
+            The blockchain is live. The portal is live. The ecosystem apps are live. 
+            Signal Generation Event happens when milestones are complete, not on an arbitrary date.
+          </p>
+          <div className="grid grid-cols-2 gap-2 text-[10px] mb-3">
+            <span className="px-3 py-1.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 text-center whitespace-nowrap">Blockchain Live</span>
+            <span className="px-3 py-1.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 text-center whitespace-nowrap">Portal Live</span>
+            <span className="px-3 py-1.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 text-center whitespace-nowrap">DEX Live</span>
+            <span className="px-3 py-1.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 text-center whitespace-nowrap">Staking Live</span>
+            <span className="px-3 py-1.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center whitespace-nowrap">Chronicles</span>
+            <span className="px-3 py-1.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center whitespace-nowrap">Scanner</span>
+            <span className="px-3 py-1.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center whitespace-nowrap col-span-2">Arcade Building</span>
+          </div>
+          <p className="text-gray-400 text-[10px] leading-relaxed">
+            Have an idea for a web app or website? We're building an ecosystem of connected applications. 
+            <a href="/support" className="text-cyan-400 hover:text-cyan-300 underline">Submit a suggestion</a> or ask how you can build your own and join the network.
+          </p>
+        </div>
+
+        <Button 
+          onClick={() => setShowBuyModal(true)}
+          className="w-full py-6 text-lg font-bold bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 hover:opacity-90"
+          data-testid="button-buy-signal"
+        >
+          <Wallet className="w-5 h-5 mr-2" />
+          Join Presale
+        </Button>
+        
+        <a href="/portal" className="block mt-3">
+          <Button 
+            variant="outline"
+            className="w-full py-4 text-sm font-medium border-white/20 hover:bg-white/5 hover:border-cyan-500/50 transition-all"
+            data-testid="button-explore-portal"
+          >
+            <Sparkles className="w-4 h-4 mr-2 text-cyan-400" />
+            Enter the Trust Layer
+          </Button>
+        </a>
+      </HolographicCard>
+    </>
+  );
+}
+
+const TIER_DETAILS: Record<string, { benefits: string[]; description: string }> = {
+  genesis: {
+    description: "The Genesis tier is our most exclusive offering, reserved for visionary investors who want maximum impact. As a Genesis holder, you'll receive the highest bonus allocation and priority access to all future Trust Layer ecosystem features.",
+    benefits: [
+      "50% bonus Signal on your purchase",
+      "Exclusive Genesis NFT badge (tradeable)",
+      "Priority access to Chronicles beta",
+      "Direct Discord channel with founding team",
+      "First access to staking pools with boosted APY",
+      "Governance voting power multiplier (2x)",
+      "Airdrop eligibility for partner Signals",
+    ],
+  },
+  founder: {
+    description: "The Founder tier recognizes early believers in the Trust Layer vision. Founders receive substantial bonuses and special recognition throughout the ecosystem.",
+    benefits: [
+      "35% bonus Signal on your purchase",
+      "Founder NFT badge with special perks",
+      "Early access to new features and products",
+      "Dedicated support channel",
+      "Enhanced staking rewards",
+      "Governance voting rights",
+      "Exclusive community events",
+    ],
+  },
+  pioneer: {
+    description: "Pioneers are the adventurers of Trust Layer, joining early to explore the ecosystem's potential. This tier offers great value with meaningful bonuses.",
+    benefits: [
+      "25% bonus Signal on your purchase",
+      "Pioneer badge in your profile",
+      "Access to exclusive Discord channels",
+      "Priority customer support",
+      "Early notifications for new features",
+      "Standard governance voting rights",
+    ],
+  },
+  early_bird: {
+    description: "The Early Bird tier is perfect for those who want to get started with Trust Layer at an accessible price point while still receiving bonus Signal.",
+    benefits: [
+      "15% bonus Signal on your purchase",
+      "Early Bird community badge",
+      "Access to public Discord channels",
+      "Standard support access",
+      "Newsletter with ecosystem updates",
+    ],
+  },
+};
+
+function TierCard({ tier, index }: { tier: PresaleTier; index: number }) {
+  const { toast } = useToast();
+  const [email, setEmail] = useState(() => localStorage.getItem("dw_presale_email") || "");
+  const [showModal, setShowModal] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<"card" | "crypto">("card");
+  const tierImages = [quantumRealm, deepSpace, cyberpunkCity, fantasyWorld];
+  const tierColors: Record<string, string> = {
+    genesis: "from-teal-400 to-purple-500",
+    founder: "from-purple-400 to-pink-500",
+    pioneer: "from-cyan-400 to-blue-500",
+    early_bird: "from-green-400 to-emerald-500",
+  };
+  const tierDetails = TIER_DETAILS[tier.tier] || { benefits: [], description: "" };
+  
+  const { data: presaleStats } = useQuery<PresaleStats>({
+    queryKey: ["/api/presale/stats"],
+  });
+  const TOKEN_PRICE = presaleStats?.currentTokenPrice || 0.001;
+  
+  const isValidEmail = email.includes("@") && email.includes(".");
+  
+  const checkoutMutation = useMutation({
+    mutationFn: async () => {
+      if (!isValidEmail) {
+        throw new Error("Valid email required");
+      }
+      const endpoint = paymentMethod === "crypto" ? "/api/presale/crypto-checkout" : "/api/presale/checkout";
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          priceId: tier.priceId,
+          tier: tier.tier,
+          email: email,
+          amountCents: tier.amount,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to create checkout");
+      }
+      return res.json();
+    },
+    onSuccess: (data) => {
+      if (email.trim()) localStorage.setItem("dw_presale_email", email.trim());
+      const redirectUrl = data.url || data.checkoutUrl;
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      }
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Checkout Error",
+        description: error.message || "Failed to start checkout. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleBuyClick = () => {
+    if (!isValidEmail) {
+      toast({
+        title: "Email Required",
+        description: "Please enter a valid email to receive your Signal allocation.",
+        variant: "destructive",
+      });
+      return;
+    }
+    checkoutMutation.mutate();
+  };
+
+  const color = tierColors[tier.tier] || "from-gray-400 to-gray-500";
+  const tokenAmount = Math.floor((tier.amount / 100) / TOKEN_PRICE);
+  const bonusTokens = Math.floor(tokenAmount * (tier.bonus / 100));
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      className="relative group"
+      data-testid={`card-tier-${tier.tier}`}
+    >
+      <div className={`absolute inset-0 bg-gradient-to-r ${color} opacity-20 blur-xl group-hover:opacity-30 transition-opacity rounded-2xl`} />
+      <div className="relative overflow-hidden rounded-2xl border border-white/10" style={{
+        boxShadow: `0 0 40px rgba(0,200,255,0.15)`,
+      }}>
+        <div className="absolute inset-0">
+          <img src={tierImages[index % 4]} alt={tier.name} className="w-full h-full object-cover opacity-30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/50" />
+        </div>
+        <div className="absolute inset-0 opacity-30 pointer-events-none" style={{
+          background: "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px)",
+        }} />
+        <div className="relative z-10 p-6">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              {tier.tier === "genesis" && <Crown className="w-6 h-6 text-teal-400" />}
+              {tier.tier === "founder" && <Star className="w-6 h-6 text-purple-400" />}
+              {tier.tier === "pioneer" && <Rocket className="w-6 h-6 text-cyan-400" />}
+              {tier.tier === "early_bird" && <Gift className="w-6 h-6 text-green-400" />}
+              <h3 className="text-xl font-bold text-white">{tier.name}</h3>
+            </div>
+            <Badge className={`bg-gradient-to-r ${color} text-white border-0`} data-testid={`badge-tier-bonus-${index}`}>
+              +{tier.bonus}% Bonus
+            </Badge>
+          </div>
+          <p className="text-gray-300">
+            <span className="text-white font-semibold text-2xl">${(tier.amount / 100).toLocaleString()}</span>
+          </p>
+          <p className="text-sm text-gray-400 mt-2">
+            {tokenAmount.toLocaleString()} Signal + {bonusTokens.toLocaleString()} bonus
+          </p>
+          
+          <div className="mt-4">
+            <Input
+              type="email"
+              placeholder="Your email for Signal allocation"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={`bg-black/50 border-white/20 text-white placeholder:text-gray-500 ${
+                email && !isValidEmail ? "border-red-500/50" : ""
+              } ${isValidEmail ? "border-green-500/50" : ""}`}
+              data-testid={`input-email-${tier.tier}`}
+            />
+            {email && !isValidEmail && (
+              <p className="text-xs text-red-400 mt-1">Please enter a valid email</p>
+            )}
+          </div>
+
+          <div className="mt-3 p-2 rounded-lg bg-black/30 border border-white/10">
+            <p className="text-[10px] text-gray-400 mb-2 text-center">Payment Method</p>
+            <div className="flex gap-1">
+              <button
+                onClick={() => setPaymentMethod("card")}
+                className={`flex-1 py-1.5 px-2 rounded text-xs font-medium transition-all ${
+                  paymentMethod === "card" 
+                    ? "bg-white/10 text-white border border-white/20" 
+                    : "text-gray-400 hover:text-white"
+                }`}
+                data-testid={`button-pay-card-${tier.tier}`}
+              >
+                💳 Card
+              </button>
+              <button
+                onClick={() => setPaymentMethod("crypto")}
+                className={`flex-1 py-1.5 px-2 rounded text-xs font-medium transition-all ${
+                  paymentMethod === "crypto" 
+                    ? "bg-gradient-to-r from-cyan-500/20 to-teal-500/20 text-cyan-400 border border-cyan-500/30" 
+                    : "text-gray-400 hover:text-cyan-400"
+                }`}
+                data-testid={`button-pay-crypto-${tier.tier}`}
+              >
+                🪙 Crypto
+              </button>
+            </div>
+            {paymentMethod === "crypto" && (
+              <p className="text-[9px] text-cyan-400/70 text-center mt-1">USDC, BTC, ETH accepted</p>
+            )}
+          </div>
+          
+          <div className="flex gap-2 mt-3">
+            <Button 
+              variant="outline"
+              onClick={() => setShowModal(true)}
+              className="flex-1 border-white/20 hover:bg-white/10"
+              data-testid={`button-details-${tier.tier}`}
+            >
+              Details
+            </Button>
+            <Button 
+              onClick={handleBuyClick}
+              disabled={checkoutMutation.isPending || !isValidEmail}
+              className={`flex-1 bg-gradient-to-r ${paymentMethod === "crypto" ? "from-cyan-500 to-teal-500" : color} hover:opacity-90 border-0 disabled:opacity-50`}
+              data-testid={`button-select-tier-${tier.tier}`}
+            >
+              {checkoutMutation.isPending ? (
+                <Loader2 className="w-4 h-4 animate-spin mr-2" />
+              ) : null}
+              {paymentMethod === "crypto" ? "Pay Crypto" : "Buy"}
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <Dialog open={showModal} onOpenChange={setShowModal}>
+        <DialogContent className="bg-slate-900 border-white/10 w-[95vw] max-w-lg max-h-[85vh] overflow-y-auto p-4 sm:p-6 rounded-xl">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-2xl">
+              {tier.tier === "genesis" && <Crown className="w-6 h-6 sm:w-8 sm:h-8 text-teal-400 flex-shrink-0" />}
+              {tier.tier === "founder" && <Star className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400 flex-shrink-0" />}
+              {tier.tier === "pioneer" && <Rocket className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 flex-shrink-0" />}
+              {tier.tier === "early_bird" && <Gift className="w-6 h-6 sm:w-8 sm:h-8 text-green-400 flex-shrink-0" />}
+              <span className={`bg-gradient-to-r ${color} bg-clip-text text-transparent`}>
+                {tier.name}
+              </span>
+            </DialogTitle>
+            <DialogDescription className="text-gray-300 pt-2 text-sm sm:text-base">
+              {tierDetails.description}
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-3 sm:space-y-4 mt-3 sm:mt-4">
+            <div className="p-3 sm:p-4 rounded-xl bg-white/5 border border-white/10">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-gray-400 text-sm">Investment</span>
+                <span className="text-xl sm:text-2xl font-bold text-white">${(tier.amount / 100).toLocaleString()}</span>
+              </div>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-gray-400 text-sm">Base Signal</span>
+                <span className="text-base sm:text-lg text-white">{tokenAmount.toLocaleString()} SIG</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400 text-sm">Bonus ({tier.bonus}%)</span>
+                <span className={`text-base sm:text-lg bg-gradient-to-r ${color} bg-clip-text text-transparent font-semibold`}>
+                  +{bonusTokens.toLocaleString()} SIG
+                </span>
+              </div>
+              <div className="border-t border-white/10 mt-3 pt-3 flex justify-between items-center">
+                <span className="text-white font-semibold text-sm">Total Signal</span>
+                <span className="text-lg sm:text-xl font-bold text-cyan-400">{(tokenAmount + bonusTokens).toLocaleString()} SIG</span>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-white font-semibold mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+                Benefits Included
+              </h4>
+              <ul className="space-y-1.5 sm:space-y-2">
+                {tierDetails.benefits.map((benefit, i) => (
+                  <li key={i} className="flex items-start gap-2 text-gray-300 text-sm sm:text-base">
+                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <Button 
+              onClick={() => {
+                setShowModal(false);
+                document.getElementById(`input-email-${tier.tier}`)?.focus();
+              }}
+              className={`w-full bg-gradient-to-r ${color} hover:opacity-90 py-3`}
+            >
+              Select This Tier
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </motion.div>
+  );
+}
+
+function EcosystemCard({ feature, index }: { feature: typeof ECOSYSTEM_FEATURES[0]; index: number }) {
+  const [showModal, setShowModal] = useState(false);
+  const Icon = feature.icon;
+  const isLarge = index === 0 || index === 2;
+  
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: index * 0.1 }}
+        className={isLarge ? "md:col-span-2" : ""}
+        data-testid={`card-ecosystem-${index}`}
+      >
+        <HolographicCard className="h-full overflow-hidden group">
+          <div className="relative h-48 overflow-hidden">
+            <img 
+              src={feature.image} 
+              alt={feature.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className={`absolute inset-0 bg-gradient-to-t ${feature.gradient} to-transparent`} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white">{feature.title}</h3>
+              </div>
+            </div>
+          </div>
+          <div className="p-4">
+            <p className="text-gray-400 mb-3">{feature.description}</p>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="w-full border-white/10 hover:bg-white/5"
+              onClick={() => setShowModal(true)}
+              data-testid={`button-learn-more-${index}`}
+            >
+              Learn More <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </HolographicCard>
+      </motion.div>
+
+      <Dialog open={showModal} onOpenChange={setShowModal}>
+        <DialogContent className="bg-slate-900 border-white/10 w-[95vw] max-w-lg max-h-[85vh] overflow-y-auto p-4 sm:p-6 rounded-xl">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-2xl">
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center flex-shrink-0`}>
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <span className="text-white">{feature.title}</span>
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="relative h-36 sm:h-48 rounded-xl overflow-hidden my-3 sm:my-4">
+            <img 
+              src={feature.image} 
+              alt={feature.title}
+              className="w-full h-full object-cover"
+            />
+            <div className={`absolute inset-0 bg-gradient-to-t ${feature.gradient} to-transparent opacity-50`} />
+          </div>
+
+          <DialogDescription className="text-gray-300 text-sm sm:text-base leading-relaxed">
+            {feature.fullDescription}
+          </DialogDescription>
+          
+          <div className="mt-3 sm:mt-4">
+            <h4 className="text-white font-semibold mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
+              <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+              Key Features
+            </h4>
+            <ul className="space-y-1.5 sm:space-y-2">
+              {feature.features.map((feat, i) => (
+                <li key={i} className="flex items-start gap-2 text-gray-300 text-sm sm:text-base">
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+                  {feat}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Button 
+            onClick={() => setShowModal(false)}
+            className="w-full mt-3 sm:mt-4 bg-gradient-to-r from-cyan-600 to-purple-600 hover:opacity-90 py-3"
+          >
+            Got It
+          </Button>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
+
+function PurchaseCalculator() {
+  const [amount, setAmount] = useState("100");
+  const { data: tiers } = useQuery<{ tiers: PresaleTier[] }>({
+    queryKey: ["/api/presale/tiers"],
+  });
+  const { data: presaleStats } = useQuery<PresaleStats>({
+    queryKey: ["/api/presale/stats"],
+  });
+  const TOKEN_PRICE = presaleStats?.currentTokenPrice || 0.001;
+
+  const usdAmount = parseFloat(amount) || 0;
+  const tokenAmount = usdAmount / TOKEN_PRICE;
+  
+  const matchedTier = tiers?.tiers?.find(t => usdAmount >= (t.amount / 100));
+  const bonusPercent = matchedTier?.bonus || 0;
+  const bonusTokens = tokenAmount * (bonusPercent / 100);
+  const totalTokens = tokenAmount + bonusTokens;
+
+  return (
+    <HolographicCard className="p-8" glow="cyan">
+      <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+        <Target className="w-5 h-5 text-cyan-400" />
+        Token Calculator
+      </h3>
+
+      <div className="space-y-4">
+        <div>
+          <label className="text-gray-400 text-sm block mb-2">Investment Amount (USD)</label>
+          <Input
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            className="bg-white/5 border-white/10 text-2xl h-14"
+            data-testid="input-investment-amount"
+          />
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
+          <div>
+            <p className="text-gray-500 text-sm">Base Tokens</p>
+            <p className="text-xl font-bold text-white">{tokenAmount.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+          </div>
+          <div>
+            <p className="text-gray-500 text-sm">Bonus ({bonusPercent}%)</p>
+            <p className="text-xl font-bold text-green-400">+{bonusTokens.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+          </div>
+        </div>
+
+        <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-gray-400 text-sm">Total Signal</p>
+              <p className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                {totalTokens.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+              </p>
+            </div>
+            <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-white border-cyan-500/30">
+              {matchedTier?.name || "Standard"} Tier
+            </Badge>
+          </div>
+        </div>
+
+        <p className="text-xs text-gray-500 text-center">
+          This calculator shows potential token allocation. Actual amounts determined at checkout.
+        </p>
+      </div>
+    </HolographicCard>
+  );
+}
+
+interface Purchase {
+  id: string;
+  tokens: number;
+  amount: number;
+  tier: string;
+  status: string;
+  method: string;
+  date: string;
+}
+
+function LaunchCountdownBanner() {
+  const [now, setNow] = useState(new Date());
+  useEffect(() => {
+    const t = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(t);
+  }, []);
+  const launchDate = new Date("2026-08-23T00:00:00-05:00");
+  const diff = Math.max(0, launchDate.getTime() - now.getTime());
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3 }}
+      className="mb-10"
+    >
+      <Link href="/launch" data-testid="link-launch-banner">
+        <div
+          className="relative overflow-hidden rounded-2xl p-5 sm:p-6 cursor-pointer group transition-all hover:scale-[1.01]"
+          style={{
+            background: "linear-gradient(135deg, rgba(239,68,68,0.1) 0%, rgba(245,158,11,0.1) 30%, rgba(6,182,212,0.1) 70%, rgba(139,92,246,0.1) 100%)",
+            border: "1px solid rgba(239,68,68,0.3)",
+            boxShadow: "0 0 40px rgba(239,68,68,0.1), 0 0 80px rgba(6,182,212,0.05)",
+          }}
+        >
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "20px 20px",
+          }} />
+          <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none" style={{
+            background: "radial-gradient(circle, rgba(239,68,68,0.8), transparent 70%)",
+          }} />
+          
+          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-purple-500 flex items-center justify-center" style={{ boxShadow: "0 0 15px rgba(239,68,68,0.4)" }}>
+                <Rocket className="w-5 h-5 text-white" />
+              </div>
+              <div className="text-left">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm sm:text-base font-bold text-white">Signal Launches August 23rd</span>
+                  <Flame className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+                </div>
+                <span className="text-[11px] text-white/40">One Year. One Vision. Launch Day.</span>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-3 sm:ml-auto">
+              {[
+                { v: days, l: "d" },
+                { v: hours, l: "h" },
+                { v: minutes, l: "m" },
+                { v: seconds, l: "s" },
+              ].map(({ v, l }) => (
+                <div key={l} className="text-center">
+                  <div className="text-lg sm:text-xl font-bold font-mono bg-gradient-to-b from-white to-cyan-300 bg-clip-text text-transparent">
+                    {String(v).padStart(2, "0")}
+                  </div>
+                  <div className="text-[9px] text-white/30 uppercase tracking-wider">{l}</div>
+                </div>
+              ))}
+              <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-cyan-400 transition-colors ml-2" />
+            </div>
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
+function MyPurchases({ userEmail, walletAddress }: { userEmail?: string; walletAddress?: string }) {
+  const { user } = useAuth();
+  const { data, isLoading } = useQuery<{ purchases: Purchase[]; total: { tokens: number; spent: number } }>({
+    queryKey: ["/api/presale/my-purchases", userEmail, walletAddress],
+    queryFn: async () => {
+      const params = new URLSearchParams();
+      if (userEmail) params.set("email", userEmail);
+      if (walletAddress) params.set("wallet", walletAddress);
+      const res = await authFetch(`/api/presale/my-purchases?${params}`);
+      return res.json();
+    },
+    enabled: !!(user?.id || userEmail || walletAddress),
+  });
+
+  if (isLoading) return null;
+  if (!data?.purchases?.length) return null;
+
+  return (
+    <HolographicCard className="p-6 mb-8" glow="purple">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="p-2 rounded-lg bg-purple-500/20">
+          <History className="w-5 h-5 text-purple-400" />
+        </div>
+        <div>
+          <h3 className="text-lg font-bold text-white">Your Purchases</h3>
+          <p className="text-sm text-gray-400">Welcome back! Here's your allocation</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+          <p className="text-gray-400 text-xs">Total Signal Tokens</p>
+          <p className="text-xl font-bold text-cyan-400">{data.total.tokens.toLocaleString()} SIG</p>
+          <p className="text-[10px] text-cyan-400/60 mt-1">Delivered at mainnet launch</p>
+        </div>
+        <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+          <p className="text-gray-400 text-xs">Total Invested</p>
+          <p className="text-xl font-bold text-purple-400">${data.total.spent.toLocaleString()}</p>
+          <p className="text-[10px] text-purple-400/60 mt-1">@ $0.001 per SIG</p>
+        </div>
+      </div>
+
+      <div className="p-3 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 mb-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-gray-400 text-xs">Estimated Value at Launch</p>
+            <p className="text-lg font-bold text-green-400">${(data.total.tokens * 0.01).toLocaleString()}</p>
+          </div>
+          <div className="text-right">
+            <p className="text-gray-400 text-xs">Potential ROI</p>
+            <p className="text-lg font-bold text-green-400">+{((0.01 / 0.001 - 1) * 100).toFixed(0)}%</p>
+          </div>
+        </div>
+        <p className="text-[10px] text-green-400/60 mt-2 text-center">Based on projected launch price of $0.01 per SIG</p>
+      </div>
+
+      <div className="space-y-2 mb-4">
+        {data.purchases.slice(0, 3).map((purchase) => (
+          <div key={purchase.id} className="flex items-center justify-between p-2 rounded-lg bg-white/5">
+            <div className="flex items-center gap-2">
+              <Badge variant={purchase.status === "completed" ? "default" : "secondary"} className="text-xs">
+                {purchase.status}
+              </Badge>
+              <span className="text-sm text-gray-300">{purchase.tokens.toLocaleString()} SIG</span>
+            </div>
+            <span className="text-sm text-gray-500">${purchase.amount}</span>
+          </div>
+        ))}
+      </div>
+
+      <Link href="/my-hub">
+        <Button className="w-full bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700" data-testid="button-presale-go-to-hub">
+          View Your Portal <ArrowRight className="w-4 h-4 ml-2" />
+        </Button>
+      </Link>
+    </HolographicCard>
+  );
+}
+
+interface RecentTransaction {
+  id: string;
+  name: string;
+  amount: number;
+  tokens: number;
+  tier: string;
+  method: string;
+  time: string;
+}
+
+function LiveTransactionFeed() {
+  const { data, isLoading } = useQuery<{ transactions: RecentTransaction[] }>({
+    queryKey: ["/api/presale/recent"],
+    refetchInterval: 15000,
+  });
+
+  const transactions = data?.transactions || [];
+
+  const timeAgo = useCallback((dateStr: string) => {
+    const now = new Date();
+    const date = new Date(dateStr);
+    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+    if (seconds < 60) return "just now";
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    return `${days}d ago`;
+  }, []);
+
+  if (isLoading || transactions.length === 0) return null;
+
+  return (
+    <HolographicCard className="p-6 mb-8" glow="cyan">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="relative">
+          <div className="p-2 rounded-lg bg-green-500/20">
+            <Activity className="w-5 h-5 text-green-400" />
+          </div>
+          <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse" />
+        </div>
+        <div>
+          <h3 className="text-lg font-bold text-white">Recent Purchases</h3>
+          <p className="text-sm text-gray-400">Live presale activity</p>
+        </div>
+      </div>
+
+      <div className="space-y-2 max-h-[300px] overflow-y-auto scrollbar-thin">
+        <AnimatePresence mode="popLayout">
+          {transactions.map((tx, i) => (
+            <motion.div
+              key={tx.id}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ delay: i * 0.05, duration: 0.3 }}
+              className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5"
+              data-testid={`recent-tx-${tx.id}`}
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 flex items-center justify-center text-sm font-bold text-cyan-300 border border-cyan-500/20">
+                  {tx.name.charAt(0).toUpperCase()}
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-white">{tx.name}</p>
+                  <p className="text-xs text-gray-500">{timeAgo(tx.time)}</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-sm font-bold text-cyan-400">{tx.tokens.toLocaleString()} SIG</p>
+                <p className="text-xs text-gray-500">${tx.amount}</p>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    </HolographicCard>
+  );
+}
+
+function ReferralBanner({ referrer }: { referrer: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-purple-500/20 via-cyan-500/20 to-purple-500/20 border border-purple-500/30"
+    >
+      <div className="flex items-center justify-center gap-3">
+        <User className="w-5 h-5 text-purple-400" />
+        <span className="text-purple-300 font-medium">
+          You were referred by: <span className="text-white font-bold">{referrer}</span>
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
+function AllocationLookup() {
+  const [lookupEmail, setLookupEmail] = useState("");
+  const [lookupResult, setLookupResult] = useState<{ purchases: any[]; total: { tokens: number; spent: number } } | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [searched, setSearched] = useState(false);
+  const { toast } = useToast();
+
+  const handleLookup = async () => {
+    if (!lookupEmail || !lookupEmail.includes("@")) {
+      toast({ title: "Enter a valid email", variant: "destructive" });
+      return;
+    }
+    setLoading(true);
+    setSearched(true);
+    try {
+      const res = await fetch(`/api/presale/my-purchases?email=${encodeURIComponent(lookupEmail.trim())}`);
+      const data = await res.json();
+      setLookupResult(data);
+    } catch {
+      toast({ title: "Lookup failed", description: "Please try again", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <HolographicCard className="p-6 mb-8" glow="cyan">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="p-2 rounded-lg bg-cyan-500/20">
+          <Search className="w-5 h-5 text-cyan-400" />
+        </div>
+        <div>
+          <h3 className="text-lg font-bold text-white">Check My Allocation</h3>
+          <p className="text-sm text-gray-400">Enter the email you used to purchase</p>
+        </div>
+      </div>
+
+      <div className="flex gap-2 mb-4">
+        <div className="flex-1 relative">
+          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+          <input
+            type="email"
+            value={lookupEmail}
+            onChange={(e) => setLookupEmail(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleLookup()}
+            placeholder="your@email.com"
+            className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-white/30 focus:border-cyan-500/50 focus:outline-none"
+            data-testid="input-allocation-lookup"
+          />
+        </div>
+        <Button
+          onClick={handleLookup}
+          disabled={loading}
+          className="bg-cyan-600 hover:bg-cyan-700 px-6"
+          data-testid="button-lookup-allocation"
+        >
+          {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Look Up"}
+        </Button>
+      </div>
+
+      {searched && lookupResult && (
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+          {lookupResult.purchases.length > 0 ? (
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+                  <p className="text-gray-400 text-xs">Total Signal Tokens</p>
+                  <p className="text-xl font-bold text-cyan-400" data-testid="text-lookup-total-tokens">{lookupResult.total.tokens.toLocaleString()} SIG</p>
+                </div>
+                <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+                  <p className="text-gray-400 text-xs">Total Invested</p>
+                  <p className="text-xl font-bold text-purple-400">${lookupResult.total.spent.toLocaleString()}</p>
+                </div>
+              </div>
+              <div className="space-y-2">
+                {lookupResult.purchases.map((p: any) => (
+                  <div key={p.id} className="flex items-center justify-between p-2 rounded-lg bg-white/5">
+                    <div className="flex items-center gap-2">
+                      <Badge variant="default" className="text-xs bg-green-500/20 text-green-400 border-green-500/30">{p.status}</Badge>
+                      <span className="text-sm text-gray-300">{p.tokens?.toLocaleString()} SIG</span>
+                    </div>
+                    <span className="text-sm text-gray-500">${p.amount} via {p.method}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-gray-500 text-center mt-2">Tokens will be delivered to your Trust Layer wallet at mainnet launch</p>
+            </div>
+          ) : (
+            <div className="text-center py-4">
+              <p className="text-gray-400">No purchases found for this email.</p>
+              <p className="text-gray-500 text-sm mt-1">Make sure you're using the same email you purchased with.</p>
+            </div>
+          )}
+        </motion.div>
+      )}
+    </HolographicCard>
+  );
+}
+
+export default function Presale() {
+  const { user } = useAuth();
+  const { evmAddress, solanaAddress } = useWallet();
+  const searchParams = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
+  const referrer = searchParams.get('ref') || searchParams.get('referrer');
+  const emailParam = searchParams.get('email');
+  const walletParam = searchParams.get('wallet');
+  const purchaseEmail = user?.email || emailParam;
+  const purchaseWallet = evmAddress || solanaAddress || walletParam;
+
+  return (
+    <div className="min-h-screen bg-[#080c18] text-white">
+      
+      
+      <div 
+        className="absolute inset-0 opacity-30"
+        style={{
+          background: "radial-gradient(circle at 20% 20%, rgba(0,200,255,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(168,85,247,0.15) 0%, transparent 50%)",
+        }}
+      />
+      
+      <div className="relative max-w-7xl mx-auto px-4 pt-20 pb-12">
+        {referrer && <ReferralBanner referrer={referrer} />}
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 mb-6">
+            <Sparkles className="w-4 h-4 text-cyan-400" />
+            <span className="text-cyan-300 text-sm font-medium">Beta — Founders Preview — Early Access</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="text-white">
+              Trust Layer
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">
+            Accountability built in. Be among the first to own Signal and help restore 
+            the standard that business relationships deserve.
+          </p>
+          
+          <p className="text-sm text-gray-500 max-w-xl mx-auto mb-6">
+            Pay with card or crypto. All purchases are tracked by email for token distribution at launch.
+          </p>
+          
+          <Link href="/home" data-testid="link-explore-trust-layer-top">
+            <Button variant="outline" className="border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 px-6">
+              <Globe className="w-4 h-4 mr-2" />
+              Explore Trust Layer
+            </Button>
+          </Link>
+        </motion.div>
+
+        <LaunchCountdownBanner />
+
+        {(purchaseEmail || purchaseWallet) && <MyPurchases userEmail={purchaseEmail || undefined} walletAddress={purchaseWallet || undefined} />}
+
+        <AllocationLookup />
+
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          <PresaleProgress />
+          <PurchaseCalculator />
+        </div>
+
+        <LiveTransactionFeed />
+
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-8">
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              The Trust Layer Ecosystem
+            </span>
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {ECOSYSTEM_FEATURES.map((feature, index) => (
+              <EcosystemCard key={feature.title} feature={feature} index={index} />
+            ))}
+          </div>
+        </div>
+
+        <div id="how-it-works" className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-4">
+            <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+              How It Works
+            </span>
+          </h2>
+          <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
+            Your tokens are allocated immediately upon purchase and will be distributed to your Trust Layer wallet at mainnet launch.
+          </p>
+          
+          <div className="overflow-visible pb-4 mb-8">
+            <div className="overflow-x-auto -mx-4 px-4">
+              <div className="flex gap-4 min-w-max lg:min-w-0 lg:grid lg:grid-cols-4 py-2">
+                <HolographicCard className="p-6 pt-4 text-center w-64 lg:w-auto flex-shrink-0" glow="cyan">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold text-sm shadow-lg mx-auto mb-3">1</div>
+                  <CreditCard className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-bold text-white mb-2">Get Crypto</h3>
+                  <p className="text-gray-400 text-sm">Use existing crypto or buy with card via Stripe's secure onramp</p>
+                </HolographicCard>
+                
+                <HolographicCard className="p-6 pt-4 text-center w-64 lg:w-auto flex-shrink-0" glow="purple">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm shadow-lg mx-auto mb-3">2</div>
+                  <Wallet className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-bold text-white mb-2">Pay with Crypto</h3>
+                  <p className="text-gray-400 text-sm">Complete checkout via Coinbase - BTC, ETH, USDC accepted</p>
+                </HolographicCard>
+                
+                <HolographicCard className="p-6 pt-4 text-center w-64 lg:w-auto flex-shrink-0" glow="pink">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center text-white font-bold text-sm shadow-lg mx-auto mb-3">3</div>
+                  <Users className="w-8 h-8 text-pink-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-bold text-white mb-2">Create Wallet</h3>
+                  <p className="text-gray-400 text-sm">Before launch, create your Trust Layer wallet to claim tokens</p>
+                </HolographicCard>
+                
+                <HolographicCard className="p-6 pt-4 text-center w-64 lg:w-auto flex-shrink-0" glow="purple">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg mx-auto mb-3">4</div>
+                  <Coins className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-bold text-white mb-2">Receive Signal</h3>
+                  <p className="text-gray-400 text-sm">Signal + converted Shells airdropped to your wallet</p>
+                </HolographicCard>
+              </div>
+            </div>
+            <p className="text-center text-gray-500 text-xs mt-3 lg:hidden">Swipe to see all steps →</p>
+          </div>
+          
+          <div className="max-w-3xl mx-auto p-6 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-white/10">
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                <Shield className="w-5 h-5 text-blue-400" />
+              </div>
+              <div>
+                <h4 className="text-white font-semibold mb-2">No Wallet Required Until Launch</h4>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  <span className="text-cyan-400 font-medium">Participate now without a wallet!</span> Your presale purchases and Zealy Shell earnings are 
+                  tracked by your account, not your wallet. Before mainnet launch, you'll create a Trust Layer wallet to receive your tokens.
+                  At launch, your <span className="text-green-400 font-medium">Signal + converted Shells</span> will be airdropped to your wallet 
+                  (20% at launch, 80% vested). Shell conversion rate: 100 Shells = 1 SIG.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-4 mb-16">
+          <HolographicCard className="p-6 text-center">
+            <Lock className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
+            <h3 className="text-lg font-bold text-white mb-2">Secure & Audited</h3>
+            <p className="text-gray-400 text-sm">Smart contracts verified by leading security firms</p>
+          </HolographicCard>
+          <HolographicCard className="p-6 text-center">
+            <Clock className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+            <h3 className="text-lg font-bold text-white mb-2">Vesting Schedule</h3>
+            <p className="text-gray-400 text-sm">20% at launch, 80% vested</p>
+          </HolographicCard>
+          <HolographicCard className="p-6 text-center">
+            <Gift className="w-8 h-8 text-pink-400 mx-auto mb-4" />
+            <h3 className="text-lg font-bold text-white mb-2">Referral Rewards</h3>
+            <p className="text-gray-400 text-sm">Earn 5% on every referred purchase</p>
+          </HolographicCard>
+        </div>
+
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <Badge className="mb-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-400 border-cyan-500/30">
+              <Shield className="w-3 h-3 mr-1" />
+              Trust Layer Membership
+            </Badge>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Join the Network</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Become part of a verified network of individuals and businesses committed to trust and transparency.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Link href="/membership-charter" data-testid="link-membership-charter">
+              <HolographicCard className="p-6 text-center cursor-pointer hover:scale-105 transition-transform" glow="cyan">
+                <Award className="w-10 h-10 text-cyan-400 mx-auto mb-4" />
+                <h3 className="text-lg font-bold text-white mb-2">Membership Charter</h3>
+                <p className="text-gray-400 text-sm mb-4">Learn about our mission, values, and member benefits</p>
+                <span className="text-cyan-400 text-sm font-medium">Read Charter →</span>
+              </HolographicCard>
+            </Link>
+            
+            <Link href="/member-portal" data-testid="link-individual-signup">
+              <HolographicCard className="p-6 text-center cursor-pointer hover:scale-105 transition-transform" glow="purple">
+                <User className="w-10 h-10 text-purple-400 mx-auto mb-4" />
+                <h3 className="text-lg font-bold text-white mb-2">Individual Member</h3>
+                <p className="text-gray-400 text-sm mb-4">Sign up instantly and start building your trust profile</p>
+                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-xs">Instant Access</Badge>
+              </HolographicCard>
+            </Link>
+            
+            <Link href="/business-application" data-testid="link-business-signup">
+              <HolographicCard className="p-6 text-center cursor-pointer hover:scale-105 transition-transform" glow="purple">
+                <Crown className="w-10 h-10 text-purple-400 mx-auto mb-4" />
+                <h3 className="text-lg font-bold text-white mb-2">Business Member</h3>
+                <p className="text-gray-400 text-sm mb-4">Verified business accounts with API access</p>
+                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs">Requires Verification</Badge>
+              </HolographicCard>
+            </Link>
+          </div>
+        </div>
+
+        <div className="text-center mb-8">
+          <Link href="/home" data-testid="link-explore-trust-layer">
+            <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-semibold px-8 py-3 mb-6" size="lg">
+              <Globe className="w-5 h-5 mr-2" />
+              Explore Trust Layer
+            </Button>
+          </Link>
+          <div className="flex flex-wrap justify-center gap-6">
+            <Link href="/investment-simulator" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300" data-testid="link-simulator">
+              <Calculator className="w-4 h-4" /> Investment Simulator
+            </Link>
+            <Link href="/roadmap" className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300" data-testid="link-view-roadmap">
+              View Full Roadmap <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
+        <DYORDisclaimer variant="full" className="max-w-2xl mx-auto mb-8" />
+        <DYORDisclaimer variant="compact" className="mb-4" />
+      </div>
+      
+    </div>
+  );
+}

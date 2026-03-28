@@ -1,0 +1,818 @@
+import { useEffect, useMemo, lazy, Suspense, Component, type ReactNode } from "react";
+import { Switch, Route, useLocation } from "wouter";
+import { queryClient } from "./lib/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { PreferencesProvider, NotificationsProvider } from "@/lib/store";
+import { WalletProvider } from "@/hooks/use-wallet";
+import { getAppFromHost } from "@/lib/app-config";
+import { FavoritesProvider } from "@/components/favorites-watchlist";
+
+const AIAssistant = lazy(() => import("@/components/ai-assistant").then(m => ({ default: m.AIAssistant })));
+const FloatingChat = lazy(() => import("@/components/floating-chat").then(m => ({ default: m.FloatingChat })));
+const GlobalSearch = lazy(() => import("@/components/global-search").then(m => ({ default: m.GlobalSearch })));
+const SiteNav = lazy(() => import("@/components/site-nav").then(m => ({ default: m.SiteNav })));
+const GamesNav = lazy(() => import("@/components/games-nav").then(m => ({ default: m.GamesNav })));
+const Footer = lazy(() => import("@/components/footer").then(m => ({ default: m.Footer })));
+const PresaleBanner = lazy(() => import("@/components/presale-banner").then(m => ({ default: m.PresaleBanner })));
+const ContextualHelp = lazy(() => import("@/components/contextual-help").then(m => ({ default: m.ContextualHelp })));
+
+class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean; error: Error | null }> {
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+  componentDidCatch(error: Error, info: any) {
+    console.error("[ErrorBoundary]", error, info);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ minHeight: "100vh", background: "#0a0f1e", color: "#fff", fontFamily: "system-ui, sans-serif", display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
+          <div style={{ textAlign: "center", maxWidth: 420 }}>
+            <div style={{ fontSize: 48, marginBottom: 16 }}>&#9888;</div>
+            <h1 style={{ fontSize: 22, marginBottom: 12, color: "#22d3ee" }}>Something went wrong</h1>
+            <p style={{ color: "#94a3b8", marginBottom: 24, lineHeight: 1.6 }}>
+              The app encountered an error loading. This can happen if your browser has an ad-blocker or firewall that blocks required services.
+            </p>
+            <button
+              data-testid="button-reload"
+              onClick={() => { if ('caches' in window) { caches.keys().then(k => k.forEach(n => caches.delete(n))); } setTimeout(() => window.location.reload(), 200); }}
+              style={{ background: "linear-gradient(135deg, #06b6d4, #8b5cf6)", color: "#fff", border: "none", borderRadius: 12, padding: "14px 32px", fontSize: 16, cursor: "pointer", fontWeight: 600 }}
+            >
+              Clear Cache &amp; Reload
+            </button>
+            <p style={{ color: "#64748b", fontSize: 12, marginTop: 16 }}>
+              {this.state.error?.message}
+            </p>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+import NotFound from "@/pages/not-found";
+
+const Home = lazy(() => import("@/pages/home"));
+const Terms = lazy(() => import("@/pages/terms"));
+const DevelopersNote = lazy(() => import("@/pages/developers-note"));
+const VirtualCurrencyTerms = lazy(() => import("@/pages/virtual-currency-terms"));
+const Privacy = lazy(() => import("@/pages/privacy"));
+
+// Loading fallback component
+function PageLoader() {
+  return (
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-10 h-10 border-3 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+        <p className="text-slate-400 text-sm">Loading...</p>
+      </div>
+    </div>
+  );
+}
+
+// Lazy-loaded pages - code splitting for smaller initial bundle
+const Welcome = lazy(() => import("@/pages/welcome"));
+const SignalCore = lazy(() => import("@/pages/signal-core"));
+const SignalCoreOfficial = lazy(() => import("@/pages/signal-core-official"));
+const Verify = lazy(() => import("@/pages/verify"));
+const VerifyEmail = lazy(() => import("@/pages/verify-email"));
+const GovernanceCharter = lazy(() => import("@/pages/governance-charter"));
+const GovernanceTreasury = lazy(() => import("@/pages/governance-treasury"));
+const TrustCooperative = lazy(() => import("@/pages/trust-cooperative"));
+const TrustDocumentOps = lazy(() => import("@/pages/trust-document-ops"));
+const TeamMessage = lazy(() => import("@/pages/team-message"));
+const Philosophy = lazy(() => import("@/pages/philosophy"));
+const GamesHome = lazy(() => import("@/pages/games-home"));
+const GameDeveloper = lazy(() => import("@/pages/game-developer"));
+const Dashboard = lazy(() => import("@/pages/dashboard"));
+const ReferralProgram = lazy(() => import("@/pages/referral-program"));
+const Developers = lazy(() => import("@/pages/developers"));
+const DevelopersRegister = lazy(() => import("@/pages/developers-register"));
+const Ecosystem = lazy(() => import("@/pages/ecosystem"));
+const Token = lazy(() => import("@/pages/token"));
+const Explorer = lazy(() => import("@/pages/explorer"));
+const DocHub = lazy(() => import("@/pages/doc-hub"));
+const DWSCExecutiveSummary = lazy(() => import("@/pages/dwsc-executive-summary"));
+const ApiPlayground = lazy(() => import("@/pages/api-playground"));
+const Treasury = lazy(() => import("@/pages/treasury"));
+const DeveloperPortal = lazy(() => import("@/pages/developer-portal"));
+const MarketingCatalogDev = lazy(() => import("@/pages/marketing-catalog-dev"));
+const MarketingCatalogAdmin = lazy(() => import("@/pages/marketing-catalog-admin"));
+const DevStudio = lazy(() => import("@/pages/dev-studio"));
+const Billing = lazy(() => import("@/pages/billing"));
+const Pricing = lazy(() => import("@/pages/pricing"));
+const MembershipCharter = lazy(() => import("@/pages/membership-charter"));
+const MemberPortal = lazy(() => import("@/pages/member-portal"));
+const BusinessPortal = lazy(() => import("@/pages/business-portal"));
+const BusinessApplication = lazy(() => import("@/pages/business-application"));
+const Studio = lazy(() => import("@/pages/studio"));
+const StudioLanding = lazy(() => import("@/pages/studio-landing"));
+const StudioProjects = lazy(() => import("@/pages/studio-projects"));
+const StudioDocs = lazy(() => import("@/pages/studio-docs"));
+const Team = lazy(() => import("@/pages/team"));
+const Bridge = lazy(() => import("@/pages/bridge"));
+const Staking = lazy(() => import("@/pages/staking"));
+const Faucet = lazy(() => import("@/pages/faucet"));
+const Swap = lazy(() => import("@/pages/swap"));
+const Markets = lazy(() => import("@/pages/markets"));
+const Pulse = lazy(() => import("@/pages/pulse"));
+const MLDashboard = lazy(() => import("@/pages/ml-dashboard"));
+const StrikeAgent = lazy(() => import("@/pages/strike-agent"));
+const CoinAnalysis = lazy(() => import("@/pages/coin-analysis"));
+const NftMarketplace = lazy(() => import("@/pages/nft-marketplace"));
+const Portfolio = lazy(() => import("@/pages/portfolio"));
+const Transactions = lazy(() => import("@/pages/transactions"));
+const Launchpad = lazy(() => import("@/pages/launchpad"));
+const LaunchCountdown = lazy(() => import("@/pages/launch"));
+const Liquidity = lazy(() => import("@/pages/liquidity"));
+const NftGallery = lazy(() => import("@/pages/nft-gallery"));
+const NftCreator = lazy(() => import("@/pages/nft-creator"));
+const Charts = lazy(() => import("@/pages/charts"));
+const Webhooks = lazy(() => import("@/pages/webhooks"));
+const MultiSig = lazy(() => import("@/pages/multisig"));
+const ProofOfReserve = lazy(() => import("@/pages/proof-of-reserve"));
+const LiquidStaking = lazy(() => import("@/pages/liquid-staking"));
+const AirdropClaim = lazy(() => import("@/pages/airdrop-claim"));
+const Quests = lazy(() => import("@/pages/quests"));
+const NetworkStats = lazy(() => import("@/pages/network-stats"));
+const FounderProgram = lazy(() => import("@/pages/founder-program"));
+const Validators = lazy(() => import("@/pages/validators"));
+const Wallet = lazy(() => import("@/pages/wallet"));
+const Status = lazy(() => import("@/pages/status"));
+const ApiDocs = lazy(() => import("@/pages/api-docs"));
+const ErrorPage = lazy(() => import("@/pages/error"));
+const ForgotPassword = lazy(() => import("@/pages/forgot-password"));
+const ResetPassword = lazy(() => import("@/pages/reset-password"));
+const TokenCompare = lazy(() => import("@/pages/token-compare"));
+const CodeSnippets = lazy(() => import("@/pages/code-snippets"));
+const ApiUsage = lazy(() => import("@/pages/api-usage"));
+const Referrals = lazy(() => import("@/pages/referrals"));
+const DashboardPro = lazy(() => import("@/pages/dashboard-pro"));
+const Trading = lazy(() => import("@/pages/trading"));
+const WhaleTracker = lazy(() => import("@/pages/whale-tracker"));
+const CopyTrading = lazy(() => import("@/pages/copy-trading"));
+const DCABot = lazy(() => import("@/pages/dca-bot"));
+const TokenAnalytics = lazy(() => import("@/pages/token-analytics"));
+const Leaderboard = lazy(() => import("@/pages/leaderboard"));
+const WalletProfiler = lazy(() => import("@/pages/wallet-profiler"));
+const GasEstimator = lazy(() => import("@/pages/gas-estimator"));
+const ActivityFeed = lazy(() => import("@/pages/activity-feed"));
+const AINFTGenerator = lazy(() => import("@/pages/ai-nft-generator"));
+const RarityAnalyzer = lazy(() => import("@/pages/rarity-analyzer"));
+const UserProfiles = lazy(() => import("@/pages/user-profiles"));
+const DAOGovernance = lazy(() => import("@/pages/dao-governance"));
+const TxSimulator = lazy(() => import("@/pages/tx-simulator"));
+const PortfolioRebalancer = lazy(() => import("@/pages/portfolio-rebalancer"));
+const Crash = lazy(() => import("@/pages/crash"));
+const Predictions = lazy(() => import("@/pages/predictions"));
+const PlayerProfile = lazy(() => import("@/pages/player-profile"));
+const CoinStore = lazy(() => import("@/pages/coin-store"));
+const DailyBonus = lazy(() => import("@/pages/daily-bonus"));
+const Slots = lazy(() => import("@/pages/slots"));
+const Coinflip = lazy(() => import("@/pages/coinflip"));
+const SweepstakesRules = lazy(() => import("@/pages/sweepstakes-rules"));
+const Spades = lazy(() => import("@/pages/spades"));
+const Solitaire = lazy(() => import("@/pages/solitaire"));
+const Minesweeper = lazy(() => import("@/pages/minesweeper"));
+const Galaga = lazy(() => import("@/pages/galaga"));
+const Tetris = lazy(() => import("@/pages/tetris"));
+const Snake = lazy(() => import("@/pages/snake"));
+const Pacman = lazy(() => import("@/pages/pacman"));
+const Genesis = lazy(() => import("@/pages/genesis"));
+const TrustBook = lazy(() => import("@/pages/trust-book"));
+const Veil = lazy(() => import("@/pages/veil"));
+const VeilReader = lazy(() => import("@/pages/veil-reader"));
+const VeilPrintVol2 = lazy(() => import("@/pages/veil-print-vol2"));
+const TheVoid = lazy(() => import("@/pages/the-void"));
+const SignalChat = lazy(() => import("@/pages/signal-chat"));
+const CreatorProgram = lazy(() => import("@/pages/creator-program"));
+const Crowdfund = lazy(() => import("@/pages/crowdfund"));
+const Rewards = lazy(() => import("@/pages/rewards"));
+const MyHub = lazy(() => import("@/pages/my-hub"));
+const Members = lazy(() => import("@/pages/members"));
+const MyTokens = lazy(() => import("@/pages/my-tokens"));
+const CommunityHub = lazy(() => import("@/pages/community-hub"));
+const Presale = lazy(() => import("@/pages/presale"));
+const TrustLayerLanding = lazy(() => import("@/pages/trust-layer-landing"));
+const PresaleSuccess = lazy(() => import("@/pages/presale-success"));
+const Founders = lazy(() => import("@/pages/founders"));
+const InvestmentSimulator = lazy(() => import("@/pages/investment-simulator"));
+const RoadmapEcosystem = lazy(() => import("@/pages/roadmap-ecosystem"));
+const TechnicalRoadmap = lazy(() => import("@/pages/technical-roadmap"));
+const SyndicateInvite = lazy(() => import("@/pages/syndicate-invite"));
+const SocialFeed = lazy(() => import("@/pages/social-feed"));
+const InnovationHub = lazy(() => import("@/pages/innovation-hub"));
+const Lottery = lazy(() => import("@/pages/lottery"));
+const AIAdvisor = lazy(() => import("@/pages/ai-advisor"));
+const PriceAlerts = lazy(() => import("@/pages/price-alerts"));
+const PaperTrading = lazy(() => import("@/pages/paper-trading"));
+const Achievements = lazy(() => import("@/pages/achievements"));
+const Domains = lazy(() => import("@/pages/domains"));
+const DomainManager = lazy(() => import("@/pages/domain-manager"));
+const PartnerPortal = lazy(() => import("@/pages/partner-portal"));
+const Tokenomics = lazy(() => import("@/pages/tokenomics"));
+const FAQ = lazy(() => import("@/pages/faq"));
+const SupportPage = lazy(() => import("@/pages/support"));
+const CompetitiveAnalysis = lazy(() => import("@/pages/competitive-analysis"));
+const InvestorPitch = lazy(() => import("@/pages/investor-pitch"));
+const InvestorDataRoom = lazy(() => import("@/pages/investor-data-room"));
+const Vision = lazy(() => import("@/pages/vision"));
+const Learn = lazy(() => import("@/pages/learn"));
+const Academy = lazy(() => import("@/pages/academy"));
+const LumeResearch = lazy(() => import("@/pages/lume-research"));
+const EcosystemMap = lazy(() => import("@/pages/ecosystem-map"));
+const SecurityPage = lazy(() => import("@/pages/security"));
+const GuardianCertification = lazy(() => import("@/pages/guardian-certification"));
+const GuardianRegistry = lazy(() => import("@/pages/guardian-registry"));
+const GuardianPortal = lazy(() => import("@/pages/guardian-portal"));
+const GuardianWhitepaper = lazy(() => import("@/pages/guardian-whitepaper"));
+const ExploreHub = lazy(() => import("@/pages/explore-hub"));
+const CommandCenter = lazy(() => import("@/pages/command-center"));
+const SsoAdmin = lazy(() => import("@/pages/sso-admin"));
+const SsoConsent = lazy(() => import("@/pages/sso-consent"));
+const OwnerAdminPortal = lazy(() => import("@/pages/owner-admin"));
+const OwnerAnalytics = lazy(() => import("@/pages/owner-admin/analytics"));
+const OwnerSeoManager = lazy(() => import("@/pages/owner-admin/seo"));
+const OwnerReferrals = lazy(() => import("@/pages/owner-admin/referrals"));
+const OwnerUsers = lazy(() => import("@/pages/owner-admin/users"));
+const OwnerGuardian = lazy(() => import("@/pages/owner-admin/guardian"));
+const OwnerDomains = lazy(() => import("@/pages/owner-admin/domains"));
+const OwnerFaucet = lazy(() => import("@/pages/owner-admin/faucet"));
+const OwnerKyc = lazy(() => import("@/pages/owner-admin/kyc"));
+const OwnerBusinessVerification = lazy(() => import("@/pages/owner-admin/business-verification"));
+const OwnerZealy = lazy(() => import("@/pages/owner-admin/zealy"));
+const OwnerFeedback = lazy(() => import("@/pages/owner-admin/feedback"));
+const OwnerMessaging = lazy(() => import("@/pages/owner-admin/messaging"));
+const OwnerPresale = lazy(() => import("@/pages/owner-admin/presale"));
+const Feedback = lazy(() => import("@/pages/feedback"));
+const TeamAdminPortal = lazy(() => import("@/pages/team-admin"));
+const TeamOperations = lazy(() => import("@/pages/team-operations"));
+const GatewayError = lazy(() => import("@/pages/gateway-error"));
+const AIAgentMarketplace = lazy(() => import("@/pages/ai-agent-marketplace"));
+const RWATokenization = lazy(() => import("@/pages/rwa-tokenization"));
+const InfluencerPartnership = lazy(() => import("@/pages/influencer-partnership"));
+const InfluencerShowcase = lazy(() => import("@/pages/influencer-showcase"));
+const ComingFeatures = lazy(() => import("@/pages/coming-features"));
+const Blog = lazy(() => import("@/pages/blog"));
+const BlogPost = lazy(() => import("@/pages/blog-post"));
+const BlogAdmin = lazy(() => import("@/pages/blog-admin"));
+const TrustLayer = lazy(() => import("@/pages/trust-layer"));
+const GuardianScanner = lazy(() => import("@/pages/guardian-scanner"));
+const GuardianScannerDetail = lazy(() => import("@/pages/token-detail"));
+const GuardianAI = lazy(() => import("@/pages/guardian-ai"));
+const GuardianAIRegistry = lazy(() => import("@/pages/guardian-ai-registry"));
+const GuardianShield = lazy(() => import("@/pages/guardian-shield"));
+const AffiliateDashboard = lazy(() => import("@/pages/affiliate-dashboard"));
+const EcosystemCheckout = lazy(() => import("@/pages/ecosystem-checkout"));
+const EraCodex = lazy(() => import("@/pages/era-codex"));
+const ScenarioGenerator = lazy(() => import("@/pages/scenario-generator"));
+const NotFound = lazy(() => import("@/pages/not-found"));
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
+  return null;
+}
+
+function ReferralRedirect({ hash }: { hash: string }) {
+  const [, setLocation] = useLocation();
+  useEffect(() => {
+    fetch("/api/affiliate/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ referralHash: hash, platform: "trustlayer" }),
+    }).catch(() => {});
+    setLocation("/");
+  }, [hash, setLocation]);
+  return <PageLoader />;
+}
+
+function GamesRouter() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={GamesHome} />
+        <Route path="/join/:code" component={SyndicateInvite} />
+        <Route path="/arcade/profile" component={PlayerProfile} />
+        <Route path="/arcade/profile/:userId" component={PlayerProfile} />
+        <Route path="/coin-store" component={CoinStore} />
+        <Route path="/daily-bonus" component={DailyBonus} />
+        <Route path="/slots" component={Slots} />
+        <Route path="/coinflip" component={Coinflip} />
+        <Route path="/sweepstakes-rules" component={SweepstakesRules} />
+        <Route path="/spades" component={Spades} />
+        <Route path="/solitaire" component={Solitaire} />
+        <Route path="/minesweeper" component={Minesweeper} />
+        <Route path="/galaga" component={Galaga} />
+        <Route path="/tetris" component={Tetris} />
+        <Route path="/snake" component={Snake} />
+        <Route path="/pacman" component={Pacman} />
+        <Route path="/genesis" component={Genesis} />
+        <Route path="/trust-book" component={TrustBook} />
+        <Route path="/veil" component={Veil} />
+        <Route path="/veil/read" component={VeilReader} />
+        <Route path="/veil/print/vol2" component={VeilPrintVol2} />
+        <Route path="/the-void" component={TheVoid} />
+        <Route path="/signal-chat" component={SignalChat} />
+        <Route path="/creator-program" component={CreatorProgram} />
+        <Route path="/crowdfund" component={Crowdfund} />
+        <Route path="/community" component={CommunityHub} />
+        <Route path="/presale" component={Presale} />
+        <Route path="/presale/success" component={PresaleSuccess} />
+        <Route path="/founders" component={Founders} />
+        <Route path="/investment-simulator" component={InvestmentSimulator} />
+        <Route path="/launch" component={LaunchCountdown} />
+        <Route path="/roadmap" component={RoadmapEcosystem} />
+        <Route path="/roadmap-ecosystem" component={RoadmapEcosystem} />
+        <Route path="/crash" component={Crash} />
+        <Route path="/predictions" component={Predictions} />
+        <Route path="/lottery" component={Lottery} />
+        <Route path="/wallet" component={Wallet} />
+        <Route path="/game-developer" component={GameDeveloper} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/virtual-currency-terms" component={VirtualCurrencyTerms} />
+        <Route path="/privacy" component={Privacy} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
+}
+
+
+function ChronoRouter() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={ChronoHome} />
+        <Route path="/join/:code" component={SyndicateInvite} />
+        <Route path="/eras" component={ChronoEras} />
+        <Route path="/gameplay" component={ChronoGameplay} />
+        <Route path="/economy" component={ChronoEconomy} />
+        <Route path="/community" component={ChronoCommunity} />
+        <Route path="/dashboard" component={ChronoDashboard} />
+        <Route path="/team" component={ChronoTeam} />
+        <Route path="/creators" component={ChronoCreators} />
+        <Route path="/executive-summary" component={ChroniclesExecutiveSummary} />
+        <Route path="/launch" component={LaunchCountdown} />
+        <Route path="/roadmap" component={ChronoRoadmap} />
+        <Route path="/genesis" component={Genesis} />
+        <Route path="/trust-book" component={TrustBook} />
+        <Route path="/veil" component={Veil} />
+        <Route path="/veil/read" component={VeilReader} />
+        <Route path="/veil/print/vol2" component={VeilPrintVol2} />
+        <Route path="/the-void" component={TheVoid} />
+        <Route path="/signal-chat" component={SignalChat} />
+        <Route path="/creator-program" component={CreatorProgram} />
+        <Route path="/era-codex" component={EraCodex} />
+        <Route path="/crowdfund" component={Crowdfund} />
+        <Route path="/presale" component={Presale} />
+        <Route path="/presale/success" component={PresaleSuccess} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/virtual-currency-terms" component={VirtualCurrencyTerms} />
+        <Route path="/privacy" component={Privacy} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
+}
+
+function DWSCRouter() {
+  const tlidRoute = useMemo(() => getTlidSubdomainRoute(), []);
+  
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
+      <Switch>
+        {tlidRoute && tlidRoute !== "/" ? (
+          <Route path="/">{() => {
+            const RouteComponent = (() => {
+              switch(tlidRoute) {
+                case "/influencer": return InfluencerShowcase;
+                case "/launch": return LaunchCountdown;
+                case "/trust-book": return TrustBook;
+                case "/wallet": return Wallet;
+                case "/my-hub": return MyHub;
+                case "/academy": return Academy;
+                case "/the-void": return TheVoid;
+                case "/guardian-scanner": return GuardianScanner;
+                case "/guardian-ai": return GuardianAI;
+                case "/signal-chat": return SignalCore;
+                case "/domains": return Domains;
+                case "/veil/read": return VeilReader;
+                default: return ExploreHub;
+              }
+            })();
+            return <RouteComponent />;
+          }}</Route>
+        ) : (
+          <Route path="/" component={ExploreHub} />
+        )}
+        <Route path="/presale" component={Presale} />
+        <Route path="/trust-layer" component={TrustLayerLanding} />
+        <Route path="/portal" component={Home} />
+        <Route path="/home" component={Home} />
+        <Route path="/checkout/universal" component={EcosystemCheckout} />
+        <Route path="/note" component={DevelopersNote} />
+        <Route path="/join/:code" component={SyndicateInvite} />
+        <Route path="/rewards" component={Rewards} />
+        <Route path="/referral-program" component={ReferralProgram} />
+        <Route path="/referrals" component={ReferralProgram} />
+        <Route path="/affiliate" component={AffiliateDashboard} />
+        <Route path="/ref/:hash">{(params: { hash: string }) => <ReferralRedirect hash={params.hash} />}</Route>
+        <Route path="/my-hub" component={MyHub} />
+        <Route path="/members" component={Members} />
+        <Route path="/my-tokens" component={MyTokens} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/developers" component={Developers} />
+        <Route path="/developers/register" component={DevelopersRegister} />
+        <Route path="/ecosystem" component={Ecosystem} />
+        <Route path="/token" component={Token} />
+        <Route path="/tokenomics" component={Tokenomics} />
+        <Route path="/faq" component={FAQ} />
+        <Route path="/welcome" component={Welcome} />
+        <Route path="/signal-core" component={SignalCore} />
+        <Route path="/signal-core/official" component={SignalCoreOfficial} />
+        <Route path="/verify" component={Verify} />
+        <Route path="/verify-email" component={VerifyEmail} />
+        <Route path="/governance" component={SignalCore} />
+        <Route path="/governance-charter" component={GovernanceCharter} />
+        <Route path="/governance-treasury" component={GovernanceTreasury} />
+        <Route path="/trust-cooperative" component={TrustCooperative} />
+        <Route path="/cooperative" component={TrustCooperative} />
+        <Route path="/trust-document/ops-lead" component={TrustDocumentOps} />
+        <Route path="/team-message" component={TeamMessage} />
+        <Route path="/philosophy" component={Philosophy} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/blog/:slug" component={BlogPost} />
+        <Route path="/blog-admin" component={BlogAdmin} />
+        <Route path="/support" component={SupportPage} />
+        <Route path="/competitive-analysis" component={CompetitiveAnalysis} />
+        <Route path="/security" component={SecurityPage} />
+        <Route path="/guardian" component={GuardianCertification} />
+        <Route path="/guardian-certification" component={GuardianCertification} />
+        <Route path="/guardian-registry" component={GuardianRegistry} />
+        <Route path="/guardian-portal" component={GuardianPortal} />
+        <Route path="/guardian-whitepaper" component={GuardianWhitepaper} />
+        <Route path="/guardian-ai" component={GuardianAI} />
+        <Route path="/guardian-ai-registry" component={GuardianAIRegistry} />
+        <Route path="/guardian-shield" component={GuardianShield} />
+        <Route path="/explorer" component={Explorer} />
+        <Route path="/doc-hub" component={DocHub} />
+        <Route path="/executive-summary" component={DWSCExecutiveSummary} />
+        <Route path="/api-playground" component={ApiPlayground} />
+        <Route path="/treasury" component={Treasury} />
+        <Route path="/marketing-catalog/dev" component={MarketingCatalogDev} />
+        <Route path="/marketing-catalog/admin" component={MarketingCatalogAdmin} />
+        <Route path="/developer-portal" component={DeveloperPortal} />
+        <Route path="/billing" component={Billing} />
+        <Route path="/pricing" component={Pricing} />
+        <Route path="/membership" component={MembershipCharter} />
+        <Route path="/membership-charter" component={MembershipCharter} />
+        <Route path="/member-portal" component={MemberPortal} />
+        <Route path="/business-portal" component={BusinessPortal} />
+        <Route path="/business-application" component={BusinessApplication} />
+        <Route path="/dev-studio" component={DevStudio} />
+        <Route path="/studio" component={StudioLanding} />
+        <Route path="/studio/editor" component={Studio} />
+        <Route path="/studio/projects" component={StudioProjects} />
+        <Route path="/studio/docs" component={StudioDocs} />
+        <Route path="/team" component={Team} />
+        <Route path="/bridge" component={Bridge} />
+        <Route path="/staking" component={Staking} />
+        <Route path="/faucet" component={Faucet} />
+        <Route path="/swap" component={Swap} />
+        <Route path="/markets" component={Markets} />
+        <Route path="/pulse" component={Pulse} />
+        <Route path="/ml-dashboard" component={MLDashboard} />
+        <Route path="/strike-agent" component={StrikeAgent} />
+        <Route path="/guardian-scanner" component={GuardianScanner} />
+        <Route path="/guardian-scanner/:chain/:symbol" component={GuardianScannerDetail} />
+        <Route path="/coin/:id" component={CoinAnalysis} />
+        <Route path="/nft" component={NftMarketplace} />
+        <Route path="/portfolio" component={Portfolio} />
+        <Route path="/transactions" component={Transactions} />
+        <Route path="/launchpad" component={Launchpad} />
+        <Route path="/liquidity" component={Liquidity} />
+        <Route path="/nft-gallery" component={NftGallery} />
+        <Route path="/nft-creator" component={NftCreator} />
+        <Route path="/charts" component={Charts} />
+        <Route path="/webhooks" component={Webhooks} />
+        <Route path="/multisig" component={MultiSig} />
+        <Route path="/proof-of-reserve" component={ProofOfReserve} />
+        <Route path="/liquid-staking" component={LiquidStaking} />
+        <Route path="/airdrop" component={AirdropClaim} />
+        <Route path="/quests" component={Quests} />
+        <Route path="/network" component={NetworkStats} />
+        <Route path="/founder-program" component={FounderProgram} />
+        <Route path="/validators" component={Validators} />
+        <Route path="/wallet" component={Wallet} />
+        <Route path="/status" component={Status} />
+        <Route path="/api-docs" component={ApiDocs} />
+        <Route path="/explore" component={ExploreHub} />
+        <Route path="/command-center" component={CommandCenter} />
+        <Route path="/owner-admin/sso" component={SsoAdmin} />
+        <Route path="/sso/consent" component={SsoConsent} />
+        <Route path="/owner-admin" component={OwnerAdminPortal} />
+        <Route path="/owner-admin/analytics" component={OwnerAnalytics} />
+        <Route path="/owner-admin/seo" component={OwnerSeoManager} />
+        <Route path="/owner-admin/referrals" component={OwnerReferrals} />
+        <Route path="/owner-admin/users" component={OwnerUsers} />
+        <Route path="/owner-admin/guardian" component={OwnerGuardian} />
+        <Route path="/owner-admin/domains" component={OwnerDomains} />
+        <Route path="/owner-admin/faucet" component={OwnerFaucet} />
+        <Route path="/owner-admin/kyc" component={OwnerKyc} />
+        <Route path="/owner-admin/business-verification" component={OwnerBusinessVerification} />
+        <Route path="/owner-admin/zealy" component={OwnerZealy} />
+        <Route path="/owner-admin/feedback" component={OwnerFeedback} />
+        <Route path="/owner-admin/messaging" component={OwnerMessaging} />
+        <Route path="/owner-admin/presale" component={OwnerPresale} />
+        <Route path="/feedback" component={Feedback} />
+        <Route path="/team-admin" component={TeamAdminPortal} />
+        <Route path="/ops-center" component={TeamOperations} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/virtual-currency-terms" component={VirtualCurrencyTerms} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/error" component={ErrorPage} />
+        <Route path="/token-compare" component={TokenCompare} />
+        <Route path="/investor-pitch" component={InvestorPitch} />
+        <Route path="/pitch-deck" component={InvestorPitch} />
+        <Route path="/investor-room" component={InvestorDataRoom} />
+        <Route path="/vision" component={Vision} />
+        <Route path="/trust-layer" component={TrustLayer} />
+        <Route path="/learn" component={Learn} />
+        <Route path="/academy" component={Academy} />
+        <Route path="/academy/research" component={LumeResearch} />
+        <Route path="/ecosystem" component={EcosystemMap} />
+        <Route path="/code-snippets" component={CodeSnippets} />
+        <Route path="/api-usage" component={ApiUsage} />
+        <Route path="/referrals" component={Referrals} />
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/reset-password" component={ResetPassword} />
+        <Route path="/dashboard-pro" component={DashboardPro} />
+        <Route path="/trading" component={Trading} />
+        <Route path="/whale-tracker" component={WhaleTracker} />
+        <Route path="/copy-trading" component={CopyTrading} />
+        <Route path="/dca-bot" component={DCABot} />
+        <Route path="/token-analytics" component={TokenAnalytics} />
+        <Route path="/leaderboard" component={Leaderboard} />
+        <Route path="/wallet-profiler" component={WalletProfiler} />
+        <Route path="/gas-estimator" component={GasEstimator} />
+        <Route path="/activity" component={ActivityFeed} />
+        <Route path="/ai-nft" component={AINFTGenerator} />
+        <Route path="/rarity" component={RarityAnalyzer} />
+        <Route path="/profile" component={UserProfiles} />
+        <Route path="/governance" component={DAOGovernance} />
+        <Route path="/simulate" component={TxSimulator} />
+        <Route path="/rebalancer" component={PortfolioRebalancer} />
+        <Route path="/crash" component={Crash} />
+        <Route path="/predictions" component={Predictions} />
+        <Route path="/social" component={SocialFeed} />
+        <Route path="/lottery" component={Lottery} />
+        <Route path="/ai-advisor" component={AIAdvisor} />
+        <Route path="/alerts" component={PriceAlerts} />
+        <Route path="/paper-trading" component={PaperTrading} />
+        <Route path="/achievements" component={Achievements} />
+        <Route path="/domains" component={Domains} />
+        <Route path="/domain/:name" component={DomainManager} />
+        <Route path="/partners" component={PartnerPortal} />
+        <Route path="/influencer-partnership" component={InfluencerPartnership} />
+        <Route path="/influencer" component={InfluencerShowcase} />
+        <Route path="/showcase" component={InfluencerShowcase} />
+        <Route path="/kol" component={InfluencerPartnership} />
+        <Route path="/game-developer" component={GameDeveloper} />
+        <Route path="/slots" component={Slots} />
+        <Route path="/coinflip" component={Coinflip} />
+        <Route path="/spades" component={Spades} />
+        <Route path="/solitaire" component={Solitaire} />
+        <Route path="/minesweeper" component={Minesweeper} />
+        <Route path="/galaga" component={Galaga} />
+        <Route path="/tetris" component={Tetris} />
+        <Route path="/snake" component={Snake} />
+        <Route path="/pacman" component={Pacman} />
+        <Route path="/genesis" component={Genesis} />
+        <Route path="/trust-book" component={TrustBook} />
+        <Route path="/veil" component={Veil} />
+        <Route path="/veil/read" component={VeilReader} />
+        <Route path="/veil/print/vol2" component={VeilPrintVol2} />
+        <Route path="/the-void" component={TheVoid} />
+        <Route path="/signal-chat" component={SignalChat} />
+        <Route path="/creator-program" component={CreatorProgram} />
+        <Route path="/era-codex" component={EraCodex} />
+        <Route path="/scenario-generator" component={ScenarioGenerator} />
+        <Route path="/crowdfund" component={Crowdfund} />
+        <Route path="/community" component={CommunityHub} />
+        <Route path="/presale" component={Presale} />
+        <Route path="/presale/success" component={PresaleSuccess} />
+        <Route path="/investment-simulator" component={InvestmentSimulator} />
+        <Route path="/launch" component={LaunchCountdown} />
+        <Route path="/roadmap" component={RoadmapEcosystem} />
+        <Route path="/roadmap-ecosystem" component={RoadmapEcosystem} />
+        <Route path="/technical-roadmap" component={TechnicalRoadmap} />
+        <Route path="/innovation" component={InnovationHub} />
+        <Route path="/ai-agents" component={AIAgentMarketplace} />
+        <Route path="/rwa" component={RWATokenization} />
+
+        <Route path="/sweepstakes-rules" component={SweepstakesRules} />
+        <Route path="/coin-store" component={CoinStore} />
+        <Route path="/daily-bonus" component={DailyBonus} />
+        <Route path="/gateway-error" component={GatewayError} />
+        <Route path="/coming-features" component={ComingFeatures} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
+}
+
+function TrustShieldRouter() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={GuardianAI} />
+        <Route path="/guardian-ai" component={GuardianAI} />
+        <Route path="/guardian-ai-registry" component={GuardianAIRegistry} />
+        <Route path="/guardian-shield" component={GuardianShield} />
+        <Route path="/guardian-certification" component={GuardianCertification} />
+        <Route path="/guardian-whitepaper" component={GuardianWhitepaper} />
+        <Route path="/guardian-portal" component={GuardianPortal} />
+        <Route path="/guardian-scanner" component={GuardianScanner} />
+        <Route path="/guardian-scanner/:chain/:symbol" component={GuardianScannerDetail} />
+        <Route path="/login" component={Welcome} />
+        <Route path="/signup" component={Welcome} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/trust-layer" component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
+}
+
+function StudiosRouter() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={StudioLanding} />
+        <Route path="/studio" component={StudioLanding} />
+        <Route path="/studio/editor" component={Studio} />
+        <Route path="/studio/docs" component={StudioDocs} />
+        <Route path="/dev-studio" component={DevStudio} />
+        <Route path="/studio/projects" component={StudioProjects} />
+        <Route path="/code-snippets" component={CodeSnippets} />
+        <Route path="/developers" component={Developers} />
+        <Route path="/developers/register" component={DevelopersRegister} />
+        <Route path="/developer-portal" component={DeveloperPortal} />
+        <Route path="/api-docs" component={ApiDocs} />
+        <Route path="/api-playground" component={ApiPlayground} />
+        <Route path="/doc-hub" component={DocHub} />
+        <Route path="/login" component={Welcome} />
+        <Route path="/signup" component={Welcome} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/trust-layer" component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
+}
+
+function Router() {
+  const appType = useMemo(() => getAppFromHost(), []);
+  
+  if (appType === "games") {
+    return <GamesRouter />;
+  }
+  if (appType === "chrono") {
+    return <ChronoRouter />;
+  }
+  if (appType === "studios") {
+    return <StudiosRouter />;
+  }
+  if (appType === "trustshield") {
+    return <TrustShieldRouter />;
+  }
+  return <DWSCRouter />;
+}
+
+function AppShell({ appType }: { appType: string }) {
+  const [location] = useLocation();
+  const isStandalonePWA = location.startsWith("/signal-chat");
+  const noFooterPaths = ["/studio/editor"];
+  const hideFooter = isStandalonePWA || noFooterPaths.some(p => location.startsWith(p));
+
+  return (
+    <>
+      <Suspense fallback={null}>
+        {!isStandalonePWA && appType === "dwsc" && <SiteNav />}
+        {!isStandalonePWA && appType === "games" && <GamesNav />}
+      </Suspense>
+      <Router />
+      <Suspense fallback={null}>
+        {!hideFooter && <Footer />}
+        {!isStandalonePWA && appType === "dwsc" && <AIAssistant />}
+        {!isStandalonePWA && <FloatingChat />}
+        {!isStandalonePWA && <GlobalSearch />}
+        {!isStandalonePWA && <ContextualHelp />}
+        <PresaleBanner />
+      </Suspense>
+      <div className="h-14" aria-hidden="true" />
+    </>
+  );
+}
+
+const TLID_SUBDOMAIN_ROUTES: Record<string, string> = {
+  "trustlayer": "/",
+  "chronicles": "/",
+  "throughtheveil": "/veil",
+  "signalchat": "/signal-chat",
+  "chronochat": "/signal-chat",
+  "guardianscanner": "/guardian-scanner",
+  "guardianscreener": "/guardian-ai",
+  "trustshield": "/guardian-scanner",
+  "academy": "/academy",
+  "thevoid": "/the-void",
+  "tlid": "/domains",
+  "torque": "/ecosystem",
+  "trusthub": "/explore",
+  "trusthome": "/my-hub",
+  "trustvault": "/wallet",
+  "trustbook": "/trust-book",
+  "launch": "/launch",
+  "ecosystem": "/influencer",
+};
+
+function getTlidSubdomainRoute(): string | null {
+  const host = window.location.hostname.toLowerCase();
+  if (!host.endsWith(".tlid.io") || host === "tlid.io" || host === "www.tlid.io") return null;
+  const subdomain = host.split(".")[0];
+  const targetRoute = TLID_SUBDOMAIN_ROUTES[subdomain];
+  if (targetRoute && window.location.pathname === "/") {
+    return targetRoute;
+  }
+  return null;
+}
+
+function useTlidSubdomainRedirect() {
+  useEffect(() => {
+    const route = getTlidSubdomainRoute();
+    if (route && route !== "/") {
+      window.history.replaceState(null, "", route);
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    }
+  }, []);
+}
+
+function useVeilPWARedirect() {
+  useEffect(() => {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (navigator as any).standalone;
+    if (!isStandalone) return;
+    if (window.location.pathname !== '/') return;
+    const isVeilHome = localStorage.getItem('veil-pwa-home') === 'true';
+    if (isVeilHome) {
+      window.location.replace('/veil');
+    }
+  }, []);
+}
+
+function App() {
+  const appType = useMemo(() => getAppFromHost(), []);
+  useTlidSubdomainRedirect();
+  useVeilPWARedirect();
+
+  return (
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <WalletProvider>
+          <PreferencesProvider>
+            <NotificationsProvider>
+              <FavoritesProvider>
+                <TooltipProvider>
+                  <Toaster />
+                  <AppShell appType={appType} />
+                </TooltipProvider>
+              </FavoritesProvider>
+            </NotificationsProvider>
+          </PreferencesProvider>
+        </WalletProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
+  );
+}
+
+export default App;
+
+// Build trigger: 20260328121654
