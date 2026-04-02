@@ -175,7 +175,7 @@ function WhitepaperContent() {
           </span>
         </h1>
         <p className="text-white/50 text-sm mb-2">
-          An AI-Native Programming Language with Natural Language Compilation, Voice Input, and Certified Security
+          A Deterministic Intent-Resolving Programming Language with Lume Compilation, Voice Input, and Certified Security
         </p>
         <p className="text-white/40 text-xs font-mono mb-8">
           Authors: Jason (Trust Layer / DarkWave Systems Collective) · team@dwsc.io · lume-lang.com
@@ -185,7 +185,7 @@ function WhitepaperContent() {
           <div className="p-6">
             <h3 className="text-sm font-bold text-cyan-400 uppercase tracking-wider mb-3">Abstract</h3>
             <p className="text-white/70 text-sm leading-relaxed">
-              We present Lume, an AI-native programming language whose compiler is architected from the ground up to accept imprecise, informal, and ambiguous natural language as valid source code. Unlike all existing programming languages, which require exact syntactic conformity, Lume's compilation pipeline employs a seven-layer Tolerance Chain that progressively resolves developer intent from plain English text — or spoken voice — into a typed Abstract Syntax Tree (AST), which then transpiles to certified JavaScript.
+              We present Lume, a deterministic programming language whose compiler is architected from the ground up to accept imprecise, informal, and ambiguous natural language as valid source code. Unlike all existing programming languages, which require exact syntactic conformity, Lume's compilation pipeline employs a seven-layer Tolerance Chain that progressively resolves developer intent from plain English text — or spoken voice — into a typed Abstract Syntax Tree (AST), which then transpiles to certified JavaScript.
             </p>
             <p className="text-white/70 text-sm leading-relaxed mt-3">
               The compiler performs live, intent-aware security scanning at AST node creation time, producing tamper-evident security certificates — a capability we call "certified at birth." Voice input flows through a dedicated Transcription Cleanup Layer that normalizes speech artifacts before entering the same Tolerance Chain, making voice-to-code an architectural consequence of the language's design rather than a bolt-on feature.
@@ -896,7 +896,7 @@ if it fails 3 times, show "Service unavailable"
           ["lume repl", "Interactive REPL"],
           ["lume test <file>", "Run intent blocks as tests"],
           ["lume explain <file>", "Explain code in plain language"],
-          ["lume fix <file>", "AI-powered error fix"],
+          ["lume fix <file>", "Deterministic error fix"],
           ["lume lint <file>", "Lint for clarity and ambiguity"],
           ["lume canonicalize <file>", "Normalize English to canonical form"],
           ["lume docs <file>", "Generate documentation"],

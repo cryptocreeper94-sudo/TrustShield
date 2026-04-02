@@ -430,11 +430,11 @@ Repeat 3 times:
   show "Building step number" and the current count.
 
 Show "Your Lume project is ready!"` },
-      { name: "README.md", content: `# Lume — The AI-Native Programming Language
+      { name: "README.md", content: `# Lume — The Deterministic Intent-Resolving Compiler
 
 Lume eliminates cognitive distance between human intent and machine execution.
 Instead of translating your ideas into rigid syntax, Lume lets you express
-what you want naturally and the AI-native runtime handles the rest.
+what you want naturally and the deterministic runtime strictly resolves intent to AST.
 
 ## Key Features
 
