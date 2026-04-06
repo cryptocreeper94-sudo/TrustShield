@@ -615,7 +615,7 @@ function MasterSpecContent() {
           </span>
         </h1>
         <p className="text-white/50 text-sm mb-2">
-          Complete Master Specification — Version 1.0
+          Complete Master Specification — Version 1.1.0
         </p>
         <p className="text-white/40 text-xs font-mono mb-8">
           Compiled from 8 source documents · 7,074 lines · 305 acceptance criteria · March 2026
@@ -625,7 +625,7 @@ function MasterSpecContent() {
           <div className="p-6">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
-                { value: "13", label: "Milestones" },
+                { value: "13+", label: "Milestones" },
                 { value: "366", label: "Tests" },
                 { value: "305", label: "Acceptance Criteria" },
                 { value: "34+", label: "Pattern Library" },
@@ -791,13 +791,13 @@ while count is less than 10:
           ["4", "JS Interop & CLI", "COMPLETE", "use/expose, lume build/run/repl CLI."],
           ["5", "IDE Tooling & DX", "COMPLETE", "REPL, syntax highlighting, diagnostics."],
           ["6", "Self-Sustaining Runtime", "COMPLETE", "Monitor, heal, optimize, evolve."],
-          ["7", "English Mode", "SPEC COMPLETE", "Plain English as source code."],
-          ["8", "Multilingual Mode", "SPEC COMPLETE", "Any human language as input."],
-          ["9", "Voice-to-Code", "SPEC COMPLETE", "Spoken language as compiler input."],
-          ["10", "Visual Context", "SPEC COMPLETE", "UI element registry, spatial resolution."],
-          ["11", "Reverse Mode", "SPEC COMPLETE", "Code-to-language explanation."],
-          ["12", "Collaborative Intent", "SPEC COMPLETE", "Multi-developer AST-level diffing."],
-          ["13", "Zero-Dependency Runtime", "SPEC COMPLETE", "Standalone executables."],
+          ["7", "English Mode", "COMPLETE", "Plain English as source code."],
+          ["8", "Multilingual Mode", "COMPLETE", "Any human language as input."],
+          ["9", "Voice-to-Code", "COMPLETE", "Spoken language as compiler input."],
+          ["10", "Visual Context", "COMPLETE", "UI element registry, spatial resolution."],
+          ["11", "Reverse Mode", "COMPLETE", "Code-to-language explanation."],
+          ["12", "Collaborative Intent", "COMPLETE", "Multi-developer AST-level diffing."],
+          ["13", "Zero-Dependency Runtime", "COMPLETE", "Standalone executables."],
         ]}
       />
 
@@ -1058,3 +1058,5 @@ export default function LumeResearch() {
     </div>
   );
 }
+
+

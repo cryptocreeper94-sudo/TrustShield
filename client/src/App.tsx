@@ -19,6 +19,7 @@ import GuardianPortal from "@/pages/guardian-portal";
 import Welcome from "@/pages/welcome";
 import Pricing from "@/pages/pricing";
 import NotFound from "@/pages/not-found";
+import { FloatingThemeToggle } from "@/components/theme-toggle";
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean; error: Error | null }> {
   constructor(props: { children: ReactNode }) {
@@ -77,6 +78,7 @@ function Router() {
     <Suspense fallback={<PageLoader />}>
       <ScrollToTop />
       <Switch>
+      <FloatingThemeToggle />
         <Route path="/" component={GuardianScanner} />
         <Route path="/guardian-ai" component={GuardianAI} />
         <Route path="/guardian-ai-registry" component={GuardianAIRegistry} />
