@@ -604,7 +604,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
           { title: "DAIGS v2", sub: "Multi-Organism Governance for Planet-Scale Infrastructure", doi: "10.5281/zenodo.19501315" },
           { title: "DAIGSÃ¢â‚¬â€˜Fusion", sub: "Deterministic Multi-Organism Governance for Fusion Plasma Control", doi: "10.5281/zenodo.19508902" },
           { title: "TLPP", sub: "Trust Layer Privacy Protocol", doi: "10.5281/zenodo.19571979" },
-          { title: "Lumeâ€‘Quantum", sub: "Deterministic Governance for Particle Accelerator Data Pipelines", doi: "10.5281/zenodo.19578114" },
+          { title: "Lumeâ€‘Quantum", sub: "Deterministic Governance for Particle Accelerator Data Pipelines", doi: "10.5281/zenodo.19580740" },
         ].map((p, i) => (
           <a key={i} href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all text-sm no-underline"
