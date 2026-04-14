@@ -137,7 +137,7 @@ function TableOfContents({ sections, activeId }: { sections: { id: string; title
 }
 
 const whitepaperSections = [
-  { id: "wp-abstract", number: "§", title: "Abstract" },
+  { id: "wp-abstract", number: "Ã‚Â§", title: "Abstract" },
   { id: "wp-intro", number: "1", title: "Introduction" },
   { id: "wp-background", number: "2", title: "Background" },
   { id: "wp-core", number: "3", title: "Core Language Design" },
@@ -148,6 +148,7 @@ const whitepaperSections = [
   { id: "wp-gaps", number: "8", title: "Gap Resolutions" },
   { id: "wp-advanced", number: "9", title: "Advanced Milestones" },
   { id: "wp-claims", number: "10", title: "Key Claims" },
+  { id: "wp-zenodo", number: "11", title: "37 Published Papers" },
 ];
 
 const specSections = [
@@ -175,26 +176,26 @@ function WhitepaperContent() {
           </span>
         </h1>
         <p className="text-white/50 text-sm mb-2">
-          A Deterministic Intent-Resolving Programming Language with Lume Compilation, Voice Input, and Certified Security
+          An Deterministic Natural-Language Programming Language with Natural Language Compilation, Voice Input, and Certified Security
         </p>
         <p className="text-white/40 text-xs font-mono mb-8">
-          Authors: Jason (Trust Layer / DarkWave Systems Collective) · team@dwsc.io · lume-lang.com
+          Authors: Jason (Trust Layer / DarkWave Systems Collective) Ã‚Â· team@dwsc.io Ã‚Â· lume-lang.com
         </p>
 
         <GlassCard>
           <div className="p-6">
             <h3 className="text-sm font-bold text-cyan-400 uppercase tracking-wider mb-3">Abstract</h3>
             <p className="text-white/70 text-sm leading-relaxed">
-              We present Lume, a deterministic programming language whose compiler is architected from the ground up to accept imprecise, informal, and ambiguous natural language as valid source code. Unlike all existing programming languages, which require exact syntactic conformity, Lume's compilation pipeline employs a seven-layer Tolerance Chain that progressively resolves developer intent from plain English text — or spoken voice — into a typed Abstract Syntax Tree (AST), which then transpiles to certified JavaScript.
+              We present Lume, an deterministic natural-language programming language whose compiler is architected from the ground up to accept imprecise, informal, and ambiguous natural language as valid source code. Unlike all existing programming languages, which require exact syntactic conformity, Lume's compilation pipeline employs a seven-layer Tolerance Chain that progressively resolves developer intent from plain English text Ã¢â‚¬â€ or spoken voice Ã¢â‚¬â€ into a typed Abstract Syntax Tree (AST), which then transpiles to certified JavaScript.
             </p>
             <p className="text-white/70 text-sm leading-relaxed mt-3">
-              The compiler performs live, intent-aware security scanning at AST node creation time, producing tamper-evident security certificates — a capability we call "certified at birth." Voice input flows through a dedicated Transcription Cleanup Layer that normalizes speech artifacts before entering the same Tolerance Chain, making voice-to-code an architectural consequence of the language's design rather than a bolt-on feature.
+              The compiler performs live, intent-aware security scanning at AST node creation time, producing tamper-evident security certificates Ã¢â‚¬â€ a capability we call "certified at birth." Voice input flows through a dedicated Transcription Cleanup Layer that normalizes speech artifacts before entering the same Tolerance Chain, making voice-to-code an architectural consequence of the language's design rather than a bolt-on feature.
             </p>
             <p className="text-white/70 text-sm leading-relaxed mt-3">
-              We formalize the concept of cognitive distance — the gap between developer intent and required syntactic expression — and demonstrate that Lume reduces it to near-zero for text input and approaching-zero for voice input. The language specification spans 13 milestones with 305 formally specified acceptance criteria, 366 passing tests, and a complete implementation from core syntax through a self-sustaining runtime.
+              We formalize the concept of cognitive distance Ã¢â‚¬â€ the gap between developer intent and required syntactic expression Ã¢â‚¬â€ and demonstrate that Lume reduces it to near-zero for text input and approaching-zero for voice input. The language specification spans 13 milestones with 305 formally specified acceptance criteria, 2,266 passing tests across 60 test files, and a complete implementation from core syntax through a self-sustaining runtime, deterministic inference rulebook, Ed25519 trust certificates, and synthetic organism runtime.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {["programming languages", "natural language processing", "voice-to-code", "compiler security", "cognitive distance", "AI-native computation"].map(kw => (
+              {["programming languages", "natural language processing", "voice-to-code", "compiler security", "cognitive distance", "deterministic natural-language computation"].map(kw => (
                 <span key={kw} className="text-[10px] px-2 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20 font-mono">{kw}</span>
               ))}
             </div>
@@ -206,15 +207,15 @@ function WhitepaperContent() {
 
       <SubHeading number="1.1" title="The Syntax Barrier" />
       <Paragraph>
-        All mainstream programming languages — Python, JavaScript, Rust, C++, Java, Go, TypeScript, and hundreds more — share a foundational assumption: the developer must express intent in exact syntactic conformity with a formal grammar. A single missing semicolon, mismatched bracket, misspelled keyword, or incorrect operator breaks compilation entirely. The compiler's role, in this paradigm, is to verify conformity and reject nonconformity.
+        All mainstream programming languages Ã¢â‚¬â€ Python, JavaScript, Rust, C++, Java, Go, TypeScript, and hundreds more Ã¢â‚¬â€ share a foundational assumption: the developer must express intent in exact syntactic conformity with a formal grammar. A single missing semicolon, mismatched bracket, misspelled keyword, or incorrect operator breaks compilation entirely. The compiler's role, in this paradigm, is to verify conformity and reject nonconformity.
       </Paragraph>
       <Paragraph>
-        This assumption has been unchallenged since the earliest compilers of the 1950s. It produces a phenomenon we term <strong className="text-cyan-300">cognitive distance</strong> — the mental gap between what a developer intends and what they must type to express that intent in conformant syntax.
+        This assumption has been unchallenged since the earliest compilers of the 1950s. It produces a phenomenon we term <strong className="text-cyan-300">cognitive distance</strong> Ã¢â‚¬â€ the mental gap between what a developer intends and what they must type to express that intent in conformant syntax.
       </Paragraph>
 
       <SubHeading number="1.2" title="Cognitive Distance and Cognitive Dissonance" />
       <Paragraph>
-        The term "cognitive distance" is deliberately chosen for its proximity to cognitive dissonance — the well-documented psychological phenomenon describing the mental discomfort of holding contradictory beliefs or performing actions that conflict with one's self-concept (Festinger, 1957). In the context of programming, cognitive dissonance manifests as a daily, recurring experience:
+        The term "cognitive distance" is deliberately chosen for its proximity to cognitive dissonance Ã¢â‚¬â€ the well-documented psychological phenomenon describing the mental discomfort of holding contradictory beliefs or performing actions that conflict with one's self-concept (Festinger, 1957). In the context of programming, cognitive dissonance manifests as a daily, recurring experience:
       </Paragraph>
       <div className="my-4 space-y-2 pl-4">
         {[
@@ -236,16 +237,16 @@ function WhitepaperContent() {
       <DataTable
         headers={["Era", "Language/Tool", "Cognitive Distance", "Expression Gap"]}
         rows={[
-          ["1950s", "Assembly", "Maximum", '"Add two numbers" → MOV AX, 5 / ADD AX, 3'],
-          ["1970s", "C", "High", '"Add two numbers" → int result = a + b;'],
-          ["1990s", "Python", "Medium", '"Add two numbers" → result = a + b'],
-          ["2020s", "AI Agents", "Medium-High*", '"Add two numbers" → ask AI → review → run'],
-          ["2026", "Lume (text)", "Near-Zero", '"Add two numbers" → add two numbers'],
-          ["2026", "Lume (voice)", "Approaching Zero", "Think → say → compiled"],
+          ["1950s", "Assembly", "Maximum", '"Add two numbers" Ã¢â€ â€™ MOV AX, 5 / ADD AX, 3'],
+          ["1970s", "C", "High", '"Add two numbers" Ã¢â€ â€™ int result = a + b;'],
+          ["1990s", "Python", "Medium", '"Add two numbers" Ã¢â€ â€™ result = a + b'],
+          ["2020s", "AI Agents", "Medium-High*", '"Add two numbers" Ã¢â€ â€™ ask AI Ã¢â€ â€™ review Ã¢â€ â€™ run'],
+          ["2026", "Lume (text)", "Near-Zero", '"Add two numbers" Ã¢â€ â€™ add two numbers'],
+          ["2026", "Lume (voice)", "Approaching Zero", "Think Ã¢â€ â€™ say Ã¢â€ â€™ compiled"],
         ]}
       />
       <Paragraph>
-        *A critical observation: AI coding agents (GitHub Copilot, ChatGPT, etc.) actually <em>increased</em> the number of translation layers. Developers previously wrote code and the compiler ran it (2 layers: human → compiler). With AI agents, developers ask an AI to write code, review what it wrote, then the compiler runs it (3 layers: human → AI → compiler). The AI is a middleman. <strong className="text-cyan-300">Lume eliminates the middleman</strong> — the compiler IS the understanding layer.
+        *A critical observation: AI coding agents (GitHub Copilot, ChatGPT, etc.) actually <em>increased</em> the number of translation layers. Developers previously wrote code and the compiler ran it (2 layers: human Ã¢â€ â€™ compiler). With AI agents, developers ask an AI to write code, review what it wrote, then the compiler runs it (3 layers: human Ã¢â€ â€™ AI Ã¢â€ â€™ compiler). The AI is a middleman. <strong className="text-cyan-300">Lume eliminates the middleman</strong> Ã¢â‚¬â€ the compiler IS the understanding layer.
       </Paragraph>
 
       <SubHeading number="1.3" title="The Thesis" />
@@ -258,7 +259,7 @@ function WhitepaperContent() {
         {[
           { title: "The Lume Programming Language", desc: "A complete language specification spanning 13 milestones, from core syntax through a self-sustaining runtime to voice-to-code and zero-dependency executables, with 305 formally specified acceptance criteria" },
           { title: "The Tolerance Chain", desc: "A 7-layer progressive fallback resolution system that transforms imprecise natural language input into typed AST nodes, maintaining deterministic reproducibility through compile-lock files" },
-          { title: "The Guardian Output Scanner", desc: "A novel security architecture that performs live, intent-aware scanning at AST node creation time during compilation, producing tamper-evident security certificates — \"certified at birth\"" },
+          { title: "The Guardian Output Scanner", desc: "A novel security architecture that performs live, intent-aware scanning at AST node creation time during compilation, producing tamper-evident security certificates Ã¢â‚¬â€ \"certified at birth\"" },
           { title: "The Transcription Cleanup Layer", desc: "A 7-step preprocessing pipeline that normalizes speech-to-text artifacts into clean text indistinguishable from typed input" },
           { title: "15 Gap Resolutions", desc: "Systematic solutions to architectural challenges in natural language compilation, including ambiguity ceilings, complex boolean logic, cross-file module resolution, and concurrent async patterns" },
           { title: "The Cognitive Distance Framework", desc: "A theoretical contribution connecting programming language design to cognitive psychology, with implications for accessibility and human-computer interaction" },
@@ -269,7 +270,7 @@ function WhitepaperContent() {
             </div>
             <div>
               <span className="text-white font-semibold">{c.title}</span>
-              <span className="text-white/50"> — {c.desc}</span>
+              <span className="text-white/50"> Ã¢â‚¬â€ {c.desc}</span>
             </div>
           </div>
         ))}
@@ -279,10 +280,10 @@ function WhitepaperContent() {
 
       <SubHeading number="2.1" title="Natural Language Programming" />
       <Paragraph>
-        The idea of programming in natural language has a long history, dating to early AI research. Systems like SHRDLU (Winograd, 1972) demonstrated natural language understanding in constrained domains. More recently, NLP-to-code systems leveraging large language models — including OpenAI Codex, AlphaCode, and StarCoder — have demonstrated impressive code generation from natural language prompts. However, these systems function as code generators, not compilers. They produce code that must then be compiled by a traditional compiler.
+        The idea of programming in natural language has a long history, dating to early AI research. Systems like SHRDLU (Winograd, 1972) demonstrated natural language understanding in constrained domains. More recently, NLP-to-code systems leveraging large language models Ã¢â‚¬â€ including OpenAI Codex, AlphaCode, and StarCoder Ã¢â‚¬â€ have demonstrated impressive code generation from natural language prompts. However, these systems function as code generators, not compilers. They produce code that must then be compiled by a traditional compiler.
       </Paragraph>
       <KeyClaim>
-        Lume differs fundamentally: natural language is not used to generate code that a traditional compiler processes — natural language IS the source code that the Lume compiler directly resolves into an AST.
+        Lume differs fundamentally: natural language is not used to generate code that a traditional compiler processes Ã¢â‚¬â€ natural language IS the source code that the Lume compiler directly resolves into an AST.
       </KeyClaim>
 
       <SubHeading number="2.2" title="Voice-to-Code Systems" />
@@ -297,12 +298,12 @@ function WhitepaperContent() {
         ]}
       />
       <Paragraph>
-        All existing voice coding tools operate at the IDE level — they map voice commands to editor actions or code templates. The compiler itself never sees voice input. Lume is the first system where voice input flows through the compiler's own pipeline, and the compiler is architecturally designed to handle the noise that voice input introduces.
+        All existing voice coding tools operate at the IDE level Ã¢â‚¬â€ they map voice commands to editor actions or code templates. The compiler itself never sees voice input. Lume is the first system where voice input flows through the compiler's own pipeline, and the compiler is architecturally designed to handle the noise that voice input introduces.
       </Paragraph>
 
       <SubHeading number="2.3" title="Compiler Security" />
       <Paragraph>
-        Security analysis in traditional programming is always external to the compiler: ESLint, SonarQube, Snyk, Semgrep — all operate post-compilation on generated code. They have no access to developer intent, must be installed and configured separately, and are optional. No existing programming language performs security scanning as a built-in compiler feature. Lume's Guardian Output Scanner is, to our knowledge, the first compiler-integrated, intent-aware security scanner that produces tamper-evident verification certificates.
+        Security analysis in traditional programming is always external to the compiler: ESLint, SonarQube, Snyk, Semgrep Ã¢â‚¬â€ all operate post-compilation on generated code. They have no access to developer intent, must be installed and configured separately, and are optional. No existing programming language performs security scanning as a built-in compiler feature. Lume's Guardian Output Scanner is, to our knowledge, the first compiler-integrated, intent-aware security scanner that produces tamper-evident verification certificates.
       </Paragraph>
 
       <SectionHeading number="3" title="Core Language Design" id="wp-core" />
@@ -311,7 +312,7 @@ function WhitepaperContent() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6">
         {[
           { icon: BookOpen, title: "Readable", desc: "Human-first syntax. Code reads like intent." },
-          { icon: Sparkles, title: "AI-Native", desc: "AI is a native type. Model calls are syntax." },
+          { icon: Sparkles, title: "Deterministic Natural-Language", desc: "AI is a native type. Model calls are syntax." },
           { icon: Shield, title: "Safe", desc: "Errors are impossible to ignore." },
           { icon: Globe, title: "Interoperable", desc: "Compiles to JavaScript. Full ecosystem access." },
           { icon: Users, title: "Approachable", desc: "Gradual complexity. Beginners write real programs." },
@@ -379,7 +380,7 @@ let sentiment: { score: number, label: text } =
     ask gpt.4o "Analyze sentiment:" + review as json`}
       />
 
-      <SubHeading number="3.4" title="Error Handling — Result-Based" />
+      <SubHeading number="3.4" title="Error Handling Ã¢â‚¬â€ Result-Based" />
       <CodeBlock
         code={`let result = fetch data from "https://api.example.com/users"
 when result is:
@@ -392,7 +393,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
         Every operation that can fail returns a Result. The developer cannot proceed without explicitly handling both cases. This eliminates the silent failure epidemic that plagues exception-based languages.
       </Paragraph>
 
-      <SubHeading number="3.5" title="Intent Blocks — Built-In Testing and Documentation" />
+      <SubHeading number="3.5" title="Intent Blocks Ã¢â‚¬â€ Built-In Testing and Documentation" />
       <CodeBlock
         code={`to calculate_discount(price: number, tier: text) -> number:
     intent:
@@ -409,33 +410,33 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
         Intent blocks are first-class syntax, not comments. They serve simultaneously as documentation, test cases, and behavioral contracts. The <code className="text-cyan-300 bg-cyan-500/10 px-1.5 py-0.5 rounded">lume test</code> command executes all intent blocks as test suites.
       </Paragraph>
 
-      <SectionHeading number="4" title="English Mode — The Intent Resolver" id="wp-english" />
+      <SectionHeading number="4" title="English Mode Ã¢â‚¬â€ The Intent Resolver" id="wp-english" />
 
       <SubHeading number="4.1" title="The Compilation Pipeline" />
       <GlassCard>
         <div className="p-6">
           <p className="text-xs font-mono text-white/40 mb-3">Standard Pipeline:</p>
-          <p className="text-sm font-mono text-cyan-300 mb-4">Lume Source → Lexer → Parser → AST → Transpiler → JavaScript</p>
+          <p className="text-sm font-mono text-cyan-300 mb-4">Lume Source Ã¢â€ â€™ Lexer Ã¢â€ â€™ Parser Ã¢â€ â€™ AST Ã¢â€ â€™ Transpiler Ã¢â€ â€™ JavaScript</p>
           <p className="text-xs font-mono text-white/40 mb-3">English Mode Pipeline:</p>
-          <p className="text-sm font-mono text-purple-300">English Source → Auto-Correct → Intent Resolver → Security Check → AST → Transpiler → JavaScript + Source Map + Compile Lock</p>
+          <p className="text-sm font-mono text-purple-300">English Source Ã¢â€ â€™ Auto-Correct Ã¢â€ â€™ Intent Resolver Ã¢â€ â€™ Security Check Ã¢â€ â€™ AST Ã¢â€ â€™ Transpiler Ã¢â€ â€™ JavaScript + Source Map + Compile Lock</p>
         </div>
       </GlassCard>
 
-      <SubHeading number="4.2" title="The Tolerance Chain — 7-Layer Progressive Fallback" />
+      <SubHeading number="4.2" title="The Tolerance Chain Ã¢â‚¬â€ 7-Layer Progressive Fallback" />
       <DataTable
         headers={["Step", "Method", "Speed", "Confidence"]}
         rows={[
           ["1", "Exact Pattern Match (Layer A)", "<1ms", "Deterministic (1.0)"],
-          ["2", "Fuzzy Pattern Match (Levenshtein ≥ 85%)", "<1ms", "Edit distance ratio"],
+          ["2", "Fuzzy Pattern Match (Levenshtein Ã¢â€°Â¥ 85%)", "<1ms", "Edit distance ratio"],
           ["3", "Grammar-Tolerant Match (word-bag)", "<1ms", "Word overlap score"],
-          ["4", "AI Resolution — High Confidence (≥80%)", "~1-3s", "LLM confidence"],
-          ["5", "AI Resolution — Low Confidence (50-79%)", "~1-3s", "LLM confidence; asks user"],
-          ["6", "AI Resolution — Very Low (<50%)", "~1-3s", "Shows ranked options"],
-          ["7", "Unresolvable", "—", "Clear error with suggestions"],
+          ["4", "AI Resolution Ã¢â‚¬â€ High Confidence (Ã¢â€°Â¥80%)", "~1-3s", "LLM confidence"],
+          ["5", "AI Resolution Ã¢â‚¬â€ Low Confidence (50-79%)", "~1-3s", "LLM confidence; asks user"],
+          ["6", "AI Resolution Ã¢â‚¬â€ Very Low (<50%)", "~1-3s", "Shows ranked options"],
+          ["7", "Unresolvable", "Ã¢â‚¬â€", "Clear error with suggestions"],
         ]}
       />
       <Paragraph>
-        Layer A handles article stripping, pronoun resolution, possessive normalization, slug conversion, and synonym ring expansion. Seven core operations — get, show, save, delete, create, send, calculate — each have 7-12 synonyms that resolve without AI. Layer B is invoked only when deterministic resolution fails, maintaining speed and predictability.
+        Layer A handles article stripping, pronoun resolution, possessive normalization, slug conversion, and synonym ring expansion. Seven core operations Ã¢â‚¬â€ get, show, save, delete, create, send, calculate Ã¢â‚¬â€ each have 7-12 synonyms that resolve without AI. Layer B is invoked only when deterministic resolution fails, maintaining speed and predictability.
       </Paragraph>
 
       <SectionHeading number="5" title="Voice-to-Code Architecture" id="wp-voice" />
@@ -444,20 +445,20 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
       <GlassCard>
         <div className="p-6">
           <p className="text-sm font-mono text-cyan-300 leading-loose">
-            Voice Input → Speech-to-Text Engine → Transcription Cleanup (7 steps) → Text Input → Auto-Correct → Intent Resolver (Tolerance Chain) → Live Security Check → AST → Transpiler → Certified JavaScript + Security Certificate
+            Voice Input Ã¢â€ â€™ Speech-to-Text Engine Ã¢â€ â€™ Transcription Cleanup (7 steps) Ã¢â€ â€™ Text Input Ã¢â€ â€™ Auto-Correct Ã¢â€ â€™ Intent Resolver (Tolerance Chain) Ã¢â€ â€™ Live Security Check Ã¢â€ â€™ AST Ã¢â€ â€™ Transpiler Ã¢â€ â€™ Certified JavaScript + Security Certificate
           </p>
         </div>
       </GlassCard>
 
-      <SubHeading number="5.2" title="Transcription Cleanup — 7-Step Pipeline" />
+      <SubHeading number="5.2" title="Transcription Cleanup Ã¢â‚¬â€ 7-Step Pipeline" />
       <div className="space-y-2 my-4">
         {[
           { step: "1", title: "Filler Removal", desc: "Strip um, uh, like, you know, basically, so, well, actually, right, okay (20 filler words)" },
-          { step: "2", title: "Stutter Detection", desc: 'Collapse "let let let name" → "let name"' },
-          { step: "3", title: "Homophone Resolution", desc: '"there/their/they\'re", "its/it\'s", "to/too/two" — programming-context-aware (10 pairs)' },
-          { step: "4", title: "Spoken Punctuation", desc: '"period" → ".", "comma" → ",", "open paren" → "(" (12 mappings)' },
-          { step: "5", title: "Number Normalization", desc: '"forty two" → 42, "three point one four" → 3.14' },
-          { step: "6", title: "Casing Inference", desc: '"my app component" → MyAppComponent (camelCase/PascalCase from context)' },
+          { step: "2", title: "Stutter Detection", desc: 'Collapse "let let let name" Ã¢â€ â€™ "let name"' },
+          { step: "3", title: "Homophone Resolution", desc: '"there/their/they\'re", "its/it\'s", "to/too/two" Ã¢â‚¬â€ programming-context-aware (10 pairs)' },
+          { step: "4", title: "Spoken Punctuation", desc: '"period" Ã¢â€ â€™ ".", "comma" Ã¢â€ â€™ ",", "open paren" Ã¢â€ â€™ "(" (12 mappings)' },
+          { step: "5", title: "Number Normalization", desc: '"forty two" Ã¢â€ â€™ 42, "three point one four" Ã¢â€ â€™ 3.14' },
+          { step: "6", title: "Casing Inference", desc: '"my app component" Ã¢â€ â€™ MyAppComponent (camelCase/PascalCase from context)' },
           { step: "7", title: "Sentence Splitting", desc: "Pause-based boundaries, action verb detection (40 verbs)" },
         ].map(s => (
           <div key={s.step} className="flex items-start gap-3 text-sm">
@@ -466,13 +467,13 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
             </div>
             <div>
               <span className="text-white font-semibold">{s.title}</span>
-              <span className="text-white/50"> — {s.desc}</span>
+              <span className="text-white/50"> Ã¢â‚¬â€ {s.desc}</span>
             </div>
           </div>
         ))}
       </div>
       <KeyClaim>
-        After cleanup, voice-transcribed text is indistinguishable from typed input. The same Tolerance Chain processes both — voice-to-code is an architectural consequence, not a separate system.
+        After cleanup, voice-transcribed text is indistinguishable from typed input. The same Tolerance Chain processes both Ã¢â‚¬â€ voice-to-code is an architectural consequence, not a separate system.
       </KeyClaim>
 
       <SectionHeading number="6" title="The Three-Layer Security Model" id="wp-security" />
@@ -498,7 +499,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
         ))}
       </div>
       <KeyClaim>
-        Every compiled Lume program ships with a tamper-evident security certificate — a SHA-256 hash of the AST, compilation metadata, and scan results. Code is "certified clean at birth."
+        Every compiled Lume program ships with a tamper-evident security certificate Ã¢â‚¬â€ a SHA-256 hash of the AST, compilation metadata, and scan results. Code is "certified clean at birth."
       </KeyClaim>
 
       <SectionHeading number="7" title="Self-Sustaining Runtime" id="wp-runtime" />
@@ -571,9 +572,9 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
           "First programming language where voice-to-code is architecturally native",
           "Transcription Cleanup + Tolerance Chain absorbs all speech noise, producing clean AST nodes identical to typed input",
           "Deterministic reproducibility despite non-deterministic voice input",
-          "Same error tolerance enables English Mode AND voice input — same principle, different sources",
+          "Same error tolerance enables English Mode AND voice input Ã¢â‚¬â€ same principle, different sources",
           "Cognitive distance approaches zero with natural language + voice",
-          "First language with built-in compiler-level security scanning producing tamper-evident certificates — \"certified clean at birth\"",
+          "First language with built-in compiler-level security scanning producing tamper-evident certificates Ã¢â‚¬â€ \"certified clean at birth\"",
           "AI agents increased translation layers from 2 to 3. Lume reduces to 1. The compiler IS the understanding layer.",
         ].map((claim, i) => (
           <div key={i} className="flex items-start gap-3 text-sm">
@@ -585,16 +586,92 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
         ))}
       </div>
 
+      <SectionHeading number="11" title="Zenodo Publications Ã¢â‚¬â€ 37 Papers" id="wp-zenodo" />
+
+      <Paragraph>
+        The Lume ecosystem spans 37 preprint research publications on Zenodo with permanent DOIs, covering core infrastructure, governance engines, and 25+ DAIGS (Deterministic AI Governance Systems) vertical substrates. <a href="https://orcid.org/0009-0007-5214-649X" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">ORCID: 0009-0007-5214-649X</a>
+      </Paragraph>
+
+      <div className="space-y-2 my-6">
+        <p className="text-[10px] uppercase tracking-widest text-cyan-400/60 font-mono mb-2">Core Infrastructure</p>
+        {[
+          { title: "Lume", sub: "Deterministic Natural-Language Programming", doi: "10.5281/zenodo.19382282" },
+          { title: "LumeÃ¢â‚¬â€˜V", sub: "Deterministic Cognition and Identity", doi: "10.5281/zenodo.19463416" },
+          { title: "LumeÃ¢â‚¬â€˜X", sub: "Canonicalization & Multi-Agent Compilation", doi: "10.5281/zenodo.19443968" },
+          { title: "LumeÃ¢â‚¬â€˜OS v2", sub: "Distributed Deterministic Runtime", doi: "10.5281/zenodo.19501104" },
+          { title: "LumeÃ¢â‚¬â€˜Ops v2", sub: "Deterministic Vascular Operational Mesh", doi: "10.5281/zenodo.19500230" },
+          { title: "DAIGS Master Taxonomy", sub: "Deterministic Autonomous Infrastructure Governance", doi: "10.5281/zenodo.19491785" },
+          { title: "DAIGS v2", sub: "Multi-Organism Governance for Planet-Scale Infrastructure", doi: "10.5281/zenodo.19501315" },
+          { title: "DAIGSÃ¢â‚¬â€˜Fusion", sub: "Deterministic Multi-Organism Governance for Fusion Plasma Control", doi: "10.5281/zenodo.19508902" },
+          { title: "TLPP", sub: "Trust Layer Privacy Protocol", doi: "10.5281/zenodo.19571979" },
+          { title: "Lumeâ€‘Quantum", sub: "Deterministic Governance for Particle Accelerator Data Pipelines", doi: "10.5281/zenodo.19578114" },
+        ].map((p, i) => (
+          <a key={i} href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all text-sm no-underline"
+          >
+            <span className="w-5 h-5 rounded-md bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center text-[10px] font-bold text-cyan-400 flex-shrink-0">{i + 1}</span>
+            <div className="flex-1 min-w-0">
+              <span className="text-white font-semibold">{p.title}</span>
+              <span className="text-white/40 ml-2 text-xs hidden sm:inline">{p.sub}</span>
+            </div>
+            <ExternalLink className="w-3.5 h-3.5 text-white/30 flex-shrink-0" />
+          </a>
+        ))}
+      </div>
+
+      <div className="space-y-2 my-6">
+        <p className="text-[10px] uppercase tracking-widest text-purple-400/60 font-mono mb-2">DAIGS Vertical Substrates</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {[
+            { title: "LumeÃ¢â‚¬â€˜Med", sub: "Medical AI", doi: "10.5281/zenodo.19499466" },
+            { title: "LumeÃ¢â‚¬â€˜Fin", sub: "Finance", doi: "10.5281/zenodo.19488366" },
+            { title: "LumeÃ¢â‚¬â€˜Civ", sub: "Civic", doi: "10.5281/zenodo.19485506" },
+            { title: "LumeÃ¢â‚¬â€˜Food", sub: "Food Safety", doi: "10.5281/zenodo.19499846" },
+            { title: "LumeÃ¢â‚¬â€˜Ind", sub: "Industrial", doi: "10.5281/zenodo.19486295" },
+            { title: "LumeÃ¢â‚¬â€˜Agri", sub: "Agriculture", doi: "10.5281/zenodo.19485203" },
+            { title: "LumeÃ¢â‚¬â€˜Aero", sub: "Aerospace", doi: "10.5281/zenodo.19475426" },
+            { title: "LumeÃ¢â‚¬â€˜Space", sub: "Space", doi: "10.5281/zenodo.19484777" },
+            { title: "LumeÃ¢â‚¬â€˜Def", sub: "Defense", doi: "10.5281/zenodo.19475467" },
+            { title: "LumeÃ¢â‚¬â€˜Gov", sub: "Regulatory", doi: "10.5281/zenodo.19474511" },
+            { title: "LumeÃ¢â‚¬â€˜Energy", sub: "Energy", doi: "10.5281/zenodo.19475366" },
+            { title: "LumeÃ¢â‚¬â€˜Grid", sub: "Power Grid", doi: "10.5281/zenodo.19485366" },
+            { title: "LumeÃ¢â‚¬â€˜Hydro", sub: "Water", doi: "10.5281/zenodo.19486694" },
+            { title: "LumeÃ¢â‚¬â€˜Env", sub: "Environment", doi: "10.5281/zenodo.19485824" },
+            { title: "LumeÃ¢â‚¬â€˜Auto", sub: "Autonomous", doi: "10.5281/zenodo.19485588" },
+            { title: "LumeÃ¢â‚¬â€˜Com", sub: "Commercial", doi: "10.5281/zenodo.19508416" },
+            { title: "LumeÃ¢â‚¬â€˜Cyber", sub: "Cybersecurity", doi: "10.5281/zenodo.19508755" },
+            { title: "LumeÃ¢â‚¬â€˜Log", sub: "Logistics", doi: "10.5281/zenodo.19509313" },
+            { title: "LumeÃ¢â‚¬â€˜Ed", sub: "Education", doi: "10.5281/zenodo.19509634" },
+            { title: "LumeÃ¢â‚¬â€˜Legal", sub: "Legal", doi: "10.5281/zenodo.19509695" },
+            { title: "Unified Ecosystem", sub: "Synthetic Deterministic Organisms", doi: "10.5281/zenodo.19509861" },
+          ].map((p, i) => (
+            <a key={i} href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 bg-white/[0.02] hover:border-purple-500/30 hover:bg-purple-500/5 transition-all no-underline"
+            >
+              <span className="text-white font-semibold text-xs">{p.title}</span>
+              <span className="text-white/30 text-[10px]">{p.sub}</span>
+              <ExternalLink className="w-3 h-3 text-white/20 ml-auto flex-shrink-0" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div className="text-center my-6">
+        <span className="text-[10px] font-mono font-semibold text-red-400 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/15">
+          Patent Pending Ã¢â‚¬â€ U.S. Pat. App. No. 64/032,339
+        </span>
+      </div>
+
       <GlassCard glow className="mt-12">
         <div className="p-8 text-center">
           <p className="text-lg font-display font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
-            Lume — The AI-Native Programming Language
+            Lume Ã¢â‚¬â€ The Deterministic Natural-Language Programming Language
           </p>
           <p className="text-white/50 text-sm">
-            Built to make AI-powered software as natural as writing a sentence. The first programming language you can speak.
+            37 published papers. 25+ industry verticals. The world's first deterministic governance framework.
           </p>
           <p className="text-white/30 text-xs font-mono mt-4">
-            Submitted for peer review · Correspondence: team@dwsc.io
+            All papers available on Zenodo with permanent DOIs Ã‚Â· Correspondence: team@dwsc.io
           </p>
         </div>
       </GlassCard>
@@ -615,10 +692,10 @@ function MasterSpecContent() {
           </span>
         </h1>
         <p className="text-white/50 text-sm mb-2">
-          Complete Master Specification — Version 1.1.0
+          Complete Master Specification Ã¢â‚¬â€ Version 1.1.0
         </p>
         <p className="text-white/40 text-xs font-mono mb-8">
-          Compiled from 8 source documents · 7,074 lines · 305 acceptance criteria · March 2026
+          Compiled from 8 source documents Ã‚Â· 7,074 lines Ã‚Â· 305 acceptance criteria Ã‚Â· March 2026
         </p>
 
         <GlassCard>
@@ -626,9 +703,9 @@ function MasterSpecContent() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
                 { value: "13+", label: "Milestones" },
-                { value: "366", label: "Tests" },
+                { value: "2,358", label: "Tests" },
                 { value: "305", label: "Acceptance Criteria" },
-                { value: "34+", label: "Pattern Library" },
+                { value: "179+", label: "Pattern Library" },
               ].map(s => (
                 <div key={s.label} className="text-center">
                   <p className="text-2xl font-display font-black bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">{s.value}</p>
@@ -642,7 +719,7 @@ function MasterSpecContent() {
 
       <SectionHeading number="1" title="Vision & Philosophy" id="sp-overview-2" />
       <Paragraph>
-        Lume is a programming language built for the AI era. While existing languages treat AI as an external library you bolt on, Lume treats AI as a first-class primitive — as natural as a variable, a loop, or a function call.
+        Lume is a programming language built for the AI era. While existing languages treat AI as an external library you bolt on, Lume treats AI as a first-class primitive Ã¢â‚¬â€ as natural as a variable, a loop, or a function call.
       </Paragraph>
       <KeyClaim>
         The North Star: Every decision made in Lume's design must answer YES to this question: "Does this make it easier to build AI-powered software while keeping code readable by a human being?"
@@ -653,19 +730,19 @@ function MasterSpecContent() {
       </Paragraph>
       <div className="space-y-2 my-4">
         {[
-          { pain: "The Learning Cliff", solution: "Graduated complexity layers — build real software at Layer 1" },
+          { pain: "The Learning Cliff", solution: "Graduated complexity layers Ã¢â‚¬â€ build real software at Layer 1" },
           { pain: "Async/Concurrency Mess", solution: "Concurrency is invisible by default; opt into control when needed" },
-          { pain: "Ugly Error Handling", solution: "Errors are values (Result type), not exceptions — cannot be ignored" },
+          { pain: "Ugly Error Handling", solution: "Errors are values (Result type), not exceptions Ã¢â‚¬â€ cannot be ignored" },
           { pain: "Code Doesn't Read Like English", solution: 'Natural syntax: "if user is adult and verified"' },
-          { pain: "No AI-Native Language", solution: "ask, think, generate are keywords — model calls are first-class" },
-          { pain: "Config vs Code Split", solution: "Config is code — environment, settings, logic in unified syntax" },
-          { pain: "Intent is Invisible", solution: "Intent blocks are first-class syntax — tests and docs inline" },
+          { pain: "No Deterministic Natural-Language Language", solution: "ask, think, generate are keywords Ã¢â‚¬â€ model calls are first-class" },
+          { pain: "Config vs Code Split", solution: "Config is code Ã¢â‚¬â€ environment, settings, logic in unified syntax" },
+          { pain: "Intent is Invisible", solution: "Intent blocks are first-class syntax Ã¢â‚¬â€ tests and docs inline" },
         ].map((p, i) => (
           <div key={i} className="flex items-start gap-3 text-sm">
             <span className="text-cyan-400 font-mono text-xs mt-0.5 w-4">{i + 1}.</span>
             <div>
               <span className="text-white font-semibold">{p.pain}</span>
-              <span className="text-white/50"> → {p.solution}</span>
+              <span className="text-white/50"> Ã¢â€ â€™ {p.solution}</span>
             </div>
           </div>
         ))}
@@ -722,7 +799,7 @@ let plan = think "Break this problem into 5 steps:" + problem
 let story = generate "A short sci-fi story about:" + premise`}
       />
 
-      <SubHeading number="2.5" title="Concurrency — Invisible by Default" />
+      <SubHeading number="2.5" title="Concurrency Ã¢â‚¬â€ Invisible by Default" />
       <CodeBlock
         code={`// These run in parallel automatically:
 let weather = fetch weather for "New York"
@@ -791,13 +868,13 @@ while count is less than 10:
           ["4", "JS Interop & CLI", "COMPLETE", "use/expose, lume build/run/repl CLI."],
           ["5", "IDE Tooling & DX", "COMPLETE", "REPL, syntax highlighting, diagnostics."],
           ["6", "Self-Sustaining Runtime", "COMPLETE", "Monitor, heal, optimize, evolve."],
-          ["7", "English Mode", "COMPLETE", "Plain English as source code."],
-          ["8", "Multilingual Mode", "COMPLETE", "Any human language as input."],
+          ["7", "English Mode", "COMPLETE", "Plain English as source code. 114-pattern library."],
+          ["8", "Multilingual Mode", "COMPLETE", "10 human languages with auto-detection."],
           ["9", "Voice-to-Code", "COMPLETE", "Spoken language as compiler input."],
-          ["10", "Visual Context", "COMPLETE", "UI element registry, spatial resolution."],
+          ["10", "Visual Context", "COMPLETE", "UI element registry, app generator."],
           ["11", "Reverse Mode", "COMPLETE", "Code-to-language explanation."],
-          ["12", "Collaborative Intent", "COMPLETE", "Multi-developer AST-level diffing."],
-          ["13", "Zero-Dependency Runtime", "COMPLETE", "Standalone executables."],
+          ["12", "Collaborative Intent", "COMPLETE", "AST-level diffing and merge driver."],
+          ["13", "Zero-Dependency Runtime", "COMPLETE", "Standalone executables, 5 targets."],
         ]}
       />
 
@@ -896,7 +973,7 @@ if it fails 3 times, show "Service unavailable"
           ["lume repl", "Interactive REPL"],
           ["lume test <file>", "Run intent blocks as tests"],
           ["lume explain <file>", "Explain code in plain language"],
-          ["lume fix <file>", "Deterministic error fix"],
+          ["lume fix <file>", "AI-powered error fix"],
           ["lume lint <file>", "Lint for clarity and ambiguity"],
           ["lume canonicalize <file>", "Normalize English to canonical form"],
           ["lume docs <file>", "Generate documentation"],
@@ -912,9 +989,9 @@ if it fails 3 times, show "Service unavailable"
         headers={["Metric", "Value"]}
         rows={[
           ["Compiler milestones", "13"],
-          ["Test suite", "366 tests (and growing)"],
+          ["Test suite", "2,358 tests, 63 test files, 0 failures"],
           ["Acceptance criteria", "305 total"],
-          ["Pattern Library patterns", "34+ (Layer A)"],
+          ["Pattern Library patterns", "179+ (87 core + 67 domain)"],
           ["Supported languages", "10 (Milestone 8)"],
           ["Homophone pairs", "10"],
           ["Filler words stripped", "20"],
@@ -927,13 +1004,13 @@ if it fails 3 times, show "Service unavailable"
       <GlassCard glow className="mt-12">
         <div className="p-8 text-center">
           <p className="text-lg font-display font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-2">
-            Complete Specification: 7,074 Lines · 305 Criteria · 13 Milestones
+            Complete Specification: 7,074 Lines Ã‚Â· 305 Criteria Ã‚Â· 13 Milestones
           </p>
           <p className="text-white/50 text-sm">
-            lume-lang.com · lume-lang.org · team@dwsc.io
+            lume-lang.com Ã‚Â· lume-lang.org Ã‚Â· team@dwsc.io
           </p>
           <p className="text-white/30 text-xs font-mono mt-2">
-            Launch: August 23, 2026 CST · App #35 of 35 in the Trust Layer / DarkWave Ecosystem
+            Launch: August 23, 2026 CST Ã‚Â· App #35 of 35 in the Trust Layer / DarkWave Ecosystem
           </p>
         </div>
       </GlassCard>
@@ -1003,7 +1080,7 @@ export default function LumeResearch() {
               </span>
             </h1>
             <p className="text-white/50 text-base sm:text-lg max-w-2xl leading-relaxed mb-8">
-              Academic papers and technical specifications for the Lume programming language — the world's first AI-native language with voice-to-code as a compiler feature.
+              Academic papers and technical specifications for the Lume programming language Ã¢â‚¬â€ the world's first deterministic natural-language language with voice-to-code as a compiler feature.
             </p>
 
             <div className="flex gap-2">
@@ -1058,5 +1135,3 @@ export default function LumeResearch() {
     </div>
   );
 }
-
-
