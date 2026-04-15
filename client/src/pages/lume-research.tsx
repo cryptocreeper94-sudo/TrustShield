@@ -573,23 +573,10 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
           "Transcription Cleanup + Tolerance Chain absorbs all speech noise, producing clean AST nodes identical to typed input",
           "Deterministic reproducibility despite non-deterministic voice input",
           "Same error tolerance enables English Mode AND voice input Ã¢â‚¬â€ same principle, different sources",
-          "Cognitive distance approaches zero with natural language + voice",
-          "First language with built-in compiler-level security scanning producing tamper-evident certificates Ã¢â‚¬â€ \"certified clean at birth\"",
-          "AI agents increased translation layers from 2 to 3. Lume reduces to 1. The compiler IS the understanding layer.",
-        ].map((claim, i) => (
-          <div key={i} className="flex items-start gap-3 text-sm">
-            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <Check className="w-3 h-3 text-white" />
-            </div>
-            <span className="text-white/80">{claim}</span>
-          </div>
-        ))}
-      </div>
-
-      <SectionHeading number="11" title="Zenodo Publications Ã¢â‚¬â€ 37 Papers" id="wp-zenodo" />
+       <SectionHeading number="11" title="Zenodo Publications Ã¢â‚¬â€  42 Papers" id="wp-zenodo" />
 
       <Paragraph>
-        The Lume ecosystem spans 37 preprint research publications on Zenodo with permanent DOIs, covering core infrastructure, governance engines, and 25+ DAIGS (Deterministic AI Governance Systems) vertical substrates. <a href="https://orcid.org/0009-0007-5214-649X" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">ORCID: 0009-0007-5214-649X</a>
+        The Lume ecosystem spans 42 preprint research publications on Zenodo with permanent DOIs, covering core infrastructure, governance engines, and 25+ DAIGS (Deterministic AI Governance Systems) vertical substrates. <a href="https://orcid.org/0009-0007-5214-649X" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">ORCID: 0009-0007-5214-649X</a>
       </Paragraph>
 
       <div className="space-y-2 my-6">
@@ -598,13 +585,18 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
           { title: "Lume", sub: "Deterministic Natural-Language Programming", doi: "10.5281/zenodo.19382282" },
           { title: "LumeÃ¢â‚¬â€˜V", sub: "Deterministic Cognition and Identity", doi: "10.5281/zenodo.19463416" },
           { title: "LumeÃ¢â‚¬â€˜X", sub: "Canonicalization & Multi-Agent Compilation", doi: "10.5281/zenodo.19443968" },
+          { title: "Lume Ecosystem", sub: "42-Paper Overview", doi: "10.5281/zenodo.19596608" },
           { title: "LumeÃ¢â‚¬â€˜OS v2", sub: "Distributed Deterministic Runtime", doi: "10.5281/zenodo.19501104" },
           { title: "LumeÃ¢â‚¬â€˜Ops v2", sub: "Deterministic Vascular Operational Mesh", doi: "10.5281/zenodo.19500230" },
-          { title: "DAIGS Master Taxonomy", sub: "Deterministic Autonomous Infrastructure Governance", doi: "10.5281/zenodo.19491785" },
-          { title: "DAIGS v2", sub: "Multi-Organism Governance for Planet-Scale Infrastructure", doi: "10.5281/zenodo.19501315" },
-          { title: "DAIGSÃ¢â‚¬â€˜Fusion", sub: "Deterministic Multi-Organism Governance for Fusion Plasma Control", doi: "10.5281/zenodo.19508902" },
           { title: "TLPP", sub: "Trust Layer Privacy Protocol", doi: "10.5281/zenodo.19571979" },
-          { title: "Lumeâ€‘Quantum", sub: "Deterministic Governance for Particle Accelerator Data Pipelines", doi: "10.5281/zenodo.19580740" },
+          { title: "Trust Capstone", sub: "Ecosystem Capstone", doi: "10.5281/zenodo.19596531" },
+          { title: "DAIGS Master Taxonomy", sub: "Deterministic Autonomous Infrastructure Governance", doi: "10.5281/zenodo.19491785" },
+          { title: "DAIGS v2", sub: "Multi-Organism Architecture", doi: "10.5281/zenodo.19501315" },
+          { title: "LumeÃ¢â‚¬â€˜Quantum", sub: "Quantum Governance Substrate", doi: "10.5281/zenodo.19580740" },
+          { title: "LumeÃ¢â‚¬â€˜Chronos", sub: "Temporal Governance Substrate", doi: "10.5281/zenodo.19596254" },
+          { title: "LumeÃ¢â‚¬â€˜Causal", sub: "Causal Inference Substrate", doi: "10.5281/zenodo.19596131" },
+          { title: "LumeÃ¢â‚¬â€˜Identity", sub: "Entity Identity Substrate", doi: "10.5281/zenodo.19595747" },
+          { title: "LumeÃ¢â‚¬â€˜Dimensional", sub: "Spatial Manifold Substrate", doi: "10.5281/zenodo.19595965" },
         ].map((p, i) => (
           <a key={i} href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all text-sm no-underline"
@@ -668,7 +660,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
             Lume Ã¢â‚¬â€ The Deterministic Natural-Language Programming Language
           </p>
           <p className="text-white/50 text-sm">
-            37 published papers. 25+ industry verticals. The world's first deterministic governance framework.
+            42 published papers. 25+ industry verticals. The world's first deterministic governance framework.
           </p>
           <p className="text-white/30 text-xs font-mono mt-4">
             All papers available on Zenodo with permanent DOIs Ã‚Â· Correspondence: team@dwsc.io
