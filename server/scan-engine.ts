@@ -3,7 +3,7 @@
  * 
  * Provides automated scanning for:
  * - Uptime monitoring across all 38 ecosystem apps
- * - DOI validation for all 32 published research papers
+ * - DOI validation for all 42 published research papers
  * - Ecosystem consistency checking across 5 websites
  * - Combined daily digest generation
  */
@@ -53,7 +53,7 @@ export const ECOSYSTEM_APPS = [
 // ── DOI Registry ──
 export const DOI_REGISTRY = [
   // Core Infrastructure
-  { title: "Lume", subtitle: "Deterministic Natural-Language Programming", doi: "10.5281/zenodo.19382282", category: "core" },
+  { title: "Lume", subtitle: "Deterministic Natural-Language Programming", doi: "10.5281/zenodo.19612948", category: "core" },
   { title: "Lume-V", subtitle: "Deterministic Cognition and Identity", doi: "10.5281/zenodo.19463416", category: "core" },
   { title: "Lume-X", subtitle: "Canonicalization & Multi-Agent Compilation", doi: "10.5281/zenodo.19443968", category: "core" },
   { title: "Lume-OS v1", subtitle: "Deterministic Runtime", doi: "10.5281/zenodo.19430898", category: "core" },
@@ -92,11 +92,11 @@ export const DOI_REGISTRY = [
 
 // ── Website Consistency Targets ──
 export const CONSISTENCY_SITES = [
-  { id: "dwsc", name: "DWSC", url: "https://dwsc.io", expectedApps: 38, expectedPapers: 32 },
-  { id: "trusthub", name: "Trust Hub", url: "https://trusthub.tlid.io", expectedApps: 38, expectedPapers: 32 },
-  { id: "dwtl", name: "Trust Layer", url: "https://dwtl.io", expectedApps: 38, expectedPapers: 32 },
-  { id: "lume", name: "Lume", url: "https://lume-lang.com", expectedApps: null, expectedPapers: 32 },
-  { id: "darkwavestudios", name: "DarkWave Studios", url: "https://darkwavestudios.io", expectedApps: null, expectedPapers: 32 },
+  { id: "dwsc", name: "DWSC", url: "https://dwsc.io", expectedApps: 38, expectedPapers: 42 },
+  { id: "trusthub", name: "Trust Hub", url: "https://trusthub.tlid.io", expectedApps: 38, expectedPapers: 42 },
+  { id: "dwtl", name: "Trust Layer", url: "https://dwtl.io", expectedApps: 38, expectedPapers: 42 },
+  { id: "lume", name: "Lume", url: "https://lume-lang.com", expectedApps: null, expectedPapers: 42 },
+  { id: "darkwavestudios", name: "DarkWave Studios", url: "https://darkwavestudios.io", expectedApps: null, expectedPapers: 42 },
 ];
 
 // ── Scan Types ──

@@ -582,7 +582,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
       <div className="space-y-2 my-6">
         <p className="text-[10px] uppercase tracking-widest text-cyan-400/60 font-mono mb-2">Core Infrastructure</p>
         {[
-          { title: "Lume", sub: "Deterministic Natural-Language Programming", doi: "10.5281/zenodo.19382282" },
+          { title: "Lume", sub: "Deterministic Natural-Language Programming", doi: "10.5281/zenodo.19612948" },
           { title: "LumeÃ¢â‚¬â€˜V", sub: "Deterministic Cognition and Identity", doi: "10.5281/zenodo.19463416" },
           { title: "LumeÃ¢â‚¬â€˜X", sub: "Canonicalization & Multi-Agent Compilation", doi: "10.5281/zenodo.19443968" },
           { title: "Lume Ecosystem", sub: "42-Paper Overview", doi: "10.5281/zenodo.19596608" },
