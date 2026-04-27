@@ -78,8 +78,8 @@ function Router() {
   return (
     <Suspense fallback={<PageLoader />}>
       <ScrollToTop />
-      <Switch>
       <FloatingThemeToggle />
+      <Switch>
         <Route path="/" component={TrustShieldHome} />
         <Route path="/guardian-ai" component={GuardianAI} />
         <Route path="/guardian-ai-registry" component={GuardianAIRegistry} />
