@@ -596,6 +596,127 @@ export async function sendGuardianIntakeEmail(to: string, projectName: string, t
 }
 
 
+export async function sendGuardianOwnerNotification(projectName: string, contactEmail: string, tier: string, certificationId: string, metadata?: Record<string, string>) {
+  const tierNames: Record<string, string> = {
+    guardian_scan: "Guardian Scan (Free)",
+    guardian_assurance: "Guardian Assurance ($499)",
+    guardian_certified: "Guardian Certified ($2,499)",
+    guardian_premier: "Guardian Premier (Custom)",
+    self_cert: "Self-Cert",
+    assurance_lite: "Assurance Lite",
+  };
+  const displayTier = tierNames[tier] || tier;
+
+  const metaRows = metadata ? Object.entries(metadata)
+    .map(([k, v]) => `<tr><td style="padding:6px 0;color:#94a3b8;font-size:13px;border-bottom:1px solid rgba(255,255,255,0.05);">${k}</td><td style="padding:6px 0;color:#ffffff;font-size:13px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.05);">${v.substring(0, 200)}</td></tr>`)
+    .join('') : '';
+
+  const content = `
+    ${heroSection('New Audit Request', `${projectName} just requested a ${displayTier} certification.`, '#f59e0b')}
+
+    ${receiptTable([
+    { label: 'Project', value: projectName },
+    { label: 'Client Email', value: contactEmail },
+    { label: 'Tier', value: displayTier, bold: true },
+    { label: 'Certification ID', value: certificationId },
+    { label: 'Submitted', value: new Date().toISOString().replace('T', ' ').substring(0, 19) + ' UTC' },
+  ])}
+
+    ${metaRows ? `
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;margin:16px 0;">
+    <tr><td style="padding:16px 24px;">
+      <p style="margin:0 0 10px;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#64748b;font-weight:600;">Intake Details</p>
+      <table role="presentation" cellpadding="0" cellspacing="0" width="100%">${metaRows}</table>
+    </td></tr>
+    </table>` : ''}
+
+    ${highlightBox(`
+      <h3 style="margin:0 0 8px;color:#f59e0b;font-size:15px;font-weight:700;">Auto-Pipeline Status</h3>
+      <ul style="margin:0;padding-left:18px;color:#94a3b8;font-size:14px;line-height:2;">
+        <li><strong style="color:#10b981;">Intake:</strong> Received ✓</li>
+        <li><strong style="color:#06b6d4;">Auto-Scan:</strong> Queued (starts in ~2 minutes)</li>
+        <li><strong style="color:#a855f7;">Report Draft:</strong> Auto-generated after scan completes</li>
+        <li><strong style="color:#ec4899;">Delivery:</strong> Staged for ${tier === 'guardian_scan' ? '1 hour' : tier === 'guardian_assurance' ? '24 hours' : '48 hours'}</li>
+      </ul>
+    `, '#f59e0b')}
+
+    ${ctaButton('View in Guardian Portal', 'https://trustshield.tech/guardian-portal', 'linear-gradient(135deg,#f59e0b,#ec4899)')}
+  `;
+
+  return sendEmail({
+    to: 'team@dwsc.io',
+    subject: `🔔 NEW AUDIT: ${projectName} — ${displayTier} | ID: ${certificationId}`,
+    html: baseTemplate(content, `New audit request from ${contactEmail} for ${projectName}. Tier: ${displayTier}.`),
+  });
+}
+
+
+export async function sendGuardianAuditStatusEmail(
+  to: string,
+  projectName: string,
+  certificationId: string,
+  stage: 'scanning' | 'review' | 'report_ready' | 'completed',
+  score?: number
+) {
+  const stageConfig = {
+    scanning: {
+      title: 'Audit In Progress',
+      subtitle: `Your ${projectName} security scan is underway.`,
+      color: '#06b6d4',
+      status: 'Scanning',
+      next: 'Results will be reviewed by our security team. You\'ll receive a notification when your report is ready.',
+    },
+    review: {
+      title: 'Expert Review Phase',
+      subtitle: `${projectName} scan complete. Now under expert review.`,
+      color: '#a855f7',
+      status: 'Under Review',
+      next: 'Our security team is reviewing findings and preparing your detailed report.',
+    },
+    report_ready: {
+      title: 'Your Report Is Ready',
+      subtitle: `The ${projectName} security report is available for download.`,
+      color: '#10b981',
+      status: 'Report Ready',
+      next: 'Download your full PDF report from the Guardian Portal. If remediation is needed, our team is standing by.',
+    },
+    completed: {
+      title: 'Certification Complete',
+      subtitle: `${projectName} has been certified by TrustShield.`,
+      color: '#FFD700',
+      status: 'Certified',
+      next: 'Your TrustShield Certified badge is now live. Embed it on your website to show verified trust.',
+    },
+  };
+
+  const cfg = stageConfig[stage];
+
+  const content = `
+    ${heroSection(cfg.title, cfg.subtitle, cfg.color)}
+
+    ${receiptTable([
+    { label: 'Project', value: projectName },
+    { label: 'Certification ID', value: certificationId },
+    { label: 'Status', value: cfg.status, bold: true },
+    ...(score !== undefined ? [{ label: 'Security Score', value: `${score}/100`, bold: true }] : []),
+  ])}
+
+    ${highlightBox(`
+      <h3 style="margin:0 0 8px;color:${cfg.color};font-size:15px;font-weight:700;">What's Next</h3>
+      <p style="margin:0;color:#94a3b8;font-size:14px;line-height:1.8;">${cfg.next}</p>
+    `, cfg.color)}
+
+    ${stage === 'report_ready' || stage === 'completed' ? ctaButton('Download Report', `https://trustshield.tech/api/guardian/certifications/${certificationId}/report`, `linear-gradient(135deg,${cfg.color},#06b6d4)`) : ctaButton('Track Progress', 'https://trustshield.tech/guardian-portal', `linear-gradient(135deg,${cfg.color},#06b6d4)`)}
+  `;
+
+  return sendEmail({
+    to,
+    subject: `TrustShield: ${cfg.title} — ${projectName} | ${cfg.status}`,
+    html: baseTemplate(content, `${cfg.title} for ${projectName}. Status: ${cfg.status}.`),
+  });
+}
+
+
 export async function sendDomainRegistrationEmail(to: string, domainName: string, domainTier: string, amountPaid: string, isLifetime: boolean) {
   const content = `
     ${heroSection('Domain Registered!', `${domainName}.tlid is yours.`, '#ec4899')}

@@ -360,5 +360,33 @@ export const guardianService = {
     }
     
     return updated;
+  },
+
+  async updateCertificationStatus(id: string, status: string) {
+    const [updated] = await db.update(guardianCertifications)
+      .set({ status, updatedAt: new Date() })
+      .where(eq(guardianCertifications.id, id))
+      .returning();
+
+    if (updated) {
+      await this.createBlockchainStamp({
+        stampType: `status_${status}`,
+        referenceId: id,
+        referenceType: "certification",
+        dataHash: generateDataHash({ id, status, updatedAt: new Date().toISOString() }),
+        chainId: "dwsc",
+        status: "pending"
+      });
+    }
+
+    return updated;
+  },
+
+  async updateCertificationScore(id: string, score: number) {
+    const [updated] = await db.update(guardianCertifications)
+      .set({ score, updatedAt: new Date() })
+      .where(eq(guardianCertifications.id, id))
+      .returning();
+    return updated;
   }
 };
