@@ -8,6 +8,7 @@ import { PreferencesProvider, NotificationsProvider } from "@/lib/store";
 import { WalletProvider } from "@/hooks/use-wallet";
 
 // We only import what TrustShield needs
+import TrustShieldHome from "@/pages/trustshield-home";
 import GuardianScanner from "@/pages/guardian-scanner";
 import GuardianScannerDetail from "@/pages/token-detail";
 import GuardianAI from "@/pages/guardian-ai";
@@ -79,7 +80,7 @@ function Router() {
       <ScrollToTop />
       <Switch>
       <FloatingThemeToggle />
-        <Route path="/" component={GuardianScanner} />
+        <Route path="/" component={TrustShieldHome} />
         <Route path="/guardian-ai" component={GuardianAI} />
         <Route path="/guardian-ai-registry" component={GuardianAIRegistry} />
         <Route path="/guardian-shield" component={GuardianShield} />
