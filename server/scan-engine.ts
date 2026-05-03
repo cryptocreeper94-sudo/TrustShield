@@ -21,7 +21,7 @@ export const ECOSYSTEM_APPS = [
   { id: "guardian-scanner", name: "Guardian Scanner", url: "https://guardianscanner.tlid.io", category: "Security" },
   { id: "guardian-screener", name: "Guardian Screener", url: "https://guardianscreener.tlid.io", category: "Security" },
   { id: "trustshield", name: "TrustShield", url: "https://trustshield.tech", category: "Security" },
-  { id: "signal-chat", name: "Signal Chat", url: "https://signalchat.tlid.io", category: "Community" },
+  { id: "signal-chat", name: "ChronoChat", url: "https://signalchat.tlid.io", category: "Community" },
   { id: "the-void", name: "THE VOID", url: "https://intothevoid.app", category: "Entertainment" },
   { id: "chronicles", name: "Chronicles", url: "https://yourlegacy.io", category: "Games" },
   { id: "the-arcade", name: "The Arcade", url: "https://darkwavegames.io", category: "Games" },

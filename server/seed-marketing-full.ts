@@ -120,9 +120,9 @@ const TWITTER_POSTS = [
   { content: `Guardian Shield: $299-$2,999/month\n\n• 24/7 monitoring\n• Instant alerts\n• Multi-chain coverage\n• SOC operations\n\nQ3 2026 launch 🛡️`, category: 'security' },
   { content: `Sleep well knowing your contracts are protected.\n\nGuardian Shield continuous monitoring coming Q3 2026.\n\ndwsc.io/guardian 🌙`, category: 'security' },
 
-  // Signal Chat Community Platform (4 posts)
+  // ChronoChat Community Platform (4 posts)
   { content: `💬 Signal Chat: Connect across timelines.\n\nCommunity platform for the DarkWave ecosystem.\n\nReal-time messaging. Orbs integration. Coming Q4 2026.\n\ndwsc.io/signal-chat`, category: 'community' },
-  { content: `Discord alternative built for blockchain communities.\n\nSignal Chat. Decentralized. Community-first.\n\ndwsc.io/signal-chat 🌊`, category: 'community' },
+  { content: `Discord alternative built for blockchain communities.\n\nChronoChat. Decentralized. Community-first.\n\ndwsc.io/signal-chat 🌊`, category: 'community' },
   { content: `Channels. Reactions. File sharing. Bot framework.\n\nSignal Chat has it all—and it's built on DWSC.\n\nQ4 2026 launch 💬`, category: 'community' },
   { content: `Your community deserves better.\n\nSignal Chat: Premium community platform. Orbs rewards. No middlemen.\n\ndwsc.io/signal-chat ⚡`, category: 'community' },
 
@@ -805,8 +805,8 @@ Coming Q3 2026. Continuous protection for continuous peace of mind.
 
 dwsc.io/guardian 🛡️`, category: 'security' },
 
-  // Signal Chat (2 posts)
-  { content: `💬 Signal Chat - Connect Across Timelines
+  // ChronoChat (2 posts)
+  { content: `💬 ChronoChat - Connect Across Timelines
 
 The community platform built for the DarkWave ecosystem.
 
@@ -2082,7 +2082,7 @@ Coming Q3 2026. Sleep well knowing we're watching.
 
 👉 dwsc.io/guardian`, category: 'security' },
 
-  // Signal Chat (2 posts)
+  // ChronoChat (2 posts)
   { content: `💬 **Signal Chat: Connect Across Timelines**
 
 The community platform built for the DarkWave ecosystem.
@@ -3877,7 +3877,7 @@ Be ready when it launches.
 
 👉 dwsc.io/guardian`, category: 'security' },
 
-  // Signal Chat (2 posts)
+  // ChronoChat (2 posts)
   { content: `💬 <b>Signal Chat: Connect Across Timelines</b>
 
 <b>The community platform built for the DarkWave ecosystem.</b>

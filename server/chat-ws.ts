@@ -325,5 +325,5 @@ export function setupSignalChatWS(server: HttpServer) {
     });
   });
 
-  console.log('[Signal Chat] WebSocket server initialized on /ws/chat');
+  console.log('[ChronoChat] WebSocket server initialized on /ws/chat');
 }

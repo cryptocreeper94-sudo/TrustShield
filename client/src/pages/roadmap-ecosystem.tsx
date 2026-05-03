@@ -80,7 +80,7 @@ const ECOSYSTEM_PHASES: Phase[] = [
   },
   {
     id: "phase-chronochat",
-    name: "Signal Chat Platform",
+    name: "ChronoChat Platform",
     description: "Community hub with tiered product offerings",
     status: "in_progress",
     targetDate: "Active Development",

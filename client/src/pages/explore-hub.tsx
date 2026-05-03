@@ -217,10 +217,10 @@ const categories: Category[] = [
     title: "Community & Social",
     icon: <Users className="size-4" />,
     gradient: "from-blue-500 to-indigo-500",
-    description: "Connect with the Trust Layer community through Signal Chat, social feeds, team pages, and member directories.",
+    description: "Connect with the Trust Layer community through ChronoChat, social feeds, team pages, and member directories.",
     cards: [
-      { label: "Signal Chat", description: "Community messaging platform", href: "/signal-chat", icon: <MessageSquare className="size-5" />, image: hubChat, glowColor: "shadow-blue-500/30", featured: false },
-      { label: "Signal Chat", description: "Chronicles community chat", href: "/signal-chat", icon: <MessageSquare className="size-5" />, image: hubCommunity, glowColor: "shadow-indigo-500/30" },
+      { label: "ChronoChat", description: "Community messaging platform", href: "/signal-chat", icon: <MessageSquare className="size-5" />, image: hubChat, glowColor: "shadow-blue-500/30", featured: false },
+      { label: "ChronoChat", description: "Chronicles community chat", href: "/signal-chat", icon: <MessageSquare className="size-5" />, image: hubCommunity, glowColor: "shadow-indigo-500/30" },
       { label: "Community Hub", description: "Central community space", href: "/community", icon: <Users className="size-5" />, image: ccUsers, glowColor: "shadow-violet-500/30" },
       { label: "Social Feed", description: "Latest community updates", href: "/social", icon: <Share2 className="size-5" />, image: hubReferral, glowColor: "shadow-sky-500/30" },
       { label: "Activity Feed", description: "Real-time platform activity", href: "/activity", icon: <Activity className="size-5" />, image: hubEcosystem, glowColor: "shadow-teal-500/30", badge: "Live" },

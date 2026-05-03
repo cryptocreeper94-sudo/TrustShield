@@ -165,7 +165,7 @@ const WHY_GUARDIAN = [
 
 const CERTIFIED_PROJECTS = [
   { name: "Trust Layer (Self-Audit)", status: "Certified", score: 78, date: "Dec 2024" },
-  { name: "Signal Chat Platform", status: "Upcoming", score: null, date: "TBD" },
+  { name: "ChronoChat Platform", status: "Upcoming", score: null, date: "TBD" },
   { name: "Chronicles", status: "Upcoming", score: null, date: "TBD" }
 ];
 

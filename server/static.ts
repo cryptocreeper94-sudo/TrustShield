@@ -50,7 +50,7 @@ const APP_CONFIG: Record<AppDomain, {
   chronochat: {
     manifest: "/manifest-chronochat.webmanifest",
     themeColor: "#06b6d4",
-    title: "Signal Chat",
+    title: "ChronoChat",
     description: "Connect across the ecosystem. The community hub for Trust Layer.",
     icon: "/icons/icon-512x512.png",
   },

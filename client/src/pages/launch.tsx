@@ -131,7 +131,7 @@ const LAUNCH_PHASES: LaunchPhase[] = [
       { id: "e1", title: "Chronicles", description: "Parallel life simulation — Season Zero beta complete, on hold pending graphics overhaul", status: "in-progress", priority: "critical", link: "/chronicles" },
       { id: "e2", title: "Trust Book Platform", description: "Ebook publishing with Stripe purchases and AI writing agent", status: "done", priority: "high", link: "/trust-book" },
       { id: "e3", title: "Academy", description: "Crypto education with blockchain-verified certifications", status: "done", priority: "high", link: "/academy" },
-      { id: "e4", title: "Signal Chat", description: "Cross-app messaging with blockchain-verified identities", status: "done", priority: "high", link: "/signal-chat" },
+      { id: "e4", title: "ChronoChat", description: "Cross-app messaging with blockchain-verified identities", status: "done", priority: "high", link: "/signal-chat" },
       { id: "e5", title: "The Arcade", description: "Provably fair blockchain games with 9+ titles", status: "done", priority: "high", link: "/arcade" },
       { id: "e6", title: "Pulse AI Intelligence", description: "ML-powered market predictions with verified accuracy", status: "done", priority: "high", link: "/pulse" },
       { id: "e7", title: "Strike Agent", description: "Solana memecoin detection with AI risk scoring", status: "done", priority: "high", link: "/strike-agent" },

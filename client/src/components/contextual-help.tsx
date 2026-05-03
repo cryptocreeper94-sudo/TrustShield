@@ -264,7 +264,7 @@ const helpSections: HelpSection[] = [
     icon: <Users className="w-4 h-4" />,
     entries: [
       {
-        title: "Signal Chat",
+        title: "ChronoChat",
         content: "Our built-in messaging platform for the Trust Layer community. Connect with other participants, join topic channels, and stay up to date on ecosystem news.",
         link: { label: "Open Signal Chat", href: "/signal-chat" }
       },
@@ -423,7 +423,7 @@ const contextMappings: ContextMapping[] = [
     routes: ["/signal-chat"],
     sectionIds: ["community", "getting-started"],
     quickTips: [
-      "Signal Chat is the ecosystem's built-in messaging platform."
+      "ChronoChat is the ecosystem's built-in messaging platform."
     ]
   }
 ];
@@ -735,7 +735,7 @@ export function ContextualHelp() {
                             { icon: <GraduationCap className="w-4 h-4" />, label: "Trust Layer Academy", desc: "Learn programming with AI", href: "/academy" },
                             { icon: <Shield className="w-4 h-4" />, label: "Guardian Whitepaper", desc: "Security architecture deep dive", href: "/guardian-whitepaper" },
                             { icon: <MessageSquare className="w-4 h-4" />, label: "Support Center", desc: "Submit a ticket for help", href: "/support" },
-                            { icon: <Users className="w-4 h-4" />, label: "Signal Chat", desc: "Connect with the community", href: "/signal-chat" },
+                            { icon: <Users className="w-4 h-4" />, label: "ChronoChat", desc: "Connect with the community", href: "/signal-chat" },
                             { icon: <Code className="w-4 h-4" />, label: "Developer Portal", desc: "APIs, SDKs, and documentation", href: "/developers" },
                             { icon: <Compass className="w-4 h-4" />, label: "Block Explorer", desc: "Browse the Trust Layer blockchain", href: "/explorer" }
                           ]).map((item, i) => (

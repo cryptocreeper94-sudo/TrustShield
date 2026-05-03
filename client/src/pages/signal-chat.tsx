@@ -442,7 +442,7 @@ function ChatApp({ initialToken, initialUser }: { initialToken: string; initialU
             <MessageSquare className="w-4 h-4 text-white" />
           </div>
           <div>
-            <h1 className="text-sm font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Signal Chat</h1>
+            <h1 className="text-sm font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">ChronoChat</h1>
             <div className="flex items-center gap-1.5">
               {connected ? (
                 <><Wifi className="w-3 h-3 text-green-400" /><span className="text-[10px] text-green-400">Connected</span></>

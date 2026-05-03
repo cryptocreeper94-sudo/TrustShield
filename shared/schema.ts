@@ -327,7 +327,7 @@ export const ECOSYSTEM_APP_REGISTRY = [
   { id: 4, name: "TrustVault", prefix: "TV", domain: "trustvault.tlid.io" },
   { id: 5, name: "TLID.io", prefix: "TI", domain: "tlid.io" },
   { id: 6, name: "THE VOID", prefix: "VO", domain: "thevoid.tlid.io" },
-  { id: 7, name: "Signal Chat", prefix: "SC", domain: "signalchat.tlid.io" },
+  { id: 7, name: "ChronoChat", prefix: "SC", domain: "signalchat.tlid.io" },
   { id: 8, name: "DarkWave Studio", prefix: "DS", domain: "darkwavestudio.tlid.io" },
   { id: 9, name: "Guardian Shield", prefix: "GS", domain: "guardianshield.tlid.io" },
   { id: 10, name: "Guardian Scanner", prefix: "GN", domain: "guardianscanner.tlid.io" },
@@ -1997,7 +1997,7 @@ export type GameChatMessage = typeof gameChatMessages.$inferSelect;
 export type PlayerRewards = typeof playerRewards.$inferSelect;
 export type GameAirdrop = typeof gameAirdrops.$inferSelect;
 
-// Signal Chat - Ecosystem Identity & Messaging
+// ChronoChat - Ecosystem Identity & Messaging
 export const chatUsers = pgTable("chat_users", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   username: text("username").notNull().unique(),

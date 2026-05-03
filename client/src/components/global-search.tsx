@@ -34,7 +34,7 @@ const staticPages: SearchResult[] = [
   { type: "page", id: "pulse", title: "Pulse Trading", description: "Advanced token trading", href: "/pulse", icon: BarChart3, category: "Finance" },
   { type: "page", id: "trading", title: "Trading", description: "Trade tokens", href: "/trading", icon: TrendingUp, category: "Finance" },
   { type: "page", id: "chronicles", title: "Chronicles Game", description: "Play the historical adventure game", href: "/chronicles", icon: Gamepad2, category: "Games" },
-  { type: "page", id: "community", title: "Signal Chat", description: "Community chat and discussions", href: "/signal-chat", icon: MessageCircle, category: "Community" },
+  { type: "page", id: "community", title: "ChronoChat", description: "Community chat and discussions", href: "/signal-chat", icon: MessageCircle, category: "Community" },
   { type: "page", id: "members", title: "Member Directory", description: "Browse trusted members", href: "/members", icon: Users, category: "Community" },
   { type: "page", id: "referrals", title: "Referrals", description: "Refer friends and earn rewards", href: "/referrals", icon: Gift, category: "Community" },
   { type: "page", id: "quests", title: "Daily Quests", description: "Complete quests to earn Shells", href: "/quests", icon: Target, category: "Earn" },

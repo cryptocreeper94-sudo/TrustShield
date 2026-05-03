@@ -176,7 +176,7 @@ export default function MyHub() {
     { id: 'wallet', label: 'Connect wallet', completed: rewardProfile?.profile?.hasWallet || false, href: '/wallet' },
     { id: 'quest', label: 'Complete first quest', completed: (rewardProfile?.profile?.totalQuestsCompleted || 0) > 0, href: '/quests' },
     { id: 'referral', label: 'Refer a friend', completed: false, href: '/referrals' },
-    { id: 'chat', label: 'Join Signal Chat', completed: false, href: '/signal-chat' },
+    { id: 'chat', label: 'Join ChronoChat', completed: false, href: '/signal-chat' },
   ];
   const completedSteps = accountCompletionSteps.filter(s => s.completed).length;
   const accountProgress = (completedSteps / accountCompletionSteps.length) * 100;
@@ -197,7 +197,7 @@ export default function MyHub() {
 
   const quickActions = [
     { href: "/presale", label: "Get Signal", icon: Coins, badge: "Live" },
-    { href: "/signal-chat", label: "Signal Chat", icon: MessageCircle, badge: "Live" },
+    { href: "/signal-chat", label: "ChronoChat", icon: MessageCircle, badge: "Live" },
     { href: "/chronicles", label: "Chronicles", icon: Gamepad2, badge: "Play" },
     { href: "/quests", label: "Daily Quests", icon: Target, badge: "Earn" },
     { href: "/referrals", label: "Refer & Earn", icon: Users, badge: "Bonus" },
@@ -218,7 +218,7 @@ export default function MyHub() {
       title: "Community",
       color: "emerald",
       links: [
-        { href: "/signal-chat", label: "Signal Chat", icon: MessageCircle },
+        { href: "/signal-chat", label: "ChronoChat", icon: MessageCircle },
         { href: "/members", label: "Member Directory", icon: Users },
         { href: "/referrals", label: "Refer Friends", icon: Gift },
         { href: "/quests", label: "Daily Quests", icon: Target },
@@ -956,7 +956,7 @@ export default function MyHub() {
                             <MessageCircle className="w-5 h-5 text-purple-400" />
                           </div>
                           <div>
-                            <p className="font-medium group-hover:text-purple-400 transition-colors">Join Signal Chat</p>
+                            <p className="font-medium group-hover:text-purple-400 transition-colors">Join ChronoChat</p>
                             <p className="text-xs text-white/50">Meet the community, get help</p>
                           </div>
                         </div>

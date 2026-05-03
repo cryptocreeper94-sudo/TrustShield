@@ -31,7 +31,7 @@ export async function seedChatChannels() {
     for (const channel of CHRONICLES_CHANNELS) {
       await db.insert(chatChannels).values(channel).onConflictDoNothing();
     }
-    console.log(`[Signal Chat] Seeded ${DEFAULT_CHANNELS.length + CHRONICLES_CHANNELS.length} channels (including Chronicles era channels)`);
+    console.log(`[ChronoChat] Seeded ${DEFAULT_CHANNELS.length + CHRONICLES_CHANNELS.length} channels (including Chronicles era channels)`);
     return;
   }
 
@@ -44,8 +44,8 @@ export async function seedChatChannels() {
     }
   }
   if (added > 0) {
-    console.log(`[Signal Chat] Added ${added} new channels`);
+    console.log(`[ChronoChat] Added ${added} new channels`);
   } else {
-    console.log(`[Signal Chat] ${existing.length} channels already exist, all up to date`);
+    console.log(`[ChronoChat] ${existing.length} channels already exist, all up to date`);
   }
 }

@@ -34,7 +34,7 @@ const ecosystemProducts = [
   { name: "Guardian Suite", desc: "AI security scanner, screener, shield, certification", icon: Shield, category: "Security" },
   { name: "DarkWave Chronicles", desc: "3D life simulation across historical eras", icon: Gamepad2, category: "Gaming" },
   { name: "Trust Book", desc: "Premium ebook publishing with 70% author royalty", icon: BookOpen, category: "Publishing" },
-  { name: "Signal Chat", desc: "Real-time encrypted messaging platform", icon: MessageSquare, category: "Communication" },
+  { name: "ChronoChat", desc: "Real-time encrypted messaging platform", icon: MessageSquare, category: "Communication" },
   { name: "Lume Language", desc: "AI-native programming language with compiler", icon: Code, category: "Developer Tools" },
   { name: "TrustGen 3D", desc: "AI-powered 3D asset creation with provenance", icon: Palette, category: "Creative Tools" },
   { name: "Trust Layer Academy", desc: "15-track education platform with certifications", icon: GraduationCap, category: "Education" },

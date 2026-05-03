@@ -155,7 +155,7 @@ const navCategories = [
     label: "Community & Social",
     icon: Users,
     items: [
-      { href: "/signal-chat", label: "Signal Chat", icon: MessageCircle, badge: "Live" },
+      { href: "/signal-chat", label: "ChronoChat", icon: MessageCircle, badge: "Live" },
       { href: "/social", label: "Social Feed", icon: Activity },
       { href: "/activity", label: "Activity Feed", icon: Activity },
       { href: "/domains", label: "Domain Registry", icon: Globe, badge: "New" },
@@ -221,7 +221,7 @@ const navCategories = [
       { href: "/studio", label: "Trust Studio", icon: Sparkles },
       { href: "/academy", label: "Academy", icon: BookOpen },
       { href: "https://yourlegacy.io", label: "YourLegacy.io", icon: Star, external: true },
-      { href: "/signal-chat", label: "Signal Chat", icon: MessageCircle },
+      { href: "/signal-chat", label: "ChronoChat", icon: MessageCircle },
     ]
   },
 ];

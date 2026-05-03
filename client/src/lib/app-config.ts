@@ -65,11 +65,11 @@ export const APP_CONFIG: Record<AppDomain, {
     primaryGradient: "from-purple-500 to-pink-500",
   },
   chronochat: {
-    name: "Signal Chat",
-    shortName: "Signal Chat",
+    name: "ChronoChat",
+    shortName: "ChronoChat",
     themeColor: "#06b6d4",
     description: "Connect across the network",
-    logoText: "Signal Chat",
+    logoText: "ChronoChat",
     primaryGradient: "from-cyan-500 to-purple-500",
   },
   strikeagent: {

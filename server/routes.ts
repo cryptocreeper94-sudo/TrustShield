@@ -2929,7 +2929,7 @@ export async function registerRoutes(
   });
 
   // ============================================================
-  // SIGNAL CHAT SSO - Cross-app authentication
+  // ChronoChat SSO - Cross-app authentication
   // Users register/login with username+password, get JWT token
   // valid across all ecosystem apps sharing JWT_SECRET
   // ============================================================
@@ -2943,10 +2943,10 @@ export async function registerRoutes(
       }
 
       const result = await registerUser({ username, email, password, displayName });
-      console.log(`[Signal Chat] User registered: ${username} (${email})`);
+      console.log(`[ChronoChat] User registered: ${username} (${email})`);
       res.json({ success: true, user: result.user, token: result.token });
     } catch (error: any) {
-      console.error("[Signal Chat] Registration error:", error.message);
+      console.error("[ChronoChat] Registration error:", error.message);
       res.status(400).json({ success: false, error: error.message });
     }
   });
@@ -2960,10 +2960,10 @@ export async function registerRoutes(
       }
 
       const result = await loginUser({ username, password });
-      console.log(`[Signal Chat] User logged in: ${username}`);
+      console.log(`[ChronoChat] User logged in: ${username}`);
       res.json({ success: true, user: result.user, token: result.token });
     } catch (error: any) {
-      console.error("[Signal Chat] Login error:", error.message);
+      console.error("[ChronoChat] Login error:", error.message);
       res.status(401).json({ success: false, error: error.message });
     }
   });
@@ -2984,7 +2984,7 @@ export async function registerRoutes(
 
       res.json({ success: true, user });
     } catch (error: any) {
-      console.error("[Signal Chat] Auth check error:", error.message);
+      console.error("[ChronoChat] Auth check error:", error.message);
       res.status(500).json({ success: false, error: "Failed to verify token" });
     }
   });
@@ -26402,7 +26402,7 @@ function getLocalEcosystemApps(): EcosystemApp[] {
     },
     {
       id: "signal-chat",
-      name: "Signal Chat",
+      name: "ChronoChat",
       category: "Community",
       description: "Connect across the Trust Layer network. Real-time messaging with blockchain-verified identities.",
       hook: "Connect Across the Network",
