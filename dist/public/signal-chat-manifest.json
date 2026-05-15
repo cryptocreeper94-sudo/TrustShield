@@ -1,6 +1,6 @@
 {
-  "name": "Signal Chat - Trust Layer",
-  "short_name": "Signal Chat",
+  "name": "ChronoChat - Trust Layer",
+  "short_name": "ChronoChat",
   "description": "Connect across the Trust Layer network with blockchain-verified messaging",
   "start_url": "/signal-chat",
   "display": "standalone",

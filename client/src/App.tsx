@@ -74,7 +74,26 @@ function ScrollToTop() {
   return null;
 }
 
+import TrustShieldEnterprise from "@/pages/trustshield-enterprise";
+
 function Router() {
+  const [location] = useLocation();
+  const isManheim = window.location.hostname.includes('manheim');
+
+  if (isManheim) {
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <ScrollToTop />
+        <FloatingThemeToggle />
+        <Switch>
+          <Route path="/" component={TrustShieldEnterprise} />
+          {/* Fallback all routes on manheim subdomain to enterprise page */}
+          <Route component={TrustShieldEnterprise} />
+        </Switch>
+      </Suspense>
+    );
+  }
+
   return (
     <Suspense fallback={<PageLoader />}>
       <ScrollToTop />
