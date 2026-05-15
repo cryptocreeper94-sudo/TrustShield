@@ -1,56 +1,46 @@
 import { motion } from "framer-motion";
-import { Shield, Brain, Lock, Layers, Network, Fingerprint, Database, Hexagon, Server } from "lucide-react";
+import { Shield, Server, Activity, Network, Lock, Crosshair, MapPin, Clock, Database, CheckCircle, AlertTriangle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import heroBg from "@/assets/generated_images/trustshield_hero.png";
 
 function PatentFooter() {
-  const patents = [
-    "64/032,339", "64/047,512", "64/047,467", "64/047,496", "64/047,536"
-  ];
+  const patents = ["64/032,339", "64/047,512", "64/047,467", "64/047,496", "64/047,536"];
   return (
-    <div className="border-t border-white/5 py-8 mt-16 bg-[#030308]">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <div className="flex flex-wrap justify-center gap-2 mb-3">
+    <div className="border-t border-white/5 py-12 mt-20 bg-[#030308]">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="flex flex-wrap justify-center gap-2 mb-4">
           {patents.map(n => (
-            <span key={n} className="text-[9px] font-mono text-cyan-400/60 px-2 py-0.5 rounded-full bg-cyan-500/5 border border-cyan-500/10">
+            <span key={n} className="text-[10px] font-mono text-cyan-400/50 px-2 py-0.5 rounded-full bg-cyan-500/5 border border-cyan-500/10">
               U.S. Pat. App. No. {n}
             </span>
           ))}
         </div>
-        <p className="text-[10px] text-white/20 font-mono">Patent Pending — DarkWave Studios LLC — 2026</p>
+        <p className="text-[11px] text-white/30 font-mono">
+          Guardian Security Architecture &mdash; DarkWave Studios LLC &mdash; 2026<br/>
+          Submitted for Institutional Review
+        </p>
       </div>
     </div>
   );
 }
 
+const THREAT_TAXONOMY = [
+  { id: "T1", name: "Localization Spoofing", desc: "Falsified vehicle or scanner positioning data (GPS/UWB) causing physical routing misdirection.", icon: MapPin },
+  { id: "T2", name: "Routing Table Manipulation", desc: "Corrupting node routing algorithms to hijack physical intake flows and lot logistics.", icon: Network },
+  { id: "T3", name: "Command Hijacking", desc: "Redirecting deterministic Lume-X operational commands to unauthorized devices or users.", icon: Crosshair },
+  { id: "T4", name: "Denial-of-Routing", desc: "Synthetic request flooding designed to stall the 42-node facility organism.", icon: AlertTriangle },
+  { id: "T5", name: "Node Impersonation", desc: "Unauthorized hardware successfully claiming a verified Lume-V cryptographic identity.", icon: Shield },
+  { id: "T6", name: "Confirmation Falsification", desc: "Forging condition report deliveries to corrupt the digital physics model.", icon: CheckCircle },
+  { id: "T7", name: "Timing Attacks", desc: "Disrupting the 100Hz polling rate and TDMA scheduling of the facility mesh.", icon: Clock },
+  { id: "T8", name: "Physical Node Compromise", desc: "Hardware tampering of deployed scanners to extract Secure Element PKI credentials.", icon: Lock },
+  { id: "T9", name: "Ledger Fraud", desc: "Settlement manipulation and replay attacks on the private PoA Trust Chain.", icon: Database },
+  { id: "T10", name: "Inter-Mesh Hijacking", desc: "Redirection of traffic and commands between disparate auction lots (Global Scalability Threat).", icon: Activity },
+  { id: "T11", name: "Safety Envelope Bypass", desc: "Circumvention of the Operational Safety Layer via physical or software sensor spoofing.", icon: Server },
+];
+
 export default function TrustShieldEnterprise() {
-  const pillars = [
-    {
-      icon: Shield, title: "Edge Validation",
-      desc: "All sensor data from the Lume-Auto runtime is cryptographically signed at the hardware level before transmission, ensuring end-to-end immutability.",
-      color: "from-cyan-500/20 to-cyan-500/5", accent: "text-cyan-400", border: "border-cyan-500/20",
-    },
-    {
-      icon: Brain, title: "AI Governance",
-      desc: "Every automated decision, routing logic, or data summarization is tethered to a deterministic audit trail, eliminating black-box outputs.",
-      color: "from-purple-500/20 to-purple-500/5", accent: "text-purple-400", border: "border-purple-500/20",
-    },
-    {
-      icon: Network, title: "Enterprise Trust Chain (PoA)",
-      desc: "Immutable condition reports and arbitration logs are anchored to a private Proof-of-Authority ledger built specifically for closed-loop enterprise networks.",
-      color: "from-emerald-500/20 to-emerald-500/5", accent: "text-emerald-400", border: "border-emerald-500/20",
-    },
-  ];
-
-  const integrationFeatures = [
-    { icon: Fingerprint, title: "Zero-Trust Device Identity", desc: "Every OBD-II scan generates a unique hardware-signed payload." },
-    { icon: Lock, title: "Replay Verification", desc: "Arbitration disputes resolved mathematically by replaying signed scan logs." },
-    { icon: Database, title: "Audit Trail Integrity", desc: "Data cannot be mutated retroactively without breaking the hash chain." },
-    { icon: Hexagon, title: "Organism Bounds Validation", desc: "Verifies the 42-node deterministic runtime operated within expected safety parameters." },
-  ];
-
   return (
-    <div className="min-h-screen bg-[#030308] text-white overflow-x-hidden font-sans">
+    <div className="min-h-screen bg-[#030308] text-white overflow-x-hidden font-sans selection:bg-cyan-500/20">
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between backdrop-blur-xl bg-[#030308]/80 border-b border-white/5">
         <div className="flex items-center gap-2.5">
@@ -60,98 +50,148 @@ export default function TrustShieldEnterprise() {
           <span className="font-black text-sm tracking-widest text-white">TRUSTSHIELD</span>
         </div>
         <div className="flex items-center gap-4">
-          <Badge className="bg-white/5 text-white/50 border-white/10 px-3 py-1 text-xs tracking-wider">
-            ENTERPRISE DEPLOYMENT
+          <Badge className="bg-white/5 text-white/50 border-white/10 px-3 py-1 text-[10px] tracking-wider font-mono">
+            ENGINEERING SPECIFICATION
           </Badge>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center pt-24 pb-12">
+      {/* Title Page / Header */}
+      <section className="relative pt-32 pb-20 border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <img src={heroBg} alt="" className="w-full h-full object-cover opacity-10 mix-blend-screen" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#030308]/60 via-[#030308]/90 to-[#030308]" />
         </div>
-
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Badge className="mb-6 bg-emerald-500/10 text-emerald-400 border-emerald-500/20 px-4 py-1.5 text-xs font-mono tracking-widest uppercase">
-              The Security Backbone
-            </Badge>
-
-            <h1 className="text-5xl md:text-7xl font-black leading-[1.05] tracking-tight mb-6">
-              Deterministic <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_4s_ease_infinite]">
-                Verification Layer
-              </span>
+            <h1 className="text-3xl md:text-5xl font-black leading-[1.1] tracking-tight mb-6 text-white/90">
+              A Formal Threat Model and Defense Framework for Deterministic Infrastructure
             </h1>
-
-            <p className="text-lg text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-              TrustShield is the foundational security and cryptographic infrastructure supporting Lume-Auto and Lume Ops Recon. It ensures that every scan, routing decision, and system integration operates under strict deterministic governance.
+            <p className="text-lg text-cyan-400/80 max-w-3xl mx-auto mb-8 font-medium">
+              The Security Architecture for Identity-Governed, Invariant-Enforced Logistics Routing
             </p>
+            <div className="flex flex-wrap justify-center gap-4 text-xs font-mono text-white/40">
+              <span className="bg-white/5 px-3 py-1.5 rounded-md border border-white/10">Version 2.0</span>
+              <span className="bg-white/5 px-3 py-1.5 rounded-md border border-white/10">Deployed: Manheim Network</span>
+              <span className="bg-white/5 px-3 py-1.5 rounded-md border border-white/10">Scale: Multi-Facility Inter-Mesh</span>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Three Pillars */}
+      {/* Abstract */}
       <section className="py-20 px-6 bg-[#030308]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black mb-4">Core Infrastructure Architecture</h2>
-            <p className="text-white/40 max-w-2xl mx-auto text-sm leading-relaxed">
-              Designed explicitly to remove probabilistic variability from enterprise workflows.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {pillars.map((p, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className={`bg-gradient-to-b ${p.color} border ${p.border} rounded-2xl p-8`}
-              >
-                <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-5 ${p.accent}`}>
-                  <p.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-white/90">{p.title}</h3>
-                <p className="text-sm text-white/50 leading-relaxed">{p.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl font-bold mb-6 text-white/90 border-b border-white/10 pb-4">1. Abstract: The Consequence Asymmetry</h2>
+            <div className="space-y-6 text-sm text-white/60 leading-relaxed font-serif">
+              <p>
+                Logistics routing at an enterprise scale introduces a class of vulnerabilities that has no analog in traditional data networking: a successful attack on a physical operations system does not merely corrupt data—it corrupts physics. Route manipulation misdirects million-dollar vehicle assets. Denial-of-routing attacks paralyze intake lanes. Localization spoofing creates hazardous conditions in active yards. The consequences of these attacks are not service disruption; they are physical gridlock, financial loss, and operational failure.
+              </p>
+              <p>
+                This specification defines the complete attack surface for deterministic logistics routing and specifies the <strong>Guardian Security Framework (TrustShield)</strong>. We derive eleven threat categories from first principles and prove coverage completeness by demonstrating that every path to system compromise requires the traversal of at least one formal enforcement boundary.
+              </p>
+              <p>
+                While deployed initially for isolated facility execution, the framework scales seamlessly via inter-mesh E-BGP (Exterior Gateway Protocol) routing to govern disparate global facilities under a unified Trust Chain, ensuring secure scaling as enterprise footprint expands.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* System Integration Grid */}
-      <section className="py-24 px-6 bg-white/[0.01] border-y border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16">
-            <Badge className="mb-4 bg-cyan-500/10 text-cyan-400 border-cyan-500/20 px-3 py-1 text-[10px] font-mono tracking-widest uppercase">
-              System Integration
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-black mb-4">Securing Wholesale Operations</h2>
-            <p className="text-white/40 max-w-2xl text-sm leading-relaxed">
-              When millions of dollars in vehicle assets move through a facility, trust cannot be assumed. TrustShield mathematically enforces integrity at every touchpoint.
+      {/* Two-Tier Architecture */}
+      <section className="py-20 px-6 bg-white/[0.02] border-y border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl font-bold mb-6 text-white/90 border-b border-white/10 pb-4">2. Two-Tier Defense Architecture</h2>
+            <p className="text-sm text-white/60 leading-relaxed font-serif mb-10">
+              The architecture operates across two distinct tiers to provide defense-in-depth. Pre-transmission authentication ensures identity is verified before the first command executes.
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {integrationFeatures.map((feat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-6 bg-[#030308] border border-white/5 rounded-xl hover:border-white/10 transition-colors"
-              >
-                <feat.icon className="w-5 h-5 text-white/30 mb-4" />
-                <h4 className="text-sm font-bold text-white/80 mb-2">{feat.title}</h4>
-                <p className="text-xs text-white/40 leading-relaxed">{feat.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-[#030308] border border-cyan-500/20 p-8 rounded-xl shadow-[0_0_30px_rgba(6,182,212,0.05)]">
+                <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">
+                  <Activity className="w-5 h-5" /> Innate Tier (SHDCL)
+                </h3>
+                <ul className="space-y-3 text-sm text-white/50 font-sans">
+                  <li className="flex items-start gap-2"><div className="mt-1 w-1 h-1 bg-cyan-500 rounded-full"/> Immediate anomaly detection (13.7ms latency)</li>
+                  <li className="flex items-start gap-2"><div className="mt-1 w-1 h-1 bg-cyan-500 rounded-full"/> Process recovery without classification</li>
+                  <li className="flex items-start gap-2"><div className="mt-1 w-1 h-1 bg-cyan-500 rounded-full"/> Hard command hold on unresolved anomalies</li>
+                  <li className="flex items-start gap-2"><div className="mt-1 w-1 h-1 bg-cyan-500 rounded-full"/> Hardware-enforced cutoff independent of software</li>
+                </ul>
+              </div>
+
+              <div className="bg-[#030308] border border-purple-500/20 p-8 rounded-xl shadow-[0_0_30px_rgba(168,85,247,0.05)]">
+                <h3 className="text-lg font-bold text-purple-400 mb-4 flex items-center gap-2">
+                  <Brain className="w-5 h-5" /> Adaptive Tier (Guardian)
+                </h3>
+                <ul className="space-y-3 text-sm text-white/50 font-sans">
+                  <li className="flex items-start gap-2"><div className="mt-1 w-1 h-1 bg-purple-500 rounded-full"/> Continuous threat classification (T1-T11 mapping)</li>
+                  <li className="flex items-start gap-2"><div className="mt-1 w-1 h-1 bg-purple-500 rounded-full"/> Cryptographic node quarantine and isolation</li>
+                  <li className="flex items-start gap-2"><div className="mt-1 w-1 h-1 bg-purple-500 rounded-full"/> Continuous certificate chain auditing</li>
+                  <li className="flex items-start gap-2"><div className="mt-1 w-1 h-1 bg-purple-500 rounded-full"/> Route origin validation via PoA Trust Chain</li>
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Threat Taxonomy */}
+      <section className="py-24 px-6 bg-[#030308]">
+        <div className="max-w-5xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl font-bold mb-6 text-white/90 border-b border-white/10 pb-4">3. The 11-Point Threat Taxonomy</h2>
+            <p className="text-sm text-white/60 leading-relaxed font-serif mb-12 max-w-3xl">
+              Derived from first principles rather than from enumerated known attacks, this taxonomy ensures that defense covers the complete operational threat space of an enterprise logistics facility.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {THREAT_TAXONOMY.map((threat, i) => (
+                <motion.div
+                  key={threat.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="p-6 bg-white/[0.02] border border-white/5 rounded-lg hover:border-cyan-500/30 transition-colors group relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 p-4 text-[10px] font-mono text-white/10 group-hover:text-cyan-500/20 transition-colors">
+                    {threat.id}
+                  </div>
+                  <threat.icon className="w-5 h-5 text-cyan-400/50 mb-4 group-hover:text-cyan-400 transition-colors" />
+                  <h4 className="text-sm font-bold text-white/90 mb-2">{threat.name}</h4>
+                  <p className="text-xs text-white/50 leading-relaxed font-serif">{threat.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Formal Security Properties */}
+      <section className="py-20 px-6 bg-white/[0.02] border-y border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl font-bold mb-6 text-white/90 border-b border-white/10 pb-4">4. Formal Security Properties</h2>
+            <p className="text-sm text-white/60 leading-relaxed font-serif mb-10">
+              The Guardian framework provides coverage completeness, proving mathematically that the following four properties hold true across the entirety of the deployment.
+            </p>
+
+            <div className="space-y-6">
+              {[
+                { name: "Authenticity", desc: "Every participant N in the protected mesh can be verified as the entity it claims to be before any interaction is permitted." },
+                { name: "Integrity", desc: "No command, condition report, or resource flow is modified in transit without detection via deterministic signature hashing." },
+                { name: "Availability", desc: "The facility organism continues operating under attack with degraded but bounded service; critical operational sessions reserve dedicated capacity." },
+                { name: "Non-repudiation", desc: "Every operational event is attributable to a specific authenticated participant, permanently recorded on the PoA Trust Chain." }
+              ].map((prop, i) => (
+                <div key={i} className="flex flex-col sm:flex-row gap-4 p-5 bg-[#030308] border border-white/5 rounded-lg">
+                  <div className="sm:w-1/4 font-mono text-sm text-cyan-400 font-bold">{prop.name}</div>
+                  <div className="sm:w-3/4 text-sm text-white/60 font-serif leading-relaxed">{prop.desc}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
