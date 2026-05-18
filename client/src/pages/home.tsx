@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, Code, Globe, Layers, Shield, Zap, Cpu, Network, Database, Heart, Sparkles, Activity, Server, CheckCircle2, Droplets, ArrowUpDown, ImageIcon, PieChart, History, Rocket, LineChart, Webhook, Palette, Trophy, Target, ChevronDown, ChevronLeft, ChevronRight, Gift, Search } from "lucide-react";
+import { ArrowRight, Code, Globe, Layers, Shield, Zap, Cpu, Network, Database, Heart, Sparkles, Activity, Server, CheckCircle2, Droplets, ArrowUpDown, ImageIcon, PieChart, History, Rocket, LineChart, Webhook, Palette, Trophy, Target, ChevronDown, ChevronLeft, ChevronRight, Gift, Search, Monitor, Cloud } from "lucide-react";
 import { InfoTooltip } from "@/components/info-tooltip";
 import heroBg from "@assets/trust_network_connecting_everything_1769800437573.png";
 // Hero slideshow videos
@@ -756,7 +756,7 @@ export default function Home() {
                   cx={node.cx}
                   cy={node.cy}
                   r={node.size * 2}
-                  fill={i % 2 === 0 ? 'url(#nodeGlow)' : 'url(#nodeGlowPurple)'}
+                  fill={i % 2 === 0 ? 'url(#nodeGlow)' : 'url(#nodeGlowBlue)'}
                   className="animate-pulse"
                   style={{ animationDelay: `${i * 0.15}s` }}
                 />
@@ -764,7 +764,7 @@ export default function Home() {
                   cx={node.cx}
                   cy={node.cy}
                   r={node.size}
-                  fill={i % 2 === 0 ? '#06b6d4' : '#a855f7'}
+                  fill={i % 2 === 0 ? '#06b6d4' : '#3b82f6'}
                   className="animate-pulse"
                   style={{ animationDelay: `${i * 0.15}s` }}
                 />
@@ -781,7 +781,7 @@ export default function Home() {
               className="mb-6"
             >
               <p className="text-xl md:text-2xl font-medium text-white/90" data-testid="text-greeting">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
                   {getTimeGreeting()}, {username}
                 </span>
                 <Sparkles className="inline-block w-5 h-5 ml-2 text-cyan-400" />
@@ -795,17 +795,26 @@ export default function Home() {
             className="max-w-3xl mx-auto space-y-6 mt-6"
           >
             <Badge variant="outline" className="px-3 py-1 border-primary/50 text-primary bg-primary/10 rounded-full text-xs font-tech tracking-wider uppercase">
-              The Next Generation Ecosystem
+              v1.0.0 Production Release
             </Badge>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
-              Welcome to <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-secondary">Trust Layer</span>
+              Zero Trust Security <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-secondary">TrustShield Sentinel</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-medium">
-              Where trust becomes the layer of truth.
+            <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-medium mb-8">
+              The foundational security layer for the Manheim ecosystem. Verify identity, protect assets, and launch enterprise apps securely.
             </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+              <a href="https://github.com/cryptocreeper94-sudo/TrustShield/releases/latest" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8 bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+                <Monitor className="mr-2 h-4 w-4" /> Download Sentinel (.exe)
+              </a>
+              <Link href="/dashboard" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8 border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 text-white">
+                <Cloud className="mr-2 h-4 w-4" /> Launch Cloud Dashboard
+              </Link>
+            </div>
 
             {/* Premium Ecosystem Slideshow */}
             <HeroSlideshow />
@@ -818,11 +827,11 @@ export default function Home() {
       {/* Thin Gradient Divider with Glow */}
       <Link href="/presale">
         <div className="relative py-3 cursor-pointer group">
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-purple-600/40 to-slate-950" />
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
-          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-blue-600/40 to-slate-950" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent shadow-[0_0_20px_rgba(59,130,246,0.5)]" />
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent shadow-[0_0_20px_rgba(59,130,246,0.5)]" />
           <div className="container mx-auto px-4 relative z-10 flex items-center justify-center">
-            <Badge className="bg-purple-500/20 border-purple-400/50 text-purple-200 hover:bg-purple-500/30 transition-colors px-6 py-1.5 text-sm font-medium">
+            <Badge className="bg-blue-500/20 border-blue-400/50 text-blue-200 hover:bg-blue-500/30 transition-colors px-6 py-1.5 text-sm font-medium">
               <Sparkles className="w-3 h-3 mr-2" />
               Signal Token Presale Live — Join Now
               <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -833,7 +842,7 @@ export default function Home() {
 
       {/* DeFi Section - Premium Protocol Style */}
       <section className="py-16 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-pink-500/5 via-purple-500/5 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-blue-500/5 to-transparent" />
         <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -841,9 +850,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <Badge variant="outline" className="border-pink-500/50 text-pink-400 text-[10px] mb-3">DeFi Suite</Badge>
+            <Badge variant="outline" className="border-cyan-500/50 text-cyan-400 text-[10px] mb-3">DeFi Suite</Badge>
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-3">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-primary">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-primary">
                 Decentralized Finance
               </span>
             </h2>
