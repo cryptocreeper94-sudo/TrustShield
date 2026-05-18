@@ -19,3 +19,9 @@ blockchain/target/
 .upm/
 .replit
 *.txt
+
+# Electron build output — distribute installer separately
+dist/win-unpacked/
+dist/*.exe
+dist/*.exe.blockmap
+dist/*.yml

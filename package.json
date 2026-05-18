@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
+  "main": "electron/main.js",
   "scripts": {
     "dev:client": "vite dev --port 5000",
     "dev": "dotenv -e .env -- cross-env NODE_ENV=development tsx server/index.ts",
@@ -11,7 +12,30 @@
     "build:local": "dotenv -e .env -- cross-env tsx script/build.ts",
     "start:local": "dotenv -e .env -- cross-env NODE_ENV=production node dist/index.cjs",
     "check": "tsc",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "electron:dev": "electron .",
+    "electron:build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.darkwave.trustshield",
+    "productName": "TrustShield",
+    "win": {
+      "target": "nsis",
+      "icon": "electron/shield-icon.png",
+      "forceCodeSigning": false
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false
+    },
+    "files": [
+      "electron/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "electron/main.js"
+    }
   },
   "dependencies": {
     "@google-cloud/storage": "^7.18.0",
@@ -160,6 +184,8 @@
     "@vitejs/plugin-react": "^5.0.4",
     "autoprefixer": "^10.4.21",
     "drizzle-kit": "^0.31.4",
+    "electron": "^42.1.0",
+    "electron-builder": "^26.8.1",
     "esbuild": "^0.25.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.14",
