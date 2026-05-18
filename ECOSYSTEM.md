@@ -88,7 +88,7 @@
 | **trust-layer-hub** | [trusthub.tlid.io](https://trusthub.tlid.io) | Ecosystem companion app |
 | **trustgolf** | [trustgolf.app](https://trustgolf.app) | Golf score tracking |
 | **trusthome** | [trusthome.tlid.io](https://trusthome.tlid.io) | Real estate/property |
-| **lot-ops-pro-manheim** | — | Lot Ops Pro mobile (Manheim) |
+| **lot-ops-pro** | — | Lot Ops Pro mobile |
 
 ## Cross-Service Dependencies
 

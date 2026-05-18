@@ -804,7 +804,7 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-medium mb-8">
-              The foundational security layer for the Manheim ecosystem. Verify identity, protect assets, and launch enterprise apps securely.
+              The foundational security layer for the enterprise ecosystem. Verify identity, protect assets, and launch enterprise apps securely.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">

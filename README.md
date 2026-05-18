@@ -2,7 +2,7 @@
 
 > $([char]0x1F512) **Patent Pending:** The core deterministic governance capabilities (Lume-V) within this repository are protected under U.S. Provisional Patent Application **No. 64/032,339** (Filed April 7, 2026).
 
-**TrustShield Sentinel** is the foundational security layer for the Manheim enterprise ecosystem. It provides zero-trust identity verification, cross-process IPC communication with Lume Cortex, and an integrated Ecosystem Hub.
+**TrustShield Sentinel** is the foundational security layer for the enterprise ecosystem. It provides zero-trust identity verification, cross-process IPC communication with Lume Cortex, and an integrated Ecosystem Hub.
 
 **Live:** [trustshield.tech](https://trustshield.tech) · **Download:** [TrustShield Setup 1.0.0.exe](https://github.com/cryptocreeper94-sudo/TrustShield/releases/latest)
 
@@ -12,7 +12,7 @@
 
 - 🛡️ Zero-trust persistent tray Sentinel application (Electron)
 - 🔌 Native IPC bridge integration with Lume Cortex
-- 🌐 Ecosystem Hub for launching Lume Cortex, TrustGen 3D, and Cox Ledger
+- 🌐 Ecosystem Hub for launching Lume Cortex, TrustGen 3D, and Enterprise Ledger
 - 🔐 Decentralized identity verification without local HTTP tokens
 - 🎨 Enterprise blue/cyan aesthetic for the central dashboard
 
