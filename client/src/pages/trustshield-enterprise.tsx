@@ -72,7 +72,7 @@ export default function TrustShieldEnterprise() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-xs font-mono text-white/40">
               <span className="bg-white/5 px-3 py-1.5 rounded-md border border-white/10">Version 2.0</span>
-              <span className="bg-white/5 px-3 py-1.5 rounded-md border border-white/10">Deployed: Manheim Network</span>
+              <span className="bg-white/5 px-3 py-1.5 rounded-md border border-white/10">Deployed: Enterprise Network</span>
               <span className="bg-white/5 px-3 py-1.5 rounded-md border border-white/10">Scale: Multi-Facility Inter-Mesh</span>
             </div>
           </motion.div>
