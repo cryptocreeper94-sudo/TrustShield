@@ -14,7 +14,7 @@ function createSentinelWindow() {
 
   sentinelWindow = new BrowserWindow({
     width: 420,
-    height: 560,
+    height: 680,
     resizable: false,
     frame: false,
     transparent: true,

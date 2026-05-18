@@ -27,7 +27,7 @@
     }
 
     html, body {
-      width: 420px; height: 560px;
+      width: 420px; height: 680px;
       background: transparent;
       font-family: var(--sans);
       color: var(--t1);
@@ -313,6 +313,53 @@
       color: var(--t1);
     }
     .btn-dashboard:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }
+    
+    /* ── Ecosystem Hub ── */
+    .ecosystem {
+      padding: 0 1.25rem 0.5rem;
+    }
+    .eco-title {
+      font-size: 0.55rem;
+      font-family: var(--mono);
+      color: var(--t3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .eco-title::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .eco-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.4rem;
+    }
+    .eco-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 0.4rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      -webkit-app-region: no-drag;
+    }
+    .eco-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(6,182,212,0.3);
+    }
+    .eco-icon {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    .eco-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--t2);
+    }
 
     /* ── Footer ── */
     .footer {
@@ -415,6 +462,25 @@
   <div class="actions">
     <button class="btn btn-scan" id="scan-btn" onclick="triggerScan()">⟳ Run Scan</button>
     <button class="btn btn-dashboard" onclick="window.trustShieldAPI && trustShieldAPI.openDashboard()">🌐 Dashboard</button>
+  </div>
+
+  <!-- Ecosystem Hub -->
+  <div class="ecosystem">
+    <div class="eco-title">Ecosystem Hub</div>
+    <div class="eco-grid">
+      <div class="eco-card" onclick="window.trustShieldAPI && trustShieldAPI.openExternal('https://lume-cortex.com')">
+        <div class="eco-icon">🧠</div>
+        <div class="eco-label">Lume Cortex</div>
+      </div>
+      <div class="eco-card" onclick="window.trustShieldAPI && trustShieldAPI.openExternal('https://cal.tlid.io')">
+        <div class="eco-icon">⛓️</div>
+        <div class="eco-label">Cox Ledger</div>
+      </div>
+      <div class="eco-card" onclick="window.trustShieldAPI && trustShieldAPI.openExternal('https://trustgen3d.com')">
+        <div class="eco-icon">🧊</div>
+        <div class="eco-label">TrustGen 3D</div>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
