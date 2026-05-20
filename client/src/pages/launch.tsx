@@ -89,8 +89,8 @@ const LAUNCH_PHASES: LaunchPhase[] = [
     dateRange: "April — May 2026",
     icon: <ArrowLeftRight className="w-5 h-5" />,
     image: bridgeImg,
-    gradient: "from-violet-500 to-purple-600",
-    glowColor: "rgba(139,92,246,0.3)",
+    gradient: "from-cyan-500 to-sky-600",
+    glowColor: "rgba(14,165,233,0.3)",
     items: [
       { id: "b1", title: "Ethereum (Sepolia) Bridge", description: "Lock & mint SIG ↔ wSIG on Ethereum", status: "in-progress", priority: "critical", link: "/bridge" },
       { id: "b2", title: "Solana (Devnet) Bridge", description: "Lock & mint SIG ↔ wSIG on Solana", status: "in-progress", priority: "critical", link: "/bridge" },
@@ -125,7 +125,7 @@ const LAUNCH_PHASES: LaunchPhase[] = [
     dateRange: "March — June 2026",
     icon: <Globe className="w-5 h-5" />,
     image: communityImg,
-    gradient: "from-purple-500 to-cyan-600",
+    gradient: "from-sky-500 to-cyan-600",
     glowColor: "rgba(245,158,11,0.3)",
     items: [
       { id: "e1", title: "Chronicles", description: "Parallel life simulation — Season Zero beta complete, on hold pending graphics overhaul", status: "in-progress", priority: "critical", link: "/chronicles" },
@@ -155,7 +155,7 @@ const LAUNCH_PHASES: LaunchPhase[] = [
     dateRange: "July — August 23, 2026",
     icon: <Rocket className="w-5 h-5" />,
     image: gamesImg,
-    gradient: "from-pink-500 to-fuchsia-600",
+    gradient: "from-pink-500 to-teal-600",
     glowColor: "rgba(236,72,153,0.3)",
     items: [
       { id: "l1", title: "Token Generation Event", description: "Official SIG token launch on mainnet", status: "pending", priority: "critical" },
@@ -190,7 +190,7 @@ function CountdownDigit({ value, label }: { value: number; label: string }) {
         <div
           className="w-16 h-20 sm:w-20 sm:h-24 md:w-24 md:h-28 rounded-2xl flex items-center justify-center relative overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, rgba(6,182,212,0.15), rgba(139,92,246,0.15))",
+            background: "linear-gradient(135deg, rgba(6,182,212,0.15), rgba(14,165,233,0.15))",
             border: "1px solid rgba(6,182,212,0.3)",
             boxShadow: "0 0 40px rgba(6,182,212,0.15), inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 60px rgba(0,0,0,0.3)",
           }}
@@ -203,7 +203,7 @@ function CountdownDigit({ value, label }: { value: number; label: string }) {
           </span>
         </div>
         <div className="absolute -inset-1 rounded-2xl opacity-30 blur-lg" style={{
-          background: "linear-gradient(135deg, rgba(6,182,212,0.4), rgba(139,92,246,0.4))",
+          background: "linear-gradient(135deg, rgba(6,182,212,0.4), rgba(14,165,233,0.4))",
         }} />
       </div>
       <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-cyan-400/70 mt-2 font-medium">{label}</span>
@@ -215,7 +215,7 @@ function CountdownSeparator() {
   return (
     <div className="flex flex-col gap-2 items-center justify-center h-20 sm:h-24 md:h-28 px-1">
       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400/60 animate-pulse" />
-      <div className="w-1.5 h-1.5 rounded-full bg-purple-400/60 animate-pulse" style={{ animationDelay: "0.5s" }} />
+      <div className="w-1.5 h-1.5 rounded-full bg-sky-400/60 animate-pulse" style={{ animationDelay: "0.5s" }} />
     </div>
   );
 }
@@ -388,7 +388,7 @@ export default function LaunchCountdown() {
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-[0.04]"
           style={{ background: "radial-gradient(circle, rgba(6,182,212,1) 0%, transparent 70%)" }} />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.03]"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,1) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(14,165,233,1) 0%, transparent 70%)" }} />
         <div className="absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full opacity-[0.02]"
           style={{ background: "radial-gradient(circle, rgba(236,72,153,1) 0%, transparent 70%)" }} />
       </div>
@@ -418,13 +418,13 @@ export default function LaunchCountdown() {
                 transition={{ delay: 0.2 }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-8"
                 style={{
-                  background: "linear-gradient(135deg, rgba(6,182,212,0.15), rgba(139,92,246,0.15))",
+                  background: "linear-gradient(135deg, rgba(6,182,212,0.15), rgba(14,165,233,0.15))",
                   border: "1px solid rgba(6,182,212,0.3)",
                   boxShadow: "0 0 30px rgba(6,182,212,0.1)",
                 }}
               >
                 <Flame className="w-4 h-4 text-cyan-400 animate-pulse" />
-                <span className="text-sm font-medium bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent">
+                <span className="text-sm font-medium bg-gradient-to-r from-cyan-300 to-sky-300 bg-clip-text text-transparent">
                   One Year. One Vision. Launch Day.
                 </span>
                 <Flame className="w-4 h-4 text-cyan-400 animate-pulse" style={{ animationDelay: "0.3s" }} />
@@ -436,7 +436,7 @@ export default function LaunchCountdown() {
                 </span>
               </h1>
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-8">
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                   August 23rd, 2026
                 </span>
               </h2>
@@ -459,8 +459,8 @@ export default function LaunchCountdown() {
               <div className="flex items-center justify-center gap-3 flex-wrap">
                 <Link href="/presale" data-testid="link-presale-cta">
                   <Button
-                    className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-8 py-6 text-base font-bold rounded-xl"
-                    style={{ boxShadow: "0 0 30px rgba(6,182,212,0.3), 0 0 60px rgba(139,92,246,0.15)" }}
+                    className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white px-8 py-6 text-base font-bold rounded-xl"
+                    style={{ boxShadow: "0 0 30px rgba(6,182,212,0.3), 0 0 60px rgba(14,165,233,0.15)" }}
                   >
                     <Coins className="w-5 h-5 mr-2" />
                     Get Signal Early
@@ -516,7 +516,7 @@ export default function LaunchCountdown() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold mb-2">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Launch Checklist</span>
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Launch Checklist</span>
               </h2>
               <p className="text-white/40 text-sm max-w-lg mx-auto">
                 Every milestone tracked in real-time. When all critical items are checked, Signal goes live.
@@ -533,8 +533,8 @@ export default function LaunchCountdown() {
                 transition={{ duration: 2, ease: "easeOut" }}
                 className="h-full rounded-full relative"
                 style={{
-                  background: "linear-gradient(90deg, #06b6d4, #8b5cf6, #ec4899)",
-                  boxShadow: "0 0 20px rgba(6,182,212,0.4), 0 0 40px rgba(139,92,246,0.2)",
+                  background: "linear-gradient(90deg, #06b6d4, #0ea5e9, #ec4899)",
+                  boxShadow: "0 0 20px rgba(6,182,212,0.4), 0 0 40px rgba(14,165,233,0.2)",
                 }}
               >
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow-lg shadow-cyan-500/50" />
@@ -565,7 +565,7 @@ export default function LaunchCountdown() {
             <div
               className="max-w-2xl mx-auto p-8 sm:p-10 rounded-2xl relative overflow-hidden"
               style={{
-                background: "linear-gradient(135deg, rgba(6,182,212,0.08), rgba(139,92,246,0.08))",
+                background: "linear-gradient(135deg, rgba(6,182,212,0.08), rgba(14,165,233,0.08))",
                 border: "1px solid rgba(6,182,212,0.2)",
                 boxShadow: "0 0 60px rgba(6,182,212,0.1), 0 20px 60px rgba(0,0,0,0.3)",
               }}
@@ -583,7 +583,7 @@ export default function LaunchCountdown() {
               <div className="flex items-center justify-center gap-3 flex-wrap">
                 <Link href="/presale" data-testid="link-presale-bottom">
                   <Button
-                    className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-6 py-5 font-bold rounded-xl"
+                    className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white px-6 py-5 font-bold rounded-xl"
                     style={{ boxShadow: "0 0 25px rgba(6,182,212,0.25)" }}
                   >
                     <Coins className="w-4 h-4 mr-2" />

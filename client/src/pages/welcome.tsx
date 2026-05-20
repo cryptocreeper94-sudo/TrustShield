@@ -23,7 +23,7 @@ const PATHWAYS = [
     icon: GraduationCap,
     title: "I'm New to Crypto",
     description: "No worries! Our Academy explains everything in simple terms. Learn at your own pace before diving in.",
-    color: "from-purple-500 to-pink-500",
+    color: "from-sky-500 to-pink-500",
     link: "/academy",
     linkText: "Start Learning"
   },
@@ -39,7 +39,7 @@ const PATHWAYS = [
     icon: Users,
     title: "I Want to Join the Community",
     description: "Connect with other members, participate in discussions, and earn rewards for your engagement.",
-    color: "from-cyan-500 to-purple-500",
+    color: "from-cyan-500 to-sky-500",
     link: "/community",
     linkText: "Join Community"
   }
@@ -109,7 +109,7 @@ export default function WelcomePage() {
     <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" data-testid="welcome-page">
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
         <div className="relative z-10 container mx-auto px-6 sm:px-8 py-16 pt-24">
@@ -125,7 +125,7 @@ export default function WelcomePage() {
               animate={{ 
                 filter: [
                   'drop-shadow(0 0 20px rgba(6, 182, 212, 0.5))',
-                  'drop-shadow(0 0 40px rgba(168, 85, 247, 0.5))',
+                  'drop-shadow(0 0 40px rgba(14,165,233, 0.5))',
                   'drop-shadow(0 0 20px rgba(6, 182, 212, 0.5))'
                 ]
               }}
@@ -134,7 +134,7 @@ export default function WelcomePage() {
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
               Welcome to{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 Your
               </span>{" "}
               Trust Layer
@@ -146,7 +146,7 @@ export default function WelcomePage() {
               shapes everything we build together.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30">
               <Sparkles className="w-4 h-4 text-cyan-400" />
               <span className="text-sm text-cyan-300">Disrupting the Noise — Join Free</span>
             </div>
@@ -158,7 +158,7 @@ export default function WelcomePage() {
             transition={{ delay: 0.15 }}
             className="max-w-md mx-auto mb-12"
           >
-            <GlassCard glow className="p-6 sm:p-8 shadow-2xl shadow-purple-500/20 border-2 border-cyan-500/30">
+            <GlassCard glow className="p-6 sm:p-8 shadow-2xl shadow-sky-500/20 border-2 border-cyan-500/30">
               {success ? (
                 <div className="text-center py-4">
                   <CheckCircle2 className="w-12 h-12 text-green-400 mx-auto mb-3" />
@@ -196,7 +196,7 @@ export default function WelcomePage() {
                     <Button 
                       type="submit"
                       disabled={loading}
-                      className="w-full py-3 text-base font-bold bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:opacity-90 shadow-lg shadow-purple-500/25"
+                      className="w-full py-3 text-base font-bold bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 hover:opacity-90 shadow-lg shadow-sky-500/25"
                       data-testid="button-welcome-register"
                     >
                       {loading ? (
@@ -328,9 +328,9 @@ export default function WelcomePage() {
             transition={{ delay: 0.8 }}
             className="max-w-3xl mx-auto mb-16"
           >
-            <GlassCard className="p-6 sm:p-8 md:p-10 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-purple-500/30 shadow-2xl shadow-purple-500/10">
+            <GlassCard className="p-6 sm:p-8 md:p-10 bg-gradient-to-r from-sky-500/10 to-pink-500/10 border-sky-500/30 shadow-2xl shadow-sky-500/10">
               <div className="flex flex-col sm:flex-row items-start gap-5">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center flex-shrink-0 shadow-lg">
                   <Heart className="w-7 h-7 text-white" />
                 </div>
                 <div>
@@ -361,7 +361,7 @@ export default function WelcomePage() {
               <Link href="/?login=true">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white px-8"
+                  className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white px-8"
                 >
                   Create Free Account
                   <ArrowRight className="w-4 h-4 ml-2" />

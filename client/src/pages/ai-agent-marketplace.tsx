@@ -39,9 +39,9 @@ const categoryIcons: Record<string, any> = {
 const categoryGradients: Record<string, string> = {
   trading: "from-green-500 to-emerald-600",
   portfolio: "from-blue-500 to-cyan-600",
-  quest: "from-purple-500 to-cyan-600",
+  quest: "from-sky-500 to-cyan-600",
   social: "from-pink-500 to-rose-600",
-  analytics: "from-purple-500 to-violet-600",
+  analytics: "from-sky-500 to-cyan-600",
   custom: "from-slate-500 to-slate-600"
 };
 
@@ -142,7 +142,7 @@ export default function AIAgentMarketplace() {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-pink-500/8 rounded-full blur-3xl animate-pulse delay-500" />
         <div className="absolute bottom-1/3 left-1/3 w-[350px] h-[350px] bg-emerald-500/8 rounded-full blur-3xl animate-pulse delay-700" />
       </div>
@@ -160,7 +160,7 @@ export default function AIAgentMarketplace() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent" data-testid="text-page-title">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 bg-clip-text text-transparent" data-testid="text-page-title">
                 Deploy Autonomous AI Agents
               </span>
             </h1>
@@ -232,7 +232,7 @@ export default function AIAgentMarketplace() {
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-white">Featured Agents</h2>
               <Link href="/ai-agents/create">
-                <Button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700" data-testid="button-create-agent">
+                <Button className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700" data-testid="button-create-agent">
                   <Plus className="w-4 h-4 mr-2" />
                   Create Agent
                 </Button>
@@ -259,7 +259,7 @@ export default function AIAgentMarketplace() {
                         </div>
                         <div className="flex items-center gap-2">
                           {agent.featured && (
-                            <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
+                            <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30">
                               <Sparkles className="w-3 h-3 mr-1" />
                               Featured
                             </Badge>
@@ -281,7 +281,7 @@ export default function AIAgentMarketplace() {
                       </p>
 
                       <div className="flex items-center gap-4 mb-4 text-sm">
-                        <div className="flex items-center gap-1 text-purple-400">
+                        <div className="flex items-center gap-1 text-sky-400">
                           <Star className="w-4 h-4 fill-current" />
                           <span>{agent.rating}</span>
                         </div>
@@ -294,12 +294,12 @@ export default function AIAgentMarketplace() {
                       <div className="flex items-center justify-between pt-4 border-t border-slate-700/50">
                         <div>
                           <p className="text-xs text-slate-500">Per execution</p>
-                          <p className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent" data-testid={`text-agent-price-${agent.id}`}>
+                          <p className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-sky-500 bg-clip-text text-transparent" data-testid={`text-agent-price-${agent.id}`}>
                             {formatPrice(agent.pricePerExecution)}
                           </p>
                         </div>
                         <Link href={`/ai-agents/${agent.id}`}>
-                          <Button size="sm" className="bg-gradient-to-r from-cyan-500 to-purple-600" data-testid={`button-deploy-${agent.id}`}>
+                          <Button size="sm" className="bg-gradient-to-r from-cyan-500 to-sky-600" data-testid={`button-deploy-${agent.id}`}>
                             <Play className="w-4 h-4 mr-1" />
                             Deploy
                           </Button>
@@ -326,7 +326,7 @@ export default function AIAgentMarketplace() {
                 Create custom AI agents using our no-code builder. Define behaviors, set triggers, and monetize your creations in the marketplace.
               </p>
               <div className="flex justify-center gap-4">
-                <Button className="bg-gradient-to-r from-cyan-500 to-purple-600" data-testid="button-create-agent-cta">
+                <Button className="bg-gradient-to-r from-cyan-500 to-sky-600" data-testid="button-create-agent-cta">
                   <Plus className="w-4 h-4 mr-2" />
                   Create Agent
                 </Button>

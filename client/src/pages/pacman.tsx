@@ -399,7 +399,7 @@ export default function Pacman() {
 
   if (gameState.status === "menu") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-sky-900 text-white">
         <div className="container mx-auto px-4 py-8 max-w-2xl">
           <div className="flex items-center gap-4 mb-8">
             <BackButton />
@@ -426,7 +426,7 @@ export default function Pacman() {
 
               {gameState.highScore > 0 && (
                 <div className="text-center">
-                  <p className="text-purple-400">High Score: {gameState.highScore}</p>
+                  <p className="text-sky-400">High Score: {gameState.highScore}</p>
                 </div>
               )}
 
@@ -633,7 +633,7 @@ export default function Pacman() {
             <motion.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              className="bg-gradient-to-br from-blue-900 to-purple-900 rounded-3xl p-8 max-w-md w-full mx-4 text-center border-2 border-teal-500/50"
+              className="bg-gradient-to-br from-blue-900 to-sky-900 rounded-3xl p-8 max-w-md w-full mx-4 text-center border-2 border-teal-500/50"
             >
               {gameState.status === "win" ? (
                 <>

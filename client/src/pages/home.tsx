@@ -69,7 +69,7 @@ function ExploreButton({ url, appName }: { url?: string; appName: string }) {
         <DialogContent className="max-w-md bg-slate-900 border-white/10">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold flex items-center gap-2">
-              <Badge className="bg-purple-500 text-black">Beta</Badge>
+              <Badge className="bg-sky-500 text-black">Beta</Badge>
               {appName}
             </DialogTitle>
             <DialogDescription asChild>
@@ -141,15 +141,15 @@ const ecosystemImages: Record<string, string> = {
 };
 
 const CHRONICLES_ERAS = [
-  { img: stoneAgeImg, era: "Dawn Age", desc: "Stone Age origins", color: "from-purple-500/30 to-cyan-600/30" },
-  { img: egyptImg, era: "Kingdom of Ra", desc: "Ancient Egypt", color: "from-teal-500/30 to-purple-600/30" },
+  { img: stoneAgeImg, era: "Dawn Age", desc: "Stone Age origins", color: "from-sky-500/30 to-cyan-600/30" },
+  { img: egyptImg, era: "Kingdom of Ra", desc: "Ancient Egypt", color: "from-teal-500/30 to-sky-600/30" },
   { img: greeceImg, era: "Hellenic Glory", desc: "Ancient Greece", color: "from-sky-500/30 to-blue-600/30" },
   { img: romanImg, era: "Imperial Rome", desc: "Roman Empire", color: "from-red-500/30 to-cyan-600/30" },
   { img: vikingImg, era: "Norse Saga", desc: "Viking Age", color: "from-slate-500/30 to-blue-600/30" },
-  { img: medievalImg, era: "Age of Crowns", desc: "Medieval kingdoms", color: "from-purple-500/30 to-indigo-600/30" },
+  { img: medievalImg, era: "Age of Crowns", desc: "Medieval kingdoms", color: "from-sky-500/30 to-indigo-600/30" },
   { img: samuraiImg, era: "Shogunate", desc: "Feudal Japan", color: "from-rose-500/30 to-red-600/30" },
   { img: renaissanceImg, era: "Renaissance", desc: "Age of Enlightenment", color: "from-emerald-500/30 to-teal-600/30" },
-  { img: wildWestImg, era: "Frontier", desc: "Wild West", color: "from-cyan-500/30 to-purple-600/30" },
+  { img: wildWestImg, era: "Frontier", desc: "Wild West", color: "from-cyan-500/30 to-sky-600/30" },
   { img: steampunkImg, era: "Iron Age", desc: "Industrial Revolution", color: "from-zinc-500/30 to-stone-600/30" },
 ];
 
@@ -285,12 +285,12 @@ function EcosystemAppCard({ app }: { app: EcosystemApp }) {
   const imageSrc = ecosystemImages[app.id] || "";
   const colors: Record<string, { from: string; to: string }> = {
     "from-gray-500 to-gray-700": { from: "#6b7280", to: "#374151" },
-    "from-indigo-600 to-violet-800": { from: "#4f46e5", to: "#5b21b6" },
+    "from-indigo-600 to-cyan-800": { from: "#4f46e5", to: "#5b21b6" },
     "from-cyan-400 to-blue-500": { from: "#22d3ee", to: "#3b82f6" },
     "from-slate-600 to-zinc-800": { from: "#475569", to: "#27272a" },
     "from-emerald-600 to-teal-800": { from: "#059669", to: "#115e59" },
     "from-emerald-500 to-teal-600": { from: "#10b981", to: "#0d9488" },
-    "from-purple-600 to-teal-800": { from: "#d97706", to: "#854d0e" },
+    "from-sky-600 to-teal-800": { from: "#d97706", to: "#854d0e" },
     "from-cyan-600 to-blue-700": { from: "#0891b2", to: "#1d4ed8" },
     "from-cyan-500 to-blue-600": { from: "#06b6d4", to: "#2563eb" },
     "from-cyan-500 to-red-600": { from: "#f97316", to: "#dc2626" },
@@ -384,12 +384,12 @@ function EcosystemCarousel({ apps }: { apps: EcosystemApp[] }) {
 
   const colors: Record<string, { from: string; to: string }> = {
     "from-gray-500 to-gray-700": { from: "#6b7280", to: "#374151" },
-    "from-indigo-600 to-violet-800": { from: "#4f46e5", to: "#5b21b6" },
+    "from-indigo-600 to-cyan-800": { from: "#4f46e5", to: "#5b21b6" },
     "from-cyan-400 to-blue-500": { from: "#22d3ee", to: "#3b82f6" },
     "from-slate-600 to-zinc-800": { from: "#475569", to: "#27272a" },
     "from-emerald-600 to-teal-800": { from: "#059669", to: "#115e59" },
     "from-emerald-500 to-teal-600": { from: "#10b981", to: "#0d9488" },
-    "from-purple-600 to-teal-800": { from: "#d97706", to: "#854d0e" },
+    "from-sky-600 to-teal-800": { from: "#d97706", to: "#854d0e" },
     "from-cyan-600 to-blue-700": { from: "#0891b2", to: "#1d4ed8" },
     "from-cyan-500 to-blue-600": { from: "#06b6d4", to: "#2563eb" },
     "from-cyan-500 to-red-600": { from: "#f97316", to: "#dc2626" },
@@ -510,18 +510,18 @@ const heroSlides: HeroSlide[] = [
   { title: "ORBIT Staffing OS", subtitle: "100% automated flexible labor marketplace with GPS check-ins, smart matching, payroll, and blockchain compliance", accent: "cyan", link: "https://orbitstaffing.io", video: orbitVideo, gradient: "from-cyan-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "TrustHome", subtitle: "Real estate agent platform with AI video walkthroughs, listing management, client CRM, and smart tools", accent: "emerald", link: "https://trusthome.tlid.io", video: trustHomeVideo, gradient: "from-emerald-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "Trust Vault", subtitle: "Enterprise-grade digital asset protection with biometric security, encrypted storage, and blockchain custody", accent: "blue", link: "https://trustvault.tlid.io", video: trustVaultVideo, gradient: "from-blue-900/80 via-slate-900/60 to-slate-950/90" },
-  { title: "THE VOID", subtitle: "Voice-first mental wellness platform with AI-powered venting, guided breathing, mood analytics, and 20+ wellness tools", accent: "purple", link: "https://intothevoid.app", video: theVoidVideo, gradient: "from-purple-900/80 via-slate-900/60 to-slate-950/90" },
+  { title: "THE VOID", subtitle: "Voice-first mental wellness platform with AI-powered venting, guided breathing, mood analytics, and 20+ wellness tools", accent: "purple", link: "https://intothevoid.app", video: theVoidVideo, gradient: "from-sky-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "Verdara", subtitle: "AI outdoor recreation super-app with species ID, trail explorer, trip planner, 170+ US locations, and wild edibles guide", accent: "emerald", link: "https://verdara.tlid.io", video: verdaraVideo, gradient: "from-emerald-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "TL Driver Connect", subtitle: "All-in-one driver app — GPS navigation, receipt scanning, food truck locator, franchise demo, and driver tools", accent: "teal", link: "https://tldriverconnect.com", video: tlDriverVideo, gradient: "from-teal-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "Happy Eats", subtitle: "Nashville food truck platform with zone-based batch ordering, vendor portal, rewards, and 11 delivery zones", accent: "rose", link: "https://happyeats.app", video: happyEatsVideo, gradient: "from-rose-900/80 via-slate-900/60 to-slate-950/90" },
-  { title: "Brew & Board Coffee", subtitle: "Community coffee platform with B2B delivery, calendar scheduling, and blockchain-verified receipts", accent: "purple", link: "https://brewandboard.coffee", video: brewBoardVideo, gradient: "from-purple-900/80 via-slate-900/60 to-slate-950/90" },
+  { title: "Brew & Board Coffee", subtitle: "Community coffee platform with B2B delivery, calendar scheduling, and blockchain-verified receipts", accent: "purple", link: "https://brewandboard.coffee", video: brewBoardVideo, gradient: "from-sky-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "GarageBot", subtitle: "Smart garage and workshop management with IoT integration, tool inventory, and automated maintenance tracking", accent: "zinc", link: "https://garagebot.io", video: garageBotVideo, gradient: "from-zinc-800/80 via-slate-900/60 to-slate-950/90" },
   { title: "PaintPros", subtitle: "Professional painting contractor management with job scheduling, crew management, and automated invoicing", accent: "cyan", link: "https://paintpros.io", video: paintProsVideo, gradient: "from-cyan-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "Lot Ops Pro", subtitle: "Autonomous lot management for auto auctions, dealers, and manufacturers with inventory and operations tools", accent: "indigo", link: "https://lotopspro.io", video: lotOpsVideo, gradient: "from-indigo-900/80 via-slate-900/60 to-slate-950/90" },
-  { title: "Chronicles", subtitle: "Not a game — a life. Persistent parallel world with emotion-driven AI, living political simulation, and legacy building", accent: "purple", link: "https://yourlegacy.io", image: "/ecosystem/chronicles.jpg", gradient: "from-purple-900/80 via-slate-900/60 to-slate-950/90" },
+  { title: "Chronicles", subtitle: "Not a game — a life. Persistent parallel world with emotion-driven AI, living political simulation, and legacy building", accent: "purple", link: "https://yourlegacy.io", image: "/ecosystem/chronicles.jpg", gradient: "from-sky-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "Pulse", subtitle: "Predictive market intelligence powered by AI systems with auto-trading, sentiment analysis, and multi-chain coverage", accent: "cyan", link: "https://darkwavepulse.com", image: "/ecosystem/darkwave-pulse-new.jpg", gradient: "from-cyan-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "Trust Golf", subtitle: "Premium golf companion with 45+ courses, AI swing analysis, USGA handicap tracking, and exclusive tee time deals", accent: "emerald", link: "https://trustgolf.app", image: "/ecosystem/trust-golf.jpg", gradient: "from-green-900/80 via-slate-900/60 to-slate-950/90" },
-  { title: "TrustGen 3D", subtitle: "AI-powered 3D creation & code studio with Monaco IDE, Meshy.ai, animation timeline, and blockchain provenance", accent: "purple", link: "https://trustgen.tlid.io", image: "/ecosystem/trustgen.jpg", gradient: "from-violet-900/80 via-slate-900/60 to-slate-950/90" },
+  { title: "TrustGen 3D", subtitle: "AI-powered 3D creation & code studio with Monaco IDE, Meshy.ai, animation timeline, and blockchain provenance", accent: "purple", link: "https://trustgen.tlid.io", image: "/ecosystem/trustgen.jpg", gradient: "from-cyan-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "VedaSolus", subtitle: "Holistic health platform blending Ayurveda & TCM with modern science — AI wellness coach and practitioner marketplace", accent: "teal", link: "https://vedasolus.io", image: "/ecosystem/veda-solus-new.jpg", gradient: "from-teal-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "StrikeAgent", subtitle: "AI sentient trading bot with hashed predictions, verified results, and multiple trading settings", accent: "red", link: "https://strikeagent.io", image: "/ecosystem/strike-agent-new.jpg", gradient: "from-red-900/80 via-slate-900/60 to-slate-950/90" },
   { title: "Bomber", subtitle: "3D long driving golf game with real-time physics, stunning courses, leaderboards, and Trust Golf integration", accent: "lime", link: "https://bomber.tlid.io", image: "/ecosystem/bomber.jpg", gradient: "from-lime-900/80 via-slate-900/60 to-slate-950/90" },
@@ -534,7 +534,7 @@ const heroAccents: Record<string, { text: string; dot: string; btn: string }> = 
   cyan: { text: "text-cyan-400", dot: "bg-cyan-400", btn: "bg-cyan-500/20 border-cyan-500/40 text-cyan-300" },
   emerald: { text: "text-emerald-400", dot: "bg-emerald-400", btn: "bg-emerald-500/20 border-emerald-500/40 text-emerald-300" },
   blue: { text: "text-blue-400", dot: "bg-blue-400", btn: "bg-blue-500/20 border-blue-500/40 text-blue-300" },
-  purple: { text: "text-purple-400", dot: "bg-purple-400", btn: "bg-purple-500/20 border-purple-500/40 text-purple-300" },
+  purple: { text: "text-sky-400", dot: "bg-sky-400", btn: "bg-sky-500/20 border-sky-500/40 text-sky-300" },
   teal: { text: "text-teal-400", dot: "bg-teal-400", btn: "bg-teal-500/20 border-teal-500/40 text-teal-300" },
   rose: { text: "text-rose-400", dot: "bg-rose-400", btn: "bg-rose-500/20 border-rose-500/40 text-rose-300" },
   zinc: { text: "text-zinc-400", dot: "bg-zinc-400", btn: "bg-zinc-500/20 border-zinc-500/40 text-zinc-300" },
@@ -699,8 +699,8 @@ export default function Home() {
                 <stop offset="100%" stopColor="#06b6d4" stopOpacity="0" />
               </radialGradient>
               <radialGradient id="nodeGlowPurple" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#a855f7" stopOpacity="1" />
-                <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
+                <stop offset="0%" stopColor="#38bdf8" stopOpacity="1" />
+                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
               </radialGradient>
             </defs>
             {/* Connection lines */}
@@ -874,7 +874,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-pink-900/40" />
                 <div className="relative z-10 p-5">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/40 to-purple-500/40 backdrop-blur-sm flex items-center justify-center group-hover:shadow-[0_0_30px_rgba(236,72,153,0.4)] transition-shadow">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/40 to-sky-500/40 backdrop-blur-sm flex items-center justify-center group-hover:shadow-[0_0_30px_rgba(236,72,153,0.4)] transition-shadow">
                       <ArrowUpDown className="w-6 h-6 text-pink-300" />
                     </div>
                     <div>
@@ -913,13 +913,13 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 group" style={{ boxShadow: '0 0 40px rgba(168,85,247,0.15)' }}>
+              <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 hover:border-sky-500/50 transition-all duration-300 group" style={{ boxShadow: '0 0 40px rgba(14,165,233,0.15)' }}>
                 <img src={nftImg} alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-purple-900/40" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-sky-900/40" />
                 <div className="relative z-10 p-5">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/40 to-violet-500/40 backdrop-blur-sm flex items-center justify-center group-hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-shadow">
-                      <ImageIcon className="w-6 h-6 text-purple-300" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/40 to-cyan-500/40 backdrop-blur-sm flex items-center justify-center group-hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] transition-shadow">
+                      <ImageIcon className="w-6 h-6 text-sky-300" />
                     </div>
                     <div>
                       <h3 className="text-base font-bold text-white text-shadow">NFT</h3>
@@ -928,14 +928,14 @@ export default function Home() {
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <Link href="/nft">
-                      <div className="p-2.5 rounded-lg bg-black/40 backdrop-blur-sm border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/20 transition-all text-center group/item" data-testid="link-nft-market">
-                        <ImageIcon className="w-4 h-4 mx-auto mb-1 text-purple-400" />
+                      <div className="p-2.5 rounded-lg bg-black/40 backdrop-blur-sm border border-white/10 hover:border-sky-500/40 hover:bg-sky-500/20 transition-all text-center group/item" data-testid="link-nft-market">
+                        <ImageIcon className="w-4 h-4 mx-auto mb-1 text-sky-400" />
                         <span className="text-[10px] text-gray-200 group-hover/item:text-white">Market</span>
                       </div>
                     </Link>
                     <Link href="/nft-gallery">
-                      <div className="p-2.5 rounded-lg bg-black/40 backdrop-blur-sm border border-white/10 hover:border-violet-500/40 hover:bg-violet-500/20 transition-all text-center group/item" data-testid="link-nft-gallery">
-                        <ImageIcon className="w-4 h-4 mx-auto mb-1 text-violet-400" />
+                      <div className="p-2.5 rounded-lg bg-black/40 backdrop-blur-sm border border-white/10 hover:border-cyan-500/40 hover:bg-cyan-500/20 transition-all text-center group/item" data-testid="link-nft-gallery">
+                        <ImageIcon className="w-4 h-4 mx-auto mb-1 text-cyan-400" />
                         <span className="text-[10px] text-gray-200 group-hover/item:text-white">Gallery</span>
                       </div>
                     </Link>
@@ -998,8 +998,8 @@ export default function Home() {
                       </div>
                     </Link>
                     <Link href="/webhooks">
-                      <div className="p-2.5 rounded-lg bg-black/40 backdrop-blur-sm border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/20 transition-all text-center group/item" data-testid="link-webhooks">
-                        <Webhook className="w-4 h-4 mx-auto mb-1 text-purple-400" />
+                      <div className="p-2.5 rounded-lg bg-black/40 backdrop-blur-sm border border-white/10 hover:border-sky-500/40 hover:bg-sky-500/20 transition-all text-center group/item" data-testid="link-webhooks">
+                        <Webhook className="w-4 h-4 mx-auto mb-1 text-sky-400" />
                         <span className="text-[10px] text-gray-200 group-hover/item:text-white">Webhooks</span>
                       </div>
                     </Link>
@@ -1023,7 +1023,7 @@ export default function Home() {
           >
             <Badge variant="outline" className="border-cyan-500/50 text-cyan-400 text-[10px] mb-3">Builders Suite</Badge>
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-3">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400">
                 Build on Trust Layer
               </span>
             </h2>
@@ -1077,7 +1077,7 @@ export default function Home() {
                       </div>
                     </div>
                     <p className="text-xs text-white/60 mb-4">Launch your own tokens with fair distribution, vesting schedules, and community tools.</p>
-                    <Button className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-black font-semibold" data-testid="button-open-launchpad">
+                    <Button className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-black font-semibold" data-testid="button-open-launchpad">
                       Launch Now <Rocket className="w-4 h-4 ml-2" />
                     </Button>
                   </div>
@@ -1144,8 +1144,8 @@ export default function Home() {
       </section>
 
       {/* Chronicles */}
-      <section className="py-16 px-4 relative overflow-hidden bg-gradient-to-b from-purple-950/20 via-black to-black">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
+      <section className="py-16 px-4 relative overflow-hidden bg-gradient-to-b from-sky-950/20 via-black to-black">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-900/20 via-transparent to-transparent" />
         <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1154,13 +1154,13 @@ export default function Home() {
             className="text-center mb-8"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-2">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400">
                 Chronicles
               </span>
             </h2>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-cyan-600/20 via-purple-600/20 to-pink-600/20 border border-purple-400/40 backdrop-blur-sm mb-3">
-              <div className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-              <span className="text-xs text-purple-300 font-medium">Season Zero</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-cyan-600/20 via-sky-600/20 to-pink-600/20 border border-sky-400/40 backdrop-blur-sm mb-3">
+              <div className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+              <span className="text-xs text-sky-300 font-medium">Season Zero</span>
               <span className="text-white/40">•</span>
               <span className="text-xs text-pink-300">Coming Soon</span>
             </div>
@@ -1173,13 +1173,13 @@ export default function Home() {
 
           <div className="flex flex-row items-center justify-center gap-3">
             <a href="https://yourlegacy.io/era-codex" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500" data-testid="button-explore-eras">
+              <Button className="bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500" data-testid="button-explore-eras">
                 <Sparkles className="w-4 h-4 mr-2" />
                 View Eras
               </Button>
             </a>
             <a href="https://yourlegacy.io" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="border-purple-500/50 text-purple-400 hover:bg-purple-500/10" data-testid="button-play-chronicles">
+              <Button variant="outline" className="border-sky-500/50 text-sky-400 hover:bg-sky-500/10" data-testid="button-play-chronicles">
                 Play Chronicles
               </Button>
             </a>
@@ -1230,7 +1230,7 @@ export default function Home() {
             </GlassCard>
             <GlassCard hover={false}>
               <div className="p-4 text-center">
-                <Cpu className="w-4 h-4 text-purple-400 mx-auto mb-2" />
+                <Cpu className="w-4 h-4 text-sky-400 mx-auto mb-2" />
                 <div className="text-2xl font-bold text-white">{stats?.avgCost || "$0.0001"}</div>
                 <div className="text-[10px] text-white/50 uppercase">Avg Cost</div>
               </div>
@@ -1268,7 +1268,7 @@ export default function Home() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <h3 className="text-sm font-bold text-white">Chain Abstraction</h3>
-                    <Badge variant="outline" className="text-[9px] border-purple-500/50 text-purple-400 px-1">Coming Soon</Badge>
+                    <Badge variant="outline" className="text-[9px] border-sky-500/50 text-sky-400 px-1">Coming Soon</Badge>
                   </div>
                   <p className="text-xs text-white/50">Manage assets across chains from one account</p>
                 </div>
@@ -1276,13 +1276,13 @@ export default function Home() {
             </GlassCard>
             <GlassCard>
               <div className="p-4 flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400 shrink-0">
+                <div className="p-2 rounded-lg bg-sky-500/20 text-sky-400 shrink-0">
                   <Layers className="w-4 h-4" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <h3 className="text-sm font-bold text-white">Cross-Chain</h3>
-                    <Badge variant="outline" className="text-[9px] border-purple-500/50 text-purple-400 px-1">In Dev</Badge>
+                    <Badge variant="outline" className="text-[9px] border-sky-500/50 text-sky-400 px-1">In Dev</Badge>
                   </div>
                   <p className="text-xs text-white/50">Native protocols for secure asset transfers</p>
                 </div>
@@ -1309,11 +1309,11 @@ export default function Home() {
 
 const gradientColors: Record<string, { from: string; to: string }> = {
   "from-gray-500 to-gray-700": { from: "#6b7280", to: "#374151" },
-  "from-indigo-600 to-violet-800": { from: "#4f46e5", to: "#5b21b6" },
+  "from-indigo-600 to-cyan-800": { from: "#4f46e5", to: "#5b21b6" },
   "from-cyan-400 to-blue-500": { from: "#22d3ee", to: "#3b82f6" },
   "from-slate-600 to-zinc-800": { from: "#475569", to: "#27272a" },
   "from-emerald-600 to-teal-800": { from: "#059669", to: "#115e59" },
-  "from-purple-600 to-teal-800": { from: "#d97706", to: "#854d0e" },
+  "from-sky-600 to-teal-800": { from: "#d97706", to: "#854d0e" },
   "from-cyan-600 to-blue-700": { from: "#0891b2", to: "#1d4ed8" },
   "from-cyan-500 to-blue-600": { from: "#06b6d4", to: "#2563eb" },
   "from-cyan-500 to-red-600": { from: "#f97316", to: "#dc2626" },

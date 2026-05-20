@@ -17,8 +17,8 @@ export default function SweepstakesRules() {
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-200 via-pink-300 to-purple-200 bg-clip-text text-transparent flex items-center gap-2">
-              <Scale className="w-8 h-8 text-purple-400" />
+            <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-sky-200 via-pink-300 to-sky-200 bg-clip-text text-transparent flex items-center gap-2">
+              <Scale className="w-8 h-8 text-sky-400" />
               Official Sweepstakes Rules
             </h1>
             <p className="text-gray-400 text-sm">Last Updated: December 25, 2024</p>
@@ -26,14 +26,14 @@ export default function SweepstakesRules() {
         </div>
 
         {/* Important Notice Banner */}
-        <Card className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 border-purple-500/30 mb-8">
+        <Card className="bg-gradient-to-r from-sky-900/40 to-pink-900/40 border-sky-500/30 mb-8">
           <CardContent className="p-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-purple-500/30 flex items-center justify-center flex-shrink-0">
-                <Shield className="w-6 h-6 text-purple-400" />
+              <div className="w-12 h-12 rounded-full bg-sky-500/30 flex items-center justify-center flex-shrink-0">
+                <Shield className="w-6 h-6 text-sky-400" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-purple-300 mb-2">NO PURCHASE NECESSARY</h2>
+                <h2 className="text-xl font-bold text-sky-300 mb-2">NO PURCHASE NECESSARY</h2>
                 <p className="text-gray-300">
                   The Arcade operates as a sweepstakes platform. You can obtain Sweeps Coins (SC) for free 
                   through our Alternative Method of Entry (AMOE). A purchase will not increase your chances of winning.
@@ -183,7 +183,7 @@ export default function SweepstakesRules() {
         {/* Full Rules Accordion */}
         <Card className="bg-black/40 border-white/10 mb-8">
           <CardHeader>
-            <CardTitle className="text-xl text-purple-400 flex items-center gap-2">
+            <CardTitle className="text-xl text-sky-400 flex items-center gap-2">
               <FileText className="w-6 h-6" />
               Complete Official Rules
             </CardTitle>
@@ -338,8 +338,8 @@ export default function SweepstakesRules() {
         <Card className="bg-black/40 border-white/10 mb-8">
           <CardContent className="p-6">
             <div className="flex items-center gap-3 mb-4">
-              <HelpCircle className="w-6 h-6 text-purple-400" />
-              <h3 className="text-xl font-bold text-purple-400">Questions?</h3>
+              <HelpCircle className="w-6 h-6 text-sky-400" />
+              <h3 className="text-xl font-bold text-sky-400">Questions?</h3>
             </div>
             <p className="text-gray-300 mb-4">
               For questions about these rules or the sweepstakes program, please contact:
@@ -347,7 +347,7 @@ export default function SweepstakesRules() {
             <div className="flex flex-wrap gap-4">
               <a 
                 href="mailto:team@dwsc.io" 
-                className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                className="flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 team@dwsc.io

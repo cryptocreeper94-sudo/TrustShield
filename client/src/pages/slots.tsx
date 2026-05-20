@@ -26,7 +26,7 @@ const SLOT_THEMES = {
     id: "egyptian",
     name: "Egyptian Gold",
     description: "Discover the treasures of the Pharaohs",
-    bgGradient: "from-purple-900/80 via-teal-900/60 to-purple-950/80",
+    bgGradient: "from-sky-900/80 via-teal-900/60 to-sky-950/80",
     accentColor: "text-teal-400",
     borderColor: "border-teal-500/30",
     symbols: ["👁️", "🏺", "🐍", "⚱️", "🔱", "💎", "👑", "⭐"],
@@ -47,9 +47,9 @@ const SLOT_THEMES = {
     id: "cosmic",
     name: "Cosmic Fortune",
     description: "Spin among the stars for cosmic wins",
-    bgGradient: "from-purple-900/80 via-indigo-900/60 to-purple-950/80",
-    accentColor: "text-purple-400",
-    borderColor: "border-purple-500/30",
+    bgGradient: "from-sky-900/80 via-indigo-900/60 to-sky-950/80",
+    accentColor: "text-sky-400",
+    borderColor: "border-sky-500/30",
     symbols: ["🌟", "🌙", "🪐", "☄️", "🚀", "👽", "💫", "🌌"],
     payTable: {
       "🚀🚀🚀": 100,
@@ -192,7 +192,7 @@ function SparkleText({ children }: { children: React.ReactNode }) {
       >
         <Sparkles className="w-5 h-5 md:w-6 md:h-6 text-teal-300" />
       </motion.span>
-      <span className="text-lg md:text-2xl font-extrabold tracking-widest bg-gradient-to-r from-teal-200 via-teal-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg">
+      <span className="text-lg md:text-2xl font-extrabold tracking-widest bg-gradient-to-r from-teal-200 via-teal-400 to-sky-500 bg-clip-text text-transparent drop-shadow-lg">
         {children}
       </span>
       <motion.span
@@ -214,7 +214,7 @@ function CornerDot({ position }: { position: string }) {
   };
   return (
     <div className={`absolute ${posClasses[position]} z-10`}>
-      <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-gradient-to-br from-teal-300 via-purple-400 to-teal-600 border-2 border-teal-200 shadow-lg shadow-teal-500/50" />
+      <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-gradient-to-br from-teal-300 via-sky-400 to-teal-600 border-2 border-teal-200 shadow-lg shadow-teal-500/50" />
     </div>
   );
 }
@@ -404,7 +404,7 @@ export default function Slots() {
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0a0a0f] via-[#12121a] to-[#0a0a0f]">
-        <div className="animate-pulse text-purple-400">Loading...</div>
+        <div className="animate-pulse text-sky-400">Loading...</div>
       </div>
     );
   }
@@ -518,11 +518,11 @@ export default function Slots() {
 
         {/* Demo Mode Banner */}
         {isDemo && (
-          <div className="mb-4 bg-gradient-to-r from-purple-900/50 to-pink-900/50 border border-purple-500/30 rounded-xl p-3 text-center">
-            <p className="text-purple-300 text-sm">
+          <div className="mb-4 bg-gradient-to-r from-sky-900/50 to-pink-900/50 border border-sky-500/30 rounded-xl p-3 text-center">
+            <p className="text-sky-300 text-sm">
               <Sparkles className="w-4 h-4 inline mr-1" />
               <strong>Demo Mode</strong> - Playing with free demo coins! 
-              <button onClick={() => setShowLoginModal(true)} className="underline ml-2 text-purple-200 hover:text-white">Sign up</button> to save your winnings.
+              <button onClick={() => setShowLoginModal(true)} className="underline ml-2 text-sky-200 hover:text-white">Sign up</button> to save your winnings.
             </p>
           </div>
         )}
@@ -569,7 +569,7 @@ export default function Slots() {
             transition={{ duration: 1, repeat: isSpinning ? Infinity : 0 }}
           >
             {/* Metallic gradient border */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-teal-400/40 via-purple-700/30 to-teal-900/40 p-[3px]">
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-teal-400/40 via-sky-700/30 to-teal-900/40 p-[3px]">
               <div className="w-full h-full rounded-3xl bg-gradient-to-b from-gray-800 to-gray-950" />
             </div>
 
@@ -655,7 +655,7 @@ export default function Slots() {
                       <motion.div
                         initial={{ y: -20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        className="text-3xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-teal-200 via-teal-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,200,0,0.5)]"
+                        className="text-3xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-teal-200 via-teal-400 to-sky-500 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,200,0,0.5)]"
                       >
                         🎉 YOU WIN! 🎉
                       </motion.div>
@@ -663,7 +663,7 @@ export default function Slots() {
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ delay: 0.2, type: "spring" }}
-                        className="text-5xl md:text-7xl font-black bg-gradient-to-r from-teal-300 via-purple-400 to-cyan-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,150,0,0.6)]"
+                        className="text-5xl md:text-7xl font-black bg-gradient-to-r from-teal-300 via-sky-400 to-cyan-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,150,0,0.6)]"
                       >
                         {formatNumber(lastWin)} {currencyType}
                       </motion.div>
@@ -717,7 +717,7 @@ export default function Slots() {
                   className={`
                     px-12 py-6 text-xl font-bold rounded-full shadow-lg transition-all
                     ${!isSpinning && getBalance() >= betAmount
-                      ? 'bg-gradient-to-r from-teal-400 via-purple-500 to-cyan-500 hover:from-teal-300 hover:via-purple-400 hover:to-cyan-400 text-black hover:scale-105 shadow-teal-500/30 hover:shadow-teal-500/50'
+                      ? 'bg-gradient-to-r from-teal-400 via-sky-500 to-cyan-500 hover:from-teal-300 hover:via-sky-400 hover:to-cyan-400 text-black hover:scale-105 shadow-teal-500/30 hover:shadow-teal-500/50'
                       : 'bg-gray-700 text-gray-400 cursor-not-allowed'
                     }
                   `}

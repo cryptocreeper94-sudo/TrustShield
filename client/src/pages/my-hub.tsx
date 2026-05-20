@@ -257,12 +257,12 @@ export default function MyHub() {
     if (memberNum <= 10) return { 
       label: "Founder", 
       icon: "🏆",
-      className: "bg-purple-500/20 text-purple-400 border-purple-500/30"
+      className: "bg-sky-500/20 text-sky-400 border-sky-500/30"
     };
     if (memberNum <= 50) return { 
       label: "Pioneer", 
       icon: "🌟",
-      className: "bg-purple-500/20 text-purple-400 border-purple-500/30"
+      className: "bg-sky-500/20 text-sky-400 border-sky-500/30"
     };
     if (memberNum <= 100) return { 
       label: "Trailblazer", 
@@ -352,7 +352,7 @@ export default function MyHub() {
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#22d3ee"/>
-      <stop offset="100%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#38bdf8"/>
     </linearGradient>
   </defs>
   <rect width="400" height="250" rx="16" fill="url(#bg)"/>
@@ -388,7 +388,7 @@ export default function MyHub() {
           <h1 className="text-2xl font-bold mb-2">Your Portal</h1>
           <p className="text-white/60 mb-6">Sign in to access your personal portal — your balances, membership, and everything that's yours in the Trust Layer ecosystem.</p>
           <Link href="/">
-            <Button className="bg-gradient-to-r from-cyan-500 to-purple-500">
+            <Button className="bg-gradient-to-r from-cyan-500 to-sky-500">
               Sign In to Continue
             </Button>
           </Link>
@@ -399,7 +399,7 @@ export default function MyHub() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(6,182,212,0.15)_0%,_transparent_50%)] pointer-events-none" />
       
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/90 backdrop-blur-xl">
@@ -433,9 +433,9 @@ export default function MyHub() {
                     {notifications.map(notif => (
                       <div key={notif.id} className={`p-3 border-b border-white/5 hover:bg-white/5 transition-colors ${!notif.read ? 'bg-cyan-500/5' : ''}`}>
                         <div className="flex items-start gap-2">
-                          <div className={`p-1.5 rounded-lg ${notif.type === 'reward' ? 'bg-emerald-500/20' : notif.type === 'quest' ? 'bg-purple-500/20' : 'bg-cyan-500/20'}`}>
+                          <div className={`p-1.5 rounded-lg ${notif.type === 'reward' ? 'bg-emerald-500/20' : notif.type === 'quest' ? 'bg-sky-500/20' : 'bg-cyan-500/20'}`}>
                             {notif.type === 'reward' ? <Gift className="w-3 h-3 text-emerald-400" /> : 
-                             notif.type === 'quest' ? <Target className="w-3 h-3 text-purple-400" /> : 
+                             notif.type === 'quest' ? <Target className="w-3 h-3 text-sky-400" /> : 
                              <Bell className="w-3 h-3 text-cyan-400" />}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -486,7 +486,7 @@ export default function MyHub() {
               <div className="h-4 w-px bg-white/10 hidden sm:block" />
               <div className="hidden sm:flex items-center gap-2 whitespace-nowrap">
                 <span className="text-white/50">Shells</span>
-                <span className="font-semibold text-purple-400">{(rewardProfile?.shellBalance || 0).toLocaleString()}</span>
+                <span className="font-semibold text-sky-400">{(rewardProfile?.shellBalance || 0).toLocaleString()}</span>
               </div>
             </div>
             <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs hidden md:flex">
@@ -505,14 +505,14 @@ export default function MyHub() {
           >
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-cyan-500/20 p-6 md:p-8">
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,_rgba(6,182,212,0.2)_0%,_transparent_50%)]" />
-              <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.2)_0%,_transparent_50%)]" />
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500" />
+              <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,_rgba(14,165,233,0.2)_0%,_transparent_50%)]" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500" />
               
               <div className="relative">
                 <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-3 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30">
+                      <div className="p-3 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30">
                         <Crown className="w-8 h-8 text-cyan-400" />
                       </div>
                       <div>
@@ -528,7 +528,7 @@ export default function MyHub() {
                             </Badge>
                           )}
                           {memberData?.isEarlyAdopter && !tenureBadge && (
-                            <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 ml-2">
+                            <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 ml-2">
                               <Star className="w-3 h-3 mr-1" /> Early Adopter
                             </Badge>
                           )}
@@ -562,12 +562,12 @@ export default function MyHub() {
                       </div>
                       <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                         <p className="text-white/50 text-sm mb-1">Signal Allocation</p>
-                        <p className="text-2xl font-bold text-purple-400" data-testid="text-sig-balance">{tokenBalance?.totalTokens?.toLocaleString() || 0}</p>
+                        <p className="text-2xl font-bold text-sky-400" data-testid="text-sig-balance">{tokenBalance?.totalTokens?.toLocaleString() || 0}</p>
                         <p className="text-xs text-white/40">{(tokenBalance?.presaleTokens || 0) > 0 ? 'SIG (Presale)' : 'SIG'}</p>
                       </div>
                       <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                         <p className="text-white/50 text-sm mb-1">Your Tier</p>
-                        <p className="text-2xl font-bold text-purple-400 capitalize">{rewardProfile?.profile?.tier || 'Participant'}</p>
+                        <p className="text-2xl font-bold text-sky-400 capitalize">{rewardProfile?.profile?.tier || 'Participant'}</p>
                         <p className="text-xs text-white/40">{rewardProfile?.profile?.multiplier || 1}x multiplier</p>
                       </div>
                       <div className="p-4 rounded-xl bg-white/5 border border-white/10">
@@ -580,12 +580,12 @@ export default function MyHub() {
 
                   <div className="w-full lg:w-auto">
                     <div className="relative p-6 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-cyan-500/30 shadow-[0_0_30px_rgba(6,182,212,0.2)]">
-                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-t-2xl" />
+                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-sky-500 rounded-t-2xl" />
                       <div className="text-center">
                         <p className="text-white/50 text-xs mb-1">MEMBER CARD</p>
                         <p className="text-4xl font-bold text-white mb-2">#{memberData?.memberNumber || '...'}</p>
                         {memberData?.isEarlyAdopter && (
-                          <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 mb-3">
+                          <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 mb-3">
                             <Star className="w-3 h-3 mr-1" /> Early Adopter
                           </Badge>
                         )}
@@ -619,11 +619,11 @@ export default function MyHub() {
             transition={{ delay: 0.05 }}
             className="mb-8"
           >
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-cyan-500/20">
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-cyan-500/20">
               <div className="flex flex-col md:flex-row items-center gap-4">
                 <div className="flex items-center gap-3 flex-1">
-                  <div className="p-2 rounded-xl bg-purple-500/20">
-                    <Trophy className="w-6 h-6 text-purple-400" />
+                  <div className="p-2 rounded-xl bg-sky-500/20">
+                    <Trophy className="w-6 h-6 text-sky-400" />
                   </div>
                   <div>
                     <p className="font-semibold">Progress to Founders Tier</p>
@@ -633,7 +633,7 @@ export default function MyHub() {
                 <div className="w-full md:w-64">
                   <Progress value={progressToFounders} className="h-3" />
                 </div>
-                <Badge className={progressToFounders >= 100 ? "bg-purple-500/20 text-purple-400" : "bg-white/10 text-white/60"}>
+                <Badge className={progressToFounders >= 100 ? "bg-sky-500/20 text-sky-400" : "bg-white/10 text-white/60"}>
                   {progressToFounders >= 100 ? "Founders Achieved!" : `${Math.round(progressToFounders)}%`}
                 </Badge>
               </div>
@@ -685,11 +685,11 @@ export default function MyHub() {
             className="mb-8"
           >
             <GlassCard className="p-5 relative overflow-hidden" glow>
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky-500 via-pink-500 to-sky-500" />
               <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                 <div className="flex items-center gap-3 flex-1">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30">
-                    <Share2 className="w-6 h-6 text-purple-400" />
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 border border-sky-500/30">
+                    <Share2 className="w-6 h-6 text-sky-400" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg flex items-center gap-2">
@@ -710,7 +710,7 @@ export default function MyHub() {
                         <Button 
                           size="sm" 
                           onClick={copyReferralLink}
-                          className={referralCopied ? "bg-emerald-500/20 text-emerald-400" : "bg-purple-500/20 text-purple-400 hover:bg-purple-500/30"}
+                          className={referralCopied ? "bg-emerald-500/20 text-emerald-400" : "bg-sky-500/20 text-sky-400 hover:bg-sky-500/30"}
                           data-testid="button-copy-referral"
                         >
                           {referralCopied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
@@ -718,7 +718,7 @@ export default function MyHub() {
                       </div>
                     ) : (
                       <Link href="/referrals">
-                        <Button size="sm" className="bg-purple-500/20 text-purple-400 hover:bg-purple-500/30" data-testid="button-get-referral-link">
+                        <Button size="sm" className="bg-sky-500/20 text-sky-400 hover:bg-sky-500/30" data-testid="button-get-referral-link">
                           Get Your Link
                         </Button>
                       </Link>
@@ -738,7 +738,7 @@ export default function MyHub() {
                   </div>
                   
                   <Link href="/referrals">
-                    <Button variant="ghost" size="sm" className="text-xs text-white/50 hover:text-purple-400" data-testid="button-view-referrals">
+                    <Button variant="ghost" size="sm" className="text-xs text-white/50 hover:text-sky-400" data-testid="button-view-referrals">
                       Details <ChevronRight className="w-3 h-3 ml-1" />
                     </Button>
                   </Link>
@@ -757,17 +757,17 @@ export default function MyHub() {
                 <GlassCard className="p-5 h-full" glow>
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-semibold flex items-center gap-2">
-                      <AlertCircle className="w-4 h-4 text-purple-400" />
+                      <AlertCircle className="w-4 h-4 text-sky-400" />
                       Action Needed
                     </h3>
-                    <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs">
+                    <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 text-xs">
                       {pendingActions.length}
                     </Badge>
                   </div>
                   <div className="space-y-3">
                     {pendingActions.map(action => (
                       <Link key={action.id} href={action.href}>
-                        <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20 hover:bg-purple-500/20 transition-colors cursor-pointer">
+                        <div className="p-3 rounded-lg bg-sky-500/10 border border-sky-500/20 hover:bg-sky-500/20 transition-colors cursor-pointer">
                           <p className="font-medium text-sm">{action.title}</p>
                           <p className="text-xs text-white/50">{action.description}</p>
                         </div>
@@ -800,9 +800,9 @@ export default function MyHub() {
                   {(transactionsData?.transactions || []).length > 0 ? (
                     transactionsData!.transactions.map(tx => {
                       const typeColors: Record<string, string> = {
-                        presale: 'text-purple-400 bg-purple-500/20',
+                        presale: 'text-sky-400 bg-sky-500/20',
                         subscription: 'text-cyan-400 bg-cyan-500/20',
-                        credits: 'text-purple-400 bg-purple-500/20',
+                        credits: 'text-sky-400 bg-sky-500/20',
                         guardian: 'text-emerald-400 bg-emerald-500/20',
                         ebook: 'text-pink-400 bg-pink-500/20',
                         crowdfund: 'text-blue-400 bg-blue-500/20',
@@ -846,7 +846,7 @@ export default function MyHub() {
               <GlassCard className="p-5 h-full">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-semibold flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-purple-400" />
+                    <CheckCircle className="w-4 h-4 text-sky-400" />
                     Account Progress
                   </h3>
                   <span className="text-sm text-white/50">{completedSteps}/{accountCompletionSteps.length}</span>
@@ -881,7 +881,7 @@ export default function MyHub() {
               className="mb-8"
             >
               <GlassCard className="p-0 overflow-hidden relative" glow>
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500" />
                 <button 
                   onClick={dismissWelcome}
                   className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-10"
@@ -889,9 +889,9 @@ export default function MyHub() {
                   <X className="w-4 h-4 text-white/60" />
                 </button>
                 
-                <div className="p-6 md:p-8 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10">
+                <div className="p-6 md:p-8 bg-gradient-to-br from-cyan-500/10 via-transparent to-sky-500/10">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30">
+                    <div className="p-3 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30">
                       <Heart className="w-8 h-8 text-cyan-400" />
                     </div>
                     <div>
@@ -904,7 +904,7 @@ export default function MyHub() {
                   
                   <div className="bg-slate-900/50 rounded-2xl p-5 border border-white/10 mb-6">
                     <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-                      <Compass className="w-5 h-5 text-purple-400" />
+                      <Compass className="w-5 h-5 text-sky-400" />
                       This Is Your Personal Dashboard
                     </h3>
                     <p className="text-white/70 leading-relaxed mb-4">
@@ -950,26 +950,26 @@ export default function MyHub() {
                       </div>
                     </Link>
                     <Link href="/community">
-                      <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 hover:border-purple-500/30 transition-all cursor-pointer group">
+                      <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 hover:border-sky-500/30 transition-all cursor-pointer group">
                         <div className="flex items-center gap-3">
-                          <div className="p-2 rounded-lg bg-purple-500/20">
-                            <MessageCircle className="w-5 h-5 text-purple-400" />
+                          <div className="p-2 rounded-lg bg-sky-500/20">
+                            <MessageCircle className="w-5 h-5 text-sky-400" />
                           </div>
                           <div>
-                            <p className="font-medium group-hover:text-purple-400 transition-colors">Join ChronoChat</p>
+                            <p className="font-medium group-hover:text-sky-400 transition-colors">Join ChronoChat</p>
                             <p className="text-xs text-white/50">Meet the community, get help</p>
                           </div>
                         </div>
                       </div>
                     </Link>
                     <Link href="/members">
-                      <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 hover:border-purple-500/30 transition-all cursor-pointer group">
+                      <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 hover:border-sky-500/30 transition-all cursor-pointer group">
                         <div className="flex items-center gap-3">
-                          <div className="p-2 rounded-lg bg-purple-500/20">
-                            <Users className="w-5 h-5 text-purple-400" />
+                          <div className="p-2 rounded-lg bg-sky-500/20">
+                            <Users className="w-5 h-5 text-sky-400" />
                           </div>
                           <div>
-                            <p className="font-medium group-hover:text-purple-400 transition-colors">Explore Trust Circle</p>
+                            <p className="font-medium group-hover:text-sky-400 transition-colors">Explore Trust Circle</p>
                             <p className="text-xs text-white/50">Find trusted members near you</p>
                           </div>
                         </div>
@@ -977,13 +977,13 @@ export default function MyHub() {
                     </Link>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/20">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-gradient-to-r from-sky-500/10 to-cyan-500/10 border border-sky-500/20">
                     <div className="flex items-center gap-3">
-                      <HelpCircle className="w-5 h-5 text-purple-400" />
+                      <HelpCircle className="w-5 h-5 text-sky-400" />
                       <p className="text-sm text-white/70">Questions? The community is here to help.</p>
                     </div>
                     <Link href="/community">
-                      <Button size="sm" className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-90">
+                      <Button size="sm" className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:opacity-90">
                         Ask in Signal Chat <ArrowUpRight className="w-4 h-4 ml-1" />
                       </Button>
                     </Link>
@@ -1021,24 +1021,24 @@ export default function MyHub() {
                       <div className={`p-2 rounded-xl ${
                         item.type === 'announcement' ? 'bg-cyan-500/20' :
                         item.type === 'update' ? 'bg-emerald-500/20' :
-                        'bg-purple-500/20'
+                        'bg-sky-500/20'
                       }`}>
                         {item.type === 'announcement' ? <Megaphone className="w-4 h-4 text-cyan-400" /> :
                          item.type === 'update' ? <Activity className="w-4 h-4 text-emerald-400" /> :
-                         <Clock className="w-4 h-4 text-purple-400" />}
+                         <Clock className="w-4 h-4 text-sky-400" />}
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h4 className="font-semibold text-sm">{item.title}</h4>
                           {item.version && (
-                            <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-[10px]">
+                            <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 text-[10px]">
                               v{item.version}
                             </Badge>
                           )}
                           <Badge className={`text-[10px] ${
                             item.type === 'announcement' ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30' :
                             item.type === 'update' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' :
-                            'bg-purple-500/20 text-purple-400 border-purple-500/30'
+                            'bg-sky-500/20 text-sky-400 border-sky-500/30'
                           }`}>
                             {item.type === 'announcement' ? 'News' : item.type === 'update' ? 'Update' : 'Coming Soon'}
                           </Badge>
@@ -1053,11 +1053,11 @@ export default function MyHub() {
                 ))}
               </div>
               
-              <div className="p-4 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border-t border-white/5">
+              <div className="p-4 bg-gradient-to-r from-sky-500/10 to-cyan-500/10 border-t border-white/5">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-xl bg-purple-500/20">
-                      <Rocket className="w-5 h-5 text-purple-400" />
+                    <div className="p-2 rounded-xl bg-sky-500/20">
+                      <Rocket className="w-5 h-5 text-sky-400" />
                     </div>
                     <div>
                       <p className="text-sm font-semibold">Version {newsData?.upcomingVersion || '2.5'} Coming Soon</p>
@@ -1065,7 +1065,7 @@ export default function MyHub() {
                     </div>
                   </div>
                   <Link href="/roadmap">
-                    <Button variant="outline" size="sm" className="border-purple-500/50 text-purple-400 hover:bg-purple-500/20">
+                    <Button variant="outline" size="sm" className="border-sky-500/50 text-sky-400 hover:bg-sky-500/20">
                       View Roadmap <ChevronRight className="w-4 h-4 ml-1" />
                     </Button>
                   </Link>
@@ -1122,7 +1122,7 @@ export default function MyHub() {
             <EcosystemDirectory defaultCollapsed className="mb-6" />
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold flex items-center gap-2">
-                <Globe className="w-5 h-5 text-purple-400" />
+                <Globe className="w-5 h-5 text-sky-400" />
                 Ecosystem
               </h2>
               <Link href="/ecosystem">
@@ -1157,20 +1157,20 @@ export default function MyHub() {
             className="mb-8"
           >
             <Link href="/studio">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-purple-900/40 via-pink-900/40 to-purple-900/40 border border-purple-500/30 p-6 hover:border-purple-400/50 transition-all cursor-pointer group">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(168,85,247,0.2)_0%,_transparent_70%)]" />
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-900/40 via-pink-900/40 to-sky-900/40 border border-sky-500/30 p-6 hover:border-sky-400/50 transition-all cursor-pointer group">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(14,165,233,0.2)_0%,_transparent_70%)]" />
                 <div className="relative flex flex-col md:flex-row items-center gap-4">
-                  <div className="p-4 rounded-2xl bg-purple-500/20 group-hover:bg-purple-500/30 transition-colors">
-                    <Code className="w-10 h-10 text-purple-400" />
+                  <div className="p-4 rounded-2xl bg-sky-500/20 group-hover:bg-sky-500/30 transition-colors">
+                    <Code className="w-10 h-10 text-sky-400" />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 mb-2">
+                    <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 mb-2">
                       <Sparkles className="w-3 h-3 mr-1" /> DarkWave Studios
                     </Badge>
                     <h3 className="text-xl font-bold mb-1">Build Your Own Apps</h3>
                     <p className="text-white/60 text-sm">Create decentralized applications with our no-code IDE. Launch your ideas on the Trust Layer.</p>
                   </div>
-                  <Button className="bg-purple-500 hover:bg-purple-600 text-white">
+                  <Button className="bg-sky-500 hover:bg-sky-600 text-white">
                     Try Studios <ArrowUpRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -1228,8 +1228,8 @@ export default function MyHub() {
           >
             <GlassCard className="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-xl bg-purple-500/20">
-                  <Gamepad2 className="w-6 h-6 text-purple-400" />
+                <div className="p-2 rounded-xl bg-sky-500/20">
+                  <Gamepad2 className="w-6 h-6 text-sky-400" />
                 </div>
                 <div>
                   <h3 className="font-bold">Chronicles</h3>
@@ -1246,7 +1246,7 @@ export default function MyHub() {
                   <span className="font-bold">0</span>
                 </div>
                 <a href="https://yourlegacy.io" target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full mt-2 bg-gradient-to-r from-purple-500 to-cyan-500">
+                  <Button className="w-full mt-2 bg-gradient-to-r from-sky-500 to-cyan-500">
                     Enter Chronicles <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
                 </a>

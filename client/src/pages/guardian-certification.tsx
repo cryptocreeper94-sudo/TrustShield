@@ -363,13 +363,13 @@ function GuardianBadge({ tier, size = "lg" }: { tier: string; size?: "sm" | "lg"
   
   return (
     <div className={`relative ${sizeClasses} mx-auto`}>
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/30 via-purple-500/30 to-pink-500/30 rounded-full blur-xl animate-pulse" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/30 via-sky-500/30 to-pink-500/30 rounded-full blur-xl animate-pulse" />
       <div className={`relative ${sizeClasses} rounded-full bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-cyan-500/50 flex items-center justify-center`}>
-        <div className={`${innerSize} rounded-full bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center`}>
+        <div className={`${innerSize} rounded-full bg-gradient-to-br from-cyan-500/20 via-sky-500/20 to-pink-500/20 flex items-center justify-center`}>
           <ShieldCheck className={size === "lg" ? "w-12 h-12" : "w-6 h-6"} style={{ color: "#06b6d4" }} />
         </div>
       </div>
-      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-full">
+      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-cyan-600 to-sky-600 rounded-full">
         <span className="text-xs font-bold text-white uppercase tracking-wider">{tier}</span>
       </div>
     </div>
@@ -493,7 +493,7 @@ function IntakeWizard() {
 
                 <Link href="/guardian-portal">
                   <button
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 rounded-xl text-white font-semibold transition-all hover:scale-[1.02]"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 rounded-xl text-white font-semibold transition-all hover:scale-[1.02]"
                     data-testid="link-track-certification"
                   >
                     <FileSearch className="w-5 h-5" />
@@ -578,7 +578,7 @@ function IntakeWizard() {
                         onClick={() => setFormData({ ...formData, tier })}
                         className={`p-3 rounded-xl border text-sm font-medium transition-all ${
                           formData.tier === tier
-                            ? "bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/50 text-cyan-400"
+                            ? "bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/50 text-cyan-400"
                             : "bg-white/5 border-white/10 text-white/60 hover:border-white/20"
                         }`}
                         data-testid={`button-tier-${tier.toLowerCase().replace(/\s+/g, '-')}`}
@@ -616,7 +616,7 @@ function IntakeWizard() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 hover:from-pink-500 hover:via-purple-500 hover:to-cyan-500 rounded-xl text-white font-semibold text-lg transition-all hover:scale-[1.02] shadow-lg shadow-purple-500/25 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full py-4 bg-gradient-to-r from-pink-600 via-sky-600 to-cyan-600 hover:from-pink-500 hover:via-sky-500 hover:to-cyan-500 rounded-xl text-white font-semibold text-lg transition-all hover:scale-[1.02] shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   data-testid="button-submit-consultation"
                 >
                   {isSubmitting ? (
@@ -709,11 +709,11 @@ function CheckoutModal({ tier, isOpen, onClose }: { tier: typeof CERTIFICATION_T
         </button>
 
         <div className="text-center mb-6">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-            <tier.icon className="w-8 h-8 text-purple-400" />
+          <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 flex items-center justify-center">
+            <tier.icon className="w-8 h-8 text-sky-400" />
           </div>
           <h3 className="text-xl font-bold text-white">{tier.name}</h3>
-          <p className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mt-2">
+          <p className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent mt-2">
             {tier.price}
           </p>
         </div>
@@ -726,7 +726,7 @@ function CheckoutModal({ tier, isOpen, onClose }: { tier: typeof CERTIFICATION_T
               required
               value={formData.projectName}
               onChange={(e) => setFormData({ ...formData, projectName: e.target.value })}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-sky-500/50"
               placeholder="Your project name"
               data-testid="input-checkout-project-name"
             />
@@ -738,7 +738,7 @@ function CheckoutModal({ tier, isOpen, onClose }: { tier: typeof CERTIFICATION_T
               type="url"
               value={formData.projectUrl}
               onChange={(e) => setFormData({ ...formData, projectUrl: e.target.value })}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-sky-500/50"
               placeholder="https://yourproject.com"
               data-testid="input-checkout-project-url"
             />
@@ -751,7 +751,7 @@ function CheckoutModal({ tier, isOpen, onClose }: { tier: typeof CERTIFICATION_T
               required
               value={formData.contactEmail}
               onChange={(e) => setFormData({ ...formData, contactEmail: e.target.value })}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-sky-500/50"
               placeholder="you@example.com"
               data-testid="input-checkout-email"
             />
@@ -766,7 +766,7 @@ function CheckoutModal({ tier, isOpen, onClose }: { tier: typeof CERTIFICATION_T
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 disabled:opacity-50 rounded-xl text-white font-semibold transition-all flex items-center justify-center gap-2"
+            className="w-full py-4 bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500 disabled:opacity-50 rounded-xl text-white font-semibold transition-all flex items-center justify-center gap-2"
             data-testid="button-proceed-checkout"
           >
             {isLoading ? (
@@ -798,7 +798,7 @@ function TierCard({ tier, index }: { tier: typeof CERTIFICATION_TIERS[0]; index:
   
   const colorMap: Record<string, string> = {
     cyan: "from-cyan-500/20 to-cyan-600/20 border-cyan-500/30 hover:border-cyan-400/50",
-    purple: "from-purple-500/20 to-purple-600/20 border-purple-500/30 hover:border-purple-400/50",
+    purple: "from-sky-500/20 to-sky-600/20 border-sky-500/30 hover:border-sky-400/50",
     pink: "from-pink-500/20 to-pink-600/20 border-pink-500/30 hover:border-pink-400/50"
   };
   
@@ -813,7 +813,7 @@ function TierCard({ tier, index }: { tier: typeof CERTIFICATION_TIERS[0]; index:
       >
         <div className={`relative h-full rounded-2xl bg-gradient-to-b ${colorMap[tier.color]} border ${tier.highlight ? "border-2" : ""} p-1 transition-all duration-300 hover:scale-[1.02]`}>
           {tier.highlight && (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-pink-500 to-sky-500 rounded-full">
               <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1">
                 <Star className="w-3 h-3" /> Most Popular
               </span>
@@ -822,21 +822,21 @@ function TierCard({ tier, index }: { tier: typeof CERTIFICATION_TIERS[0]; index:
           <div className="h-full rounded-xl bg-slate-900/90 p-6 flex flex-col">
             <div className="text-center mb-6">
               <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${colorMap[tier.color].split(" ")[0]} ${colorMap[tier.color].split(" ")[1]} flex items-center justify-center`}>
-                <tier.icon className="w-8 h-8" style={{ color: tier.color === "cyan" ? "#06b6d4" : tier.color === "purple" ? "#a855f7" : "#ec4899" }} />
+                <tier.icon className="w-8 h-8" style={{ color: tier.color === "cyan" ? "#06b6d4" : tier.color === "purple" ? "#38bdf8" : "#ec4899" }} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-1">{tier.name}</h3>
               <p className="text-white/50 text-sm">{tier.tagline}</p>
             </div>
             
             <div className="text-center mb-6">
-              <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 {tier.price}
               </div>
               <p className="text-white/40 text-sm mt-1">{tier.priceNote}</p>
               {tier.launchPricing && (
-                <div className="mt-2 inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/40 rounded-full">
-                  <Rocket className="w-3 h-3 text-purple-400" />
-                  <span className="text-purple-400 text-xs font-bold uppercase tracking-wider">Launch Pricing</span>
+                <div className="mt-2 inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-sky-500/20 to-cyan-500/20 border border-sky-500/40 rounded-full">
+                  <Rocket className="w-3 h-3 text-sky-400" />
+                  <span className="text-sky-400 text-xs font-bold uppercase tracking-wider">Launch Pricing</span>
                 </div>
               )}
             </div>
@@ -855,7 +855,7 @@ function TierCard({ tier, index }: { tier: typeof CERTIFICATION_TIERS[0]; index:
                 onClick={() => setShowCheckout(true)}
                 className={`w-full py-3 rounded-lg font-semibold text-center transition-all ${
                   tier.highlight 
-                    ? "bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 text-white"
+                    ? "bg-gradient-to-r from-pink-500 to-sky-500 hover:from-pink-400 hover:to-sky-400 text-white"
                     : "bg-white/10 hover:bg-white/20 text-white border border-white/10"
                 }`}
                 data-testid={`button-tier-${tier.name.toLowerCase().replace(/\s+/g, '-')}`}
@@ -1073,7 +1073,7 @@ export default function GuardianCertificationPage() {
       
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
       </div>
       
@@ -1095,13 +1095,13 @@ export default function GuardianCertificationPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-cyan-500/30 rounded-full mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-cyan-500/30 rounded-full mb-6">
                   <Sparkles className="w-4 h-4 text-cyan-400" />
                   <span className="text-cyan-400 text-sm font-medium">Blockchain Security, Redefined</span>
                 </div>
                 <h1 className="text-4xl md:text-6xl font-bold mb-6">
                   <span className="text-white">Trust Layer</span>{" "}
-                  <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                     Guardian Certification
                   </span>
                 </h1>
@@ -1121,7 +1121,7 @@ export default function GuardianCertificationPage() {
                   transition={{ delay: 0.5 + index * 0.1 }}
                 >
                   <GlassCard className="p-6 text-center h-full hover:scale-105 transition-transform" data-testid={`card-benefit-${index}`}>
-                    <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center">
                       <item.icon className="w-6 h-6 text-cyan-400" />
                     </div>
                     <h3 className="text-white font-semibold mb-2" data-testid={`text-benefit-title-${index}`}>{item.title}</h3>
@@ -1142,7 +1142,7 @@ export default function GuardianCertificationPage() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                   Certification Tiers
                 </span>
               </h2>
@@ -1168,7 +1168,7 @@ export default function GuardianCertificationPage() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-sky-400 to-pink-400 bg-clip-text text-transparent">
                   Our Methodology
                 </span>
               </h2>
@@ -1188,8 +1188,8 @@ export default function GuardianCertificationPage() {
                 >
                   <GlassCard className="p-6 h-full hover:scale-105 transition-transform">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0">
-                        <pillar.icon className="w-6 h-6 text-purple-400" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0">
+                        <pillar.icon className="w-6 h-6 text-sky-400" />
                       </div>
                       <div>
                         <h3 className="text-white font-semibold mb-2">{pillar.title}</h3>
@@ -1214,9 +1214,9 @@ export default function GuardianCertificationPage() {
                     className="text-center relative"
                   >
                     {index < PROCESS_STEPS.length - 1 && (
-                      <div className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-gradient-to-r from-cyan-500/50 to-purple-500/50" />
+                      <div className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-gradient-to-r from-cyan-500/50 to-sky-500/50" />
                     )}
-                    <div className="relative w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white font-bold">
+                    <div className="relative w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center text-white font-bold">
                       {step.step}
                     </div>
                     <h4 className="text-white font-medium text-sm mb-1">{step.title}</h4>
@@ -1274,7 +1274,7 @@ export default function GuardianCertificationPage() {
                           <div className="flex items-center gap-2 mb-1">
                             <h3 className="text-white font-semibold" data-testid={`text-doc-title-${index}`}>{doc.title}</h3>
                             {!doc.available && (
-                              <span className="px-2 py-0.5 bg-purple-500/20 text-purple-400 rounded text-xs">Coming Soon</span>
+                              <span className="px-2 py-0.5 bg-sky-500/20 text-sky-400 rounded text-xs">Coming Soon</span>
                             )}
                           </div>
                           <p className="text-white/50 text-sm mb-3">{doc.description}</p>
@@ -1308,7 +1308,7 @@ export default function GuardianCertificationPage() {
                     <h3 className="text-xl font-bold text-white mb-2">Bug Bounty Program</h3>
                     <p className="text-white/60 mb-4">Coming Soon - We're launching a public bug bounty through Immunefi to strengthen our security posture and demonstrate commitment to transparency.</p>
                     <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                      <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm border border-purple-500/30">Coming Soon</span>
+                      <span className="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm border border-sky-500/30">Coming Soon</span>
                       <span className="px-3 py-1 bg-white/5 text-white/50 rounded-full text-sm">Up to $50,000 rewards</span>
                     </div>
                   </div>
@@ -1319,9 +1319,9 @@ export default function GuardianCertificationPage() {
         </section>
 
         {/* Guardian Shield - Continuous Monitoring Section */}
-        <section className="py-20 px-4 bg-gradient-to-b from-transparent via-violet-950/20 to-transparent relative overflow-hidden">
+        <section className="py-20 px-4 bg-gradient-to-b from-transparent via-cyan-950/20 to-transparent relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-violet-500/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
             <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
           </div>
           
@@ -1332,12 +1332,12 @@ export default function GuardianCertificationPage() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-500/10 border border-violet-500/30 rounded-full mb-6">
-                <Shield className="w-4 h-4 text-violet-400" />
-                <span className="text-violet-400 text-sm font-medium">Coming Soon</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-6">
+                <Shield className="w-4 h-4 text-cyan-400" />
+                <span className="text-cyan-400 text-sm font-medium">Coming Soon</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
                   Guardian Shield
                 </span>
               </h2>
@@ -1360,8 +1360,8 @@ export default function GuardianCertificationPage() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <GlassCard className="p-5 text-center h-full" data-testid={`card-shield-feature-${index}`}>
-                    <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-violet-500/20 to-indigo-500/20 flex items-center justify-center">
-                      <feature.icon className="w-6 h-6 text-violet-400" />
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 flex items-center justify-center">
+                      <feature.icon className="w-6 h-6 text-cyan-400" />
                     </div>
                     <h4 className="text-white font-semibold mb-1 text-sm">{feature.title}</h4>
                     <p className="text-white/50 text-xs">{feature.description}</p>
@@ -1374,7 +1374,7 @@ export default function GuardianCertificationPage() {
               {SHIELD_TIERS.map((tier, index) => {
                 const colorMap: Record<string, string> = {
                   cyan: "from-cyan-500/20 to-cyan-600/20 border-cyan-500/30",
-                  purple: "from-violet-500/20 to-purple-600/20 border-violet-500/30",
+                  purple: "from-cyan-500/20 to-sky-600/20 border-cyan-500/30",
                   pink: "from-pink-500/20 to-rose-600/20 border-pink-500/30"
                 };
                 
@@ -1387,30 +1387,30 @@ export default function GuardianCertificationPage() {
                     transition={{ delay: index * 0.15 }}
                     className="h-full"
                   >
-                    <div className={`relative h-full rounded-2xl bg-gradient-to-b ${colorMap[tier.color]} border ${tier.highlight ? "border-2 border-violet-500/50" : ""} p-1`}>
+                    <div className={`relative h-full rounded-2xl bg-gradient-to-b ${colorMap[tier.color]} border ${tier.highlight ? "border-2 border-cyan-500/50" : ""} p-1`}>
                       {tier.highlight && (
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full">
+                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-cyan-500 to-sky-500 rounded-full">
                           <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1">
                             <Star className="w-3 h-3" /> Most Popular
                           </span>
                         </div>
                       )}
                       <div className="absolute -top-1 -right-1">
-                        <span className="px-3 py-1 bg-purple-500/90 text-purple-950 rounded-full text-xs font-bold uppercase">
+                        <span className="px-3 py-1 bg-sky-500/90 text-sky-950 rounded-full text-xs font-bold uppercase">
                           Coming Soon
                         </span>
                       </div>
                       <div className="h-full rounded-xl bg-slate-900/90 p-6 flex flex-col">
                         <div className="text-center mb-6">
                           <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${colorMap[tier.color].split(" ")[0]} ${colorMap[tier.color].split(" ")[1]} flex items-center justify-center`}>
-                            <tier.icon className="w-8 h-8" style={{ color: tier.color === "cyan" ? "#06b6d4" : tier.color === "purple" ? "#8b5cf6" : "#ec4899" }} />
+                            <tier.icon className="w-8 h-8" style={{ color: tier.color === "cyan" ? "#06b6d4" : tier.color === "purple" ? "#0ea5e9" : "#ec4899" }} />
                           </div>
                           <h3 className="text-2xl font-bold text-white mb-1" data-testid={`text-shield-tier-${index}`}>{tier.name}</h3>
                           <p className="text-white/50 text-sm">{tier.tagline}</p>
                         </div>
                         
                         <div className="text-center mb-6">
-                          <div className="text-4xl font-bold bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                          <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
                             {tier.price}
                           </div>
                           <p className="text-white/40 text-sm mt-1">{tier.priceNote}</p>
@@ -1419,7 +1419,7 @@ export default function GuardianCertificationPage() {
                         <ul className="space-y-3 flex-grow mb-6">
                           {tier.features.map((feature, i) => (
                             <li key={i} className="flex items-start gap-2 text-sm">
-                              <CheckCircle className="w-4 h-4 text-violet-400 mt-0.5 flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                               <span className="text-white/70">{feature}</span>
                             </li>
                           ))}
@@ -1450,9 +1450,9 @@ export default function GuardianCertificationPage() {
               viewport={{ once: true }}
               className="mt-12 text-center"
             >
-              <GlassCard className="p-6 inline-block bg-gradient-to-r from-violet-950/30 to-indigo-950/30">
+              <GlassCard className="p-6 inline-block bg-gradient-to-r from-cyan-950/30 to-indigo-950/30">
                 <p className="text-white/60 text-sm">
-                  <span className="text-violet-400 font-semibold">Early Access:</span> Get 20% off your first year when you join the waitlist before launch.
+                  <span className="text-cyan-400 font-semibold">Early Access:</span> Get 20% off your first year when you join the waitlist before launch.
                 </p>
               </GlassCard>
             </motion.div>
@@ -1473,7 +1473,7 @@ export default function GuardianCertificationPage() {
                 <span className="text-blue-400 text-sm font-medium">Our Journey</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-400 to-sky-400 bg-clip-text text-transparent">
                   Validation Roadmap
                 </span>
               </h2>
@@ -1483,7 +1483,7 @@ export default function GuardianCertificationPage() {
             </motion.div>
 
             <div className="relative">
-              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/50 via-purple-500/50 to-pink-500/50" />
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/50 via-sky-500/50 to-pink-500/50" />
               
               <div className="space-y-8">
                 {ROADMAP_MILESTONES.map((milestone, index) => (
@@ -1495,7 +1495,7 @@ export default function GuardianCertificationPage() {
                     transition={{ delay: index * 0.1 }}
                     className={`relative flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-8`}
                   >
-                    <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 z-10" />
+                    <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 z-10" />
                     
                     <div className={`flex-1 ${index % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12"}`}>
                       <GlassCard 
@@ -1503,20 +1503,20 @@ export default function GuardianCertificationPage() {
                           milestone.status === "completed" 
                             ? "border-green-500/30 bg-green-950/10" 
                             : milestone.status === "in_progress"
-                            ? "border-purple-500/30 bg-purple-950/10"
+                            ? "border-sky-500/30 bg-sky-950/10"
                             : ""
                         }`}
                         data-testid={`card-milestone-${index}`}
                       >
                         <div className="flex items-center gap-3 mb-3 flex-wrap">
-                          <span className="px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full text-sm font-semibold text-cyan-400">
+                          <span className="px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 rounded-full text-sm font-semibold text-cyan-400">
                             {milestone.phase}
                           </span>
                           <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                             milestone.status === "completed" 
                               ? "bg-green-500/20 text-green-400"
                               : milestone.status === "in_progress"
-                              ? "bg-purple-500/20 text-purple-400"
+                              ? "bg-sky-500/20 text-sky-400"
                               : "bg-white/10 text-white/50"
                           }`}>
                             {milestone.status === "completed" ? "Completed" : milestone.status === "in_progress" ? "In Progress" : "Upcoming"}
@@ -1544,24 +1544,24 @@ export default function GuardianCertificationPage() {
         </section>
 
         {/* Pioneer Program Section */}
-        <section className="py-20 px-4 bg-gradient-to-b from-transparent via-purple-950/10 to-transparent">
+        <section className="py-20 px-4 bg-gradient-to-b from-transparent via-sky-950/10 to-transparent">
           <div className="container mx-auto max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <GlassCard className="p-8 md:p-12 bg-gradient-to-r from-purple-950/20 via-cyan-950/20 to-red-950/20 border-purple-500/30 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl" />
+              <GlassCard className="p-8 md:p-12 bg-gradient-to-r from-sky-950/20 via-cyan-950/20 to-red-950/20 border-sky-500/30 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-sky-500/10 to-transparent rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-3xl" />
                 
                 <div className="relative">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/30 to-cyan-500/30 flex items-center justify-center">
-                      <Rocket className="w-7 h-7 text-purple-400" />
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-500/30 to-cyan-500/30 flex items-center justify-center">
+                      <Rocket className="w-7 h-7 text-sky-400" />
                     </div>
                     <div>
-                      <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-bold uppercase tracking-wider">Limited Offer</span>
+                      <span className="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-xs font-bold uppercase tracking-wider">Limited Offer</span>
                     </div>
                   </div>
                   
@@ -1575,7 +1575,7 @@ export default function GuardianCertificationPage() {
                   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     {PIONEER_BENEFITS.map((benefit, index) => (
                       <div key={benefit.title} className="p-4 bg-white/5 rounded-xl border border-white/10" data-testid={`card-pioneer-benefit-${index}`}>
-                        <benefit.icon className="w-8 h-8 text-purple-400 mb-3" />
+                        <benefit.icon className="w-8 h-8 text-sky-400 mb-3" />
                         <h4 className="text-white font-semibold mb-1">{benefit.title}</h4>
                         <p className="text-white/50 text-sm">{benefit.description}</p>
                       </div>
@@ -1587,7 +1587,7 @@ export default function GuardianCertificationPage() {
                       subject="Pioneer Program Application"
                       trigger={
                         <button
-                          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-400 hover:to-cyan-400 rounded-xl text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-purple-500/25"
+                          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 rounded-xl text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-sky-500/25"
                           data-testid="link-apply-pioneer"
                         >
                           <Rocket className="w-5 h-5" />
@@ -1596,7 +1596,7 @@ export default function GuardianCertificationPage() {
                       }
                     />
                     <span className="text-white/40 text-sm">
-                      <span className="text-purple-400 font-bold">3 of 5</span> spots remaining
+                      <span className="text-sky-400 font-bold">3 of 5</span> spots remaining
                     </span>
                   </div>
                 </div>
@@ -1614,12 +1614,12 @@ export default function GuardianCertificationPage() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full mb-6">
-                <Users className="w-4 h-4 text-purple-400" />
-                <span className="text-purple-400 text-sm font-medium">Expert Guidance</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-500/10 border border-sky-500/30 rounded-full mb-6">
+                <Users className="w-4 h-4 text-sky-400" />
+                <span className="text-sky-400 text-sm font-medium">Expert Guidance</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-sky-400 to-pink-400 bg-clip-text text-transparent">
                   Advisory Board
                 </span>
               </h2>
@@ -1638,11 +1638,11 @@ export default function GuardianCertificationPage() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <GlassCard className="p-6 text-center h-full border-dashed" data-testid={`card-advisor-${index}`}>
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center border-2 border-dashed border-white/20">
+                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-sky-500/20 to-pink-500/20 flex items-center justify-center border-2 border-dashed border-white/20">
                       <UserCheck className="w-8 h-8 text-white/30" />
                     </div>
                     <h3 className="text-white/50 font-semibold mb-1">{advisor.name}</h3>
-                    <p className="text-purple-400 text-sm font-medium mb-3">{advisor.role}</p>
+                    <p className="text-sky-400 text-sm font-medium mb-3">{advisor.role}</p>
                     <p className="text-white/40 text-sm">{advisor.bio}</p>
                   </GlassCard>
                 </motion.div>
@@ -1654,7 +1654,7 @@ export default function GuardianCertificationPage() {
                 subject="Advisory Board Interest"
                 trigger={
                   <button
-                    className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                    className="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors"
                     data-testid="link-join-advisory"
                   >
                     <Handshake className="w-5 h-5" />
@@ -1680,7 +1680,7 @@ export default function GuardianCertificationPage() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                   Guardian Registry
                 </span>
               </h2>
@@ -1701,11 +1701,11 @@ export default function GuardianCertificationPage() {
                   <GlassCard className="p-6" data-testid={`card-registry-${project.name.toLowerCase().replace(/\s+/g, '-')}`}>
                     <div className="flex items-center justify-between flex-wrap gap-4">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center">
                           {project.status === "Certified" ? (
                             <BadgeCheck className="w-6 h-6 text-green-400" />
                           ) : project.status === "In Progress" ? (
-                            <Activity className="w-6 h-6 text-purple-400" />
+                            <Activity className="w-6 h-6 text-sky-400" />
                           ) : (
                             <Clock className="w-6 h-6 text-white/40" />
                           )}
@@ -1727,7 +1727,7 @@ export default function GuardianCertificationPage() {
                             project.status === "Certified" 
                               ? "bg-green-500/20 text-green-400 border border-green-500/30"
                               : project.status === "In Progress"
-                              ? "bg-purple-500/20 text-purple-400 border border-purple-500/30"
+                              ? "bg-sky-500/20 text-sky-400 border border-sky-500/30"
                               : "bg-white/10 text-white/50 border border-white/10"
                           }`}
                           data-testid={`status-project-${index}`}
@@ -1750,8 +1750,8 @@ export default function GuardianCertificationPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <GlassCard className="p-8 md:p-12 text-center bg-gradient-to-r from-cyan-950/30 via-purple-950/30 to-pink-950/30 relative overflow-hidden">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-gradient-to-b from-purple-500/20 to-transparent blur-2xl" />
+              <GlassCard className="p-8 md:p-12 text-center bg-gradient-to-r from-cyan-950/30 via-sky-950/30 to-pink-950/30 relative overflow-hidden">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-gradient-to-b from-sky-500/20 to-transparent blur-2xl" />
                 <div className="relative">
                   <ShieldCheck className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
                   <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
@@ -1766,7 +1766,7 @@ export default function GuardianCertificationPage() {
                       subject="Guardian Certification Inquiry"
                       trigger={
                         <button
-                          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 hover:from-cyan-500 hover:via-purple-500 hover:to-pink-500 rounded-xl text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-purple-500/25"
+                          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600 hover:from-cyan-500 hover:via-sky-500 hover:to-pink-500 rounded-xl text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-sky-500/25"
                           data-testid="link-contact-guardian"
                         >
                           <Award className="w-6 h-6" />

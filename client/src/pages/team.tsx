@@ -198,9 +198,9 @@ function FinancialCalculator() {
         </Card>
       </div>
 
-      <GlassCard className="border-purple-500/30">
+      <GlassCard className="border-sky-500/30">
         <div className="p-4">
-          <h4 className="font-semibold text-purple-400 mb-2">Airdrop Liability</h4>
+          <h4 className="font-semibold text-sky-400 mb-2">Airdrop Liability</h4>
           <p className="text-sm text-muted-foreground">
             Total SIG to distribute: <span className="text-white font-bold">{(model.founderSpots * model.dwtAirdrop).toLocaleString()} SIG</span>
           </p>
@@ -476,7 +476,7 @@ function AdminLinksGrid() {
     secondary: "bg-secondary/10 text-secondary",
     green: "bg-green-500/10 text-green-400",
     cyan: "bg-cyan-500/10 text-cyan-400",
-    purple: "bg-purple-500/10 text-purple-400",
+    purple: "bg-sky-500/10 text-sky-400",
   };
 
   return (

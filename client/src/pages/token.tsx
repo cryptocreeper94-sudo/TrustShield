@@ -27,7 +27,7 @@ export default function Token() {
             <span className="font-display font-bold text-lg tracking-tight hidden sm:inline">Trust Layer</span>
           </Link>
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="border-purple-500/50 text-purple-400 bg-purple-500/10 text-[10px] sm:text-xs whitespace-nowrap">
+            <Badge variant="outline" className="border-sky-500/50 text-sky-400 bg-sky-500/10 text-[10px] sm:text-xs whitespace-nowrap">
               <Lock className="w-3 h-3 mr-1 hidden sm:inline" /> Coming Soon
             </Badge>
             <BackButton />
@@ -44,7 +44,7 @@ export default function Token() {
               </Badge>
               <h1 className="text-4xl md:text-5xl font-display font-bold leading-tight">
                 Signal <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">(SIG)</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400">(SIG)</span>
               </h1>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
                 Signal is not a cryptocurrency — it's a transmission of verified intent. Your acknowledgment, access, and proof of participation in the Trust Network. The value is the infrastructure it unlocks, not speculation.
@@ -62,7 +62,7 @@ export default function Token() {
                   </Button>
                 </Link>
                 <Link href="/faq">
-                  <Button size="lg" variant="outline" className="h-11 px-6 border-purple-500/30 text-purple-400 hover:bg-purple-500/10 rounded-full text-sm" data-testid="button-faq">
+                  <Button size="lg" variant="outline" className="h-11 px-6 border-sky-500/30 text-sky-400 hover:bg-sky-500/10 rounded-full text-sm" data-testid="button-faq">
                     FAQ
                   </Button>
                 </Link>
@@ -71,7 +71,7 @@ export default function Token() {
               <div className="grid grid-cols-3 gap-3">
                 <GlassCard hover={false}>
                   <div className="p-3 text-center">
-                    <div className="text-lg font-bold text-purple-400">TBA</div>
+                    <div className="text-lg font-bold text-sky-400">TBA</div>
                     <div className="text-[10px] text-white/50">Initial Price</div>
                   </div>
                 </GlassCard>
@@ -100,7 +100,7 @@ export default function Token() {
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <motion.div
-                  className="absolute inset-[-40px] rounded-full border border-purple-400/30"
+                  className="absolute inset-[-40px] rounded-full border border-sky-400/30"
                   animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0, 0.4] }}
                   transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
                 />
@@ -247,9 +247,9 @@ export default function Token() {
                   Distribution
                 </h3>
                 <div className="space-y-4">
-                  <DistributionItem label="Treasury Reserve" percent="50%" color="bg-purple-500" desc="Long-term sustainability fund" />
+                  <DistributionItem label="Treasury Reserve" percent="50%" color="bg-sky-500" desc="Long-term sustainability fund" />
                   <DistributionItem label="Staking Rewards" percent="15%" color="bg-emerald-500" desc="Validator and liquid staking APY (12%)" />
-                  <DistributionItem label="Development & Team" percent="15%" color="bg-purple-500" desc="4-year vesting for alignment" />
+                  <DistributionItem label="Development & Team" percent="15%" color="bg-sky-500" desc="4-year vesting for alignment" />
                   <DistributionItem label="Ecosystem Growth" percent="10%" color="bg-secondary" desc="Partnerships, listings, grants" />
                   <DistributionItem label="Community Rewards" percent="10%" color="bg-primary" desc="Presale (1%) + airdrops (9%)" />
                 </div>
@@ -289,7 +289,7 @@ export default function Token() {
       <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10">
-            <Badge variant="outline" className="mb-4 px-3 py-1 border-purple-500/50 text-purple-400 bg-purple-500/10 rounded-full text-xs">
+            <Badge variant="outline" className="mb-4 px-3 py-1 border-sky-500/50 text-sky-400 bg-sky-500/10 rounded-full text-xs">
               <Crown className="w-3 h-3 mr-1" /> Early Adopter Program
             </Badge>
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">Join the Genesis Community</h2>
@@ -301,54 +301,54 @@ export default function Token() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <motion.div 
               whileHover={{ scale: 1.02, y: -4 }}
-              className="relative overflow-hidden rounded-2xl border border-purple-500/30 group" 
+              className="relative overflow-hidden rounded-2xl border border-sky-500/30 group" 
               style={{ boxShadow: '0 0 40px rgba(245,158,11,0.15)' }}
               data-testid="card-tier-founder"
             >
               <img src={quantumImg} alt="Founder Tier" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-purple-900/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-sky-900/30" />
               <div className="p-6 relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-600 flex items-center justify-center backdrop-blur-sm">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center backdrop-blur-sm">
                     <Crown className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-white">Founder Tier</h3>
-                    <Badge className="bg-purple-500/20 text-purple-400 text-[10px]">Limited to 100</Badge>
+                    <Badge className="bg-sky-500/20 text-sky-400 text-[10px]">Limited to 100</Badge>
                   </div>
                 </div>
                 <ul className="space-y-2 text-sm text-white/80">
-                  <li className="flex items-center gap-2"><Sparkles className="w-3 h-3 text-purple-400" /> 10,000 SIG allocation</li>
-                  <li className="flex items-center gap-2"><TrendingUp className="w-3 h-3 text-purple-400" /> 2x staking multiplier</li>
-                  <li className="flex items-center gap-2"><Star className="w-3 h-3 text-purple-400" /> Exclusive NFT badge</li>
-                  <li className="flex items-center gap-2"><Users className="w-3 h-3 text-purple-400" /> Private Discord access</li>
+                  <li className="flex items-center gap-2"><Sparkles className="w-3 h-3 text-sky-400" /> 10,000 SIG allocation</li>
+                  <li className="flex items-center gap-2"><TrendingUp className="w-3 h-3 text-sky-400" /> 2x staking multiplier</li>
+                  <li className="flex items-center gap-2"><Star className="w-3 h-3 text-sky-400" /> Exclusive NFT badge</li>
+                  <li className="flex items-center gap-2"><Users className="w-3 h-3 text-sky-400" /> Private Discord access</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div 
               whileHover={{ scale: 1.02, y: -4 }}
-              className="relative overflow-hidden rounded-2xl border border-purple-500/30 group" 
-              style={{ boxShadow: '0 0 40px rgba(168,85,247,0.15)' }}
+              className="relative overflow-hidden rounded-2xl border border-sky-500/30 group" 
+              style={{ boxShadow: '0 0 40px rgba(14,165,233,0.15)' }}
               data-testid="card-tier-genesis"
             >
               <img src={cyberpunkImg} alt="Genesis Tier" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-purple-900/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-sky-900/30" />
               <div className="p-6 relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center backdrop-blur-sm">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-pink-600 flex items-center justify-center backdrop-blur-sm">
                     <Star className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-white">Genesis Tier</h3>
-                    <Badge className="bg-purple-500/20 text-purple-400 text-[10px]">Limited to 500</Badge>
+                    <Badge className="bg-sky-500/20 text-sky-400 text-[10px]">Limited to 500</Badge>
                   </div>
                 </div>
                 <ul className="space-y-2 text-sm text-white/80">
-                  <li className="flex items-center gap-2"><Sparkles className="w-3 h-3 text-purple-400" /> 5,000 SIG allocation</li>
-                  <li className="flex items-center gap-2"><TrendingUp className="w-3 h-3 text-purple-400" /> 1.5x staking multiplier</li>
-                  <li className="flex items-center gap-2"><Star className="w-3 h-3 text-purple-400" /> Early access to features</li>
-                  <li className="flex items-center gap-2"><Gift className="w-3 h-3 text-purple-400" /> Priority airdrop eligibility</li>
+                  <li className="flex items-center gap-2"><Sparkles className="w-3 h-3 text-sky-400" /> 5,000 SIG allocation</li>
+                  <li className="flex items-center gap-2"><TrendingUp className="w-3 h-3 text-sky-400" /> 1.5x staking multiplier</li>
+                  <li className="flex items-center gap-2"><Star className="w-3 h-3 text-sky-400" /> Early access to features</li>
+                  <li className="flex items-center gap-2"><Gift className="w-3 h-3 text-sky-400" /> Priority airdrop eligibility</li>
                 </ul>
               </div>
             </motion.div>
@@ -462,7 +462,7 @@ export default function Token() {
                 <div className="text-xs text-muted-foreground">0.3% per trade</div>
               </div>
               <div>
-                <div className="text-lg font-bold text-purple-400">NFT Sales</div>
+                <div className="text-lg font-bold text-sky-400">NFT Sales</div>
                 <div className="text-xs text-muted-foreground">2.5% seller fee</div>
               </div>
               <div>
@@ -470,7 +470,7 @@ export default function Token() {
                 <div className="text-xs text-muted-foreground">Listing fees</div>
               </div>
               <div>
-                <div className="text-lg font-bold text-purple-400">Bridge</div>
+                <div className="text-lg font-bold text-sky-400">Bridge</div>
                 <div className="text-xs text-muted-foreground">0.1% crossing fee</div>
               </div>
             </div>
@@ -481,7 +481,7 @@ export default function Token() {
       <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10">
-            <Badge className="mb-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-white border-0">
+            <Badge className="mb-4 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-white border-0">
               <PieChart className="w-3 h-3 mr-1" /> Full Transparency
             </Badge>
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">Treasury Allocation</h2>
@@ -500,12 +500,12 @@ export default function Token() {
                 <div className="text-[10px] text-muted-foreground">Development</div>
               </div>
             </GlassCard>
-            <GlassCard hover className="border border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/20 transition-all">
+            <GlassCard hover className="border border-sky-500/30 hover:shadow-lg hover:shadow-sky-500/20 transition-all">
               <div className="p-4 text-center">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center mx-auto mb-2">
-                  <Megaphone className="w-5 h-5 text-purple-400" />
+                <div className="w-10 h-10 rounded-xl bg-sky-500/20 flex items-center justify-center mx-auto mb-2">
+                  <Megaphone className="w-5 h-5 text-sky-400" />
                 </div>
-                <div className="text-xl font-bold text-purple-400">20%</div>
+                <div className="text-xl font-bold text-sky-400">20%</div>
                 <div className="text-[10px] text-muted-foreground">Marketing</div>
               </div>
             </GlassCard>
@@ -518,12 +518,12 @@ export default function Token() {
                 <div className="text-[10px] text-muted-foreground">Staking</div>
               </div>
             </GlassCard>
-            <GlassCard hover className="border border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/20 transition-all">
+            <GlassCard hover className="border border-sky-500/30 hover:shadow-lg hover:shadow-sky-500/20 transition-all">
               <div className="p-4 text-center">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center mx-auto mb-2">
-                  <Users className="w-5 h-5 text-purple-400" />
+                <div className="w-10 h-10 rounded-xl bg-sky-500/20 flex items-center justify-center mx-auto mb-2">
+                  <Users className="w-5 h-5 text-sky-400" />
                 </div>
-                <div className="text-xl font-bold text-purple-400">15%</div>
+                <div className="text-xl font-bold text-sky-400">15%</div>
                 <div className="text-[10px] text-muted-foreground">Team</div>
               </div>
             </GlassCard>
@@ -560,9 +560,9 @@ export default function Token() {
       <section className="py-12 px-4">
         <div className="container mx-auto max-w-4xl">
           <GlassCard glow className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-teal-500/5 to-cyan-500/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 via-teal-500/5 to-cyan-500/10" />
             <div className="p-8 relative text-center">
-              <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+              <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
                 <Crown className="w-3 h-3 mr-1" /> Limited Time Offer
               </Badge>
               <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">
@@ -573,7 +573,7 @@ export default function Token() {
                 Only 10,000 spots available — limited time offer.
               </p>
               <Link href="/founder-program">
-                <Button size="lg" className="bg-gradient-to-r from-purple-500 to-cyan-600 hover:from-purple-600 hover:to-cyan-700 text-white font-bold rounded-full gap-2" data-testid="button-founder-program">
+                <Button size="lg" className="bg-gradient-to-r from-sky-500 to-cyan-600 hover:from-sky-600 hover:to-cyan-700 text-white font-bold rounded-full gap-2" data-testid="button-founder-program">
                   <Crown className="w-5 h-5" /> Join Legacy Founder Program
                 </Button>
               </Link>

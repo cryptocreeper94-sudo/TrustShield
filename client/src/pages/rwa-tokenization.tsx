@@ -41,11 +41,11 @@ const assetTypeIcons: Record<string, any> = {
 const assetTypeGradients: Record<string, string> = {
   real_estate: "from-blue-500 to-indigo-600",
   equity: "from-green-500 to-emerald-600",
-  bond: "from-purple-500 to-cyan-600",
-  commodity: "from-teal-500 to-purple-600",
+  bond: "from-sky-500 to-cyan-600",
+  commodity: "from-teal-500 to-sky-600",
   collectible: "from-pink-500 to-rose-600",
   invoice: "from-slate-500 to-slate-600",
-  ip_rights: "from-purple-500 to-violet-600"
+  ip_rights: "from-sky-500 to-cyan-600"
 };
 
 export default function RWATokenization() {
@@ -184,8 +184,8 @@ export default function RWATokenization() {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-purple-500/8 rounded-full blur-3xl animate-pulse delay-500" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-sky-500/8 rounded-full blur-3xl animate-pulse delay-500" />
         <div className="absolute bottom-1/3 left-1/3 w-[350px] h-[350px] bg-emerald-500/8 rounded-full blur-3xl animate-pulse delay-700" />
       </div>
 
@@ -202,7 +202,7 @@ export default function RWATokenization() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent" data-testid="text-page-title">
+              <span className="bg-gradient-to-r from-blue-400 via-sky-500 to-pink-500 bg-clip-text text-transparent" data-testid="text-page-title">
                 Own the Real World, On-Chain
               </span>
             </h1>
@@ -274,7 +274,7 @@ export default function RWATokenization() {
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-white">Featured Offerings</h2>
               <Link href="/rwa/create">
-                <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700" data-testid="button-tokenize-asset">
+                <Button className="bg-gradient-to-r from-blue-500 to-sky-600 hover:from-blue-600 hover:to-sky-700" data-testid="button-tokenize-asset">
                   <Plus className="w-4 h-4 mr-2" />
                   Tokenize Asset
                 </Button>
@@ -307,7 +307,7 @@ export default function RWATokenization() {
                             </Badge>
                           )}
                           <Badge className={`${
-                            asset.status === 'offering' ? 'bg-purple-500/20 text-purple-400 border-purple-500/30' :
+                            asset.status === 'offering' ? 'bg-sky-500/20 text-sky-400 border-sky-500/30' :
                             asset.status === 'trading' ? 'bg-green-500/20 text-green-400 border-green-500/30' :
                             'bg-blue-500/20 text-blue-400 border-blue-500/30'
                           }`}>
@@ -360,11 +360,11 @@ export default function RWATokenization() {
                       <div className="flex items-center justify-between pt-4 border-t border-slate-700/50">
                         <div>
                           <p className="text-xs text-slate-500">Min. Investment</p>
-                          <p className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent" data-testid={`text-asset-min-${asset.id}`}>
+                          <p className="text-lg font-bold bg-gradient-to-r from-blue-400 to-sky-500 bg-clip-text text-transparent" data-testid={`text-asset-min-${asset.id}`}>
                             $100
                           </p>
                         </div>
-                        <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-600" data-testid={`button-invest-${asset.id}`}>
+                        <Button size="sm" className="bg-gradient-to-r from-blue-500 to-sky-600" data-testid={`button-invest-${asset.id}`}>
                           <DollarSign className="w-4 h-4 mr-1" />
                           Invest
                         </Button>
@@ -390,14 +390,14 @@ export default function RWATokenization() {
               </p>
             </GlassCard>
             <GlassCard className="text-center" data-testid="card-feature-fractional">
-              <Coins className="w-12 h-12 mx-auto mb-4 text-purple-400" />
+              <Coins className="w-12 h-12 mx-auto mb-4 text-sky-400" />
               <h3 className="text-lg font-bold text-white mb-2">Fractional Ownership</h3>
               <p className="text-slate-400 text-sm">
                 Own a piece of premium assets starting from just $100
               </p>
             </GlassCard>
             <GlassCard className="text-center" data-testid="card-feature-dividends">
-              <Calendar className="w-12 h-12 mx-auto mb-4 text-purple-400" />
+              <Calendar className="w-12 h-12 mx-auto mb-4 text-sky-400" />
               <h3 className="text-lg font-bold text-white mb-2">Automatic Dividends</h3>
               <p className="text-slate-400 text-sm">
                 Receive dividend payments directly to your wallet on schedule
@@ -417,7 +417,7 @@ export default function RWATokenization() {
                 Own real estate, art, or IP? Tokenize it on Trust Layer and unlock global liquidity while retaining control.
               </p>
               <div className="flex justify-center gap-4">
-                <Button className="bg-gradient-to-r from-blue-500 to-purple-600" data-testid="button-tokenize-cta">
+                <Button className="bg-gradient-to-r from-blue-500 to-sky-600" data-testid="button-tokenize-cta">
                   <Plus className="w-4 h-4 mr-2" />
                   Start Tokenizing
                 </Button>

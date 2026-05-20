@@ -166,13 +166,13 @@ export default function BlogAdmin() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6">
-            <Sparkles className="w-4 h-4 text-purple-400" />
-            <span className="text-purple-300 text-sm font-medium">AI Blog Generator</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/30 mb-6">
+            <Sparkles className="w-4 h-4 text-sky-400" />
+            <span className="text-sky-300 text-sm font-medium">AI Blog Generator</span>
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Blog Administration
             </span>
           </h1>
@@ -217,7 +217,7 @@ export default function BlogAdmin() {
               <Button
                 onClick={() => handleGenerate()}
                 disabled={isGenerating}
-                className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600"
+                className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600"
                 data-testid="generate-post-button"
               >
                 {isGenerating ? (
@@ -237,7 +237,7 @@ export default function BlogAdmin() {
 
           <GlassCard glow className="p-6">
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <Tag className="w-5 h-5 text-purple-400" />
+              <Tag className="w-5 h-5 text-sky-400" />
               Quick Topics
             </h2>
             <div className="space-y-2 max-h-64 overflow-y-auto">
@@ -299,7 +299,7 @@ export default function BlogAdmin() {
                       <h3 className="font-medium text-white truncate">{post.title}</h3>
                       <Badge className={statusColors[post.status]}>{post.status}</Badge>
                       {post.featured && (
-                        <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
+                        <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/30">
                           Featured
                         </Badge>
                       )}

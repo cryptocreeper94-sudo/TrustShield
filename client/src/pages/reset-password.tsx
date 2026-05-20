@@ -73,7 +73,7 @@ export default function ResetPassword() {
               This password reset link is invalid or has expired.
             </p>
             <Link href="/forgot-password">
-              <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400" data-testid="button-request-new-link">
+              <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400" data-testid="button-request-new-link">
                 Request New Link
               </Button>
             </Link>
@@ -109,8 +109,8 @@ export default function ResetPassword() {
           ) : (
             <>
               <div className="text-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-4">
-                  <Lock className="w-8 h-8 text-purple-400" />
+                <div className="w-16 h-16 rounded-full bg-sky-500/20 flex items-center justify-center mx-auto mb-4">
+                  <Lock className="w-8 h-8 text-sky-400" />
                 </div>
                 <h1 className="text-2xl font-bold text-white mb-2">Reset Password</h1>
                 <p className="text-muted-foreground">
@@ -154,7 +154,7 @@ export default function ResetPassword() {
 
                 <Button
                   type="submit"
-                  className="w-full h-12 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-bold"
+                  className="w-full h-12 bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-bold"
                   disabled={loading}
                   data-testid="button-submit"
                 >

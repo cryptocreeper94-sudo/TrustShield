@@ -38,9 +38,9 @@ const PARTNER_TIERS = [
     id: "partner",
     name: "Strategic Partner",
     icon: Award,
-    color: "from-purple-500 to-pink-500",
-    borderColor: "border-purple-500/30",
-    glowColor: "shadow-[0_0_40px_rgba(168,85,247,0.25)]",
+    color: "from-sky-500 to-pink-500",
+    borderColor: "border-sky-500/30",
+    glowColor: "shadow-[0_0_40px_rgba(14,165,233,0.25)]",
     requirements: "25K+ followers",
     popular: true,
     benefits: [
@@ -57,8 +57,8 @@ const PARTNER_TIERS = [
     id: "elite",
     name: "Elite KOL",
     icon: Crown,
-    color: "from-purple-500 to-cyan-500",
-    borderColor: "border-purple-500/30",
+    color: "from-sky-500 to-cyan-500",
+    borderColor: "border-sky-500/30",
     glowColor: "shadow-[0_0_50px_rgba(245,158,11,0.3)]",
     requirements: "100K+ followers",
     benefits: [
@@ -133,9 +133,9 @@ export default function InfluencerPartnershipPage() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0.5s" }} />
-        <div className="absolute top-3/4 left-1/3 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute top-3/4 left-1/3 w-80 h-80 bg-sky-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
       </div>
 
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/90 backdrop-blur-xl">
@@ -145,7 +145,7 @@ export default function InfluencerPartnershipPage() {
             <span className="font-display font-bold text-lg tracking-tight hidden sm:inline">Trust Layer</span>
           </Link>
           <div className="flex items-center gap-2">
-            <Badge className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 border-purple-500/30">
+            <Badge className="bg-gradient-to-r from-sky-500/20 to-pink-500/20 text-sky-300 border-sky-500/30">
               <Megaphone className="w-3 h-3 mr-1" /> Partnership Program
             </Badge>
             <BackButton />
@@ -160,11 +160,11 @@ export default function InfluencerPartnershipPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-300 border-purple-500/30 px-4 py-1.5">
+            <Badge className="mb-4 bg-gradient-to-r from-sky-500/20 to-cyan-500/20 text-sky-300 border-sky-500/30 px-4 py-1.5">
               <Crown className="w-3 h-3 mr-2" /> KOL & Influencer Program
             </Badge>
             <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 Partner With Trust Layer
               </span>
             </h1>
@@ -183,7 +183,7 @@ export default function InfluencerPartnershipPage() {
             {STATS.map((stat, i) => (
               <GlassCard key={i} glow className="p-4 text-center">
                 <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
                 <div className="text-xs text-muted-foreground">{stat.label}</div>
@@ -214,7 +214,7 @@ export default function InfluencerPartnershipPage() {
                 >
                   {tier.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                      <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 px-4">
+                      <Badge className="bg-gradient-to-r from-sky-500 to-pink-500 text-white border-0 px-4">
                         <Sparkles className="w-3 h-3 mr-1" /> Most Popular
                       </Badge>
                     </div>
@@ -256,7 +256,7 @@ export default function InfluencerPartnershipPage() {
           >
             <GlassCard glow className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
                   <Megaphone className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -278,7 +278,7 @@ export default function InfluencerPartnershipPage() {
                   <p className="text-muted-foreground mb-4">
                     Our team will review your application and reach out within 48-72 hours.
                   </p>
-                  <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
+                  <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/30">
                     Check your email for updates
                   </Badge>
                 </motion.div>
@@ -389,7 +389,7 @@ export default function InfluencerPartnershipPage() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 font-bold"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 font-bold"
                     disabled={submitMutation.isPending}
                     data-testid="button-submit-application"
                   >
@@ -412,7 +412,7 @@ export default function InfluencerPartnershipPage() {
             <div className="space-y-6">
               <GlassCard className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-600 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center">
                     <Zap className="w-5 h-5 text-white" />
                   </div>
                   <h3 className="text-lg font-bold">Why Partner With Us?</h3>
@@ -433,9 +433,9 @@ export default function InfluencerPartnershipPage() {
                 </ul>
               </GlassCard>
 
-              <GlassCard className="p-6 border-purple-500/20">
+              <GlassCard className="p-6 border-sky-500/20">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-pink-600 flex items-center justify-center">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <h3 className="text-lg font-bold">Direct Contact</h3>
@@ -452,7 +452,7 @@ export default function InfluencerPartnershipPage() {
                 </a>
               </GlassCard>
 
-              <GlassCard className="p-6 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border-cyan-500/20">
+              <GlassCard className="p-6 bg-gradient-to-br from-cyan-500/10 to-sky-500/10 border-cyan-500/20">
                 <div className="text-center">
                   <Badge className="mb-3 bg-cyan-500/20 text-cyan-300 border-cyan-500/30">
                     <Sparkles className="w-3 h-3 mr-1" /> Limited Time
@@ -461,7 +461,7 @@ export default function InfluencerPartnershipPage() {
                   <p className="text-sm text-muted-foreground mb-4">
                     Early partners receive a 2x token bonus on launch day.
                   </p>
-                  <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                     Double Your Rewards
                   </div>
                 </div>
@@ -475,9 +475,9 @@ export default function InfluencerPartnershipPage() {
             transition={{ delay: 0.6 }}
           >
             <GlassCard glow className="p-8 text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-sky-500/5 to-pink-500/5" />
               <div className="relative z-10">
-                <Crown className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                <Crown className="w-12 h-12 text-sky-400 mx-auto mb-4" />
                 <h2 className="text-2xl font-display font-bold mb-3">
                   Already a Trust Layer Partner?
                 </h2>
@@ -486,7 +486,7 @@ export default function InfluencerPartnershipPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/affiliate">
-                    <Button className="bg-gradient-to-r from-purple-500 to-cyan-600 hover:from-purple-400 hover:to-cyan-500 font-bold gap-2" data-testid="button-partner-dashboard">
+                    <Button className="bg-gradient-to-r from-sky-500 to-cyan-600 hover:from-sky-400 hover:to-cyan-500 font-bold gap-2" data-testid="button-partner-dashboard">
                       <TrendingUp className="w-4 h-4" />
                       Partner Dashboard
                     </Button>

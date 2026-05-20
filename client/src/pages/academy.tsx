@@ -201,7 +201,7 @@ const certifications = [
     abbrev: "CLE",
     description: "Validates advanced development skills including compiler engineering and AI-native programming.",
     prereqs: ["Compiler Engineering", "Digital Architecture"],
-    badge: "from-purple-500 to-purple-600",
+    badge: "from-sky-500 to-sky-600",
   },
   {
     id: "cde",
@@ -209,7 +209,7 @@ const certifications = [
     abbrev: "CDE",
     description: "Expert-level certification covering smart contract engineering, audits, and decentralized exchange architecture.",
     prereqs: ["Smart Contract Engineering", "DeFi Platform Architecture"],
-    badge: "from-cyan-500 to-purple-500",
+    badge: "from-cyan-500 to-sky-500",
   },
   {
     id: "cda",
@@ -217,7 +217,7 @@ const certifications = [
     abbrev: "CDA",
     description: "Master-level certification for building autonomous software — self-monitoring, self-healing, self-optimizing, and self-evolving systems.",
     prereqs: ["Self-Sustaining Digital Architecture", "Decentralized AI Orchestration"],
-    badge: "from-purple-500 to-cyan-500",
+    badge: "from-sky-500 to-cyan-500",
   },
 ];
 
@@ -277,7 +277,7 @@ const pricingTiers = [
     ],
     cta: "Go Master",
     popular: false,
-    gradient: "from-purple-500 to-purple-600",
+    gradient: "from-sky-500 to-sky-600",
     priceId: STRIPE_PRICES.master,
   },
 ];
@@ -387,7 +387,7 @@ const runtimeLayers = [
 
 const colorMap: Record<string, { text: string; bg: string; border: string; glow: string }> = {
   cyan: { text: "text-cyan-400", bg: "bg-cyan-500/20", border: "border-cyan-500/20", glow: "shadow-cyan-500/20" },
-  purple: { text: "text-purple-400", bg: "bg-purple-500/20", border: "border-purple-500/20", glow: "shadow-purple-500/20" },
+  purple: { text: "text-sky-400", bg: "bg-sky-500/20", border: "border-sky-500/20", glow: "shadow-sky-500/20" },
 };
 
 function AnimatedCounter({ value, label, icon: Icon }: { value: string; label: string; icon: any }) {
@@ -419,7 +419,7 @@ function AnimatedCounter({ value, label, icon: Icon }: { value: string; label: s
     <div ref={ref}>
       <GlassCard glow>
         <div className="p-5 text-center">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20 flex items-center justify-center mx-auto mb-3">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20 flex items-center justify-center mx-auto mb-3">
             <Icon className="w-5 h-5 text-cyan-400" />
           </div>
           <div className="text-2xl sm:text-3xl font-black text-white" data-testid={`stat-${label.toLowerCase()}`}>
@@ -498,7 +498,7 @@ export default function AcademyPage() {
         <div className="absolute inset-0">
           <img src={heroImg} alt="Trust Layer Academy" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#06060a]/50 via-[#06060a]/80 to-[#06060a]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-purple-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-sky-500/5" />
         </div>
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -511,7 +511,7 @@ export default function AcademyPage() {
                 top: `${Math.random() * 100}%`,
                 width: `${2 + Math.random() * 3}px`,
                 height: `${2 + Math.random() * 3}px`,
-                background: i % 2 === 0 ? "rgba(6,182,212,0.4)" : "rgba(168,85,247,0.3)",
+                background: i % 2 === 0 ? "rgba(6,182,212,0.4)" : "rgba(14,165,233,0.3)",
               }}
               animate={{
                 y: [0, -(20 + Math.random() * 40), 0],
@@ -528,7 +528,7 @@ export default function AcademyPage() {
         </div>
 
         <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-cyan-600/8 rounded-full blur-[120px]" />
-        <div className="absolute bottom-20 right-1/4 w-[400px] h-[400px] bg-purple-600/8 rounded-full blur-[100px]" />
+        <div className="absolute bottom-20 right-1/4 w-[400px] h-[400px] bg-sky-600/8 rounded-full blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-600/5 rounded-full blur-[150px]" />
 
         <motion.div
@@ -542,7 +542,7 @@ export default function AcademyPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Badge className="mb-6 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/30 text-white text-sm backdrop-blur-sm shadow-lg shadow-cyan-500/10" data-testid="badge-academy">
+            <Badge className="mb-6 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/30 text-white text-sm backdrop-blur-sm shadow-lg shadow-cyan-500/10" data-testid="badge-academy">
               <GraduationCap className="w-4 h-4 mr-2 text-cyan-400" />
               Trust Layer Academy
             </Badge>
@@ -553,7 +553,7 @@ export default function AcademyPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent drop-shadow-2xl block"
+              className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-sky-400 bg-clip-text text-transparent drop-shadow-2xl block"
             >
               Understand Code.
             </motion.span>
@@ -584,7 +584,7 @@ export default function AcademyPage() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a href="#courses">
-              <Button size="lg" className="h-14 px-8 text-base gap-2 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white shadow-2xl shadow-cyan-500/25 rounded-xl" data-testid="button-explore-courses">
+              <Button size="lg" className="h-14 px-8 text-base gap-2 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white shadow-2xl shadow-cyan-500/25 rounded-xl" data-testid="button-explore-courses">
                 <Play className="w-5 h-5" />
                 Explore Courses
                 <ArrowRight className="w-4 h-4" />
@@ -661,11 +661,11 @@ export default function AcademyPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-6"
             >
-              <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
+              <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30">
                 <Lightbulb className="w-3 h-3 mr-1" /> Why Trust Layer Academy
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                   Built for builders.
                 </span>
                 <br />
@@ -683,7 +683,7 @@ export default function AcademyPage() {
                   { icon: TrendingUp, label: "Updated monthly with latest language & AI research" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-3 group">
-                    <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover:border-purple-500/40 group-hover:shadow-lg group-hover:shadow-purple-500/10 transition-all duration-300">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover:border-sky-500/40 group-hover:shadow-lg group-hover:shadow-sky-500/10 transition-all duration-300">
                       <item.icon className="w-4 h-4 text-cyan-400" />
                     </div>
                     <span className="text-white/70 text-sm">{item.label}</span>
@@ -696,7 +696,7 @@ export default function AcademyPage() {
       </section>
 
       <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/[0.03] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-500/[0.03] to-transparent" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <motion.div
@@ -710,7 +710,7 @@ export default function AcademyPage() {
               <Lightbulb className="w-3 h-3 mr-1" /> Knowledge Base Highlights
             </Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                 Core Concepts
               </span>{" "}
               You'll Master
@@ -733,7 +733,7 @@ export default function AcademyPage() {
                   <GlassCard glow>
                     <div className="p-6 h-full">
                       <div className="flex items-start gap-4 mb-4">
-                        <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20 flex-shrink-0 shadow-lg shadow-cyan-500/20">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20 flex-shrink-0 shadow-lg shadow-cyan-500/20">
                           <item.icon className="w-6 h-6 text-cyan-400" />
                         </div>
                         <div>
@@ -754,9 +754,9 @@ export default function AcademyPage() {
       </section>
 
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/[0.02] to-transparent" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
-        <div className="absolute top-40 right-1/4 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[150px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-500/[0.02] to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500/20 to-transparent" />
+        <div className="absolute top-40 right-1/4 w-[500px] h-[500px] bg-sky-600/5 rounded-full blur-[150px]" />
         <div className="absolute bottom-40 left-1/4 w-[400px] h-[400px] bg-cyan-600/5 rounded-full blur-[120px]" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
@@ -767,11 +767,11 @@ export default function AcademyPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <Badge className="mb-4 px-3 py-1.5 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs">
+            <Badge className="mb-4 px-3 py-1.5 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs">
               <Shield className="w-3 h-3 mr-1" /> Milestone 6: The Autonomous Runtime
             </Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black mb-4">
-              <span className="bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-sky-400 bg-clip-text text-transparent">
                 Software That
               </span>{" "}
               Takes Care of Itself
@@ -796,7 +796,7 @@ export default function AcademyPage() {
                     <div className="flex flex-col lg:flex-row gap-6">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/30 flex items-center justify-center shadow-lg shadow-purple-500/10">
+                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 border border-sky-500/30 flex items-center justify-center shadow-lg shadow-sky-500/10">
                             <span className="text-lg font-black text-white">{layer.layer}</span>
                           </div>
                           <div>
@@ -840,7 +840,7 @@ export default function AcademyPage() {
             <GlassCard>
               <div className="p-6">
                 <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20 flex-shrink-0">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20 flex-shrink-0">
                     <Zap className="w-6 h-6 text-cyan-400" />
                   </div>
                   <div>
@@ -857,7 +857,7 @@ export default function AcademyPage() {
       </section>
 
       <section id="courses" className="py-20 px-4 relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500/20 to-transparent" />
         <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -866,11 +866,11 @@ export default function AcademyPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <Badge className="mb-4 px-3 py-1.5 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs">
+            <Badge className="mb-4 px-3 py-1.5 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs">
               <BookOpen className="w-3 h-3 mr-1" /> Course Catalog
             </Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black mb-4">
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
                 Eight Expert-Crafted
               </span>{" "}
               Learning Tracks
@@ -960,13 +960,13 @@ export default function AcademyPage() {
             className="mt-12"
           >
             <Link href="/academy/research">
-              <GlassCard glow className="cursor-pointer hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
+              <GlassCard glow className="cursor-pointer hover:border-sky-500/30 hover:shadow-2xl hover:shadow-sky-500/10 transition-all duration-300">
                 <div className="p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/20 flex-shrink-0 shadow-lg">
-                    <FileText className="w-8 h-8 text-purple-400" />
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 border border-sky-500/20 flex-shrink-0 shadow-lg">
+                    <FileText className="w-8 h-8 text-sky-400" />
                   </div>
                   <div className="flex-1">
-                    <Badge className="mb-2 bg-purple-500/20 text-purple-400 border-purple-500/30 text-[10px]">
+                    <Badge className="mb-2 bg-sky-500/20 text-sky-400 border-sky-500/30 text-[10px]">
                       <Sparkles className="w-3 h-3 mr-1" /> Academic Research
                     </Badge>
                     <h3 className="text-xl sm:text-2xl font-display font-black text-white mb-2">
@@ -989,7 +989,7 @@ export default function AcademyPage() {
           <img src={certImg} alt="Verified Credentials" className="w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#06060a] via-[#06060a]/90 to-[#06060a]" />
         </div>
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500/20 to-transparent" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <motion.div
@@ -999,11 +999,11 @@ export default function AcademyPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <Badge className="mb-4 px-3 py-1.5 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs">
+            <Badge className="mb-4 px-3 py-1.5 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs">
               <Award className="w-3 h-3 mr-1" /> Certifications
             </Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black mb-4">
-              <span className="bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-sky-400 bg-clip-text text-transparent">
                 Verified
               </span>{" "}
               Credentials
@@ -1024,7 +1024,7 @@ export default function AcademyPage() {
             {certifications.map((cert) => (
               <motion.div key={cert.id} variants={fadeUp}>
                 <motion.div whileHover={{ scale: 1.03, y: -4 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <GlassCard glow className="h-full shadow-2xl hover:border-purple-500/30 hover:shadow-purple-500/10 transition-all duration-300" data-testid={`card-cert-${cert.id}`}>
+                  <GlassCard glow className="h-full shadow-2xl hover:border-sky-500/30 hover:shadow-sky-500/10 transition-all duration-300" data-testid={`card-cert-${cert.id}`}>
                     <div className="p-6 sm:p-8">
                       <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${cert.badge} flex items-center justify-center mb-6 shadow-xl relative`}>
                         <span className="text-xl font-black text-white">{cert.abbrev}</span>
@@ -1066,7 +1066,7 @@ export default function AcademyPage() {
               <Star className="w-3 h-3 mr-1" /> Testimonials
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-display font-black mb-4">
-              What <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Builders</span> Are Saying
+              What <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Builders</span> Are Saying
             </h2>
           </motion.div>
 
@@ -1088,7 +1088,7 @@ export default function AcademyPage() {
                     </div>
                     <p className="text-white/80 text-sm leading-relaxed mb-4 italic">"{t.text}"</p>
                     <div className="flex items-center gap-2 text-xs text-white/40">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center">
                         <Users className="w-3 h-3 text-white" />
                       </div>
                       {t.author}
@@ -1106,7 +1106,7 @@ export default function AcademyPage() {
           <img src={securityImg} alt="Learning Lab" className="w-full h-full object-cover opacity-10" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#06060a] via-[#06060a]/95 to-[#06060a]" />
         </div>
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500/20 to-transparent" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -1122,7 +1122,7 @@ export default function AcademyPage() {
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-display font-black">
                 Your Path to{" "}
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                   Mastery
                 </span>
               </h2>
@@ -1134,9 +1134,9 @@ export default function AcademyPage() {
               <div className="space-y-4">
                 {[
                   { step: "01", title: "Foundation", desc: "Programming Foundations — what languages are, how they work, who made them", color: "from-cyan-500 to-cyan-600", icon: BookOpen },
-                  { step: "02", title: "Specialization", desc: "Choose JavaScript Mastery, Compiler Engineering, or Digital Architecture", color: "from-purple-500 to-purple-600", icon: Target },
-                  { step: "03", title: "Certification", desc: "Pass your exam and earn on-chain credentials — CLF, CLE, or CDA", color: "from-cyan-500 to-purple-500", icon: Award },
-                  { step: "04", title: "Mastery", desc: "Build your own language, contribute to Lume, mentor others", color: "from-purple-500 to-cyan-500", icon: Crown },
+                  { step: "02", title: "Specialization", desc: "Choose JavaScript Mastery, Compiler Engineering, or Digital Architecture", color: "from-sky-500 to-sky-600", icon: Target },
+                  { step: "03", title: "Certification", desc: "Pass your exam and earn on-chain credentials — CLF, CLE, or CDA", color: "from-cyan-500 to-sky-500", icon: Award },
+                  { step: "04", title: "Mastery", desc: "Build your own language, contribute to Lume, mentor others", color: "from-sky-500 to-cyan-500", icon: Crown },
                 ].map((s, i) => (
                   <motion.div
                     key={s.step}
@@ -1172,11 +1172,11 @@ export default function AcademyPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/10">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-sky-500/10">
                 <img src={mentorImg} alt="Mentorship" className="w-full h-auto" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#06060a]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs mb-2">
+                  <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 text-xs mb-2">
                     <Crown className="w-3 h-3 mr-1" /> Master Tier Exclusive
                   </Badge>
                   <h3 className="text-lg font-bold text-white">1-on-1 Mentorship</h3>
@@ -1191,7 +1191,7 @@ export default function AcademyPage() {
       <section id="pricing" className="py-20 px-4 relative">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
         <div className="absolute top-40 left-1/4 w-[400px] h-[400px] bg-cyan-600/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-40 right-1/4 w-[400px] h-[400px] bg-purple-600/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-40 right-1/4 w-[400px] h-[400px] bg-sky-600/5 rounded-full blur-[120px]" />
 
         <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div
@@ -1206,7 +1206,7 @@ export default function AcademyPage() {
             </Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black mb-4">
               Choose Your{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                 Learning Path
               </span>
             </h2>
@@ -1241,7 +1241,7 @@ export default function AcademyPage() {
                     <div className="p-6 sm:p-8 flex flex-col h-full">
                       {tier.popular && (
                         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                          <Badge className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white border-0 text-xs px-4 py-1 shadow-lg shadow-cyan-500/30">
+                          <Badge className="bg-gradient-to-r from-cyan-500 to-sky-500 text-white border-0 text-xs px-4 py-1 shadow-lg shadow-cyan-500/30">
                             <Star className="w-3 h-3 mr-1 fill-white" />
                             Most Popular
                           </Badge>
@@ -1267,9 +1267,9 @@ export default function AcademyPage() {
                         size="lg"
                         className={`w-full h-12 font-bold rounded-xl text-base ${
                           tier.popular
-                            ? "bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white shadow-lg shadow-cyan-500/20"
+                            ? "bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white shadow-lg shadow-cyan-500/20"
                             : tier.id === "master"
-                            ? "bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white shadow-lg shadow-purple-500/20"
+                            ? "bg-gradient-to-r from-sky-600 to-sky-500 hover:from-sky-500 hover:to-sky-400 text-white shadow-lg shadow-sky-500/20"
                             : "bg-white/10 hover:bg-white/15 text-white border border-white/10"
                         }`}
                         onClick={() => tier.priceId && handleSubscribe(tier.priceId)}
@@ -1301,7 +1301,7 @@ export default function AcademyPage() {
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-display font-black mb-8">
                 Why{" "}
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                   Trust Layer Academy
                 </span>
               </h2>
@@ -1317,19 +1317,19 @@ export default function AcademyPage() {
                     icon: Terminal,
                     title: "Build, Don't Just Read",
                     desc: "Every course includes hands-on labs. Build a compiler, create a language, ship real software.",
-                    gradient: "from-purple-500 to-purple-600",
+                    gradient: "from-sky-500 to-sky-600",
                   },
                   {
                     icon: Users,
                     title: "Community-Driven",
                     desc: "Learn alongside other builders. Weekly Q&A sessions, forums, and peer code reviews.",
-                    gradient: "from-cyan-500 to-purple-500",
+                    gradient: "from-cyan-500 to-sky-500",
                   },
                   {
                     icon: TrendingUp,
                     title: "Always Current",
                     desc: "Courses updated monthly to reflect the latest in AI-native programming, compilers, and language design.",
-                    gradient: "from-purple-500 to-cyan-500",
+                    gradient: "from-sky-500 to-cyan-500",
                   },
                 ].map((item, i) => (
                   <motion.div
@@ -1362,7 +1362,7 @@ export default function AcademyPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+              <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
                 <Radio className="w-3 h-3 mr-1" /> FAQ
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-display font-black mb-8">
@@ -1396,9 +1396,9 @@ export default function AcademyPage() {
           >
             <GlassCard glow className="shadow-2xl shadow-cyan-500/10 relative overflow-hidden">
               <div className="p-10 sm:p-16">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-sky-500/5" />
                 <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-[80px]" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-500/10 rounded-full blur-[80px]" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-sky-500/10 rounded-full blur-[80px]" />
 
                 <div className="relative z-10">
                   <motion.div
@@ -1408,7 +1408,7 @@ export default function AcademyPage() {
                     <GraduationCap className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
                   </motion.div>
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black mb-6">
-                    <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
                       Start Your Journey
                     </span>
                     <br />
@@ -1421,7 +1421,7 @@ export default function AcademyPage() {
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <Button
                       size="lg"
-                      className="h-14 px-8 text-base gap-2 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white shadow-2xl shadow-cyan-500/25 rounded-xl"
+                      className="h-14 px-8 text-base gap-2 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white shadow-2xl shadow-cyan-500/25 rounded-xl"
                       data-testid="button-start-free"
                     >
                       <GraduationCap className="w-5 h-5" />

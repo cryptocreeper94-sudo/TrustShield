@@ -41,7 +41,7 @@ function BentoCard({
 }) {
   const glowColors = {
     cyan: "rgba(0,200,255,0.15)",
-    purple: "rgba(168,85,247,0.15)",
+    purple: "rgba(14,165,233,0.15)",
     pink: "rgba(236,72,153,0.15)",
     purple: "rgba(245,158,11,0.15)",
   };
@@ -60,7 +60,7 @@ function BentoCard({
       transition={{ duration: 0.2 }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-cyan-500/10 to-sky-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="relative z-10">{children}</div>
     </motion.div>
   );
@@ -79,7 +79,7 @@ function StatCard({ stat, index }: { stat: QuickStat; index: number }) {
       transition={{ delay: index * 0.1 }}
       className="flex items-center gap-4"
     >
-      <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10">
+      <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-white/10">
         {stat.icon}
       </div>
       <div>
@@ -127,7 +127,7 @@ export default function AdminDashboard() {
     { label: "Total Raised", value: `$${((presaleStats?.totalRaisedUsd || 0) + (crowdfundStats?.totalRaised || 0)).toLocaleString()}`, icon: <DollarSign className="w-5 h-5 text-green-400" /> },
     { label: "Token Holders", value: presaleStats?.uniqueHolders || 0, icon: <Users className="w-5 h-5 text-cyan-400" /> },
     { label: "Tokens Sold", value: (presaleStats?.tokensSold || 0).toLocaleString(), icon: <Zap className="w-5 h-5 text-teal-400" /> },
-    { label: "Marketing Posts", value: marketingStats?.totalPosts || 0, icon: <Megaphone className="w-5 h-5 text-purple-400" /> },
+    { label: "Marketing Posts", value: marketingStats?.totalPosts || 0, icon: <Megaphone className="w-5 h-5 text-sky-400" /> },
   ];
 
   const adminModules = [
@@ -153,8 +153,8 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
-      <GlowOrb color="linear-gradient(135deg, #06b6d4, #8b5cf6)" size={600} top="-10%" left="-10%" />
-      <GlowOrb color="linear-gradient(135deg, #ec4899, #8b5cf6)" size={500} top="50%" left="70%" delay={2} />
+      <GlowOrb color="linear-gradient(135deg, #06b6d4, #0ea5e9)" size={600} top="-10%" left="-10%" />
+      <GlowOrb color="linear-gradient(135deg, #ec4899, #0ea5e9)" size={500} top="50%" left="70%" delay={2} />
       <GlowOrb color="linear-gradient(135deg, #f59e0b, #ef4444)" size={400} top="80%" left="20%" delay={4} />
 
 
@@ -165,7 +165,7 @@ export default function AdminDashboard() {
           className="mb-8"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-2">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 bg-clip-text text-transparent">
               Owner Control Center
             </span>
           </h1>
@@ -224,7 +224,7 @@ export default function AdminDashboard() {
         <BentoCard span="row" glow="purple" className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
-              <Target className="w-5 h-5 text-purple-400" />
+              <Target className="w-5 h-5 text-sky-400" />
               Operations Lead Allocation Progress
             </h2>
             <div className="flex items-center gap-2">
@@ -265,7 +265,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
                       <motion.div 
-                        className="h-full bg-gradient-to-r from-purple-500 to-cyan-500"
+                        className="h-full bg-gradient-to-r from-sky-500 to-cyan-500"
                         initial={{ width: 0 }}
                         animate={{ width: `${tier.progress}%` }}
                         transition={{ duration: 1, delay: i * 0.2 }}
@@ -315,16 +315,16 @@ export default function AdminDashboard() {
             </div>
           </div>
           
-          <div className="mt-6 p-4 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-lg border border-purple-500/20">
+          <div className="mt-6 p-4 bg-gradient-to-r from-sky-500/10 to-cyan-500/10 rounded-lg border border-sky-500/20">
             <p className="text-sm text-gray-300">
-              <span className="text-purple-400 font-semibold">Remember:</span> This allocation is earned through consistent contribution, loyalty, and results. 
+              <span className="text-sky-400 font-semibold">Remember:</span> This allocation is earned through consistent contribution, loyalty, and results. 
               Review your <Link href="/trust-document/ops-lead" className="text-cyan-400 hover:underline">Trust Document</Link> for full terms.
             </p>
           </div>
         </BentoCard>
 
         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-          <Settings className="w-6 h-6 text-purple-400" />
+          <Settings className="w-6 h-6 text-sky-400" />
           Admin Modules
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -337,10 +337,10 @@ export default function AdminDashboard() {
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className={`p-3 rounded-xl bg-gradient-to-br ${
-                    module.glow === 'purple' ? 'from-purple-500/20 to-pink-500/20' :
+                    module.glow === 'purple' ? 'from-sky-500/20 to-pink-500/20' :
                     module.glow === 'cyan' ? 'from-cyan-500/20 to-blue-500/20' :
                     module.glow === 'pink' ? 'from-pink-500/20 to-red-500/20' :
-                    'from-purple-500/20 to-cyan-500/20'
+                    'from-sky-500/20 to-cyan-500/20'
                   } border border-white/10`}>
                     {module.icon}
                   </div>

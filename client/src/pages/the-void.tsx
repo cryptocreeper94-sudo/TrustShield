@@ -97,17 +97,17 @@ export default function TheVoid() {
   };
 
   const features = [
-    { icon: Fingerprint, title: "Void ID", desc: "Unique V-XXXXXXXX identity minted on-chain as your premium hallmark", gradient: "from-purple-500 to-indigo-600" },
+    { icon: Fingerprint, title: "Void ID", desc: "Unique V-XXXXXXXX identity minted on-chain as your premium hallmark", gradient: "from-sky-500 to-indigo-600" },
     { icon: Shield, title: "DW-STAMP-1.0", desc: "SHA-256 hash-chained blockchain stamps with full chain integrity verification", gradient: "from-cyan-500 to-blue-600" },
     { icon: Link2, title: "Bridge Protocol", desc: "Link your Signal Chat identity to your Trust Layer Void ID seamlessly", gradient: "from-emerald-500 to-teal-600" },
-    { icon: Crown, title: "Premium Badge", desc: "Verified Void premium member flair across the entire Trust Layer ecosystem", gradient: "from-purple-500 to-cyan-600" },
+    { icon: Crown, title: "Premium Badge", desc: "Verified Void premium member flair across the entire Trust Layer ecosystem", gradient: "from-sky-500 to-cyan-600" },
     { icon: Users, title: "Affiliate Rewards", desc: "Your Void ID doubles as a referral code — earn 5 bonus credits per Premium referral", gradient: "from-pink-500 to-rose-600" },
-    { icon: Globe, title: "Cross-Ecosystem SSO", desc: "Single sign-on across all 31 Trust Layer apps with your Trust Layer ID and Void credentials", gradient: "from-violet-500 to-purple-600" },
+    { icon: Globe, title: "Cross-Ecosystem SSO", desc: "Single sign-on across all 31 Trust Layer apps with your Trust Layer ID and Void credentials", gradient: "from-cyan-500 to-sky-600" },
   ];
 
   return (
     <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
-      <FloatingOrb className="w-96 h-96 bg-purple-500/8 blur-[120px] top-20 -left-40" delay={0} />
+      <FloatingOrb className="w-96 h-96 bg-sky-500/8 blur-[120px] top-20 -left-40" delay={0} />
       <FloatingOrb className="w-80 h-80 bg-cyan-500/6 blur-[100px] top-1/3 right-0" delay={2} />
       <FloatingOrb className="w-72 h-72 bg-indigo-500/8 blur-[100px] bottom-40 left-1/4" delay={4} />
       <FloatingOrb className="w-64 h-64 bg-pink-500/5 blur-[80px] bottom-20 right-1/4" delay={6} />
@@ -120,16 +120,16 @@ export default function TheVoid() {
           animate="show"
           className="text-center mb-20 sm:mb-28 max-w-4xl mx-auto"
         >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-500/15 to-indigo-500/15 border border-purple-500/20 backdrop-blur-sm mb-8 sm:mb-10">
-            <Eye className="w-4 h-4 text-purple-400 animate-pulse" />
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-sky-500/15 to-indigo-500/15 border border-sky-500/20 backdrop-blur-sm mb-8 sm:mb-10">
+            <Eye className="w-4 h-4 text-sky-400 animate-pulse" />
             <span className="text-xs sm:text-sm text-slate-300 uppercase tracking-[0.15em] font-medium">Premium Membership Identity</span>
             <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" />
           </motion.div>
 
           <motion.div variants={fadeUp} className="relative mb-8 sm:mb-10">
-            <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/10 via-indigo-500/10 to-cyan-500/10 blur-3xl rounded-full" />
+            <div className="absolute -inset-4 bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-cyan-500/10 blur-3xl rounded-full" />
             <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold leading-[0.95] relative" data-testid="text-void-title">
-              <span className="bg-gradient-to-r from-purple-300 via-indigo-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-sky-300 via-indigo-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-2xl">
                 THE VOID
               </span>
             </h1>
@@ -147,7 +147,7 @@ export default function TheVoid() {
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-2 sm:px-0">
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white px-8 sm:px-10 py-6 sm:py-7 text-base sm:text-lg shadow-2xl shadow-purple-500/20 hover:shadow-purple-500/40 transition-all group"
+              className="w-full sm:w-auto bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white px-8 sm:px-10 py-6 sm:py-7 text-base sm:text-lg shadow-2xl shadow-sky-500/20 hover:shadow-sky-500/40 transition-all group"
               onClick={() => document.getElementById('verify-section')?.scrollIntoView({ behavior: 'smooth' })}
               data-testid="button-verify-scroll"
             >
@@ -157,7 +157,7 @@ export default function TheVoid() {
             <Button
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto border-purple-500/30 text-purple-300 hover:bg-purple-500/10 hover:border-purple-500/50 px-8 sm:px-10 py-6 sm:py-7 text-base sm:text-lg backdrop-blur-sm transition-all"
+              className="w-full sm:w-auto border-sky-500/30 text-sky-300 hover:bg-sky-500/10 hover:border-sky-500/50 px-8 sm:px-10 py-6 sm:py-7 text-base sm:text-lg backdrop-blur-sm transition-all"
               onClick={() => document.getElementById('features-section')?.scrollIntoView({ behavior: 'smooth' })}
               data-testid="button-features-scroll"
             >
@@ -183,7 +183,7 @@ export default function TheVoid() {
             ].map((stat, i) => (
               <GlassCard key={i} glow hover={false}>
                 <div className="p-4 sm:p-5 text-center">
-                  <stat.icon className="w-5 h-5 text-purple-400/60 mx-auto mb-2" />
+                  <stat.icon className="w-5 h-5 text-sky-400/60 mx-auto mb-2" />
                   <div className="text-xl sm:text-2xl font-bold text-white" data-testid={`text-stat-${stat.label.toLowerCase().replace(/\s/g, '-')}`}>{stat.value}</div>
                   <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mt-1">{stat.label}</div>
                 </div>
@@ -201,11 +201,11 @@ export default function TheVoid() {
           className="mb-20 sm:mb-28"
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
-            <Badge className="mb-4 bg-purple-500/10 text-purple-300 border-purple-500/20 px-4 py-1.5">
+            <Badge className="mb-4 bg-sky-500/10 text-sky-300 border-sky-500/20 px-4 py-1.5">
               <Award className="w-3.5 h-3.5 mr-1.5" />
               Premium Features
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-sky-300 to-cyan-300 bg-clip-text text-transparent">
               Your Void ID Unlocks
             </h2>
           </motion.div>
@@ -315,7 +315,7 @@ export default function TheVoid() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           <div className="p-3 rounded-lg bg-slate-900/50 border border-white/5">
                             <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Void ID</div>
-                            <div className="text-sm font-mono text-purple-300" data-testid="text-stamp-void-id">{verifyResult.stamp.voidId}</div>
+                            <div className="text-sm font-mono text-sky-300" data-testid="text-stamp-void-id">{verifyResult.stamp.voidId}</div>
                           </div>
                           <div className="p-3 rounded-lg bg-slate-900/50 border border-white/5">
                             <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Block Number</div>
@@ -394,7 +394,7 @@ export default function TheVoid() {
               <Lock className="w-3.5 h-3.5 mr-1.5" />
               Technical Specification
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent mb-3">
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-300 to-sky-300 bg-clip-text text-transparent mb-3">
               DW-STAMP-1.0 Protocol
             </h2>
             <p className="text-slate-500 text-sm sm:text-base">
@@ -407,13 +407,13 @@ export default function TheVoid() {
               <div className="p-5 sm:p-8">
                 <div className="space-y-5 sm:space-y-6">
                   <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                       <span className="text-sm font-bold text-white">1</span>
                     </div>
                     <div className="min-w-0">
                       <h3 className="text-sm sm:text-base font-semibold text-white mb-1">Void ID Generation</h3>
                       <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        Format: <code className="text-purple-300 bg-purple-500/10 px-1.5 py-0.5 rounded text-xs">V-XXXXXXXX</code> where X = random digit (0-9).
+                        Format: <code className="text-sky-300 bg-sky-500/10 px-1.5 py-0.5 rounded text-xs">V-XXXXXXXX</code> where X = random digit (0-9).
                         Assigned to premium subscribers only (Stripe-verified). Uniqueness enforced at database level.
                       </p>
                     </div>
@@ -446,15 +446,15 @@ export default function TheVoid() {
                   </div>
 
                   <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                       <span className="text-sm font-bold text-white">4</span>
                     </div>
                     <div className="min-w-0">
                       <h3 className="text-sm sm:text-base font-semibold text-white mb-1">Bridge Protocol</h3>
                       <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                         Links Signal Chat users to Trust Layer Void IDs. The bridge generates a Trust Layer ID
-                        (<code className="text-purple-300 bg-purple-500/10 px-1.5 py-0.5 rounded text-xs">tl-&#123;base36-ts&#125;-&#123;rand&#125;</code>)
-                        and embeds the <code className="text-purple-300 bg-purple-500/10 px-1.5 py-0.5 rounded text-xs">voidId</code> claim in JWT tokens for cross-ecosystem SSO.
+                        (<code className="text-sky-300 bg-sky-500/10 px-1.5 py-0.5 rounded text-xs">tl-&#123;base36-ts&#125;-&#123;rand&#125;</code>)
+                        and embeds the <code className="text-sky-300 bg-sky-500/10 px-1.5 py-0.5 rounded text-xs">voidId</code> claim in JWT tokens for cross-ecosystem SSO.
                       </p>
                     </div>
                   </div>
@@ -462,7 +462,7 @@ export default function TheVoid() {
 
                 <button
                   onClick={() => setShowTechnical(!showTechnical)}
-                  className="mt-6 flex items-center gap-2 text-sm text-slate-400 hover:text-purple-300 transition-colors min-h-[44px]"
+                  className="mt-6 flex items-center gap-2 text-sm text-slate-400 hover:text-sky-300 transition-colors min-h-[44px]"
                   data-testid="button-toggle-technical"
                 >
                   {showTechnical ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -513,11 +513,11 @@ export default function TheVoid() {
           <motion.div variants={fadeUp}>
             <GlassCard glow>
               <div className="p-5 sm:p-10 text-center relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-cyan-500 to-indigo-500" />
-                <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky-500 via-cyan-500 to-indigo-500" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
-                <Crown className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                <Crown className="w-12 h-12 text-sky-400 mx-auto mb-4" />
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
                   Ready to Enter The Void?
                 </h3>
@@ -528,7 +528,7 @@ export default function TheVoid() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 px-2 sm:px-0">
                   <Button
                     size="lg"
-                    className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white px-8 py-6 text-base shadow-2xl shadow-purple-500/20 hover:shadow-purple-500/40 transition-all"
+                    className="w-full sm:w-auto bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white px-8 py-6 text-base shadow-2xl shadow-sky-500/20 hover:shadow-sky-500/40 transition-all"
                     onClick={() => window.location.href = '/crowdfund'}
                     data-testid="button-become-premium"
                   >
@@ -538,7 +538,7 @@ export default function TheVoid() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full sm:w-auto border-purple-500/30 text-purple-300 hover:bg-purple-500/10 px-8 py-6 text-base"
+                    className="w-full sm:w-auto border-sky-500/30 text-sky-300 hover:bg-sky-500/10 px-8 py-6 text-base"
                     onClick={() => window.location.href = '/signal-chat'}
                     data-testid="button-signal-chat"
                   >

@@ -72,7 +72,7 @@ function PinEntry({ onSuccess }: { onSuccess: () => void }) {
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center relative overflow-hidden">
       <GlowOrb color="linear-gradient(135deg, #10b981, #06b6d4)" size={400} top="10%" left="10%" />
-      <GlowOrb color="linear-gradient(135deg, #8b5cf6, #ec4899)" size={300} top="60%" left="70%" delay={2} />
+      <GlowOrb color="linear-gradient(135deg, #0ea5e9, #ec4899)" size={300} top="60%" left="70%" delay={2} />
       
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -245,7 +245,7 @@ function OperationsDashboard() {
   return (
     <div className="min-h-screen bg-slate-950 relative">
       <GlowOrb color="linear-gradient(135deg, #10b981, #06b6d4)" size={500} top="-10%" left="-5%" />
-      <GlowOrb color="linear-gradient(135deg, #8b5cf6, #ec4899)" size={400} top="50%" left="80%" delay={2} />
+      <GlowOrb color="linear-gradient(135deg, #0ea5e9, #ec4899)" size={400} top="50%" left="80%" delay={2} />
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-xl border-b border-emerald-500/20">
@@ -350,7 +350,7 @@ function OperationsDashboard() {
             <GlassCard className="p-6" glow>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-purple-400" />
+                  <Zap className="w-5 h-5 text-sky-400" />
                   Quick Actions
                 </h3>
                 <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30">TEAM ACCESS</Badge>
@@ -372,14 +372,14 @@ function OperationsDashboard() {
                 <button
                   onClick={() => submitDailyAirdrop.mutate()}
                   disabled={submitDailyAirdrop.isPending || (dailyReport?.pendingTotal || 0) === 0}
-                  className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-500/30 hover:border-purple-400/50 transition-all text-left group disabled:opacity-50"
+                  className="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-cyan-500/10 border border-sky-500/30 hover:border-sky-400/50 transition-all text-left group disabled:opacity-50"
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <Send className="w-6 h-6 text-purple-400" />
+                    <Send className="w-6 h-6 text-sky-400" />
                     {submitDailyAirdrop.isPending ? (
-                      <RefreshCw className="w-4 h-4 text-purple-400 animate-spin" />
+                      <RefreshCw className="w-4 h-4 text-sky-400 animate-spin" />
                     ) : (
-                      <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-purple-400 transition-colors" />
+                      <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-sky-400 transition-colors" />
                     )}
                   </div>
                   <p className="font-semibold text-white">Submit Daily Airdrop</p>
@@ -388,11 +388,11 @@ function OperationsDashboard() {
 
                 <button
                   onClick={() => window.open("https://zealy.io/cw/darkwavechain", "_blank")}
-                  className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 hover:border-purple-400/50 transition-all text-left group"
+                  className="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-pink-500/10 border border-sky-500/30 hover:border-sky-400/50 transition-all text-left group"
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <ExternalLink className="w-6 h-6 text-purple-400" />
-                    <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-purple-400 transition-colors" />
+                    <ExternalLink className="w-6 h-6 text-sky-400" />
+                    <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-sky-400 transition-colors" />
                   </div>
                   <p className="font-semibold text-white">Zealy Dashboard</p>
                   <p className="text-xs text-gray-400">Manage campaigns</p>
@@ -447,15 +447,15 @@ function OperationsDashboard() {
                   <h2 className="text-xl font-bold text-white">Daily Airdrop Report</h2>
                   <p className="text-gray-400 text-sm">{currentDate}</p>
                 </div>
-                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-lg px-4 py-1">
+                <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 text-lg px-4 py-1">
                   {dailyReport?.pendingTotal || 0} PENDING
                 </Badge>
               </div>
 
               <div className="grid md:grid-cols-3 gap-4 mb-6">
-                <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/30">
+                <div className="p-4 rounded-xl bg-sky-500/10 border border-sky-500/30">
                   <div className="flex items-center gap-2 mb-2">
-                    <Trophy className="w-5 h-5 text-purple-400" />
+                    <Trophy className="w-5 h-5 text-sky-400" />
                     <span className="text-sm text-gray-400">Quest Rewards</span>
                   </div>
                   <p className="text-2xl font-bold text-white">{dailyReport?.pendingQuests || 0}</p>
@@ -526,7 +526,7 @@ function OperationsDashboard() {
         {activeTab === "airdrop" && (
           <GlassCard className="p-6" glow>
             <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <Send className="w-6 h-6 text-purple-400" />
+              <Send className="w-6 h-6 text-sky-400" />
               Airdrop Processing Queue
             </h2>
             
@@ -604,7 +604,7 @@ function OperationsDashboard() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-3 rounded-lg bg-white/5">
                     <p className="text-xs text-gray-400">Current Price</p>
-                    <p className="text-lg font-bold text-purple-400">${presaleStats?.currentPrice || "0.001"}</p>
+                    <p className="text-lg font-bold text-sky-400">${presaleStats?.currentPrice || "0.001"}</p>
                   </div>
                   <div className="p-3 rounded-lg bg-white/5">
                     <p className="text-xs text-gray-400">Launch Price</p>
@@ -616,7 +616,7 @@ function OperationsDashboard() {
 
             <GlassCard className="p-6" glow>
               <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <Users className="w-5 h-5 text-purple-400" />
+                <Users className="w-5 h-5 text-sky-400" />
                 Community Growth
               </h3>
               <div className="space-y-4">
@@ -630,7 +630,7 @@ function OperationsDashboard() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-3 rounded-lg bg-white/5">
                     <p className="text-xs text-gray-400">Quests Completed</p>
-                    <p className="text-lg font-bold text-purple-400">{zealyStats?.questsCompleted || 0}</p>
+                    <p className="text-lg font-bold text-sky-400">{zealyStats?.questsCompleted || 0}</p>
                   </div>
                   <div className="p-3 rounded-lg bg-white/5">
                     <p className="text-xs text-gray-400">Total Shells</p>

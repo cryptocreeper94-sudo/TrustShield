@@ -176,7 +176,7 @@ export default function Portfolio() {
               <div className="text-[10px] text-muted-foreground">Tokens</div>
             </div>
             <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
-              <Lock className="w-4 h-4 text-purple-400 mx-auto mb-1" />
+              <Lock className="w-4 h-4 text-sky-400 mx-auto mb-1" />
               <div className="text-sm font-bold text-muted-foreground">{portfolio.staking.stakedValue > 0 ? formatUsd(portfolio.staking.stakedValue) : "--"}</div>
               <div className="text-[10px] text-muted-foreground">Staked</div>
             </div>
@@ -264,7 +264,7 @@ export default function Portfolio() {
                 <GlassCard glow className="p-4">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-sm font-bold">Staking Overview</span>
-                    <Badge className="bg-purple-500/20 text-purple-400 text-[10px]">{portfolio.staking.apy > 0 ? `${portfolio.staking.apy}% APY` : 'Up to 12% APY'}</Badge>
+                    <Badge className="bg-sky-500/20 text-sky-400 text-[10px]">{portfolio.staking.apy > 0 ? `${portfolio.staking.apy}% APY` : 'Up to 12% APY'}</Badge>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="p-2 rounded-lg bg-white/5">
@@ -302,7 +302,7 @@ export default function Portfolio() {
                 )}
 
                 <Link href="/staking">
-                  <Button className="w-full h-10 bg-gradient-to-r from-purple-500 to-cyan-500 text-black font-bold">
+                  <Button className="w-full h-10 bg-gradient-to-r from-sky-500 to-cyan-500 text-black font-bold">
                     {portfolio.staking.positions.length > 0 ? 'Manage Staking' : 'Start Staking'}
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
@@ -321,7 +321,7 @@ export default function Portfolio() {
                     {portfolio.nfts.map((nft) => (
                       <GlassCard glow key={nft.id} className="p-3" data-testid={`nft-row-${nft.id}`}>
                         <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/20 to-purple-500/20" />
+                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/20 to-sky-500/20" />
                           <div className="flex-1">
                             <div className="font-bold text-sm">{nft.name}</div>
                             <div className="text-[10px] text-muted-foreground">{nft.collection}</div>
@@ -347,7 +347,7 @@ export default function Portfolio() {
                     </div>
                     <p className="text-sm text-muted-foreground mb-2">No NFTs yet</p>
                     <Link href="/nft">
-                      <Button size="sm" className="bg-gradient-to-r from-pink-500 to-purple-500">
+                      <Button size="sm" className="bg-gradient-to-r from-pink-500 to-sky-500">
                         Explore Marketplace
                       </Button>
                     </Link>
@@ -371,11 +371,11 @@ export default function Portfolio() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
+            <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20">
               <div className="flex items-start gap-2">
-                <Wallet className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
-                <p className="text-[10px] text-purple-200">
-                  <strong className="text-purple-300">Testnet:</strong> Portfolio tracking will connect to your wallet once multi-chain interoperability is enabled.
+                <Wallet className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                <p className="text-[10px] text-sky-200">
+                  <strong className="text-sky-300">Testnet:</strong> Portfolio tracking will connect to your wallet once multi-chain interoperability is enabled.
                 </p>
               </div>
             </div>

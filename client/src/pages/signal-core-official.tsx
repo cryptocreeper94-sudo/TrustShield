@@ -92,7 +92,7 @@ export default function SignalCoreOfficial() {
             </Button>
             <Button 
               onClick={handleDownload}
-              className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white"
+              className="bg-gradient-to-r from-cyan-500 to-sky-500 text-white"
               data-testid="button-download-document"
             >
               <Download className="w-4 h-4 mr-2" /> Save as PDF
@@ -119,7 +119,7 @@ export default function SignalCoreOfficial() {
                     alt="Trust Layer Shield" 
                     className="w-full h-full object-contain"
                     style={{ 
-                      filter: 'drop-shadow(0 0 25px rgba(6, 182, 212, 0.6)) drop-shadow(0 0 15px rgba(168, 85, 247, 0.4))'
+                      filter: 'drop-shadow(0 0 25px rgba(6, 182, 212, 0.6)) drop-shadow(0 0 15px rgba(14,165,233, 0.4))'
                     }}
                   />
                 </div>
@@ -128,7 +128,7 @@ export default function SignalCoreOfficial() {
               <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white print:text-black mb-4 tracking-tight">
                 SIGNAL CORE
               </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 mx-auto mb-4 print:bg-gray-800" />
+              <div className="w-32 h-1 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 mx-auto mb-4 print:bg-gray-800" />
               <p className="text-lg text-slate-400 print:text-gray-600 font-serif italic">
                 The Immutable Foundation of the Trust Layer
               </p>
@@ -136,7 +136,7 @@ export default function SignalCoreOfficial() {
 
             <div className="mb-10 p-6 bg-slate-800/50 print:bg-gray-100 rounded-lg border border-white/10 print:border-gray-300">
               <h2 className="text-lg font-semibold text-white print:text-black mb-3 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-purple-400 print:text-gray-700" />
+                <FileText className="w-5 h-5 text-sky-400 print:text-gray-700" />
                 A Note on Origin
               </h2>
               <p className="text-slate-300 print:text-gray-700 leading-relaxed text-sm">
@@ -181,7 +181,7 @@ export default function SignalCoreOfficial() {
                     transition={{ delay: index * 0.05 }}
                     className="flex gap-4 sm:gap-6"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 print:bg-gray-200 border border-cyan-500/30 print:border-gray-400 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500/20 to-sky-500/20 print:bg-gray-200 border border-cyan-500/30 print:border-gray-400 flex items-center justify-center">
                       <span className="text-cyan-400 print:text-gray-800 font-serif font-bold text-lg">
                         {principle.number}
                       </span>
@@ -219,7 +219,7 @@ export default function SignalCoreOfficial() {
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 print:bg-gray-100 border-2 border-cyan-500/50 print:border-gray-400 flex items-center justify-center mb-2">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500/20 to-sky-500/20 print:bg-gray-100 border-2 border-cyan-500/50 print:border-gray-400 flex items-center justify-center mb-2">
                     <Fingerprint className="w-10 h-10 text-cyan-400 print:text-gray-700" />
                   </div>
                   <p className="text-xs text-slate-500 print:text-gray-600">Guardian Verified</p>
@@ -227,7 +227,7 @@ export default function SignalCoreOfficial() {
 
                 <div className="text-center sm:text-right">
                   <p className="text-sm text-slate-400 print:text-gray-600 mb-1">Document Hash</p>
-                  <p className="text-sm font-mono text-purple-400 print:text-gray-800 break-all">{DOCUMENT_HASH}</p>
+                  <p className="text-sm font-mono text-sky-400 print:text-gray-800 break-all">{DOCUMENT_HASH}</p>
                 </div>
               </div>
 
@@ -236,7 +236,7 @@ export default function SignalCoreOfficial() {
                   <CheckCircle2 className="w-3 h-3 mr-1" />
                   Blockchain Verified
                 </Badge>
-                <Badge className="bg-purple-500/20 text-purple-400 print:bg-gray-200 print:text-gray-800 border-purple-500/30 print:border-gray-400">
+                <Badge className="bg-sky-500/20 text-sky-400 print:bg-gray-200 print:text-gray-800 border-sky-500/30 print:border-gray-400">
                   <Lock className="w-3 h-3 mr-1" />
                   Immutable
                 </Badge>
@@ -251,7 +251,7 @@ export default function SignalCoreOfficial() {
             <Link href="/verify" className="text-cyan-400 hover:underline">
               dwsc.io/verify
             </Link>
-            {" "}using hash: <code className="text-purple-400">{DOCUMENT_HASH.slice(0, 16)}...</code>
+            {" "}using hash: <code className="text-sky-400">{DOCUMENT_HASH.slice(0, 16)}...</code>
           </p>
         </div>
       </div>

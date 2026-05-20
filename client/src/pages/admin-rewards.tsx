@@ -128,7 +128,7 @@ export default function AdminRewards() {
             <span className="font-display font-bold text-lg tracking-tight hidden sm:inline">Trust Layer</span>
           </Link>
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="border-purple-500/50 text-purple-400 bg-purple-500/10">
+            <Badge variant="outline" className="border-sky-500/50 text-sky-400 bg-sky-500/10">
               <Crown className="w-3 h-3 mr-1" /> Admin
             </Badge>
             <BackButton />
@@ -140,7 +140,7 @@ export default function AdminRewards() {
         <div className="container mx-auto max-w-6xl">
           <div className="mb-8">
             <h1 className="text-3xl font-display font-bold mb-2">
-              Early Adopter <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-500">Rewards</span>
+              Early Adopter <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-500">Rewards</span>
             </h1>
             <p className="text-muted-foreground">Manage beta testers, airdrops, and token gifts</p>
           </div>
@@ -162,14 +162,14 @@ export default function AdminRewards() {
             </GlassCard>
             <GlassCard hover={false}>
               <div className="p-4 text-center">
-                <Gift className="w-6 h-6 mx-auto mb-2 text-purple-400" />
+                <Gift className="w-6 h-6 mx-auto mb-2 text-sky-400" />
                 <div className="text-2xl font-bold">{pendingGifts}</div>
                 <div className="text-xs text-muted-foreground">Pending Gifts</div>
               </div>
             </GlassCard>
             <GlassCard hover={false}>
               <div className="p-4 text-center">
-                <Coins className="w-6 h-6 mx-auto mb-2 text-purple-400" />
+                <Coins className="w-6 h-6 mx-auto mb-2 text-sky-400" />
                 <div className="text-2xl font-bold">{totalAllocated.toLocaleString()}</div>
                 <div className="text-xs text-muted-foreground">SIG Allocated</div>
               </div>
@@ -355,7 +355,7 @@ function BetaTestersTab({ testers, tiers, queryClient, showDialog, setShowDialog
               <GlassCard className="p-4" data-testid={`card-tester-${tester.id}`}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-sky-600 flex items-center justify-center">
                       <Users className="w-5 h-5" />
                     </div>
                     <div>
@@ -364,7 +364,7 @@ function BetaTestersTab({ testers, tiers, queryClient, showDialog, setShowDialog
                         <Badge variant="outline" className={
                           tester.status === "approved" ? "border-green-500/50 text-green-400" :
                           tester.status === "rejected" ? "border-red-500/50 text-red-400" :
-                          "border-purple-500/50 text-purple-400"
+                          "border-sky-500/50 text-sky-400"
                         }>
                           {tester.status}
                         </Badge>
@@ -516,7 +516,7 @@ function TiersTab({ tiers, queryClient, showDialog, setShowDialog }: any) {
             <GlassCard key={tier.id} className="p-5" data-testid={`card-tier-${tier.id}`}>
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-600 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div>
@@ -536,11 +536,11 @@ function TiersTab({ tiers, queryClient, showDialog, setShowDialog }: any) {
               </div>
               <div className="grid grid-cols-3 gap-3 text-center">
                 <div className="bg-white/5 rounded-lg p-2">
-                  <div className="text-lg font-bold text-purple-400">{parseInt(tier.allocation).toLocaleString()}</div>
+                  <div className="text-lg font-bold text-sky-400">{parseInt(tier.allocation).toLocaleString()}</div>
                   <div className="text-[10px] text-muted-foreground">SIG/Member</div>
                 </div>
                 <div className="bg-white/5 rounded-lg p-2">
-                  <div className="text-lg font-bold text-purple-400">{tier.multiplier}x</div>
+                  <div className="text-lg font-bold text-sky-400">{tier.multiplier}x</div>
                   <div className="text-[10px] text-muted-foreground">Multiplier</div>
                 </div>
                 <div className="bg-white/5 rounded-lg p-2">
@@ -660,7 +660,7 @@ function GiftsTab({ gifts, queryClient, showDialog, setShowDialog }: any) {
           <GlassCard key={gift.id} className="p-4" data-testid={`card-gift-${gift.id}`}>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-pink-600 flex items-center justify-center">
                   <Gift className="w-5 h-5" />
                 </div>
                 <div>
@@ -673,7 +673,7 @@ function GiftsTab({ gifts, queryClient, showDialog, setShowDialog }: any) {
               <div className="flex items-center gap-2">
                 <Badge variant="outline" className={
                   gift.status === "claimed" ? "border-green-500/50 text-green-400" :
-                  "border-purple-500/50 text-purple-400"
+                  "border-sky-500/50 text-sky-400"
                 }>
                   {gift.status}
                 </Badge>
@@ -805,7 +805,7 @@ function AirdropsTab({ airdrops, queryClient, showDialog, setShowDialog }: any) 
                 </div>
                 <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300"
+                    className="h-full bg-gradient-to-r from-sky-500 to-pink-500 transition-all duration-300"
                     style={{ width: `${progress}%` }}
                   />
                 </div>

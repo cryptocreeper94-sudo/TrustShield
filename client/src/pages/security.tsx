@@ -76,7 +76,7 @@ const CERTIFICATIONS_PLANNED = [
 function HeroScoreBadge() {
   return (
     <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-purple-500/30 to-pink-500/30 blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-sky-500/30 to-pink-500/30 blur-3xl" />
       <motion.div
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
@@ -119,7 +119,7 @@ function HeroScoreBadge() {
             <defs>
               <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#06b6d4" />
-                <stop offset="50%" stopColor="#8b5cf6" />
+                <stop offset="50%" stopColor="#0ea5e9" />
                 <stop offset="100%" stopColor="#ec4899" />
               </linearGradient>
               <filter id="glow">
@@ -138,7 +138,7 @@ function HeroScoreBadge() {
               transition={{ delay: 1.5 }}
               className="text-center"
             >
-              <span className="text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="text-6xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 {SECURITY_SCORE}
               </span>
               <span className="text-white/40 text-xl block">/100</span>
@@ -186,7 +186,7 @@ export default function SecurityPage() {
     <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
       </div>
       
@@ -199,14 +199,14 @@ export default function SecurityPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-cyan-500/30 rounded-full mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-cyan-500/30 rounded-full mb-6">
                   <Sparkles className="w-4 h-4 text-cyan-400" />
                   <span className="text-cyan-400 text-sm font-medium">Security First Philosophy</span>
                 </div>
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                   <span className="text-white">Your Assets</span>
                   <br />
-                  <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                     Fort Knox Protected
                   </span>
                 </h1>
@@ -218,7 +218,7 @@ export default function SecurityPage() {
                 <div className="flex flex-wrap gap-4">
                   <a
                     href="#measures"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 rounded-lg text-white font-medium transition-all hover:scale-105"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 rounded-lg text-white font-medium transition-all hover:scale-105"
                     data-testid="link-view-measures"
                   >
                     <Shield className="w-5 h-5" />
@@ -274,7 +274,7 @@ export default function SecurityPage() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                   Our Approach vs. Common Practices
                 </span>
               </h2>
@@ -319,7 +319,7 @@ export default function SecurityPage() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-sky-400 to-pink-400 bg-clip-text text-transparent">
                   Active Security Measures
                 </span>
               </h2>
@@ -338,11 +338,11 @@ export default function SecurityPage() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <GlassCard className="p-6 h-full group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-l border-b border-white/10 rounded-bl-lg">
+                    <div className="absolute top-0 right-0 px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-l border-b border-white/10 rounded-bl-lg">
                       <span className="text-xs font-medium text-cyan-400">{feature.badge}</span>
                     </div>
                     <div className="flex items-start gap-4 mt-4">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 via-sky-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                         <feature.icon className="w-7 h-7 text-cyan-400" />
                       </div>
                       <div>
@@ -360,7 +360,7 @@ export default function SecurityPage() {
           </div>
         </section>
 
-        <section className="py-20 px-4 bg-gradient-to-b from-transparent via-purple-950/20 to-transparent">
+        <section className="py-20 px-4 bg-gradient-to-b from-transparent via-sky-950/20 to-transparent">
           <div className="container mx-auto max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -368,11 +368,11 @@ export default function SecurityPage() {
               viewport={{ once: true }}
             >
               <GlassCard className="p-8 md:p-12 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-sky-500/5 to-pink-500/5" />
                 <div className="relative">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full mb-6">
-                    <Clock className="w-4 h-4 text-purple-400" />
-                    <span className="text-purple-400 text-sm font-medium">Roadmap to Certification</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-500/10 border border-sky-500/30 rounded-full mb-6">
+                    <Clock className="w-4 h-4 text-sky-400" />
+                    <span className="text-sky-400 text-sm font-medium">Roadmap to Certification</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                     Full Third-Party Audit Coming
@@ -392,7 +392,7 @@ export default function SecurityPage() {
                         transition={{ delay: index * 0.1 }}
                         className="p-4 bg-white/5 rounded-xl border border-white/10"
                       >
-                        <cert.icon className="w-8 h-8 text-purple-400 mx-auto mb-2" />
+                        <cert.icon className="w-8 h-8 text-sky-400 mx-auto mb-2" />
                         <div className="text-white font-medium mb-1">{cert.name}</div>
                         <div className="text-white/40 text-sm">{cert.status}</div>
                       </motion.div>
@@ -412,15 +412,15 @@ export default function SecurityPage() {
               viewport={{ once: true }}
             >
               <GlassCard className="p-8 md:p-12 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-gradient-to-b from-purple-500/20 to-transparent blur-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-sky-500/5 to-pink-500/5" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-gradient-to-b from-sky-500/20 to-transparent blur-3xl" />
                 <div className="relative">
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-pink-500/20 border-2 border-cyan-500/50 flex items-center justify-center">
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500/20 via-sky-500/20 to-pink-500/20 border-2 border-cyan-500/50 flex items-center justify-center">
                     <ShieldCheck className="w-10 h-10 text-cyan-400" />
                   </div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full mb-4">
-                    <Sparkles className="w-4 h-4 text-purple-400" />
-                    <span className="text-purple-400 text-sm font-medium">New Service</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-500/10 border border-sky-500/30 rounded-full mb-4">
+                    <Sparkles className="w-4 h-4 text-sky-400" />
+                    <span className="text-sky-400 text-sm font-medium">New Service</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                     Guardian Certification Program
@@ -432,7 +432,7 @@ export default function SecurityPage() {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/guardian"
-                      className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 hover:from-cyan-500 hover:via-purple-500 hover:to-pink-500 rounded-xl text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-purple-500/25"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600 hover:from-cyan-500 hover:via-sky-500 hover:to-pink-500 rounded-xl text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-sky-500/25"
                       data-testid="link-guardian-certification"
                     >
                       <ShieldCheck className="w-6 h-6" />
@@ -453,7 +453,7 @@ export default function SecurityPage() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <GlassCard className="p-8 md:p-12 bg-gradient-to-r from-cyan-950/30 via-purple-950/30 to-pink-950/30 relative overflow-hidden">
+              <GlassCard className="p-8 md:p-12 bg-gradient-to-r from-cyan-950/30 via-sky-950/30 to-pink-950/30 relative overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-gradient-to-b from-cyan-500/20 to-transparent blur-2xl" />
                 <div className="relative">
                   <Award className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
@@ -466,7 +466,7 @@ export default function SecurityPage() {
                   </p>
                   <a
                     href="mailto:team@dwsc.io?subject=Security%20Vulnerability%20Report"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 hover:from-cyan-500 hover:via-purple-500 hover:to-pink-500 rounded-xl text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-purple-500/25"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600 hover:from-cyan-500 hover:via-sky-500 hover:to-pink-500 rounded-xl text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-sky-500/25"
                     data-testid="link-report-bug"
                   >
                     <Shield className="w-6 h-6" />

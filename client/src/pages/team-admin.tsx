@@ -71,7 +71,7 @@ function PinEntry({ onSuccess }: { onSuccess: () => void }) {
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center relative overflow-hidden">
       <GlowOrb color="linear-gradient(135deg, #10b981, #06b6d4)" size={400} top="10%" left="10%" />
-      <GlowOrb color="linear-gradient(135deg, #8b5cf6, #ec4899)" size={300} top="60%" left="70%" delay={2} />
+      <GlowOrb color="linear-gradient(135deg, #0ea5e9, #ec4899)" size={300} top="60%" left="70%" delay={2} />
       
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -228,7 +228,7 @@ function TeamDashboard() {
   return (
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       <GlowOrb color="linear-gradient(135deg, #10b981, #06b6d4)" size={500} top="5%" left="5%" />
-      <GlowOrb color="linear-gradient(135deg, #8b5cf6, #ec4899)" size={400} top="50%" left="70%" delay={2} />
+      <GlowOrb color="linear-gradient(135deg, #0ea5e9, #ec4899)" size={400} top="50%" left="70%" delay={2} />
 
       <nav className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
@@ -310,7 +310,7 @@ function TeamDashboard() {
 
           <GlassCard className="p-6" glow>
             <h3 className="text-lg font-semibold text-white flex items-center gap-2 mb-4">
-              <Target className="w-5 h-5 text-purple-400" />
+              <Target className="w-5 h-5 text-sky-400" />
               Race to 200 Participants
             </h3>
 
@@ -327,7 +327,7 @@ function TeamDashboard() {
                 <p className="text-xs text-gray-400">Shells Distributed</p>
               </div>
               <div className="p-3 rounded-lg bg-white/5">
-                <p className="text-lg font-bold text-purple-400">{zealyStats?.questsCompleted || 0}</p>
+                <p className="text-lg font-bold text-sky-400">{zealyStats?.questsCompleted || 0}</p>
                 <p className="text-xs text-gray-400">Quests Completed</p>
               </div>
             </div>
@@ -335,15 +335,15 @@ function TeamDashboard() {
 
           <GlassCard className="p-6" glow>
             <h3 className="text-lg font-semibold text-white flex items-center gap-2 mb-4">
-              <Coins className="w-5 h-5 text-purple-400" />
+              <Coins className="w-5 h-5 text-sky-400" />
               Presale Status
             </h3>
 
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
-                <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20">
+                <div className="p-3 rounded-lg bg-sky-500/10 border border-sky-500/20">
                   <p className="text-xs text-gray-400 mb-1">Current Price</p>
-                  <p className="text-lg font-bold text-purple-400">${presaleStats?.currentPrice || "0.001"}</p>
+                  <p className="text-lg font-bold text-sky-400">${presaleStats?.currentPrice || "0.001"}</p>
                 </div>
                 <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
                   <p className="text-xs text-gray-400 mb-1">Tokens Sold</p>
@@ -355,9 +355,9 @@ function TeamDashboard() {
                   <p className="text-xs text-gray-400 mb-1">Total Raised</p>
                   <p className="text-lg font-bold text-cyan-400">${presaleStats?.totalRaised?.toLocaleString() || "0"}</p>
                 </div>
-                <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20">
+                <div className="p-3 rounded-lg bg-sky-500/10 border border-sky-500/20">
                   <p className="text-xs text-gray-400 mb-1">Participants</p>
-                  <p className="text-lg font-bold text-purple-400">{presaleStats?.participants || "0"}</p>
+                  <p className="text-lg font-bold text-sky-400">{presaleStats?.participants || "0"}</p>
                 </div>
               </div>
               <div className="p-3 rounded-lg bg-white/5">
@@ -384,10 +384,10 @@ function TeamDashboard() {
             <div className="space-y-3">
               <button 
                 onClick={() => window.open("https://zealy.io/cw/darkwavechain", "_blank")}
-                className="w-full flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 hover:border-purple-400/50 transition-colors group"
+                className="w-full flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-sky-500/20 to-pink-500/20 border border-sky-500/30 hover:border-sky-400/50 transition-colors group"
               >
                 <span className="text-sm text-white font-medium">Zealy Dashboard</span>
-                <ExternalLink className="w-4 h-4 text-purple-400" />
+                <ExternalLink className="w-4 h-4 text-sky-400" />
               </button>
               <Link 
                 href="/quests"
@@ -405,10 +405,10 @@ function TeamDashboard() {
               </Link>
               <Link 
                 href="/presale"
-                className="flex items-center justify-between p-3 rounded-lg bg-purple-500/10 border border-purple-500/20 hover:border-purple-400/40 transition-colors group cursor-pointer"
+                className="flex items-center justify-between p-3 rounded-lg bg-sky-500/10 border border-sky-500/20 hover:border-sky-400/40 transition-colors group cursor-pointer"
               >
-                <span className="text-sm text-purple-300">Presale Page</span>
-                <ArrowRight className="w-4 h-4 text-purple-500 group-hover:text-purple-400" />
+                <span className="text-sm text-sky-300">Presale Page</span>
+                <ArrowRight className="w-4 h-4 text-sky-500 group-hover:text-sky-400" />
               </Link>
             </div>
           </GlassCard>
@@ -416,7 +416,7 @@ function TeamDashboard() {
 
         <GlassCard className="p-6" glow>
           <h3 className="text-lg font-semibold text-white flex items-center gap-2 mb-4">
-            <Trophy className="w-5 h-5 text-purple-400" />
+            <Trophy className="w-5 h-5 text-sky-400" />
             Recent Quest Completions
           </h3>
 
@@ -457,11 +457,11 @@ function TeamDashboard() {
           )}
         </GlassCard>
 
-        <div className="mt-8 p-4 rounded-xl bg-purple-500/10 border border-purple-500/20">
+        <div className="mt-8 p-4 rounded-xl bg-sky-500/10 border border-sky-500/20">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+            <AlertTriangle className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-purple-400">Your Role</p>
+              <p className="text-sm font-medium text-sky-400">Your Role</p>
               <p className="text-xs text-gray-400 mt-1">
                 Monitor the Zealy campaign progress and system health. If you see any system issues (red indicators), 
                 please contact the owner immediately. For quest management, use the Zealy dashboard directly.

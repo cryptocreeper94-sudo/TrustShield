@@ -35,7 +35,7 @@ const CONTRIBUTION_TYPES = [
     icon: Users,
     title: "Characters & Legends",
     desc: "Create heroes, villains, and mythical figures whose stories echo through the ages",
-    color: "from-purple-500 to-pink-500",
+    color: "from-sky-500 to-pink-500",
     example: "NPCs, bosses, historical figures",
     img: charactersImg
   },
@@ -43,7 +43,7 @@ const CONTRIBUTION_TYPES = [
     icon: Scroll,
     title: "Lore & History",
     desc: "Write the ancient texts, prophecies, and historical events that shape the narrative",
-    color: "from-purple-500 to-cyan-500",
+    color: "from-sky-500 to-cyan-500",
     example: "Creation myths, faction histories, legends",
     img: loreImg
   },
@@ -87,14 +87,14 @@ export default function CreatorProgram() {
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-pink-900/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-900/20 to-pink-900/20" />
         
         {/* Floating particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {Array.from({ length: 30 }).map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-purple-400 rounded-full"
+              className="absolute w-1 h-1 bg-sky-400 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -119,7 +119,7 @@ export default function CreatorProgram() {
               <Shield className="w-7 h-7 text-cyan-400" />
               <span className="font-display font-bold hidden sm:inline">Trust Layer</span>
             </Link>
-            <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 animate-pulse">
+            <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/30 animate-pulse">
               <Sparkles className="w-3 h-3 mr-1" />
               Genesis Phase
             </Badge>
@@ -133,20 +133,20 @@ export default function CreatorProgram() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Badge className="mb-6 bg-gradient-to-r from-purple-500/30 to-pink-500/30 text-white border-purple-500/30 px-4 py-2 text-sm">
+            <Badge className="mb-6 bg-gradient-to-r from-sky-500/30 to-pink-500/30 text-white border-sky-500/30 px-4 py-2 text-sm">
               <Crown className="w-4 h-4 mr-2" />
               Founding Creator Program
             </Badge>
             
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
               Own a Piece of the{" "}
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 Universe
               </span>
             </h1>
             
             <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-              The first game where <span className="text-purple-400 font-semibold">you don't just play</span> — you create. 
+              The first game where <span className="text-sky-400 font-semibold">you don't just play</span> — you create. 
               Your ideas become permanent fixtures. Your contributions live forever.
             </p>
 
@@ -160,7 +160,7 @@ export default function CreatorProgram() {
                 <span className="text-sm">Your Legacy, Forever</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-                <Zap className="w-4 h-4 text-purple-400" />
+                <Zap className="w-4 h-4 text-sky-400" />
                 <span className="text-sm">Powered by SIG</span>
               </div>
             </div>
@@ -177,7 +177,7 @@ export default function CreatorProgram() {
       </section>
 
       {/* What You Can Create */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black">
+      <section className="py-20 px-4 bg-gradient-to-b from-black via-sky-950/20 to-black">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -185,7 +185,7 @@ export default function CreatorProgram() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-300 border-sky-500/30">
               Contribution Types
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
@@ -210,7 +210,7 @@ export default function CreatorProgram() {
                 <div 
                   className={`relative rounded-2xl overflow-hidden transition-all duration-300 ${
                     selectedContribution === i 
-                      ? "ring-2 ring-purple-500" 
+                      ? "ring-2 ring-sky-500" 
                       : "hover:ring-1 hover:ring-white/20"
                   }`}
                 >
@@ -243,11 +243,11 @@ export default function CreatorProgram() {
                         >
                           <div className="bg-black/60 backdrop-blur-sm rounded-xl p-4 space-y-3">
                             <div className="flex items-center gap-2 text-sm text-gray-200">
-                              <Lock className="w-4 h-4 text-purple-400" />
+                              <Lock className="w-4 h-4 text-sky-400" />
                               <span>Submissions open to Founding Creators</span>
                             </div>
                             <div className="flex items-center gap-2 text-sm text-gray-200">
-                              <Star className="w-4 h-4 text-purple-400" />
+                              <Star className="w-4 h-4 text-sky-400" />
                               <span>Accepted works credited permanently on-chain</span>
                             </div>
                             <div className="flex items-center gap-2 text-sm text-gray-200">
@@ -267,7 +267,7 @@ export default function CreatorProgram() {
       </section>
 
       {/* Character Preview */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black to-purple-950/30">
+      <section className="py-20 px-4 bg-gradient-to-b from-black to-sky-950/30">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -305,8 +305,8 @@ export default function CreatorProgram() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <div className="flex items-center gap-2 mb-1">
-                      <char.icon className="w-4 h-4 text-purple-400" />
-                      <span className="text-xs text-purple-300">{char.role}</span>
+                      <char.icon className="w-4 h-4 text-sky-400" />
+                      <span className="text-xs text-sky-300">{char.role}</span>
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold">{char.name}</h3>
                   </div>
@@ -342,7 +342,7 @@ export default function CreatorProgram() {
       </section>
 
       {/* Submission Preview (Teaser) */}
-      <section className="py-20 px-4 bg-gradient-to-b from-purple-950/30 to-black">
+      <section className="py-20 px-4 bg-gradient-to-b from-sky-950/30 to-black">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -350,7 +350,7 @@ export default function CreatorProgram() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-300 border-sky-500/30">
               Coming Soon
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
@@ -363,11 +363,11 @@ export default function CreatorProgram() {
 
           {/* Mock UI */}
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-cyan-500/20 blur-3xl opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-500/20 via-pink-500/20 to-cyan-500/20 blur-3xl opacity-30" />
             <GlassCard className="relative p-6 sm:p-8 border-2 border-white/10">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-bold text-lg flex items-center gap-2">
-                  <Palette className="w-5 h-5 text-purple-400" />
+                  <Palette className="w-5 h-5 text-sky-400" />
                   Submit Creation
                 </h3>
                 <Badge className="bg-gray-800 text-gray-400 border-gray-700">
@@ -405,7 +405,7 @@ export default function CreatorProgram() {
               </div>
 
               <div className="mt-6 pt-6 border-t border-white/10">
-                <Button disabled className="w-full bg-gradient-to-r from-purple-600 to-pink-600 opacity-50 cursor-not-allowed">
+                <Button disabled className="w-full bg-gradient-to-r from-sky-600 to-pink-600 opacity-50 cursor-not-allowed">
                   <Lock className="w-4 h-4 mr-2" />
                   Submissions Opening Soon
                 </Button>
@@ -416,7 +416,7 @@ export default function CreatorProgram() {
       </section>
 
       {/* Sign Up CTA */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black via-purple-950/30 to-black">
+      <section className="py-20 px-4 bg-gradient-to-b from-black via-sky-950/30 to-black">
         <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -424,9 +424,9 @@ export default function CreatorProgram() {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 blur-3xl opacity-20" />
-              <GlassCard className="relative p-8 sm:p-12 border-2 border-purple-500/30">
-                <Crown className="w-12 h-12 mx-auto mb-6 text-purple-400" />
+              <div className="absolute inset-0 bg-gradient-to-r from-sky-500 via-pink-500 to-cyan-500 blur-3xl opacity-20" />
+              <GlassCard className="relative p-8 sm:p-12 border-2 border-sky-500/30">
+                <Crown className="w-12 h-12 mx-auto mb-6 text-sky-400" />
                 <h2 className="text-2xl sm:text-3xl font-display font-bold mb-4">
                   Become a Founding Creator
                 </h2>
@@ -448,7 +448,7 @@ export default function CreatorProgram() {
                       />
                       <Button 
                         type="submit"
-                        className="h-12 px-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500"
+                        className="h-12 px-6 bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500"
                         data-testid="button-join-founders"
                       >
                         <Sparkles className="w-4 h-4 mr-2" />
@@ -475,7 +475,7 @@ export default function CreatorProgram() {
 
                 <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <p className="text-2xl font-bold text-purple-400">0</p>
+                    <p className="text-2xl font-bold text-sky-400">0</p>
                     <p className="text-xs text-gray-500">Founders Joined</p>
                   </div>
                   <div>

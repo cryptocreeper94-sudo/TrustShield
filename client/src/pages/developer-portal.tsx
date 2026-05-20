@@ -338,7 +338,7 @@ function InvestorPinManager() {
     if (!pin.active) return { text: "Revoked", color: "text-white/40 bg-white/5 border-white/10" };
     if (pin.expiresAt && new Date(pin.expiresAt) < new Date()) return { text: "Expired", color: "text-white/40 bg-white/5 border-white/10" };
     if (pin.usedAt) return { text: "Used", color: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30" };
-    return { text: "Active", color: "text-purple-400 bg-purple-400/10 border-purple-400/30" };
+    return { text: "Active", color: "text-sky-400 bg-sky-400/10 border-sky-400/30" };
   };
 
   return (
@@ -351,7 +351,7 @@ function InvestorPinManager() {
     >
       <BentoCard span={3} glow>
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 rounded-xl bg-purple-400/10 text-purple-400 border border-purple-400/30">
+          <div className="p-3 rounded-xl bg-sky-400/10 text-sky-400 border border-sky-400/30">
             <UserPlus className="w-6 h-6" />
           </div>
           <div>
@@ -371,7 +371,7 @@ function InvestorPinManager() {
           <Button
             onClick={() => generateMutation.mutate(newLabel)}
             disabled={generateMutation.isPending}
-            className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white shrink-0"
+            className="bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-600 hover:to-cyan-600 text-white shrink-0"
             data-testid="button-generate-pin"
           >
             <Plus className="w-4 h-4 mr-2" />
@@ -444,8 +444,8 @@ function InvestorPinManager() {
           </div>
         )}
 
-        <div className="mt-4 p-3 rounded-xl bg-purple-500/5 border border-purple-500/15">
-          <p className="text-xs text-purple-300/80">
+        <div className="mt-4 p-3 rounded-xl bg-sky-500/5 border border-sky-500/15">
+          <p className="text-xs text-sky-300/80">
             PINs grant one-time access to <strong>/investor-room</strong>. Each PIN expires after 30 days. Share privately with prospective investors.
           </p>
         </div>
@@ -1196,7 +1196,7 @@ console.log('All successful:', result.allSuccessful);`}
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-2 text-sm">
                       <div className="p-3 bg-white/5 rounded-lg">
-                        <div className="text-2xl font-bold text-purple-400">50%</div>
+                        <div className="text-2xl font-bold text-sky-400">50%</div>
                         <div className="text-xs">Treasury Reserve</div>
                         <div className="text-xs text-muted-foreground">500M SIG - Sustainability</div>
                       </div>
@@ -1206,7 +1206,7 @@ console.log('All successful:', result.allSuccessful);`}
                         <div className="text-xs text-muted-foreground">150M SIG - APY pool</div>
                       </div>
                       <div className="p-3 bg-white/5 rounded-lg">
-                        <div className="text-2xl font-bold text-purple-400">15%</div>
+                        <div className="text-2xl font-bold text-sky-400">15%</div>
                         <div className="text-xs">Development & Team</div>
                         <div className="text-xs text-muted-foreground">150M SIG - 4yr vest</div>
                       </div>
@@ -1270,7 +1270,7 @@ console.log('All successful:', result.allSuccessful);`}
           {/* Executive Briefing for Operations Lead */}
           <BentoCard span={3} glow className="border-2 border-cyan-500/30 bg-gradient-to-br from-slate-900/80 to-slate-800/50">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/30 to-purple-500/30 border border-cyan-500/40 flex items-center justify-center">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/30 to-sky-500/30 border border-cyan-500/40 flex items-center justify-center">
                 <Eye className="w-7 h-7 text-cyan-400" />
               </div>
               <div>
@@ -1280,7 +1280,7 @@ console.log('All successful:', result.allSuccessful);`}
             </div>
 
             <div className="space-y-6">
-              <div className="p-5 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+              <div className="p-5 rounded-xl bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20">
                 <h4 className="font-semibold text-lg text-white mb-3 flex items-center gap-2">
                   <Network className="w-5 h-5 text-cyan-400" />
                   The Fractal Trust Network
@@ -1317,9 +1317,9 @@ console.log('All successful:', result.allSuccessful);`}
                 </Link>
               </div>
 
-              <div className="p-5 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+              <div className="p-5 rounded-xl bg-gradient-to-r from-sky-500/10 to-pink-500/10 border border-sky-500/20">
                 <h4 className="font-semibold text-lg text-white mb-3 flex items-center gap-2">
-                  <Users className="w-5 h-5 text-purple-400" />
+                  <Users className="w-5 h-5 text-sky-400" />
                   Your Role: Operations Lead
                 </h4>
                 <p className="text-muted-foreground text-sm mb-3">
@@ -1328,15 +1328,15 @@ console.log('All successful:', result.allSuccessful);`}
                   alongside the founder during the Stewardship Phase.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs">Council Seat Reserved</span>
+                  <span className="px-3 py-1 rounded-full bg-sky-500/20 text-sky-400 text-xs">Council Seat Reserved</span>
                   <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs">5M SIG Allocation</span>
                   <span className="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs">Milestone-Based Vesting</span>
                 </div>
               </div>
 
-              <div className="p-5 rounded-xl bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/20">
+              <div className="p-5 rounded-xl bg-gradient-to-r from-sky-500/10 to-cyan-500/10 border border-sky-500/20">
                 <h4 className="font-semibold text-lg text-white mb-3 flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-purple-400" />
+                  <Shield className="w-5 h-5 text-sky-400" />
                   Accountability & Transparency
                 </h4>
                 <p className="text-muted-foreground text-sm">
@@ -1352,8 +1352,8 @@ console.log('All successful:', result.allSuccessful);`}
           {/* Governance & Foundation Documents */}
           <BentoCard span={3}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex items-center justify-center">
-                <Shield className="w-6 h-6 text-purple-400" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 border border-sky-500/30 flex items-center justify-center">
+                <Shield className="w-6 h-6 text-sky-400" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-xl text-white">Governance & Foundation</h3>
@@ -1379,16 +1379,16 @@ console.log('All successful:', result.allSuccessful);`}
               </Link>
               
               <Link href="/governance-charter">
-                <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 hover:border-purple-500/40 transition-all cursor-pointer group">
-                  <BookOpen className="w-6 h-6 text-purple-400 mb-3 group-hover:scale-110 transition-transform" />
+                <div className="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-pink-500/10 border border-sky-500/20 hover:border-sky-500/40 transition-all cursor-pointer group">
+                  <BookOpen className="w-6 h-6 text-sky-400 mb-3 group-hover:scale-110 transition-transform" />
                   <h4 className="font-semibold text-white mb-1">Governance Charter</h4>
                   <p className="text-xs text-muted-foreground">How we transition to full community control.</p>
                 </div>
               </Link>
               
               <Link href="/governance-treasury">
-                <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-500/20 hover:border-purple-500/40 transition-all cursor-pointer group">
-                  <Database className="w-6 h-6 text-purple-400 mb-3 group-hover:scale-110 transition-transform" />
+                <div className="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-cyan-500/10 border border-sky-500/20 hover:border-sky-500/40 transition-all cursor-pointer group">
+                  <Database className="w-6 h-6 text-sky-400 mb-3 group-hover:scale-110 transition-transform" />
                   <h4 className="font-semibold text-white mb-1">Governance Treasury</h4>
                   <p className="text-xs text-muted-foreground">Multi-sig treasury with 3-of-5 council approval. No single person controls funds.</p>
                 </div>
@@ -1428,8 +1428,8 @@ console.log('All successful:', result.allSuccessful);`}
           {/* Operations Lead Allocation */}
           <BentoCard span={3} glow>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/30 flex items-center justify-center">
-                <Gift className="w-6 h-6 text-purple-400" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 border border-sky-500/30 flex items-center justify-center">
+                <Gift className="w-6 h-6 text-sky-400" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-xl text-white">Operations Lead Allocation</h3>
@@ -1446,7 +1446,7 @@ console.log('All successful:', result.allSuccessful);`}
                 <div className="space-y-2">
                   <div className="flex justify-between p-3 rounded-lg bg-white/5">
                     <span className="text-muted-foreground">Total Allocation</span>
-                    <span className="font-bold text-purple-400">5,000,000 SIG</span>
+                    <span className="font-bold text-sky-400">5,000,000 SIG</span>
                   </div>
                   <div className="flex justify-between p-3 rounded-lg bg-white/5">
                     <span className="text-muted-foreground">% of Supply</span>
@@ -1461,7 +1461,7 @@ console.log('All successful:', result.allSuccessful);`}
 
               <div className="space-y-4">
                 <h4 className="font-semibold text-white flex items-center gap-2">
-                  <Target className="w-4 h-4 text-purple-400" />
+                  <Target className="w-4 h-4 text-sky-400" />
                   Graduated Milestones
                 </h4>
                 <div className="space-y-2 text-sm">
@@ -1495,16 +1495,16 @@ console.log('All successful:', result.allSuccessful);`}
                   </div>
                   <div className="flex items-center justify-between p-2 rounded-lg bg-white/5">
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-purple-500" />
+                      <div className="w-2 h-2 rounded-full bg-sky-500" />
                       <span className="text-muted-foreground">$10M Market Cap</span>
                     </div>
-                    <span className="text-purple-400 font-bold">+1.5M SIG (Full)</span>
+                    <span className="text-sky-400 font-bold">+1.5M SIG (Full)</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/20">
+            <div className="p-4 rounded-xl bg-gradient-to-r from-sky-500/10 to-cyan-500/10 border border-sky-500/20">
               <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-green-400" />
                 Value Projections
@@ -1524,7 +1524,7 @@ console.log('All successful:', result.allSuccessful);`}
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">At $1.00</p>
-                  <p className="font-bold text-purple-400">$5,000,000</p>
+                  <p className="font-bold text-sky-400">$5,000,000</p>
                 </div>
               </div>
             </div>
@@ -1616,8 +1616,8 @@ app.get('/auth/callback',
                   ))}
                 </div>
 
-                <div className="mt-4 p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
-                  <p className="text-xs text-purple-300">
+                <div className="mt-4 p-3 rounded-xl bg-sky-500/10 border border-sky-500/20">
+                  <p className="text-xs text-sky-300">
                     <strong>Getting Started:</strong> Contact the Trust Layer team to register your app and receive your API credentials. Never expose your API Secret in client-side code.
                   </p>
                 </div>

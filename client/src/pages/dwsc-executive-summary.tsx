@@ -99,7 +99,7 @@ export default function DWSCExecutiveSummary() {
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 px-4 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-sky-500/5 to-pink-500/5" />
           <div className="container mx-auto max-w-5xl relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ export default function DWSCExecutiveSummary() {
               className="text-center mb-12"
             >
               <div className="flex flex-wrap justify-center gap-2 mb-4">
-                <div className="inline-block px-4 py-1 rounded-full bg-purple-500/20 text-purple-400 text-sm font-medium animate-pulse">
+                <div className="inline-block px-4 py-1 rounded-full bg-sky-500/20 text-sky-400 text-sm font-medium animate-pulse">
                   Chronicles BETA v0.1 LIVE
                 </div>
                 <div className="inline-block px-4 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-sm font-medium">
@@ -115,7 +115,7 @@ export default function DWSCExecutiveSummary() {
                 </div>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                   Trust Layer
                 </span>
               </h1>
@@ -140,9 +140,9 @@ export default function DWSCExecutiveSummary() {
                 for real-time interactive experiences and seamless digital commerce.
               </p>
               <p className="text-white/80 leading-relaxed mb-4">
-                The ecosystem comprises three pillars: the <span className="text-purple-400 font-semibold">Trust Layer infrastructure</span>, 
+                The ecosystem comprises three pillars: the <span className="text-sky-400 font-semibold">Trust Layer infrastructure</span>, 
                 the <span className="text-pink-400 font-semibold">Trust Layer Portal</span> for ecosystem access and DeFi services, 
-                and <span className="text-purple-400 font-semibold">Chronicles</span> - an unprecedented adventure platform 
+                and <span className="text-sky-400 font-semibold">Chronicles</span> - an unprecedented adventure platform 
                 spanning 10 verifiable historical eras where YOU are the hero that serves as the flagship application demonstrating 
                 the chain's capabilities.
               </p>
@@ -157,22 +157,22 @@ export default function DWSCExecutiveSummary() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-gradient-to-r from-purple-950/50 to-pink-950/30 border border-purple-500/20 rounded-2xl p-8"
+              className="bg-gradient-to-r from-sky-950/50 to-pink-950/30 border border-sky-500/20 rounded-2xl p-8"
             >
               <h2 className="text-2xl font-display font-bold text-white mb-4 flex items-center gap-3">
-                <Globe className="w-6 h-6 text-purple-400" />
+                <Globe className="w-6 h-6 text-sky-400" />
                 The Trust Layer Vision
               </h2>
               <div className="space-y-4 text-white/80 leading-relaxed">
                 <p>
-                  <span className="text-purple-400 font-semibold">Beyond "cryptocurrency"</span> — Trust Layer is a 
+                  <span className="text-sky-400 font-semibold">Beyond "cryptocurrency"</span> — Trust Layer is a 
                   <span className="text-cyan-400 font-semibold"> Coordinated Trust Infrastructure</span> designed for real 
                   business operations. We provide verified identity, accountability, and transparent audit trails that 
                   enterprises need for trusted relationships.
                 </p>
                 <p>
                   <span className="text-pink-400 font-semibold">Signal (SIG)</span> is not a speculative asset — it's a 
-                  <span className="text-purple-400 font-semibold"> Trust Network Access Token</span>. Signal represents 
+                  <span className="text-sky-400 font-semibold"> Trust Network Access Token</span>. Signal represents 
                   acknowledgement and proof of participation in the trust network. The value is the infrastructure 
                   it unlocks, not speculation.
                 </p>
@@ -196,7 +196,7 @@ export default function DWSCExecutiveSummary() {
               className="mb-8"
             >
               <h2 className="text-2xl font-display font-bold text-white mb-2 flex items-center gap-3">
-                <Layers className="w-6 h-6 text-purple-400" />
+                <Layers className="w-6 h-6 text-sky-400" />
                 The Ecosystem
               </h2>
               <p className="text-white/60">Three integrated pillars powering the Trust Layer vision</p>
@@ -273,7 +273,7 @@ export default function DWSCExecutiveSummary() {
               className="mb-8 text-center"
             >
               <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 flex items-center justify-center gap-3">
-                <Sparkles className="w-6 h-6 text-purple-400" />
+                <Sparkles className="w-6 h-6 text-sky-400" />
                 Complete Platform Features
               </h2>
               <p className="text-white/60">Swipe to explore everything built and operational in the Trust Layer ecosystem</p>
@@ -379,7 +379,7 @@ export default function DWSCExecutiveSummary() {
 
         {/* Why Join - Benefits Teaser */}
         <section className="py-16 px-4 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-purple-950/20 to-slate-900/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-sky-950/20 to-slate-900/50" />
           <div className="container mx-auto max-w-5xl relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -387,11 +387,11 @@ export default function DWSCExecutiveSummary() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <Badge className="mb-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/30 text-cyan-300">
+              <Badge className="mb-4 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/30 text-cyan-300">
                 Early Adopter Advantage
               </Badge>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-                Why Join the <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Trust Layer</span> Now?
+                Why Join the <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Trust Layer</span> Now?
               </h2>
               <p className="text-white/60 max-w-2xl mx-auto">
                 The earlier you join, the more you benefit. First movers get the best positions, lowest prices, and highest rewards.
@@ -403,7 +403,7 @@ export default function DWSCExecutiveSummary() {
                 {
                   title: "Ground Floor Pricing",
                   desc: "Signal starts at $0.001 — 8x cheaper than launch price. Early investors see massive potential upside.",
-                  gradient: "from-purple-500 to-cyan-500",
+                  gradient: "from-sky-500 to-cyan-500",
                   stat: "8x",
                   statLabel: "potential gain"
                 },
@@ -417,7 +417,7 @@ export default function DWSCExecutiveSummary() {
                 {
                   title: "Early Adopter Bonuses",
                   desc: "Up to 25% bonus on presale purchases. Position #1-100 gets maximum multiplier on all rewards.",
-                  gradient: "from-purple-500 to-pink-500",
+                  gradient: "from-sky-500 to-pink-500",
                   stat: "25%",
                   statLabel: "bonus Signal"
                 },
@@ -438,7 +438,7 @@ export default function DWSCExecutiveSummary() {
                 {
                   title: "Exclusive Access",
                   desc: "Early members get beta access to Chronicles, Strike Agent, and upcoming apps before public launch.",
-                  gradient: "from-indigo-500 to-violet-500",
+                  gradient: "from-indigo-500 to-cyan-500",
                   stat: "VIP",
                   statLabel: "beta access"
                 }
@@ -479,7 +479,7 @@ export default function DWSCExecutiveSummary() {
               className="mt-10 text-center"
             >
               <Link href="/presale">
-                <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white px-8 py-6 text-lg font-semibold shadow-lg shadow-purple-500/20">
+                <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white px-8 py-6 text-lg font-semibold shadow-lg shadow-sky-500/20">
                   Join the Presale Now
                   <ArrowRightLeft className="w-5 h-5 ml-2" />
                 </Button>
@@ -544,9 +544,9 @@ export default function DWSCExecutiveSummary() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-r from-purple-950/50 to-slate-900/50 border border-purple-500/20 rounded-xl p-6"
+                className="bg-gradient-to-r from-sky-950/50 to-slate-900/50 border border-sky-500/20 rounded-xl p-6"
               >
-                <h3 className="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-semibold text-sky-400 mb-4 flex items-center gap-2">
                   <ArrowRightLeft className="w-5 h-5" />
                   Cross-Chain Infrastructure
                 </h3>
@@ -722,10 +722,10 @@ export default function DWSCExecutiveSummary() {
               className="mb-8"
             >
               <h2 className="text-2xl font-display font-bold text-white mb-2 flex items-center gap-3">
-                <Calendar className="w-6 h-6 text-purple-400" />
+                <Calendar className="w-6 h-6 text-sky-400" />
                 Development Roadmap
               </h2>
-              <p className="text-white/60">Timeline: <span className="text-purple-400 font-semibold">Community-Driven</span> - Beta based on participation</p>
+              <p className="text-white/60">Timeline: <span className="text-sky-400 font-semibold">Community-Driven</span> - Beta based on participation</p>
             </motion.div>
 
             <div className="space-y-4">
@@ -773,7 +773,7 @@ export default function DWSCExecutiveSummary() {
                     phase.status === 'in_progress' 
                       ? 'bg-emerald-950/30 border-emerald-500/30' 
                       : phase.status === 'target'
-                      ? 'bg-purple-950/30 border-purple-500/30'
+                      ? 'bg-sky-950/30 border-sky-500/30'
                       : 'bg-slate-800/50 border-white/10'
                   }`}
                   data-testid={`phase-${i}`}
@@ -781,7 +781,7 @@ export default function DWSCExecutiveSummary() {
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                       phase.status === 'in_progress' ? 'bg-emerald-500/20 text-emerald-400' :
-                      phase.status === 'target' ? 'bg-purple-500/20 text-purple-400' :
+                      phase.status === 'target' ? 'bg-sky-500/20 text-sky-400' :
                       'bg-slate-700 text-white/60'
                     }`}>
                       {phase.phase}
@@ -794,7 +794,7 @@ export default function DWSCExecutiveSummary() {
                       </span>
                     )}
                     {phase.status === 'target' && (
-                      <span className="flex items-center gap-1 text-xs text-purple-400">
+                      <span className="flex items-center gap-1 text-xs text-sky-400">
                         <Target className="w-3 h-3" /> Launch Target
                       </span>
                     )}
@@ -834,7 +834,7 @@ export default function DWSCExecutiveSummary() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-cyan-950/30 via-purple-950/30 to-pink-950/30 border border-white/10 rounded-xl p-8 text-center"
+              className="bg-gradient-to-r from-cyan-950/30 via-sky-950/30 to-pink-950/30 border border-white/10 rounded-xl p-8 text-center"
             >
               <h2 className="text-2xl font-display font-bold text-white mb-2">
                 Partner With Trust Layer Studios
@@ -845,7 +845,7 @@ export default function DWSCExecutiveSummary() {
               <div className="flex flex-wrap justify-center gap-4 mb-6">
                 <a 
                   href="mailto:team@dwsc.io?subject=DWSC%20Investment%20Inquiry"
-                  className="px-6 py-3 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 rounded-lg text-white font-semibold transition-colors flex items-center gap-2"
+                  className="px-6 py-3 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 rounded-lg text-white font-semibold transition-colors flex items-center gap-2"
                   data-testid="contact-invest"
                 >
                   <Mail className="w-5 h-5" />
@@ -860,14 +860,14 @@ export default function DWSCExecutiveSummary() {
                 </Link>
                 <Link 
                   href="/competitive-analysis"
-                  className="px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30 rounded-lg text-purple-400 font-medium transition-colors"
+                  className="px-6 py-3 bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/30 rounded-lg text-sky-400 font-medium transition-colors"
                   data-testid="link-competitive"
                 >
                   Competitive Analysis
                 </Link>
                 <Link 
                   href="/faq"
-                  className="px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30 rounded-lg text-purple-400 font-medium transition-colors"
+                  className="px-6 py-3 bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/30 rounded-lg text-sky-400 font-medium transition-colors"
                   data-testid="link-faq"
                 >
                   FAQ

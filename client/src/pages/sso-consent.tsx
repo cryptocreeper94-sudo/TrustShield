@@ -87,11 +87,11 @@ export default function SsoConsent() {
                 <Shield className="w-7 h-7 text-cyan-400" />
               </div>
               <div className="text-gray-400 text-2xl">→</div>
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex items-center justify-center">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 border border-sky-500/30 flex items-center justify-center">
                 {appInfo.logoUrl ? (
                   <img src={appInfo.logoUrl} alt={appInfo.displayName} className="w-8 h-8 rounded-lg" />
                 ) : (
-                  <Globe className="w-7 h-7 text-purple-400" />
+                  <Globe className="w-7 h-7 text-sky-400" />
                 )}
               </div>
             </div>

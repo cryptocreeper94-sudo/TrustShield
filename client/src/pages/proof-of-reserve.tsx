@@ -175,7 +175,7 @@ export default function ProofOfReservePage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-cyan-600/10 border border-purple-500/30"
+            className="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-cyan-600/10 border border-sky-500/30"
           >
             <div className="flex items-center gap-2 text-slate-400 text-sm mb-1">
               <CheckCircle className="h-4 w-4" />
@@ -184,21 +184,21 @@ export default function ProofOfReservePage() {
             <div className={`text-2xl font-bold ${overallRatio >= 100 ? 'text-emerald-400' : 'text-red-400'}`}>
               {overallRatio.toFixed(2)}%
             </div>
-            <div className="text-xs text-purple-400 mt-1">1:1 backing verified</div>
+            <div className="text-xs text-sky-400 mt-1">1:1 backing verified</div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
-            className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-600/10 border border-purple-500/30"
+            className="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-pink-600/10 border border-sky-500/30"
           >
             <div className="flex items-center gap-2 text-slate-400 text-sm mb-1">
               <Link2 className="h-4 w-4" />
               Active Chains
             </div>
             <div className="text-2xl font-bold text-white">{mockReserves.length}</div>
-            <div className="text-xs text-purple-400 mt-1">Ethereum, Solana</div>
+            <div className="text-xs text-sky-400 mt-1">Ethereum, Solana</div>
           </motion.div>
         </div>
 
@@ -230,7 +230,7 @@ export default function ProofOfReservePage() {
                   <div className="flex items-center justify-between flex-wrap gap-4">
                     <div className="flex items-center gap-4">
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        reserve.chain.includes('Ethereum') ? 'bg-blue-500/20' : 'bg-purple-500/20'
+                        reserve.chain.includes('Ethereum') ? 'bg-blue-500/20' : 'bg-sky-500/20'
                       }`}>
                         {reserve.chain.includes('Ethereum') ? (
                           <span className="text-2xl">⟠</span>
@@ -277,7 +277,7 @@ export default function ProofOfReservePage() {
                       </div>
                       <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full ${
                         reserve.status === 'healthy' ? 'bg-emerald-500/20 text-emerald-400' :
-                        reserve.status === 'warning' ? 'bg-purple-500/20 text-purple-400' :
+                        reserve.status === 'warning' ? 'bg-sky-500/20 text-sky-400' :
                         'bg-red-500/20 text-red-400'
                       }`}>
                         {reserve.status === 'healthy' && <CheckCircle className="h-4 w-4" />}
@@ -382,9 +382,9 @@ export default function ProofOfReservePage() {
           onOpenChange={(open) => setSectionsOpen(s => ({...s, audits: open}))}
         >
           <CollapsibleTrigger className="w-full">
-            <div className="flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-600/10 border border-purple-500/30 hover:border-purple-400/50 transition-colors cursor-pointer">
+            <div className="flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-sky-500/10 to-pink-600/10 border border-sky-500/30 hover:border-sky-400/50 transition-colors cursor-pointer">
               <div className="flex items-center gap-3">
-                <FileCheck className="h-5 w-5 text-purple-400" />
+                <FileCheck className="h-5 w-5 text-sky-400" />
                 <span className="text-lg font-semibold text-white">Security Audits</span>
                 <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-sm">
                   {mockAudits.filter(a => a.result === 'passed').length} passed
@@ -406,11 +406,11 @@ export default function ProofOfReservePage() {
                   <div className="flex items-center gap-4">
                     <div className={`p-2 rounded-lg ${
                       audit.result === 'passed' ? 'bg-emerald-500/20' :
-                      audit.result === 'warning' ? 'bg-purple-500/20' :
+                      audit.result === 'warning' ? 'bg-sky-500/20' :
                       'bg-red-500/20'
                     }`}>
                       {audit.result === 'passed' ? <CheckCircle className="h-5 w-5 text-emerald-400" /> :
-                       audit.result === 'warning' ? <AlertCircle className="h-5 w-5 text-purple-400" /> :
+                       audit.result === 'warning' ? <AlertCircle className="h-5 w-5 text-sky-400" /> :
                        <AlertCircle className="h-5 w-5 text-red-400" />}
                     </div>
                     <div>
@@ -422,13 +422,13 @@ export default function ProofOfReservePage() {
                   <div className="flex items-center gap-6">
                     <div className="text-center">
                       <div className="text-slate-400 text-sm">Findings</div>
-                      <div className={`font-semibold ${audit.findings === 0 ? 'text-emerald-400' : 'text-purple-400'}`}>
+                      <div className={`font-semibold ${audit.findings === 0 ? 'text-emerald-400' : 'text-sky-400'}`}>
                         {audit.findings}
                       </div>
                     </div>
                     <div className={`px-3 py-1 rounded-full text-sm font-medium ${
                       audit.result === 'passed' ? 'bg-emerald-500/20 text-emerald-400' :
-                      audit.result === 'warning' ? 'bg-purple-500/20 text-purple-400' :
+                      audit.result === 'warning' ? 'bg-sky-500/20 text-sky-400' :
                       'bg-red-500/20 text-red-400'
                     }`}>
                       {audit.result.charAt(0).toUpperCase() + audit.result.slice(1)}

@@ -111,7 +111,7 @@ const verticals: Vertical[] = [
     id: "insurance",
     name: "Insurance",
     icon: <Shield className="w-6 h-6" />,
-    color: "from-violet-500 to-purple-500",
+    color: "from-cyan-500 to-sky-500",
     app: "Insurance Compare",
     appStatus: "planned",
     description: "Transparent comparison across auto, health, property, business - verified quotes from verified providers",
@@ -122,7 +122,7 @@ const verticals: Vertical[] = [
     id: "construction",
     name: "Construction & Trades",
     icon: <Building2 className="w-6 h-6" />,
-    color: "from-purple-500 to-teal-500",
+    color: "from-sky-500 to-teal-500",
     app: undefined,
     appStatus: "planned",
     description: "Contractors, subcontractors, inspectors, and suppliers with verified licenses and transparent bids",
@@ -144,7 +144,7 @@ const verticals: Vertical[] = [
     id: "events",
     name: "Events & Venues",
     icon: <Calendar className="w-6 h-6" />,
-    color: "from-fuchsia-500 to-pink-500",
+    color: "from-teal-500 to-pink-500",
     app: undefined,
     appStatus: "planned",
     description: "Stadiums, festivals, conferences - verified vendors, security, and transparent ticketing",
@@ -177,7 +177,7 @@ const verticals: Vertical[] = [
     id: "creative",
     name: "Creative & Digital",
     icon: <Palette className="w-6 h-6" />,
-    color: "from-purple-500 to-cyan-500",
+    color: "from-sky-500 to-cyan-500",
     app: "TrustGen",
     appStatus: "live",
     description: "Premium browser-based 3D creation & code studio. Real-time WebGL viewport, PBR materials, post-processing, AI model generation via Meshy.ai, animation timeline, auto-rigging, integrated Monaco IDE with AI assistant, and blockchain-verified provenance",
@@ -221,7 +221,7 @@ const verticals: Vertical[] = [
     id: "utilities",
     name: "Utilities",
     icon: <Lightbulb className="w-6 h-6" />,
-    color: "from-teal-500 to-purple-500",
+    color: "from-teal-500 to-sky-500",
     app: undefined,
     appStatus: "planned",
     description: "Electric, water, gas, and waste services with transparent billing and verified service",
@@ -265,7 +265,7 @@ const verticals: Vertical[] = [
     id: "education",
     name: "Education & Training",
     icon: <GraduationCap className="w-6 h-6" />,
-    color: "from-purple-500 to-indigo-500",
+    color: "from-sky-500 to-indigo-500",
     app: undefined,
     appStatus: "planned",
     description: "Schools, certification programs, and training with verified credentials that travel with you",
@@ -309,7 +309,7 @@ const verticals: Vertical[] = [
     id: "arts",
     name: "Arts & Entertainment",
     icon: <Music className="w-6 h-6" />,
-    color: "from-pink-600 to-purple-500",
+    color: "from-pink-600 to-sky-500",
     app: undefined,
     appStatus: "planned",
     description: "Music, theater, visual arts, museums, galleries - creative expression with verified artists and transparent royalties",
@@ -320,7 +320,7 @@ const verticals: Vertical[] = [
     id: "sports",
     name: "Sports",
     icon: <Trophy className="w-6 h-6" />,
-    color: "from-purple-500 to-cyan-500",
+    color: "from-sky-500 to-cyan-500",
     app: undefined,
     appStatus: "planned",
     description: "Professional and amateur sports - teams, athletes, leagues, venues with verified credentials and transparent contracts",
@@ -342,7 +342,7 @@ const verticals: Vertical[] = [
     id: "veterinary",
     name: "Animal Services",
     icon: <PawPrint className="w-6 h-6" />,
-    color: "from-purple-600 to-teal-500",
+    color: "from-sky-600 to-teal-500",
     app: undefined,
     appStatus: "planned",
     description: "Veterinary care for pets and livestock, grooming, boarding, rescue - verified practitioners and transparent care",
@@ -364,7 +364,7 @@ const verticals: Vertical[] = [
     id: "wellness",
     name: "Mental Health & Wellness",
     icon: <Brain className="w-6 h-6" />,
-    color: "from-violet-500 to-fuchsia-500",
+    color: "from-cyan-500 to-teal-500",
     app: undefined,
     appStatus: "planned",
     description: "Therapists, counselors, life coaches, wellness practitioners - verified credentials for mental and emotional care",
@@ -430,7 +430,7 @@ const verticals: Vertical[] = [
     id: "faith",
     name: "Faith & Religious Orgs",
     icon: <Church className="w-6 h-6" />,
-    color: "from-purple-600 to-indigo-600",
+    color: "from-sky-600 to-indigo-600",
     app: undefined,
     appStatus: "planned",
     description: "Churches, mosques, temples, ministries - transparent finances, verified leadership, accountable stewardship",
@@ -526,7 +526,7 @@ function FlowDiagram() {
               transition={{ delay: i * 0.2 }}
               className="flex flex-col items-center"
             >
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-2">
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-2">
                 {step.icon}
               </div>
               <span className="text-xs text-slate-400 text-center max-w-[100px]">{step.label}</span>
@@ -550,7 +550,7 @@ export default function EcosystemMapPage() {
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       {/* Ambient orbs */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+      <div className="absolute bottom-40 right-20 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-3xl" />
 
       <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
@@ -567,7 +567,7 @@ export default function EcosystemMapPage() {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               One Network. Total Trust.
             </span>
           </h1>
@@ -671,10 +671,10 @@ export default function EcosystemMapPage() {
               </div>
               <div className="w-48 h-48 relative">
                 <div className="absolute inset-0 rounded-full border-2 border-cyan-500/30 animate-pulse" />
-                <div className="absolute inset-4 rounded-full border-2 border-purple-500/30 animate-pulse" style={{ animationDelay: "0.5s" }} />
+                <div className="absolute inset-4 rounded-full border-2 border-sky-500/30 animate-pulse" style={{ animationDelay: "0.5s" }} />
                 <div className="absolute inset-8 rounded-full border-2 border-pink-500/30 animate-pulse" style={{ animationDelay: "1s" }} />
                 <div className="absolute inset-12 rounded-full border-2 border-cyan-500/30 animate-pulse" style={{ animationDelay: "1.5s" }} />
-                <div className="absolute inset-16 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 animate-pulse" style={{ animationDelay: "2s" }} />
+                <div className="absolute inset-16 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 animate-pulse" style={{ animationDelay: "2s" }} />
               </div>
             </div>
           </GlassCard>
@@ -789,7 +789,7 @@ export default function EcosystemMapPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/presale">
-                <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-90 font-bold px-8">
+                <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:opacity-90 font-bold px-8">
                   Join Presale <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>

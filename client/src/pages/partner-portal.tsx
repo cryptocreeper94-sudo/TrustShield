@@ -76,7 +76,7 @@ const VISION_SLIDES = [
     title: "70+ Mission Theaters",
     subtitle: "From prehistoric times to speculative futures",
     description: "Each era is a fully realized world with its own campaigns, factions, and rewards. Medieval kingdoms, Renaissance courts, Wild West frontiers, cyberpunk cities.",
-    gradient: "from-purple-500 to-pink-600",
+    gradient: "from-sky-500 to-pink-600",
     icon: Globe,
   },
   {
@@ -97,7 +97,7 @@ const VISION_SLIDES = [
     title: "Production-Ready Infrastructure",
     subtitle: "200K+ TPS blockchain powering the ecosystem",
     description: "Trust Layer is live and operational. We need world-class partners for graphics, AI, and narrative systems.",
-    gradient: "from-purple-500 to-red-600",
+    gradient: "from-sky-500 to-red-600",
     icon: Zap,
   },
 ];
@@ -136,7 +136,7 @@ function VisionShowcase() {
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950" />
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       </div>
       
       <div className="container mx-auto max-w-5xl relative z-10">
@@ -146,12 +146,12 @@ function VisionShowcase() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/30 text-white backdrop-blur-sm">
+          <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/30 text-white backdrop-blur-sm">
             <Sparkles className="w-4 h-4 mr-2" />
             Executive Overview
           </Badge>
           <h2 className="text-4xl md:text-5xl font-display font-black text-white mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               The Vision
             </span>
           </h2>
@@ -166,8 +166,8 @@ function VisionShowcase() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="absolute -inset-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl opacity-50 group-hover:opacity-75 blur-sm transition-opacity" />
-          <div className="absolute -inset-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl opacity-75" />
+          <div className="absolute -inset-[1px] bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-3xl opacity-50 group-hover:opacity-75 blur-sm transition-opacity" />
+          <div className="absolute -inset-[1px] bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-3xl opacity-75" />
           
           <div className="relative rounded-3xl overflow-hidden bg-slate-950">
             <AnimatePresence mode="wait">
@@ -335,7 +335,7 @@ function InteractiveDemo() {
           className="text-center mb-8"
         >
           <h2 className="text-3xl font-display font-bold text-white mb-4 flex items-center justify-center gap-3">
-            <Brain className="w-8 h-8 text-purple-400" />
+            <Brain className="w-8 h-8 text-sky-400" />
             AI Engine Demo
           </h2>
           <p className="text-white/60">Experience our scenario generation system - the foundation of Chronicles' adaptive storytelling</p>
@@ -345,7 +345,7 @@ function InteractiveDemo() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="p-8 rounded-2xl border border-purple-500/20 bg-purple-950/10"
+          className="p-8 rounded-2xl border border-sky-500/20 bg-sky-950/10"
         >
           <div className="flex flex-col md:flex-row gap-4 mb-6">
             <select
@@ -363,7 +363,7 @@ function InteractiveDemo() {
             <Button
               onClick={generateScenario}
               disabled={loading}
-              className="h-12 px-8 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400 text-white font-semibold"
+              className="h-12 px-8 bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-400 hover:to-pink-400 text-white font-semibold"
               data-testid="button-generate-scenario"
             >
               {loading ? "Generating..." : "Generate Scenario"}
@@ -377,7 +377,7 @@ function InteractiveDemo() {
               className="space-y-4"
             >
               <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
-                <h4 className="text-sm text-purple-400 uppercase tracking-wider mb-2">Setting</h4>
+                <h4 className="text-sm text-sky-400 uppercase tracking-wider mb-2">Setting</h4>
                 <p className="text-white/80">{scenario.setting || "A mysterious location awaits..."}</p>
               </div>
               <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
@@ -438,7 +438,7 @@ function LiveStatCard({ label, endpoint, field, color }: { label: string; endpoi
 
   const colorClasses: Record<string, string> = {
     cyan: "text-cyan-400 border-cyan-500/30 bg-cyan-950/20",
-    purple: "text-purple-400 border-purple-500/30 bg-purple-950/20",
+    purple: "text-sky-400 border-sky-500/30 bg-sky-950/20",
     pink: "text-pink-400 border-pink-500/30 bg-pink-950/20",
     emerald: "text-emerald-400 border-emerald-500/30 bg-emerald-950/20",
   };
@@ -654,7 +654,7 @@ function AccessRequestForm({ onBack }: { onBack: () => void }) {
               />
             </div>
 
-            <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20">
+            <div className="p-4 rounded-xl bg-sky-500/10 border border-sky-500/20">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -674,7 +674,7 @@ function AccessRequestForm({ onBack }: { onBack: () => void }) {
             <Button
               type="submit"
               disabled={isSubmitting || !formData.ndaAccepted}
-              className="w-full h-12 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-semibold"
+              className="w-full h-12 bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-semibold"
               data-testid="button-submit-request"
             >
               {isSubmitting ? "Submitting..." : "Submit Request"}
@@ -746,7 +746,7 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10 flex items-center justify-center backdrop-blur-sm"
+            className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-white/10 flex items-center justify-center backdrop-blur-sm"
             style={{ boxShadow: "0 0 60px rgba(6, 182, 212, 0.2)" }}
           >
             <Shield className="w-7 h-7 text-cyan-400" />
@@ -764,8 +764,8 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
           style={{ boxShadow: "0 0 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)" }}
         >
           <div className="flex items-center gap-3 mb-6 pb-6 border-b border-white/10">
-            <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-              <Lock className="w-5 h-5 text-purple-400" />
+            <div className="w-10 h-10 rounded-xl bg-sky-500/20 flex items-center justify-center">
+              <Lock className="w-5 h-5 text-sky-400" />
             </div>
             <div>
               <h2 className="text-white font-semibold">Secure Access Required</h2>
@@ -805,7 +805,7 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
             <Button
               type="submit"
               disabled={isChecking || !password}
-              className="w-full h-12 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-semibold"
+              className="w-full h-12 bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-semibold"
               data-testid="button-unlock"
             >
               {isChecking ? (
@@ -828,7 +828,7 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
             <Button
               variant="outline"
               onClick={() => setShowRequestForm(true)}
-              className="w-full border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50"
+              className="w-full border-sky-500/30 text-sky-400 hover:bg-sky-500/10 hover:border-sky-500/50"
               data-testid="button-request-access"
             >
               <Users className="w-4 h-4 mr-2" />
@@ -869,7 +869,7 @@ function PartnerContent() {
             <span className="font-display font-bold text-lg tracking-tight">DarkWave Studios</span>
           </Link>
           <div className="flex items-center gap-3">
-            <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 animate-pulse">
+            <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 animate-pulse">
               <Zap className="w-3 h-3 mr-1" />
               BETA v0.1 LIVE
             </Badge>
@@ -896,18 +896,18 @@ function PartnerContent() {
               className="text-center"
             >
               <div className="flex flex-wrap justify-center gap-2 mb-6">
-                <Badge className="px-4 py-2 bg-gradient-to-r from-purple-500/30 to-cyan-500/30 border-purple-500/50 text-purple-400 backdrop-blur-sm animate-pulse">
+                <Badge className="px-4 py-2 bg-gradient-to-r from-sky-500/30 to-cyan-500/30 border-sky-500/50 text-sky-400 backdrop-blur-sm animate-pulse">
                   <Zap className="w-4 h-4 mr-2" />
                   SEASON ZERO LIVE - BETA v0.1
                 </Badge>
-                <Badge className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/30 text-white backdrop-blur-sm">
+                <Badge className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/30 text-white backdrop-blur-sm">
                   <Sparkles className="w-4 h-4 mr-2" />
                   Owner & Developer Portal
                 </Badge>
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-black mb-6">
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                   Chronicles
                 </span>
               </h1>
@@ -927,7 +927,7 @@ function PartnerContent() {
                   <div className="text-xs text-white/50">Gaming Market</div>
                 </div>
                 <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm" data-testid="stat-mission-theaters">
-                  <div className="text-2xl font-bold text-purple-400">70+</div>
+                  <div className="text-2xl font-bold text-sky-400">70+</div>
                   <div className="text-xs text-white/50">Mission Theaters</div>
                 </div>
                 <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm" data-testid="stat-beta-target">
@@ -983,14 +983,14 @@ function PartnerContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="relative overflow-hidden rounded-2xl border border-white/10"
-                style={{ boxShadow: "0 0 60px rgba(168, 85, 247, 0.1)" }}
+                style={{ boxShadow: "0 0 60px rgba(14,165,233, 0.1)" }}
               >
                 <img src={quantumRealm} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
                 <div className="relative z-10 p-8">
                   <h3 className="text-2xl font-bold text-white mb-4">The Differentiator</h3>
                   <p className="text-white/80 leading-relaxed mb-4">
-                    Our <span className="text-purple-400 font-semibold">"Many Lenses"</span> system creates adaptive experiences 
+                    Our <span className="text-sky-400 font-semibold">"Many Lenses"</span> system creates adaptive experiences 
                     where the world subtly responds to how players think, what they question, and what they accept—without 
                     explicit A/B choices.
                   </p>
@@ -1005,7 +1005,7 @@ function PartnerContent() {
         </section>
 
         {/* Many Lenses Philosophy - Complete Differentiator Section */}
-        <section className="py-20 px-4 bg-gradient-to-b from-purple-950/20 via-slate-900/50 to-cyan-950/20">
+        <section className="py-20 px-4 bg-gradient-to-b from-sky-950/20 via-slate-900/50 to-cyan-950/20">
           <div className="container mx-auto max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1013,12 +1013,12 @@ function PartnerContent() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <Badge className="mb-6 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30 text-white backdrop-blur-sm">
+              <Badge className="mb-6 px-4 py-2 bg-gradient-to-r from-sky-500/20 to-pink-500/20 border-sky-500/30 text-white backdrop-blur-sm">
                 <Brain className="w-4 h-4 mr-2" />
                 Proprietary AI Philosophy
               </Badge>
               <h2 className="text-4xl md:text-5xl font-display font-black mb-6">
-                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                   The Many Lenses Design
                 </span>
               </h2>
@@ -1091,10 +1091,10 @@ function PartnerContent() {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 p-8"
-                  style={{ boxShadow: "0 0 80px rgba(168, 85, 247, 0.15)" }}
+                <div className="relative overflow-hidden rounded-2xl border border-sky-500/30 p-8"
+                  style={{ boxShadow: "0 0 80px rgba(14,165,233, 0.15)" }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-950/50 via-slate-950/80 to-pink-950/50" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-sky-950/50 via-slate-950/80 to-pink-950/50" />
                   <div className="relative z-10">
                     <h3 className="text-2xl font-bold text-white mb-6">The 5-Axis Emotion System</h3>
                     <p className="text-white/70 mb-6">
@@ -1110,7 +1110,7 @@ function PartnerContent() {
                         { axis: "Wisdom ↔ Recklessness", desc: "Your decision-making approach" },
                       ].map((item, i) => (
                         <div key={i} className="flex items-center gap-4 p-3 rounded-lg bg-white/5">
-                          <div className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-purple-400" />
+                          <div className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-sky-400" />
                           <div>
                             <span className="text-cyan-400 font-semibold">{item.axis}</span>
                             <span className="text-white/50 text-sm ml-2">— {item.desc}</span>
@@ -1136,12 +1136,12 @@ function PartnerContent() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-8 rounded-3xl bg-gradient-to-r from-purple-950/40 via-pink-950/40 to-cyan-950/40 border border-purple-500/20 text-center"
-              style={{ boxShadow: "0 0 100px rgba(168, 85, 247, 0.1)" }}
+              className="p-8 rounded-3xl bg-gradient-to-r from-sky-950/40 via-pink-950/40 to-cyan-950/40 border border-sky-500/20 text-center"
+              style={{ boxShadow: "0 0 100px rgba(14,165,233, 0.1)" }}
             >
               <h3 className="text-2xl font-bold text-white mb-4">Why This Matters for Partners</h3>
               <p className="text-white/70 max-w-3xl mx-auto leading-relaxed">
-                This isn't just a design choice - it's a <span className="text-purple-400 font-semibold">competitive moat</span>. 
+                This isn't just a design choice - it's a <span className="text-sky-400 font-semibold">competitive moat</span>. 
                 No other game operates this way. Players who experience the Many Lenses system describe it as 
                 "finally feeling seen" rather than "judged." This creates <span className="text-cyan-400 font-semibold">unprecedented engagement and retention</span> because 
                 the experience genuinely adapts to each individual.
@@ -1169,7 +1169,7 @@ function PartnerContent() {
                 Industry First Technology
               </Badge>
               <h2 className="text-4xl md:text-5xl font-display font-black mb-6">
-                <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-pink-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
                   Your Voice. Your Parallel Self.
                 </span>
               </h2>
@@ -1208,7 +1208,7 @@ function PartnerContent() {
                   className="relative p-8 rounded-2xl bg-slate-900/80 border border-white/10 backdrop-blur-sm"
                   style={{ boxShadow: "0 0 40px rgba(0,0,0,0.3)" }}
                 >
-                  <div className="absolute -top-4 -left-4 w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-xl font-bold shadow-lg">
+                  <div className="absolute -top-4 -left-4 w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-sky-600 flex items-center justify-center text-xl font-bold shadow-lg">
                     {item.step}
                   </div>
                   <div className="text-4xl mb-4 mt-2">{item.icon}</div>
@@ -1222,7 +1222,7 @@ function PartnerContent() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-pink-950/30 to-purple-950/30 border border-pink-500/20 text-center"
+              className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-pink-950/30 to-sky-950/30 border border-pink-500/20 text-center"
             >
               <p className="text-lg text-white/80">
                 <span className="text-pink-400 font-semibold">No other game has this.</span> When players hear themselves speaking as characters across history, 
@@ -1242,7 +1242,7 @@ function PartnerContent() {
               className="mb-12"
             >
               <h2 className="text-3xl font-display font-bold text-white mb-4 flex items-center gap-3">
-                <Code className="w-8 h-8 text-purple-400" />
+                <Code className="w-8 h-8 text-sky-400" />
                 Technical Architecture
               </h2>
               <p className="text-white/60">Current development stack and partnership integration points</p>
@@ -1256,12 +1256,12 @@ function PartnerContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className="p-6 rounded-xl bg-slate-800/50 border border-white/10 hover:border-purple-500/30 transition-all group"
+                  className="p-6 rounded-xl bg-slate-800/50 border border-white/10 hover:border-sky-500/30 transition-all group"
                   data-testid={`tech-stack-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <item.icon className="w-6 h-6 text-purple-400" />
+                    <div className="w-12 h-12 rounded-xl bg-sky-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <item.icon className="w-6 h-6 text-sky-400" />
                     </div>
                     <Badge 
                       variant="outline" 
@@ -1269,7 +1269,7 @@ function PartnerContent() {
                         item.status === 'Live' || item.status === 'Production' 
                           ? 'border-emerald-500/50 text-emerald-400' 
                           : item.status === 'Partnership Needed'
-                          ? 'border-purple-500/50 text-purple-400'
+                          ? 'border-sky-500/50 text-sky-400'
                           : 'border-cyan-500/50 text-cyan-400'
                       }`}
                     >
@@ -1286,17 +1286,17 @@ function PartnerContent() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-8 p-6 rounded-xl bg-gradient-to-r from-purple-950/30 via-purple-950/30 to-cyan-950/30 border border-purple-500/20"
+              className="mt-8 p-6 rounded-xl bg-gradient-to-r from-sky-950/30 via-sky-950/30 to-cyan-950/30 border border-sky-500/20"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-6 h-6 text-purple-400" />
+                <div className="w-12 h-12 rounded-xl bg-sky-500/20 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-6 h-6 text-sky-400" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">Partnership Opportunity</h3>
                   <p className="text-white/70">
-                    We're seeking partners for <span className="text-purple-400">graphics/engine development</span> and 
-                    <span className="text-purple-400"> AI system implementation</span>. The blockchain infrastructure and 
+                    We're seeking partners for <span className="text-sky-400">graphics/engine development</span> and 
+                    <span className="text-sky-400"> AI system implementation</span>. The blockchain infrastructure and 
                     web portal are production-ready. We need world-class talent to bring the game experience to life.
                   </p>
                 </div>
@@ -1516,11 +1516,11 @@ function PartnerContent() {
                 viewport={{ once: true }}
               >
                 <h2 className="text-2xl font-display font-bold text-white mb-6 flex items-center gap-3">
-                  <Mail className="w-6 h-6 text-purple-400" />
+                  <Mail className="w-6 h-6 text-sky-400" />
                   Start the Conversation
                 </h2>
                 
-                <div className="p-8 rounded-2xl bg-gradient-to-br from-purple-950/40 to-cyan-950/40 border border-white/10">
+                <div className="p-8 rounded-2xl bg-gradient-to-br from-sky-950/40 to-cyan-950/40 border border-white/10">
                   <p className="text-white/80 mb-6 leading-relaxed">
                     Interested in exploring a partnership? We'd love to hear from you. 
                     Let's schedule a discovery call to discuss how we can work together.
@@ -1539,7 +1539,7 @@ function PartnerContent() {
                   
                   <Button 
                     size="lg" 
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-semibold"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-semibold"
                     data-testid="button-schedule-call"
                   >
                     <Calendar className="w-5 h-5 mr-2" />
@@ -1559,7 +1559,7 @@ function PartnerContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="relative overflow-hidden rounded-3xl border border-white/10"
-              style={{ boxShadow: "0 0 100px rgba(168, 85, 247, 0.15)" }}
+              style={{ boxShadow: "0 0 100px rgba(14,165,233, 0.15)" }}
             >
               <img src={cyberpunkCity} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
               <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/70" />
@@ -1583,7 +1583,7 @@ function PartnerContent() {
                     </Button>
                   </Link>
                   <Link href="/explorer">
-                    <Button size="lg" className="rounded-full gap-2 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400">
+                    <Button size="lg" className="rounded-full gap-2 bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400">
                       <Zap className="w-5 h-5" />
                       View Blockchain
                     </Button>

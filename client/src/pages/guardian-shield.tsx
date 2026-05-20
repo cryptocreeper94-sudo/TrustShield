@@ -72,27 +72,27 @@ export default function GuardianShieldPage() {
           transition={{ duration: 0.5 }}
           className="relative w-full max-w-2xl"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-pink-500/20 blur-3xl rounded-full" />
           
           <div className="relative bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 text-center">
             <motion.div
               animate={{ 
                 boxShadow: [
                   '0 0 30px rgba(6, 182, 212, 0.3)',
-                  '0 0 60px rgba(168, 85, 247, 0.3)',
+                  '0 0 60px rgba(14,165,233, 0.3)',
                   '0 0 30px rgba(236, 72, 153, 0.3)',
                   '0 0 60px rgba(6, 182, 212, 0.3)'
                 ]
               }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 p-[2px]"
+              className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-500 via-sky-500 to-pink-500 p-[2px]"
             >
               <div className="w-full h-full rounded-2xl bg-slate-900 flex items-center justify-center">
                 <Shield className="w-12 h-12 text-cyan-400" />
               </div>
             </motion.div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30 mb-6">
               <Lock className="w-4 h-4 text-cyan-400" />
               <span className="text-sm font-semibold text-cyan-400">Under Development</span>
             </div>
@@ -101,7 +101,7 @@ export default function GuardianShieldPage() {
               Guardian Screener
             </h1>
             
-            <p className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-semibold mb-6">
+            <p className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-400 font-semibold mb-6">
               Advanced DEX Screener & Security Monitor
             </p>
 
@@ -119,7 +119,7 @@ export default function GuardianShieldPage() {
                 <p className="text-xs text-slate-400">Smart pattern detection</p>
               </div>
               <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-700/50">
-                <TrendingUp className="w-8 h-8 text-purple-400 mx-auto mb-2" />
+                <TrendingUp className="w-8 h-8 text-sky-400 mx-auto mb-2" />
                 <p className="text-sm font-semibold text-white">Predictive Analytics</p>
                 <p className="text-xs text-slate-400">Market intelligence</p>
               </div>
@@ -130,12 +130,12 @@ export default function GuardianShieldPage() {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-purple-500/30 mb-6">
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-sky-500/30 mb-6">
               <div className="flex items-center justify-center gap-3 mb-2">
-                <Calendar className="w-5 h-5 text-purple-400" />
+                <Calendar className="w-5 h-5 text-sky-400" />
                 <span className="text-lg font-bold text-white">Launching at TGE</span>
               </div>
-              <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
+              <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400">
                 Coming Soon
               </p>
               <p className="text-sm text-slate-400 mt-2">Token Generation Event</p>
@@ -152,8 +152,8 @@ export default function GuardianShieldPage() {
                   onClick={handleInstallPWA}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                   style={{
-                    background: 'linear-gradient(135deg, #06b6d4, #8b5cf6, #ec4899)',
-                    boxShadow: '0 0 30px rgba(6, 182, 212, 0.3), 0 0 60px rgba(139, 92, 246, 0.15)',
+                    background: 'linear-gradient(135deg, #06b6d4, #0ea5e9, #ec4899)',
+                    boxShadow: '0 0 30px rgba(6, 182, 212, 0.3), 0 0 60px rgba(14,165,233, 0.15)',
                   }}
                   data-testid="button-install-screener"
                 >
@@ -181,7 +181,7 @@ export default function GuardianShieldPage() {
             >
               <Sparkles className="w-4 h-4 text-cyan-400" />
               <span className="text-sm">Hang tight — it's going to be worth the wait</span>
-              <Sparkles className="w-4 h-4 text-purple-400" />
+              <Sparkles className="w-4 h-4 text-sky-400" />
             </motion.div>
           </div>
         </motion.div>

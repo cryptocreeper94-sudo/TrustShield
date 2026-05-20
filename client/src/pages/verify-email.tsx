@@ -90,7 +90,7 @@ export default function VerifyEmail() {
       <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="w-full max-w-md">
         <GlassCard glow className="p-8">
           <div className="text-center mb-6">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center mx-auto mb-4">
               <Mail className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">Verify Your Email</h1>
@@ -111,7 +111,7 @@ export default function VerifyEmail() {
             <Button
               onClick={handleVerify}
               disabled={isVerifying || code.length !== 6}
-              className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700"
+              className="w-full bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700"
               data-testid="button-verify-email"
             >
               {isVerifying ? (

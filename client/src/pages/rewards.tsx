@@ -13,8 +13,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const CROWDFUND_TIERS = [
   { name: "Supporter", min: 25, max: 99, bonus: 10, color: "from-slate-500 to-slate-600" },
   { name: "Backer", min: 100, max: 499, bonus: 25, color: "from-cyan-500 to-blue-600" },
-  { name: "Advocate", min: 500, max: 1999, bonus: 40, color: "from-purple-500 to-pink-600" },
-  { name: "Founder", min: 2000, max: null, bonus: 60, color: "from-purple-500 to-cyan-600" },
+  { name: "Advocate", min: 500, max: 1999, bonus: 40, color: "from-sky-500 to-pink-600" },
+  { name: "Founder", min: 2000, max: null, bonus: 60, color: "from-sky-500 to-cyan-600" },
 ];
 
 function getTierFromAmount(cents: number): typeof CROWDFUND_TIERS[0] | null {
@@ -99,7 +99,7 @@ export default function Rewards() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
       
       <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -109,7 +109,7 @@ export default function Rewards() {
               Back to Home
             </Button>
           </Link>
-          <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0">
+          <Badge className="bg-gradient-to-r from-sky-500 to-pink-500 text-white border-0">
             <Sparkles className="w-3 h-3 mr-1" />
             Early Adopter Program
           </Badge>
@@ -154,7 +154,7 @@ export default function Rewards() {
                   <span className="text-white/70">Verified</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-2 bg-white/5 rounded-lg">
-                  <Lock className="w-4 h-4 text-purple-400" />
+                  <Lock className="w-4 h-4 text-sky-400" />
                   <span className="text-white/70">Secured</span>
                 </div>
               </div>
@@ -170,7 +170,7 @@ export default function Rewards() {
           <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 mb-4">
             Limited Time Offer
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
             Early Adopter Rewards
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
@@ -182,10 +182,10 @@ export default function Rewards() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="mb-8 p-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl border border-purple-500/30 text-center"
+            className="mb-8 p-4 bg-gradient-to-r from-sky-500/20 to-pink-500/20 rounded-2xl border border-sky-500/30 text-center"
           >
             <p className="text-lg">
-              <span className="text-purple-400 font-bold">{spotsRemaining}</span> spots remaining for the First 500 Airdrop!
+              <span className="text-sky-400 font-bold">{spotsRemaining}</span> spots remaining for the First 500 Airdrop!
             </p>
           </motion.div>
         )}
@@ -199,7 +199,7 @@ export default function Rewards() {
           >
             <GlassCard className="p-6">
               <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <Trophy className="w-5 h-5 text-purple-400" />
+                <Trophy className="w-5 h-5 text-sky-400" />
                 Your Rewards Status
               </h2>
               <div className="grid md:grid-cols-3 gap-4">
@@ -241,14 +241,14 @@ export default function Rewards() {
                   )}
                 </div>
 
-                <div className={`p-4 rounded-xl ${crowdfundTier ? 'bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/30' : 'bg-white/5 border border-white/10'}`}>
+                <div className={`p-4 rounded-xl ${crowdfundTier ? 'bg-gradient-to-br from-sky-500/20 to-sky-600/20 border border-sky-500/30' : 'bg-white/5 border border-white/10'}`}>
                   <div className="flex items-center gap-2 mb-2">
                     <Heart className="w-4 h-4" />
                     <span className="font-medium">Crowdfund Total</span>
                   </div>
                   <p className="text-2xl font-bold" data-testid="text-crowdfund-total">${(crowdfundTotal / 100).toFixed(2)}</p>
                   {crowdfundTier && (
-                    <p className="text-sm text-purple-400 flex items-center gap-1 mt-1">
+                    <p className="text-sm text-sky-400 flex items-center gap-1 mt-1">
                       <Check className="w-3 h-3" /> {crowdfundTier.name} Tier ({crowdfundTier.bonus}% bonus)
                     </p>
                   )}
@@ -285,12 +285,12 @@ export default function Rewards() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/30">
+                <div className="p-4 rounded-xl bg-gradient-to-br from-sky-500/20 to-sky-600/20 border border-sky-500/30">
                   <div className="flex items-center gap-2 mb-2">
-                    <TrendingUp className="w-4 h-4 text-purple-400" />
+                    <TrendingUp className="w-4 h-4 text-sky-400" />
                     <span className="font-medium">Your Tier</span>
                   </div>
-                  <p className="text-2xl font-bold text-purple-400 capitalize" data-testid="text-tier">
+                  <p className="text-2xl font-bold text-sky-400 capitalize" data-testid="text-tier">
                     {rewardProfile.profile.tier}
                   </p>
                   <p className="text-sm text-white/60">
@@ -298,12 +298,12 @@ export default function Rewards() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/30">
+                <div className="p-4 rounded-xl bg-gradient-to-br from-sky-500/20 to-sky-600/20 border border-sky-500/30">
                   <div className="flex items-center gap-2 mb-2">
-                    <ArrowUpRight className="w-4 h-4 text-purple-400" />
+                    <ArrowUpRight className="w-4 h-4 text-sky-400" />
                     <span className="font-medium">Est. SIG at TGE</span>
                   </div>
-                  <p className="text-2xl font-bold text-purple-400" data-testid="text-estimated-dwc">
+                  <p className="text-2xl font-bold text-sky-400" data-testid="text-estimated-dwc">
                     {rewardProfile.conversion.estimatedDwc.toLocaleString()}
                   </p>
                   <p className="text-sm text-white/60">
@@ -355,7 +355,7 @@ export default function Rewards() {
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-white/60">Consecutive Days</span>
-                    <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
+                    <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30">
                       {rewardProfile.profile.consecutiveDays} days
                     </Badge>
                   </div>
@@ -366,14 +366,14 @@ export default function Rewards() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-white/10">
+              <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-white/10">
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar className="w-4 h-4 text-cyan-400" />
                   <span className="font-medium">Token Generation Event</span>
                 </div>
                 <p className="text-white/70">
                   <span className="text-cyan-400 font-bold">At Launch</span> — Your {rewardProfile.shellBalance.toLocaleString()} Shells will convert to{' '}
-                  <span className="text-purple-400 font-bold">{rewardProfile.conversion.estimatedDwc.toLocaleString()} SIG</span>
+                  <span className="text-sky-400 font-bold">{rewardProfile.conversion.estimatedDwc.toLocaleString()} SIG</span>
                   {!rewardProfile.profile.hasWallet && (
                     <span className="text-rose-400 ml-2">(Connect wallet to receive tokens)</span>
                   )}
@@ -409,16 +409,16 @@ export default function Rewards() {
               </div>
               
               <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
-                <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-3">
-                  <span className="text-lg font-bold text-purple-400">2</span>
+                <div className="w-10 h-10 rounded-full bg-sky-500/20 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-lg font-bold text-sky-400">2</span>
                 </div>
                 <h4 className="font-semibold mb-1">Boost Your Tier</h4>
                 <p className="text-sm text-white/60">Complete more quests to unlock higher tiers with up to 2x multiplier</p>
               </div>
               
               <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
-                <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-3">
-                  <span className="text-lg font-bold text-purple-400">3</span>
+                <div className="w-10 h-10 rounded-full bg-sky-500/20 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-lg font-bold text-sky-400">3</span>
                 </div>
                 <h4 className="font-semibold mb-1">Connect Wallet</h4>
                 <p className="text-sm text-white/60">Link your Trust Layer wallet to be eligible for TGE airdrop</p>
@@ -433,7 +433,7 @@ export default function Rewards() {
               </div>
             </div>
             
-            <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+            <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20">
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
                 <div>
@@ -498,11 +498,11 @@ export default function Rewards() {
             transition={{ delay: 0.4 }}
           >
             <GlassCard className="p-6 h-full">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-pink-600 flex items-center justify-center mb-4">
                 <Heart className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">Crowdfund Donors</h3>
-              <p className="text-3xl font-bold text-purple-400 mb-2">Up to 60%</p>
+              <p className="text-3xl font-bold text-sky-400 mb-2">Up to 60%</p>
               <p className="text-white/60 text-sm mb-4">
                 Donate to support development and receive tiered bonuses based on your cumulative total.
               </p>
@@ -522,7 +522,7 @@ export default function Rewards() {
         >
           <GlassCard className="p-6">
             <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
-              <Gift className="w-5 h-5 text-purple-400" />
+              <Gift className="w-5 h-5 text-sky-400" />
               Crowdfund Tier Structure
             </h2>
             <div className="overflow-x-auto">
@@ -596,7 +596,7 @@ export default function Rewards() {
               <AccordionItem value="what-if-no-wallet" className="border border-white/10 rounded-xl px-4 bg-white/5">
                 <AccordionTrigger className="text-left hover:no-underline">
                   <span className="flex items-center gap-2">
-                    <Wallet className="w-4 h-4 text-purple-400" />
+                    <Wallet className="w-4 h-4 text-sky-400" />
                     What if I don't have a wallet connected yet?
                   </span>
                 </AccordionTrigger>
@@ -611,7 +611,7 @@ export default function Rewards() {
               <AccordionItem value="not-waste-time" className="border border-white/10 rounded-xl px-4 bg-white/5">
                 <AccordionTrigger className="text-left hover:no-underline">
                   <span className="flex items-center gap-2">
-                    <Star className="w-4 h-4 text-purple-400" />
+                    <Star className="w-4 h-4 text-sky-400" />
                     How do I know this isn't a waste of my time?
                   </span>
                 </AccordionTrigger>
@@ -653,11 +653,11 @@ export default function Rewards() {
                   Your tier is based on your engagement level:
                   <div className="mt-2 space-y-2">
                     <div className="flex justify-between items-center p-2 bg-white/5 rounded">
-                      <span className="font-medium text-purple-400">Founders</span>
+                      <span className="font-medium text-sky-400">Founders</span>
                       <span>2x multiplier (50+ quests, 30+ days active)</span>
                     </div>
                     <div className="flex justify-between items-center p-2 bg-white/5 rounded">
-                      <span className="font-medium text-purple-400">Core</span>
+                      <span className="font-medium text-sky-400">Core</span>
                       <span>1.5x multiplier (20+ quests, 14+ days active)</span>
                     </div>
                     <div className="flex justify-between items-center p-2 bg-white/5 rounded">
@@ -690,7 +690,7 @@ export default function Rewards() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {!user && (
                 <Link href="/">
-                  <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 text-black font-bold px-8" data-testid="button-signup-now">
+                  <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 text-black font-bold px-8" data-testid="button-signup-now">
                     Sign Up Now
                   </Button>
                 </Link>

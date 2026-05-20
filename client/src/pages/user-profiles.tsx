@@ -43,7 +43,7 @@ const USER_PROFILE = {
 };
 
 const portfolioData = [
-  { name: "SIG", value: 55, color: "#8b5cf6" },
+  { name: "SIG", value: 55, color: "#0ea5e9" },
   { name: "stSIG", value: 25, color: "#06b6d4" },
   { name: "LP Tokens", value: 12, color: "#22c55e" },
   { name: "NFTs", value: 8, color: "#f59e0b" },
@@ -95,7 +95,7 @@ export default function UserProfiles() {
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                 <div className="flex items-start gap-4">
                   <motion.div
-                    className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-2 border-primary flex items-center justify-center text-4xl"
+                    className="w-20 h-20 rounded-2xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 border-2 border-primary flex items-center justify-center text-4xl"
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
@@ -137,7 +137,7 @@ export default function UserProfiles() {
                       Edit Profile
                     </Button>
                   ) : (
-                    <Button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white gap-2">
+                    <Button className="bg-gradient-to-r from-sky-500 to-pink-500 text-white gap-2">
                       <User className="w-4 h-4" />
                       Follow
                     </Button>
@@ -165,7 +165,7 @@ export default function UserProfiles() {
               <div className="mt-4 p-3 rounded-lg bg-white/5">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <Trophy className="w-4 h-4 text-purple-400" />
+                    <Trophy className="w-4 h-4 text-sky-400" />
                     <span className="text-sm">Level {profile.level}</span>
                   </div>
                   <span className="text-xs text-muted-foreground">
@@ -243,11 +243,11 @@ export default function UserProfiles() {
                       <AreaChart data={activityData}>
                         <defs>
                           <linearGradient id="portfolioGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#8b5cf6" stopOpacity={0.3} />
-                            <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0} />
+                            <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.3} />
+                            <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0} />
                           </linearGradient>
                         </defs>
-                        <Area type="monotone" dataKey="value" stroke="#8b5cf6" strokeWidth={2} fill="url(#portfolioGrad)" />
+                        <Area type="monotone" dataKey="value" stroke="#0ea5e9" strokeWidth={2} fill="url(#portfolioGrad)" />
                       </AreaChart>
                     </ResponsiveContainer>
                   </div>

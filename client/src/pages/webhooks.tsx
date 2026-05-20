@@ -330,7 +330,7 @@ export default function Webhooks() {
             </GlassCard>
             <GlassCard hover={false}>
               <div className="p-3 text-center">
-                <RefreshCw className="w-5 h-5 text-purple-400 mx-auto mb-1" />
+                <RefreshCw className="w-5 h-5 text-sky-400 mx-auto mb-1" />
                 <div className="text-lg font-bold text-white">3</div>
                 <div className="text-[10px] text-muted-foreground">Auto Retries</div>
               </div>

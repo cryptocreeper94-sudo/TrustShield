@@ -63,12 +63,12 @@ const INITIAL_ACTIVITIES: ActivityItem[] = Array.from({ length: 15 }, () => ({
 
 const typeConfig: Record<ActivityItem["type"], { icon: any; color: string; bgColor: string }> = {
   swap: { icon: Repeat, color: "text-blue-400", bgColor: "bg-blue-500/20" },
-  stake: { icon: Lock, color: "text-purple-400", bgColor: "bg-purple-500/20" },
+  stake: { icon: Lock, color: "text-sky-400", bgColor: "bg-sky-500/20" },
   unstake: { icon: Lock, color: "text-cyan-400", bgColor: "bg-cyan-500/20" },
   mint: { icon: Sparkles, color: "text-pink-400", bgColor: "bg-pink-500/20" },
   transfer: { icon: ArrowUpRight, color: "text-cyan-400", bgColor: "bg-cyan-500/20" },
   claim: { icon: Gift, color: "text-green-400", bgColor: "bg-green-500/20" },
-  liquidity: { icon: TrendingUp, color: "text-purple-400", bgColor: "bg-purple-500/20" },
+  liquidity: { icon: TrendingUp, color: "text-sky-400", bgColor: "bg-sky-500/20" },
   nft: { icon: Sparkles, color: "text-pink-400", bgColor: "bg-pink-500/20" },
 };
 
@@ -200,7 +200,7 @@ export default function ActivityFeed() {
               <motion.div 
                 className="p-3 rounded-2xl bg-gradient-to-br from-primary/20 to-pink-500/20 border border-primary/30"
                 animate={isLive ? { 
-                  boxShadow: ["0 0 20px rgba(139,92,246,0.2)", "0 0 50px rgba(139,92,246,0.4)", "0 0 20px rgba(139,92,246,0.2)"]
+                  boxShadow: ["0 0 20px rgba(14,165,233,0.2)", "0 0 50px rgba(14,165,233,0.4)", "0 0 20px rgba(14,165,233,0.2)"]
                 } : {}}
                 transition={{ duration: 2, repeat: Infinity }}
               >
@@ -225,7 +225,7 @@ export default function ActivityFeed() {
               <div className="text-[9px] text-muted-foreground">Swaps</div>
             </GlassCard>
             <GlassCard hover={false} className="p-2 text-center">
-              <div className="text-lg font-bold text-purple-400">{stats.stakes}</div>
+              <div className="text-lg font-bold text-sky-400">{stats.stakes}</div>
               <div className="text-[9px] text-muted-foreground">Stakes</div>
             </GlassCard>
             <GlassCard hover={false} className="p-2 text-center">

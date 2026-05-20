@@ -148,7 +148,7 @@ export default function Developers() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
                 <div className="relative z-10 p-5">
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="p-1.5 rounded-lg bg-purple-500/20 text-purple-400">
+                    <div className="p-1.5 rounded-lg bg-sky-500/20 text-sky-400">
                       <Cpu className="w-4 h-4" />
                     </div>
                     <h2 className="text-sm font-bold">DarkWave Studios Hub</h2>
@@ -214,13 +214,13 @@ export default function Developers() {
                   <div className="p-4 bg-[#1e1e1e] overflow-x-auto">
                     <pre className="font-mono text-[10px] leading-relaxed">
                       <code>
-                        <span className="text-purple-400">use</span> darkwave_sdk::prelude::*;{"\n\n"}
+                        <span className="text-sky-400">use</span> darkwave_sdk::prelude::*;{"\n\n"}
                         <span className="text-gray-500">/// Define a new Token</span>{"\n"}
                         <span className="text-blue-400">pub struct</span> <span className="text-teal-300">DarkWaveToken</span> {"{"}{"\n"}
                         {"    "}<span className="text-red-400">pub</span> supply: <span className="text-blue-400">u64</span>,{"\n"}
                         {"    "}<span className="text-red-400">pub</span> owner: <span className="text-blue-400">Address</span>,{"\n"}
                         {"}"}{"\n\n"}
-                        <span className="text-purple-400">impl</span> <span className="text-teal-300">Starship</span> <span className="text-purple-400">for</span> <span className="text-teal-300">DarkWaveToken</span> {"{"}{"\n"}
+                        <span className="text-sky-400">impl</span> <span className="text-teal-300">Starship</span> <span className="text-sky-400">for</span> <span className="text-teal-300">DarkWaveToken</span> {"{"}{"\n"}
                         {"    "}<span className="text-blue-400">fn</span> <span className="text-teal-300">transfer</span>(&self, to: Address) {"{"}{"\n"}
                         {"        "}self.emit(TransferEvent {"{"} to {"}"});{"\n"}
                         {"    }"}{"\n"}
@@ -267,7 +267,7 @@ export default function Developers() {
                       <div className="text-[10px] text-white/50">Test transfers</div>
                     </div>
                     <div className="text-center p-3 rounded-lg bg-black/30 border border-white/10">
-                      <div className="text-xs font-bold text-purple-400">4. View Responses</div>
+                      <div className="text-xs font-bold text-sky-400">4. View Responses</div>
                       <div className="text-[10px] text-white/50">Real API data</div>
                     </div>
                   </div>

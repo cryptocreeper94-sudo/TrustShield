@@ -48,11 +48,11 @@ export default function TeamMessage() {
 
           <GlassCard glow className="mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-purple-500/20">
-                <Users className="w-6 h-6 text-purple-400" />
+              <div className="p-2 rounded-lg bg-sky-500/20">
+                <Users className="w-6 h-6 text-sky-400" />
               </div>
               <h2 className="text-xl font-semibold text-white">Governance Phases</h2>
-              <Badge variant="outline" className="text-purple-400 border-purple-500/30">Member-Based</Badge>
+              <Badge variant="outline" className="text-sky-400 border-sky-500/30">Member-Based</Badge>
             </div>
             
             <div className="space-y-4">
@@ -75,7 +75,7 @@ export default function TeamMessage() {
               <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700/50">
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-semibold text-white">Phase 3</span>
-                  <Badge variant="outline" className="text-purple-400 border-purple-500/30">5,000 Members</Badge>
+                  <Badge variant="outline" className="text-sky-400 border-sky-500/30">5,000 Members</Badge>
                 </div>
                 <p className="text-slate-400">Community elections begin</p>
               </div>
@@ -145,13 +145,13 @@ export default function TeamMessage() {
             </div>
           </GlassCard>
 
-          <GlassCard glow className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10">
+          <GlassCard glow className="bg-gradient-to-r from-cyan-500/10 to-sky-500/10">
             <div className="flex items-center gap-3 mb-4">
               <Shield className="w-6 h-6 text-cyan-400" />
               <h2 className="text-xl font-semibold text-white">Two Separate Tracks</h2>
             </div>
             <p className="text-slate-300">
-              <span className="text-purple-400 font-medium">Governance</span> is about community growth - 
+              <span className="text-sky-400 font-medium">Governance</span> is about community growth - 
               your council seat activates at 1,000 members.
             </p>
             <p className="text-slate-300 mt-2">

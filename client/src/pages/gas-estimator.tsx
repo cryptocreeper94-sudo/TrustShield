@@ -29,7 +29,7 @@ const transactionTypes = [
 ];
 
 const networkComparison = [
-  { network: "Trust Layer", avgFee: 0.02, time: "400ms", color: "#8b5cf6" },
+  { network: "Trust Layer", avgFee: 0.02, time: "400ms", color: "#0ea5e9" },
   { network: "Solana", avgFee: 0.00025, time: "400ms", color: "#14f195" },
   { network: "Ethereum", avgFee: 2.50, time: "12s", color: "#627eea" },
   { network: "BSC", avgFee: 0.10, time: "3s", color: "#f0b90b" },
@@ -160,8 +160,8 @@ export default function GasEstimator() {
                         <stop offset="100%" stopColor="#22c55e" stopOpacity={0} />
                       </linearGradient>
                       <linearGradient id="gasGradAvg" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#8b5cf6" stopOpacity={0.3} />
-                        <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0} />
+                        <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.3} />
+                        <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0} />
                       </linearGradient>
                     </defs>
                     <XAxis dataKey="hour" tick={{ fontSize: 10, fill: '#6b7280' }} interval={3} />
@@ -174,7 +174,7 @@ export default function GasEstimator() {
                       formatter={(value: any) => [`$${value.toFixed(5)}`, '']}
                     />
                     <Area type="monotone" dataKey="high" stroke="#f97316" strokeWidth={1} fill="transparent" />
-                    <Area type="monotone" dataKey="avg" stroke="#8b5cf6" strokeWidth={2} fill="url(#gasGradAvg)" />
+                    <Area type="monotone" dataKey="avg" stroke="#0ea5e9" strokeWidth={2} fill="url(#gasGradAvg)" />
                     <Area type="monotone" dataKey="low" stroke="#22c55e" strokeWidth={1} fill="url(#gasGradLow)" />
                   </AreaChart>
                 </ResponsiveContainer>

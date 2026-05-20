@@ -99,17 +99,17 @@ function getPoolIcon(poolType: string) {
 }
 
 function getPoolGradient(poolType: string, lockDays: number) {
-  if (poolType === "founders") return "from-purple-500 via-teal-400 to-purple-600";
+  if (poolType === "founders") return "from-sky-500 via-teal-400 to-sky-600";
   if (poolType === "liquid") return "from-emerald-500 to-teal-600";
-  if (lockDays >= 180) return "from-purple-500 to-violet-600";
+  if (lockDays >= 180) return "from-sky-500 to-cyan-600";
   if (lockDays >= 90) return "from-blue-500 to-indigo-600";
   return "from-cyan-500 to-blue-600";
 }
 
 function getRankIcon(rank: number) {
-  if (rank === 1) return <Crown className="w-5 h-5 text-purple-400" />;
+  if (rank === 1) return <Crown className="w-5 h-5 text-sky-400" />;
   if (rank === 2) return <Medal className="w-5 h-5 text-gray-300" />;
-  if (rank === 3) return <Award className="w-5 h-5 text-purple-600" />;
+  if (rank === 3) return <Award className="w-5 h-5 text-sky-600" />;
   return <span className="w-5 h-5 text-center text-white/50 text-sm font-bold">{rank}</span>;
 }
 
@@ -283,9 +283,9 @@ export default function Staking() {
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-4">
               Staking{" "}
               <span className="relative">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-secondary">Nexus</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-sky-400 to-secondary">Nexus</span>
                 <motion.span 
-                  className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-purple-400/20 to-secondary/20 blur-lg rounded-lg"
+                  className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-sky-400/20 to-secondary/20 blur-lg rounded-lg"
                   animate={{ opacity: [0.5, 0.8, 0.5] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
@@ -308,7 +308,7 @@ export default function Staking() {
               { value: formatNumber(stats?.totalValueLocked || "0"), label: "Total Value Locked", color: "text-primary", icon: Lock },
               { value: stats?.totalStakers || 0, label: "Active Stakers", color: "text-white", icon: Wallet },
               { value: formatNumber(stats?.totalRewardsDistributed || "0"), label: "Rewards Distributed", color: "text-emerald-400", icon: Gift },
-              { value: `${stats?.averageApy || "0"}%`, label: "Average APY", color: "text-purple-400", icon: TrendingUp },
+              { value: `${stats?.averageApy || "0"}%`, label: "Average APY", color: "text-sky-400", icon: TrendingUp },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -377,7 +377,7 @@ export default function Staking() {
                             </p>
                           </div>
                           {stake.streakDays > 0 && (
-                            <Badge variant="outline" className="border-purple-500/50 text-purple-400 bg-purple-500/10">
+                            <Badge variant="outline" className="border-sky-500/50 text-sky-400 bg-sky-500/10">
                               <Flame className="w-3 h-3 mr-1" />
                               {stake.streakDays}d streak
                             </Badge>
@@ -398,9 +398,9 @@ export default function Staking() {
                         </div>
 
                         {stake.lockedUntil && new Date(stake.lockedUntil) > new Date() && (
-                          <div className="flex items-center gap-2 p-2 rounded-lg bg-purple-500/10 border border-purple-500/20 mb-4">
-                            <Lock className="w-3 h-3 text-purple-400" />
-                            <span className="text-[10px] text-purple-200">
+                          <div className="flex items-center gap-2 p-2 rounded-lg bg-sky-500/10 border border-sky-500/20 mb-4">
+                            <Lock className="w-3 h-3 text-sky-400" />
+                            <span className="text-[10px] text-sky-200">
                               Locked until {new Date(stake.lockedUntil).toLocaleDateString()}
                             </span>
                           </div>
@@ -476,7 +476,7 @@ export default function Staking() {
                     
                     {/* Founders badge */}
                     {pool.poolType === "founders" && (
-                      <div className="absolute top-0 right-0 px-3 py-1 bg-gradient-to-r from-purple-500 to-teal-400 text-black text-[10px] font-bold rounded-bl-lg z-20">
+                      <div className="absolute top-0 right-0 px-3 py-1 bg-gradient-to-r from-sky-500 to-teal-400 text-black text-[10px] font-bold rounded-bl-lg z-20">
                         <Crown className="w-3 h-3 inline mr-1" /> EXCLUSIVE
                       </div>
                     )}
@@ -546,7 +546,7 @@ export default function Staking() {
                       <Button
                         className={`w-full font-bold hover:opacity-90 transition-all ${
                           pool.poolType === "founders"
-                            ? "bg-gradient-to-r from-purple-500 via-teal-400 to-purple-500 text-black"
+                            ? "bg-gradient-to-r from-sky-500 via-teal-400 to-sky-500 text-black"
                             : "bg-gradient-to-r from-primary to-secondary text-black"
                         }`}
                         onClick={() => openStakeModal(pool)}
@@ -583,7 +583,7 @@ export default function Staking() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-xl md:text-2xl font-display font-bold mb-6 flex items-center gap-2">
-                <Trophy className="w-5 h-5 text-purple-400" />
+                <Trophy className="w-5 h-5 text-sky-400" />
                 Top Stakers
               </h2>
 
@@ -598,16 +598,16 @@ export default function Staking() {
                     leaderboard.slice(0, 10).map((entry, i) => (
                       <motion.div
                         key={entry.userId}
-                        className={`p-4 flex items-center gap-4 ${i < 3 ? "bg-gradient-to-r from-purple-500/5 to-transparent" : ""}`}
+                        className={`p-4 flex items-center gap-4 ${i < 3 ? "bg-gradient-to-r from-sky-500/5 to-transparent" : ""}`}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: i * 0.05 }}
                         data-testid={`leaderboard-entry-${entry.rank}`}
                       >
                         <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                          i === 0 ? "bg-purple-500/20 ring-2 ring-purple-400/50" :
+                          i === 0 ? "bg-sky-500/20 ring-2 ring-sky-400/50" :
                           i === 1 ? "bg-gray-400/20 ring-2 ring-gray-300/50" :
-                          i === 2 ? "bg-purple-700/20 ring-2 ring-purple-600/50" :
+                          i === 2 ? "bg-sky-700/20 ring-2 ring-sky-600/50" :
                           "bg-white/5"
                         }`}>
                           {getRankIcon(entry.rank)}
@@ -619,7 +619,7 @@ export default function Staking() {
                           <div className="text-[10px] text-white/50 flex items-center gap-2">
                             <span>{formatNumber(entry.totalStaked)} SIG</span>
                             {entry.streakDays > 0 && (
-                              <span className="flex items-center gap-0.5 text-purple-400">
+                              <span className="flex items-center gap-0.5 text-sky-400">
                                 <Flame className="w-3 h-3" />
                                 {entry.streakDays}d
                               </span>
@@ -644,7 +644,7 @@ export default function Staking() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-xl md:text-2xl font-display font-bold mb-6 flex items-center gap-2">
-                <Gift className="w-5 h-5 text-purple-400" />
+                <Gift className="w-5 h-5 text-sky-400" />
                 Active Quests
               </h2>
 
@@ -656,10 +656,10 @@ export default function Staking() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <GlassCard className="group hover:border-purple-500/30 transition-colors" data-testid={`quest-card-${quest.id}`}>
+                    <GlassCard className="group hover:border-sky-500/30 transition-colors" data-testid={`quest-card-${quest.id}`}>
                       <div className="p-4 flex items-start gap-4">
-                        <div className="p-2.5 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-colors">
-                          <Gift className="w-5 h-5 text-purple-400" />
+                        <div className="p-2.5 rounded-xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 group-hover:from-sky-500/30 group-hover:to-pink-500/30 transition-colors">
+                          <Gift className="w-5 h-5 text-sky-400" />
                         </div>
                         <div className="flex-grow">
                           <h3 className="font-bold text-white text-sm mb-1">{quest.title}</h3>
@@ -669,7 +669,7 @@ export default function Staking() {
                               +{quest.rewardDwt} SIG
                             </Badge>
                             {quest.rewardBadge && (
-                              <Badge variant="outline" className="text-[10px] border-purple-500/50 text-purple-400 bg-purple-500/5">
+                              <Badge variant="outline" className="text-[10px] border-sky-500/50 text-sky-400 bg-sky-500/5">
                                 <Star className="w-3 h-3 mr-0.5" /> NFT Badge
                               </Badge>
                             )}
@@ -696,7 +696,7 @@ export default function Staking() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { icon: Shield, color: "text-primary", bg: "bg-primary/10", title: "Secure Staking", desc: "Your coins are protected by the Founders Validator with enterprise-grade security." },
-              { icon: Zap, color: "text-purple-400", bg: "bg-purple-500/10", title: "Instant Rewards", desc: "Rewards accrue every block. Claim anytime with instant settlement." },
+              { icon: Zap, color: "text-sky-400", bg: "bg-sky-500/10", title: "Instant Rewards", desc: "Rewards accrue every block. Claim anytime with instant settlement." },
               { icon: TrendingUp, color: "text-emerald-400", bg: "bg-emerald-500/10", title: "Compound Growth", desc: "Auto-compound your rewards or reinvest for maximum returns." },
             ].map((feature, i) => (
               <motion.div
@@ -771,9 +771,9 @@ export default function Staking() {
             </div>
 
             {selectedPool?.lockDays ? (
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
-                <Lock className="w-5 h-5 text-purple-400 shrink-0" />
-                <p className="text-xs text-purple-200">
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-sky-500/10 border border-sky-500/20">
+                <Lock className="w-5 h-5 text-sky-400 shrink-0" />
+                <p className="text-xs text-sky-200">
                   Your coins will be locked for <strong>{selectedPool.lockDays} days</strong>. Early withdrawal is not available.
                 </p>
               </div>

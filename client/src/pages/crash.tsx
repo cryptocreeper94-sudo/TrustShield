@@ -67,7 +67,7 @@ const REWARD_TIERS = [
   { name: "Bronze", minWager: 0, rewardRate: 0.001, color: "text-cyan-400", bg: "from-cyan-500/20", icon: "🥉" },
   { name: "Silver", minWager: 10000, rewardRate: 0.002, color: "text-gray-300", bg: "from-gray-400/20", icon: "🥈" },
   { name: "Gold", minWager: 100000, rewardRate: 0.003, color: "text-teal-400", bg: "from-teal-500/20", icon: "🥇" },
-  { name: "Platinum", minWager: 1000000, rewardRate: 0.005, color: "text-purple-400", bg: "from-purple-500/20", icon: "💎" },
+  { name: "Platinum", minWager: 1000000, rewardRate: 0.005, color: "text-sky-400", bg: "from-sky-500/20", icon: "💎" },
   { name: "Diamond", minWager: 10000000, rewardRate: 0.01, color: "text-cyan-400", bg: "from-cyan-500/20", icon: "👑" },
 ];
 
@@ -526,7 +526,7 @@ function CrashHistoryStrip({ history }: { history: number[] }) {
                 h < 3 ? "bg-teal-500/30 text-teal-400 border-teal-500/50" : 
                 h < 5 ? "bg-green-500/30 text-green-400 border-green-500/50" : 
                 h < 10 ? "bg-cyan-500/30 text-cyan-400 border-cyan-500/50" :
-                "bg-purple-500/30 text-purple-400 border-purple-500/50 animate-pulse"
+                "bg-sky-500/30 text-sky-400 border-sky-500/50 animate-pulse"
               }`}
             >
               {h.toFixed(2)}x
@@ -1212,8 +1212,8 @@ export default function CrashGame() {
               <span className="w-2 h-2 rounded-full bg-green-400 mr-1 animate-pulse" />
               {bets.length} Players
             </Badge>
-            <div className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30">
-              <span className="text-sm font-mono font-bold text-purple-400">
+            <div className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-sky-500/20 to-pink-500/20 border border-sky-500/30">
+              <span className="text-sm font-mono font-bold text-sky-400">
                 {isDemo ? `${formatSIG(demoBalance)} SIG` : `${formatSIG(getBalance())} ${currencyType}`}
               </span>
             </div>
@@ -1235,8 +1235,8 @@ export default function CrashGame() {
                 className="relative overflow-hidden rounded-2xl flex-1 min-h-[280px] lg:min-h-0"
                 style={{
                   background: "linear-gradient(135deg, rgba(20,10,40,0.95) 0%, rgba(30,15,60,0.9) 50%, rgba(15,8,35,0.95) 100%)",
-                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 80px rgba(168,85,247,0.15)",
-                  border: "1px solid rgba(168,85,247,0.2)",
+                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 80px rgba(14,165,233,0.15)",
+                  border: "1px solid rgba(14,165,233,0.2)",
                   transform: "perspective(1000px) rotateX(1deg)",
                   transformStyle: "preserve-3d",
                 }}
@@ -1246,7 +1246,7 @@ export default function CrashGame() {
                   <div className="flex items-center gap-2">
                     <Badge 
                       variant="outline" 
-                      className="text-[9px] font-mono bg-black/40 backdrop-blur-sm border-purple-500/30"
+                      className="text-[9px] font-mono bg-black/40 backdrop-blur-sm border-sky-500/30"
                     >
                       #{roundNumber}
                     </Badge>
@@ -1400,13 +1400,13 @@ export default function CrashGame() {
                             background: multiplier >= 5
                               ? "linear-gradient(180deg, #FFC94C 0%, #FF4FD8 50%, #4CF4FF 100%)"
                               : multiplier >= 2
-                              ? "linear-gradient(180deg, #FF4FD8 0%, #a855f7 50%, #4CF4FF 100%)"
+                              ? "linear-gradient(180deg, #FF4FD8 0%, #38bdf8 50%, #4CF4FF 100%)"
                               : "linear-gradient(180deg, #ffffff 0%, #e0e0e0 50%, #a0a0a0 100%)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             filter: multiplier >= 5
                               ? "drop-shadow(0 4px 0 rgba(180,60,120,0.9)) drop-shadow(0 8px 0 rgba(100,30,80,0.6)) drop-shadow(0 0 60px rgba(255,79,216,0.6))"
-                              : "drop-shadow(0 4px 0 rgba(100,40,140,0.8)) drop-shadow(0 8px 20px rgba(168,85,247,0.4)) drop-shadow(0 0 40px rgba(255,79,216,0.3))",
+                              : "drop-shadow(0 4px 0 rgba(100,40,140,0.8)) drop-shadow(0 8px 20px rgba(14,165,233,0.4)) drop-shadow(0 0 40px rgba(255,79,216,0.3))",
                             letterSpacing: "-0.02em",
                           }}
                           animate={{ 
@@ -1457,11 +1457,11 @@ export default function CrashGame() {
                 style={{
                   background: "linear-gradient(135deg, rgba(15,8,30,0.9) 0%, rgba(25,12,50,0.85) 100%)",
                   boxShadow: "0 10px 30px -10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(168,85,247,0.15)",
+                  border: "1px solid rgba(14,165,233,0.15)",
                 }}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <History className="w-3 h-3 text-purple-400" />
+                  <History className="w-3 h-3 text-sky-400" />
                   <span className="text-[10px] font-medium text-white/60">Last 10 Rounds</span>
                 </div>
                 <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
@@ -1471,7 +1471,7 @@ export default function CrashGame() {
                       initial={{ scale: 0, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       className={`flex-shrink-0 px-2 py-1 rounded-lg text-xs font-mono font-bold ${
-                        point >= 10 ? "bg-gradient-to-br from-teal-500/30 to-purple-500/20 text-teal-400 border border-teal-500/40" :
+                        point >= 10 ? "bg-gradient-to-br from-teal-500/30 to-sky-500/20 text-teal-400 border border-teal-500/40" :
                         point >= 2 ? "bg-gradient-to-br from-green-500/30 to-emerald-500/20 text-green-400 border border-green-500/40" :
                         "bg-gradient-to-br from-red-500/30 to-rose-500/20 text-red-400 border border-red-500/40"
                       }`}
@@ -1493,7 +1493,7 @@ export default function CrashGame() {
                   className="rounded-xl p-2"
                   style={{
                     background: "linear-gradient(135deg, rgba(15,8,30,0.9) 0%, rgba(25,12,50,0.85) 100%)",
-                    border: "1px solid rgba(168,85,247,0.15)",
+                    border: "1px solid rgba(14,165,233,0.15)",
                   }}
                 >
                   <LiveLedger secured={securedAmount} riding={ridingAmount} lost={lostAmount} />
@@ -1511,7 +1511,7 @@ export default function CrashGame() {
                 style={{
                   background: "linear-gradient(145deg, rgba(25,12,50,0.95) 0%, rgba(35,18,70,0.9) 50%, rgba(20,10,45,0.95) 100%)",
                   boxShadow: "0 20px 40px -15px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(168,85,247,0.25)",
+                  border: "1px solid rgba(14,165,233,0.25)",
                   transform: "perspective(800px) rotateX(0.5deg)",
                 }}
               >
@@ -1523,7 +1523,7 @@ export default function CrashGame() {
                       type="number"
                       value={betAmount}
                       onChange={(e) => setBetAmount(e.target.value)}
-                      className="h-10 bg-black/40 border-purple-500/30 text-base font-mono font-bold"
+                      className="h-10 bg-black/40 border-sky-500/30 text-base font-mono font-bold"
                       disabled={roundStatus !== "waiting" || hasBet}
                       data-testid="input-bet-amount"
                     />
@@ -1534,7 +1534,7 @@ export default function CrashGame() {
                         key={btn}
                         variant="outline"
                         size="sm"
-                        className="h-10 px-2 text-[10px] border-purple-500/30 hover:bg-purple-500/20"
+                        className="h-10 px-2 text-[10px] border-sky-500/30 hover:bg-sky-500/20"
                         disabled={roundStatus !== "waiting" || hasBet}
                         onClick={() => {
                           const current = parseFloat(betAmount) || 0;
@@ -1554,7 +1554,7 @@ export default function CrashGame() {
                 <div className="mb-3">
                   <Tabs value={betMode} onValueChange={(v) => setBetMode(v as BetMode)} className="w-full">
                     <TabsList className="grid grid-cols-4 w-full bg-black/50 p-0.5 h-8">
-                      <TabsTrigger value="standard" className="text-[9px] py-1 data-[state=active]:bg-purple-500/40" disabled={roundStatus !== "waiting"}>
+                      <TabsTrigger value="standard" className="text-[9px] py-1 data-[state=active]:bg-sky-500/40" disabled={roundStatus !== "waiting"}>
                         <Target className="w-3 h-3 mr-1" />Std
                       </TabsTrigger>
                       <TabsTrigger value="progressive" className="text-[9px] py-1 data-[state=active]:bg-teal-500/40" disabled={roundStatus !== "waiting"}>
@@ -1697,7 +1697,7 @@ export default function CrashGame() {
                       className={`w-full h-11 text-base font-bold ${
                         hasBet 
                           ? "bg-gradient-to-r from-green-500/50 to-emerald-500/50"
-                          : "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg shadow-purple-500/25"
+                          : "bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-600 hover:to-pink-600 shadow-lg shadow-sky-500/25"
                       }`}
                       onClick={placeBet}
                       disabled={hasBet}
@@ -1725,7 +1725,7 @@ export default function CrashGame() {
                 <GlassCard className="p-3">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-sm font-bold flex items-center gap-2">
-                      <Users className="w-4 h-4 text-purple-400" />
+                      <Users className="w-4 h-4 text-sky-400" />
                       Live Bets ({bets.length})
                     </h3>
                     <Badge variant="outline" className="text-[10px] font-mono">
@@ -1749,13 +1749,13 @@ export default function CrashGame() {
                           <div className="flex items-center gap-2">
                             <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${
                               bet.username === username 
-                                ? "bg-gradient-to-br from-purple-500 to-pink-500" 
+                                ? "bg-gradient-to-br from-sky-500 to-pink-500" 
                                 : "bg-gradient-to-br from-gray-600 to-gray-700"
                             }`}>
                               {bet.username[0].toUpperCase()}
                             </div>
                             <div>
-                              <span className={`font-medium ${bet.username === username ? "text-purple-400" : ""}`}>
+                              <span className={`font-medium ${bet.username === username ? "text-sky-400" : ""}`}>
                                 {bet.username === username ? "You" : bet.username}
                               </span>
                               <div className="flex items-center gap-1 mt-0.5">
@@ -1800,7 +1800,7 @@ export default function CrashGame() {
                     <div className="space-y-1 pr-2">
                       {chatMessages.map((msg) => (
                         <div key={msg.id} className="text-xs py-0.5">
-                          <span className="text-purple-400 font-medium">{msg.username}: </span>
+                          <span className="text-sky-400 font-medium">{msg.username}: </span>
                           <span className="text-muted-foreground">{msg.message}</span>
                         </div>
                       ))}
@@ -1828,7 +1828,7 @@ export default function CrashGame() {
                 className="rounded-xl p-3 grid grid-cols-3 gap-3"
                 style={{
                   background: "linear-gradient(135deg, rgba(20,10,40,0.9) 0%, rgba(30,15,55,0.85) 100%)",
-                  border: "1px solid rgba(168,85,247,0.15)",
+                  border: "1px solid rgba(14,165,233,0.15)",
                 }}
               >
                 {/* Tier */}

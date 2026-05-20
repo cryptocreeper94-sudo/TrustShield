@@ -104,7 +104,7 @@ export default function ForgotPassword() {
 
                 <Button
                   type="submit"
-                  className="w-full h-12 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-bold"
+                  className="w-full h-12 bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-bold"
                   disabled={loading}
                   data-testid="button-submit"
                 >

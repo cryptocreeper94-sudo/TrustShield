@@ -598,9 +598,9 @@ function AutoSnipePanel({
       {/* Subscription Modal */}
       {showSubscribeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="bg-slate-900 rounded-2xl border border-purple-500/30 p-6 max-w-md w-full">
+          <div className="bg-slate-900 rounded-2xl border border-sky-500/30 p-6 max-w-md w-full">
             <div className="text-center mb-4">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500 flex items-center justify-center">
                 <Lock className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Unlock Strike Agent</h3>
@@ -638,7 +638,7 @@ function AutoSnipePanel({
                 onClick={() => {
                   window.location.href = '/pricing';
                 }}
-                className="bg-gradient-to-r from-purple-500 to-cyan-500"
+                className="bg-gradient-to-r from-sky-500 to-cyan-500"
               >
                 Subscribe Now
               </Button>
@@ -665,7 +665,7 @@ function AutoSnipePanel({
             <div className="font-bold text-white text-sm flex items-center gap-2">
               Auto-Snipe Mode
               {!isSubscribed && (
-                <Badge className="bg-purple-500/20 text-purple-300 text-[9px] px-1.5">PRO</Badge>
+                <Badge className="bg-sky-500/20 text-sky-300 text-[9px] px-1.5">PRO</Badge>
               )}
             </div>
             <div className="text-[10px] text-emerald-300">Set & Forget Trading</div>
@@ -686,9 +686,9 @@ function AutoSnipePanel({
       {/* ═══════════════════════════════════════════════════════════════════
           PREDICTION STATISTICS PANEL
       ═══════════════════════════════════════════════════════════════════ */}
-      <div className="p-4 border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-cyan-900/20">
+      <div className="p-4 border-b border-white/10 bg-gradient-to-r from-sky-900/20 to-cyan-900/20">
         <div className="flex items-center gap-2 mb-3">
-          <Brain className="w-4 h-4 text-purple-400" />
+          <Brain className="w-4 h-4 text-sky-400" />
           <span className="text-sm font-medium text-white">AI Prediction Performance</span>
           <Badge className="ml-auto bg-emerald-500/20 text-emerald-300 text-[9px]">
             LIVE DATA
@@ -1043,7 +1043,7 @@ function AutoSnipePanel({
             {/* Trailing Stop */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <TrendingUp className="w-3.5 h-3.5 text-purple-400" />
+                <TrendingUp className="w-3.5 h-3.5 text-sky-400" />
                 <span className="text-xs">Trailing Stop</span>
               </div>
               <div className="flex items-center gap-2">
@@ -1102,7 +1102,7 @@ function AutoSnipePanel({
               </Button>
               <Button
                 onClick={onExecute}
-                className="h-12 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-bold"
+                className="h-12 bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 text-white font-bold"
                 data-testid="execute-now"
               >
                 <Zap className="w-4 h-4 mr-2" />
@@ -1317,10 +1317,10 @@ function BuySellMetricsPanel({ token }: { token: TokenData }) {
         </div>
         
         {/* AI Verdict */}
-        <div className="p-3 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-lg border border-purple-500/20">
+        <div className="p-3 bg-gradient-to-r from-sky-500/10 to-cyan-500/10 rounded-lg border border-sky-500/20">
           <div className="flex items-center gap-2 mb-2">
-            <Brain className="w-4 h-4 text-purple-400" />
-            <span className="text-xs font-medium text-purple-300">AI Verdict</span>
+            <Brain className="w-4 h-4 text-sky-400" />
+            <span className="text-xs font-medium text-sky-300">AI Verdict</span>
           </div>
           <p className="text-xs text-white/70">
             Based on {token.txns.toLocaleString()} transactions, {token.mlPrediction.accuracy}% ML accuracy, and current market conditions, 
@@ -1501,7 +1501,7 @@ function AIBadge({ recommendation, score }: { recommendation: 'snipe' | 'watch' 
   
   return (
     <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border ${config.bg} ${config.border}`}>
-      <Brain className="w-3.5 h-3.5 text-purple-400" />
+      <Brain className="w-3.5 h-3.5 text-sky-400" />
       <Icon className={`w-3.5 h-3.5 ${config.text}`} />
       <span className={`text-xs font-bold ${config.text}`}>{config.label}</span>
       <span className="text-[10px] text-white/40">{score}%</span>
@@ -1928,16 +1928,16 @@ export default function TokenDetail() {
             STRIKE AGENT TRADING PANEL - Our Unique Advantage
         ═══════════════════════════════════════════════════════════════════ */}
         <div className="px-4 mb-4">
-          <div className="bg-gradient-to-br from-slate-800/80 via-purple-900/20 to-slate-800/80 rounded-2xl border border-purple-500/30 overflow-hidden">
+          <div className="bg-gradient-to-br from-slate-800/80 via-sky-900/20 to-slate-800/80 rounded-2xl border border-sky-500/30 overflow-hidden">
             {/* Header */}
             <div className="p-4 border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center">
                   <Crosshair className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <div className="font-bold text-white text-sm">Strike Agent</div>
-                  <div className="text-[10px] text-purple-300">AI Trading Intelligence</div>
+                  <div className="text-[10px] text-sky-300">AI Trading Intelligence</div>
                 </div>
               </div>
               <Badge className={`${
@@ -2044,7 +2044,7 @@ export default function TokenDetail() {
                 </Button>
                 <Button 
                   variant="outline"
-                  className="h-12 border-purple-500/50 text-purple-400 hover:bg-purple-500/10"
+                  className="h-12 border-sky-500/50 text-sky-400 hover:bg-sky-500/10"
                   data-testid="limit-order-btn"
                 >
                   <Clock className="w-4 h-4 mr-2" />
@@ -2101,9 +2101,9 @@ export default function TokenDetail() {
         <div className="px-4 mb-4">
           <div className="bg-slate-800/30 rounded-xl border border-white/5 overflow-hidden">
             <div className="p-3 border-b border-white/5 flex items-center gap-2">
-              <Brain className="w-4 h-4 text-purple-400" />
+              <Brain className="w-4 h-4 text-sky-400" />
               <span className="text-sm font-medium">ML Price Predictions</span>
-              <Badge className="ml-auto bg-purple-500/20 text-purple-300 text-[10px]">
+              <Badge className="ml-auto bg-sky-500/20 text-sky-300 text-[10px]">
                 {token.mlPrediction.accuracy}% Accuracy
               </Badge>
             </div>
@@ -2137,8 +2137,8 @@ export default function TokenDetail() {
                 </div>
                 <div className="bg-slate-800/50 rounded-lg p-3">
                   <div className="text-[10px] text-white/40 uppercase mb-1">Long-Term Target (24H)</div>
-                  <div className="text-sm font-bold text-purple-400">{formatPrice(token.mlPrediction.longTermTarget)}</div>
-                  <div className="text-[10px] text-purple-400/60">
+                  <div className="text-sm font-bold text-sky-400">{formatPrice(token.mlPrediction.longTermTarget)}</div>
+                  <div className="text-[10px] text-sky-400/60">
                     +{(((token.mlPrediction.longTermTarget - token.priceUsd) / token.priceUsd) * 100).toFixed(1)}%
                   </div>
                 </div>
@@ -2231,7 +2231,7 @@ export default function TokenDetail() {
             {/* Whale Activity */}
             <div className="bg-slate-800/30 rounded-xl border border-white/5 p-3">
               <div className="flex items-center gap-1.5 mb-2">
-                <Users className="w-3.5 h-3.5 text-purple-400" />
+                <Users className="w-3.5 h-3.5 text-sky-400" />
                 <span className="text-xs font-medium">Whale Activity</span>
               </div>
               <div className="space-y-2 text-[11px]">
@@ -2286,7 +2286,7 @@ export default function TokenDetail() {
 
         {/* Trade Button - Simple fallback */}
         <div className="px-4 mb-6">
-          <Button className="w-full h-12 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-bold" data-testid="trade-btn">
+          <Button className="w-full h-12 bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 text-white font-bold" data-testid="trade-btn">
             <ArrowLeftRight className="w-4 h-4 mr-2" />
             Trade {token.symbol}/{token.nativeSymbol}
           </Button>

@@ -50,10 +50,10 @@ function PlayingCard({
   if (!card.faceUp) {
     return (
       <div
-        className="w-14 h-20 md:w-16 md:h-24 rounded-lg bg-gradient-to-br from-blue-800 to-purple-900 border-2 border-white/30
+        className="w-14 h-20 md:w-16 md:h-24 rounded-lg bg-gradient-to-br from-blue-800 to-sky-900 border-2 border-white/30
           shadow-lg flex items-center justify-center"
       >
-        <div className="w-3/4 h-3/4 border border-white/20 rounded-sm bg-gradient-to-br from-purple-600/50 to-blue-600/50" />
+        <div className="w-3/4 h-3/4 border border-white/20 rounded-sm bg-gradient-to-br from-sky-600/50 to-blue-600/50" />
       </div>
     );
   }
@@ -404,8 +404,8 @@ export default function Solitaire() {
             {/* Stock */}
             <div onClick={handleStockClick} className="cursor-pointer">
               {gameState.stock.length > 0 ? (
-                <div className="w-14 h-20 md:w-16 md:h-24 rounded-lg bg-gradient-to-br from-blue-800 to-purple-900 border-2 border-white/30 shadow-lg flex items-center justify-center">
-                  <div className="w-3/4 h-3/4 border border-white/20 rounded-sm bg-gradient-to-br from-purple-600/50 to-blue-600/50" />
+                <div className="w-14 h-20 md:w-16 md:h-24 rounded-lg bg-gradient-to-br from-blue-800 to-sky-900 border-2 border-white/30 shadow-lg flex items-center justify-center">
+                  <div className="w-3/4 h-3/4 border border-white/20 rounded-sm bg-gradient-to-br from-sky-600/50 to-blue-600/50" />
                 </div>
               ) : (
                 <EmptyPile label="↻" />

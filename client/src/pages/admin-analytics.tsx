@@ -28,7 +28,7 @@ interface ChartData {
   transactions: number;
 }
 
-const COLORS = ['#00FFFF', '#FFD700', '#00ff88', '#ff6b6b', '#a855f7'];
+const COLORS = ['#00FFFF', '#FFD700', '#00ff88', '#ff6b6b', '#38bdf8'];
 
 export default function AdminAnalytics() {
   const { user, isLoading: authLoading } = useAuth();
@@ -119,7 +119,7 @@ export default function AdminAnalytics() {
             <span className="font-display font-bold text-lg tracking-tight hidden sm:inline">Trust Layer</span>
           </Link>
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="border-purple-500/50 text-purple-400 bg-purple-500/10 text-[10px] sm:text-xs">
+            <Badge variant="outline" className="border-sky-500/50 text-sky-400 bg-sky-500/10 text-[10px] sm:text-xs">
               Admin
             </Badge>
             <Link href="/admin/rewards">

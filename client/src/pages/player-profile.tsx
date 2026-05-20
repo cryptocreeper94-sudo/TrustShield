@@ -26,8 +26,8 @@ import { useAuth } from "@/hooks/use-auth";
 import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 
 // Holographic gradient CSS
-const holographicGradient = "bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-cyan-500/20";
-const glowPulse = "animate-pulse shadow-[0_0_30px_rgba(139,92,246,0.3)]";
+const holographicGradient = "bg-gradient-to-r from-sky-500/20 via-pink-500/20 to-cyan-500/20";
+const glowPulse = "animate-pulse shadow-[0_0_30px_rgba(14,165,233,0.3)]";
 
 // Level titles
 const levelTitles = [
@@ -93,16 +93,16 @@ function XPProgressBar({ level, xp, xpToNextLevel }: { level: number; xp: number
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.3 }}
-      className="relative p-4 rounded-2xl border border-white/10 bg-gradient-to-br from-purple-900/30 to-pink-900/20 backdrop-blur-xl"
+      className="relative p-4 rounded-2xl border border-white/10 bg-gradient-to-br from-sky-900/30 to-pink-900/20 backdrop-blur-xl"
     >
       {/* Animated border glow */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-cyan-500/20 blur-xl opacity-50" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-500/20 via-pink-500/20 to-cyan-500/20 blur-xl opacity-50" />
       
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center">
                 <Crown className="w-6 h-6 text-white" />
               </div>
               <motion.div
@@ -130,7 +130,7 @@ function XPProgressBar({ level, xp, xpToNextLevel }: { level: number; xp: number
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-            className="h-full rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-400 relative"
+            className="h-full rounded-full bg-gradient-to-r from-sky-500 via-pink-500 to-cyan-400 relative"
           >
             {/* Animated glow */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 animate-shimmer" />
@@ -155,7 +155,7 @@ function ProfitChart({ data }: { data: { date: string; profit: number }[] }) {
     >
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-white font-bold flex items-center gap-2">
-          <BarChart3 className="w-5 h-5 text-purple-400" />
+          <BarChart3 className="w-5 h-5 text-sky-400" />
           Profit/Loss Chart
         </h3>
         <div className="flex gap-3 text-xs">
@@ -199,7 +199,7 @@ function ProfitChart({ data }: { data: { date: string; profit: number }[] }) {
               <Tooltip
                 contentStyle={{
                   backgroundColor: 'rgba(17, 17, 17, 0.9)',
-                  border: '1px solid rgba(139, 92, 246, 0.3)',
+                  border: '1px solid rgba(14,165,233, 0.3)',
                   borderRadius: '12px',
                   padding: '8px 12px',
                 }}
@@ -214,7 +214,7 @@ function ProfitChart({ data }: { data: { date: string; profit: number }[] }) {
               <Area
                 type="monotone"
                 dataKey="profit"
-                stroke="#8b5cf6"
+                stroke="#0ea5e9"
                 strokeWidth={2}
                 fill="url(#profitGradient)"
               />
@@ -310,7 +310,7 @@ function TabButton({
       onClick={onClick}
       className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all ${
         active
-          ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
+          ? 'bg-sky-500/20 text-sky-400 border border-sky-500/30'
           : 'text-gray-400 hover:text-white hover:bg-white/5'
       }`}
     >
@@ -394,8 +394,8 @@ export default function PlayerProfilePage() {
     <div className="min-h-screen bg-[#0a0a0f] pb-24">
       {/* Animated background */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-900/10 via-transparent to-transparent" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       </div>
       
@@ -422,7 +422,7 @@ export default function PlayerProfilePage() {
           className="text-center"
         >
           <div className="relative inline-block mb-4">
-            <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-4xl">
+            <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center text-4xl">
               {playerStats.username?.charAt(0).toUpperCase() || "?"}
             </div>
             {/* Level badge */}
@@ -437,7 +437,7 @@ export default function PlayerProfilePage() {
           <h1 className="text-2xl font-bold text-white mb-1" data-testid="text-username">
             {playerStats.username}
           </h1>
-          <p className="text-purple-400 font-medium">{getLevelTitle(playerStats.level)}</p>
+          <p className="text-sky-400 font-medium">{getLevelTitle(playerStats.level)}</p>
         </motion.div>
         
         {/* XP Progress */}
@@ -479,7 +479,7 @@ export default function PlayerProfilePage() {
             label="Win Rate"
             value={`${parseFloat(playerStats.winRate).toFixed(1)}%`}
             subValue={`${playerStats.winCount}W / ${playerStats.lossCount}L`}
-            gradient="bg-gradient-to-br from-purple-900/30 to-purple-800/20"
+            gradient="bg-gradient-to-br from-sky-900/30 to-sky-800/20"
             delay={0.25}
           />
           <StatCard
@@ -570,7 +570,7 @@ export default function PlayerProfilePage() {
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="text-gray-400">Favorite Game</span>
-                    <span className="text-purple-400 font-medium">Crash 🚀</span>
+                    <span className="text-sky-400 font-medium">Crash 🚀</span>
                   </div>
                 </div>
               </div>
@@ -597,7 +597,7 @@ export default function PlayerProfilePage() {
                   <p className="text-gray-500 mb-2">No games played yet</p>
                   <Link
                     href="/arcade"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-500/20 text-purple-400 hover:bg-purple-500/30 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-sky-500/20 text-sky-400 hover:bg-sky-500/30 transition-colors"
                   >
                     <Gamepad2 className="w-4 h-4" />
                     Start Playing
@@ -664,13 +664,13 @@ export default function PlayerProfilePage() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-300">Sound Effects</span>
-                    <button className="w-12 h-6 rounded-full bg-purple-500 relative">
+                    <button className="w-12 h-6 rounded-full bg-sky-500 relative">
                       <div className="absolute right-1 top-1 w-4 h-4 rounded-full bg-white" />
                     </button>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-300">Animations</span>
-                    <button className="w-12 h-6 rounded-full bg-purple-500 relative">
+                    <button className="w-12 h-6 rounded-full bg-sky-500 relative">
                       <div className="absolute right-1 top-1 w-4 h-4 rounded-full bg-white" />
                     </button>
                   </div>

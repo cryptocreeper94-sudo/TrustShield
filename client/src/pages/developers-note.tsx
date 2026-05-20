@@ -71,7 +71,7 @@ export default function DevelopersNote() {
       </div>
       
       <div className="absolute top-20 left-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-40 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-40 right-10 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
       
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-20 pb-12">
         <motion.div
@@ -91,7 +91,7 @@ export default function DevelopersNote() {
             </motion.div>
             
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 A Note From Our Team
               </span>
             </h1>
@@ -126,10 +126,10 @@ export default function DevelopersNote() {
               </p>
               
               <p className="text-white/80 leading-relaxed mb-6">
-                <strong className="text-purple-400">That's exactly why we're building this.</strong>
+                <strong className="text-sky-400">That's exactly why we're building this.</strong>
               </p>
 
-              <h3 className="text-xl font-semibold text-purple-400 mt-10 mb-4">Why We Call It "Signal" — Not a Coin, Not a Token</h3>
+              <h3 className="text-xl font-semibold text-sky-400 mt-10 mb-4">Why We Call It "Signal" — Not a Coin, Not a Token</h3>
               
               <p className="text-white/80 leading-relaxed mb-6">
                 You'll notice we don't call it a "coin" or "token" or "currency." That's very intentional.
@@ -151,7 +151,7 @@ export default function DevelopersNote() {
                 We're breaking the pattern. We're rejecting the manipulative language that this industry uses to extract money from regular people. Signal represents access to a trust network, participation in something real, and proof that you're part of a community that actually builds things.
               </p>
 
-              <h3 className="text-xl font-semibold text-purple-400 mt-10 mb-4">What We're Actually Building</h3>
+              <h3 className="text-xl font-semibold text-sky-400 mt-10 mb-4">What We're Actually Building</h3>
               
               <p className="text-white/80 leading-relaxed mb-6">
                 We're not promising you'll get rich. We're not selling you a dream of easy money. We're not going to tell you to "just wait" while we work on things behind closed doors.
@@ -162,7 +162,7 @@ export default function DevelopersNote() {
               </p>
               
               <p className="text-white/80 leading-relaxed mb-6">
-                Trust Layer is a <strong className="text-purple-400">Trusted Network</strong> — a place where seeing another member means you're on the same team. Where we're all here to genuinely help each other succeed instead of trying to exploit each other for quick gains. A community of builders, creators, and people who are just tired of the way things have been.
+                Trust Layer is a <strong className="text-sky-400">Trusted Network</strong> — a place where seeing another member means you're on the same team. Where we're all here to genuinely help each other succeed instead of trying to exploit each other for quick gains. A community of builders, creators, and people who are just tired of the way things have been.
               </p>
               
               <p className="text-white/80 leading-relaxed mb-6">
@@ -179,7 +179,7 @@ export default function DevelopersNote() {
                 We're asking you to stick around. Watch what we do. Join the community. Become part of this. See for yourself whether our actions match our words over time. That's how trust is built — not with promises, but with consistent action.
               </p>
               
-              <div className="my-8 p-6 rounded-xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-white/10">
+              <div className="my-8 p-6 rounded-xl bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-white/10">
                 <p className="text-white/90 text-lg italic mb-0">
                   "We're trying to build something better than what's out there. More honest. More fair. A network where trust actually means something. Where seeing another member means you're on the same team."
                 </p>
@@ -249,8 +249,8 @@ export default function DevelopersNote() {
             </Link>
             
             <Link href="/crowdfund">
-              <GlassCard className="p-6 text-center cursor-pointer hover:border-purple-500/50 transition-all group">
-                <Heart className="w-8 h-8 text-purple-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+              <GlassCard className="p-6 text-center cursor-pointer hover:border-sky-500/50 transition-all group">
+                <Heart className="w-8 h-8 text-sky-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="font-semibold text-white mb-1">Support Development</h3>
                 <p className="text-sm text-white/60">Help us build this</p>
               </GlassCard>

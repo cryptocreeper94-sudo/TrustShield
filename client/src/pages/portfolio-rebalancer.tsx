@@ -25,7 +25,7 @@ interface Asset {
 }
 
 const PORTFOLIO: Asset[] = [
-  { symbol: "SIG", name: "Signal", currentValue: 8500, currentPercent: 42.5, targetPercent: 40, color: "#8b5cf6", change: 5.2 },
+  { symbol: "SIG", name: "Signal", currentValue: 8500, currentPercent: 42.5, targetPercent: 40, color: "#0ea5e9", change: 5.2 },
   { symbol: "stSIG", name: "Staked Signal", currentValue: 5200, currentPercent: 26, targetPercent: 30, color: "#06b6d4", change: 0 },
   { symbol: "USDC", name: "USD Coin", currentValue: 3000, currentPercent: 15, targetPercent: 15, color: "#22c55e", change: 0 },
   { symbol: "LP-SIG/USDC", name: "LP Tokens", currentValue: 2300, currentPercent: 11.5, targetPercent: 10, color: "#f59e0b", change: -2.1 },

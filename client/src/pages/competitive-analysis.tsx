@@ -35,7 +35,7 @@ const competitors = [
   {
     name: "Trust Layer",
     logo: "🌊",
-    color: "from-cyan-500 to-purple-600",
+    color: "from-cyan-500 to-sky-600",
     highlight: true,
     tps: "200,000+",
     finality: "400ms",
@@ -57,7 +57,7 @@ const competitors = [
   {
     name: "Solana",
     logo: "◎",
-    color: "from-purple-500 to-green-500",
+    color: "from-sky-500 to-green-500",
     highlight: false,
     tps: "65,000",
     finality: "400ms",
@@ -101,7 +101,7 @@ const competitors = [
   {
     name: "Polygon",
     logo: "⬡",
-    color: "from-purple-500 to-purple-600",
+    color: "from-sky-500 to-sky-600",
     highlight: false,
     tps: "7,000",
     finality: "2s",
@@ -163,7 +163,7 @@ const uniqueFeatures = [
     title: "ChronoPass Identity",
     description: "One reputation that follows you across all apps. Passkey login. Trust levels from newcomer to legend.",
     icon: Users,
-    gradient: "from-purple-500 to-pink-600",
+    gradient: "from-sky-500 to-pink-600",
     competitors: "0/4 competitors"
   },
   {
@@ -177,14 +177,14 @@ const uniqueFeatures = [
     title: "Quest Mining",
     description: "Earn tokens by contributing to the ecosystem. Verifiable quests with on-chain rewards.",
     icon: Target,
-    gradient: "from-purple-500 to-cyan-600",
+    gradient: "from-sky-500 to-cyan-600",
     competitors: "0/4 competitors"
   },
   {
     title: "Reality Layer Oracles",
     description: "On-chain notarization for game outcomes and real-world events. Multi-chain verification.",
     icon: Globe,
-    gradient: "from-indigo-500 to-violet-600",
+    gradient: "from-indigo-500 to-cyan-600",
     competitors: "0/4 competitors"
   },
   {
@@ -203,17 +203,17 @@ function FeatureCheck({ value }: { value: boolean | string }) {
   if (value === false) {
     return <X className="w-5 h-5 text-red-400/50" />;
   }
-  return <span className="text-xs text-purple-400">{value}</span>;
+  return <span className="text-xs text-sky-400">{value}</span>;
 }
 
 export default function CompetitiveAnalysis() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-black to-black pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-900/15 via-transparent to-transparent pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-sky-900/15 via-transparent to-transparent pointer-events-none" />
       
       <div className="fixed top-32 left-16 w-96 h-96 rounded-full bg-cyan-500/8 blur-[120px] animate-pulse pointer-events-none" />
-      <div className="fixed top-64 right-24 w-80 h-80 rounded-full bg-purple-500/10 blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
+      <div className="fixed top-64 right-24 w-80 h-80 rounded-full bg-sky-500/10 blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
       <div className="fixed bottom-32 left-1/3 w-72 h-72 rounded-full bg-pink-500/8 blur-[90px] animate-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
       <div className="fixed bottom-48 right-1/4 w-64 h-64 rounded-full bg-emerald-500/6 blur-[80px] animate-pulse pointer-events-none" style={{ animationDelay: '3s' }} />
       
@@ -224,7 +224,7 @@ export default function CompetitiveAnalysis() {
               <Trophy className="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
               <div className="absolute inset-0 bg-cyan-400/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <span className="font-display font-bold text-lg tracking-tight bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="font-display font-bold text-lg tracking-tight bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
               Why Trust Layer Wins
             </span>
           </Link>
@@ -239,7 +239,7 @@ export default function CompetitiveAnalysis() {
 
       <main className="pt-20 pb-12 relative">
         <section className="py-16 px-4 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-purple-500/3 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-sky-500/3 to-transparent" />
           
           <div className="container mx-auto max-w-7xl relative">
             <motion.div
@@ -252,7 +252,7 @@ export default function CompetitiveAnalysis() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-purple-500/20 border border-white/10 text-emerald-400 text-sm font-medium mb-6 shadow-[0_0_30px_rgba(16,185,129,0.2)]"
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-sky-500/20 border border-white/10 text-emerald-400 text-sm font-medium mb-6 shadow-[0_0_30px_rgba(16,185,129,0.2)]"
               >
                 <Star className="w-4 h-4" />
                 The Only Chain With Built-In Security & AI
@@ -262,7 +262,7 @@ export default function CompetitiveAnalysis() {
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-6 leading-tight">
                 <span className="text-white">Why Builders Choose</span>
                 <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+                <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)]">
                   Trust Layer
                 </span>
               </h1>
@@ -270,7 +270,7 @@ export default function CompetitiveAnalysis() {
               <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
                 Other chains give you speed. We give you speed, <span className="text-emerald-400 font-medium">security</span>, 
                 <span className="text-pink-400 font-medium"> verifiable AI</span>, and 
-                <span className="text-purple-400 font-medium"> portable identity</span> — all built-in.
+                <span className="text-sky-400 font-medium"> portable identity</span> — all built-in.
               </p>
             </motion.div>
 
@@ -387,8 +387,8 @@ export default function CompetitiveAnalysis() {
                           </td>
                         ))}
                       </tr>
-                      <tr className="border-b border-white/5 bg-purple-500/5">
-                        <td className="p-4 text-purple-400 text-sm font-medium flex items-center gap-2">
+                      <tr className="border-b border-white/5 bg-sky-500/5">
+                        <td className="p-4 text-sky-400 text-sm font-medium flex items-center gap-2">
                           <Users className="w-4 h-4" />
                           Unified Identity (ChronoPass)
                         </td>
@@ -409,8 +409,8 @@ export default function CompetitiveAnalysis() {
                           </td>
                         ))}
                       </tr>
-                      <tr className="border-b border-white/5 bg-purple-500/5">
-                        <td className="p-4 text-purple-400 text-sm font-medium flex items-center gap-2">
+                      <tr className="border-b border-white/5 bg-sky-500/5">
+                        <td className="p-4 text-sky-400 text-sm font-medium flex items-center gap-2">
                           <Target className="w-4 h-4" />
                           Quest Mining
                         </td>
@@ -491,7 +491,7 @@ export default function CompetitiveAnalysis() {
         </section>
 
         <section className="py-16 px-4 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/3 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-500/3 to-transparent" />
           
           <div className="container mx-auto max-w-7xl relative">
             <motion.div
@@ -501,7 +501,7 @@ export default function CompetitiveAnalysis() {
               className="mb-10"
             >
               <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.4)]">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-pink-600 flex items-center justify-center shadow-[0_0_30px_rgba(14,165,233,0.4)]">
                   <Sparkles className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -619,12 +619,12 @@ export default function CompetitiveAnalysis() {
               >
                 <GlassCard glow>
                   <div className="p-6 text-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent" />
-                    <Users className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-transparent" />
+                    <Users className="w-12 h-12 text-sky-400 mx-auto mb-4" />
                     <h3 className="text-xl font-bold text-white mb-2">One Identity</h3>
                     <p className="text-white/50 text-sm">
                       ChronoPass follows you everywhere. 
-                      <span className="text-purple-400 font-medium"> Build reputation once, use it across all apps.</span>
+                      <span className="text-sky-400 font-medium"> Build reputation once, use it across all apps.</span>
                     </p>
                   </div>
                 </GlassCard>
@@ -642,12 +642,12 @@ export default function CompetitiveAnalysis() {
             >
               <GlassCard glow>
                 <div className="p-8 md:p-12 text-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10" />
                   <div className="absolute top-0 left-1/4 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl" />
-                  <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
+                  <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-sky-500/20 rounded-full blur-3xl" />
                   
                   <div className="relative z-10">
-                    <Trophy className="w-14 h-14 text-purple-400 mx-auto mb-6" />
+                    <Trophy className="w-14 h-14 text-sky-400 mx-auto mb-6" />
                     <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
                       Ready to Build on the Best?
                     </h2>
@@ -657,7 +657,7 @@ export default function CompetitiveAnalysis() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Link href="/presale">
-                        <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold px-8 shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all" data-testid="button-join-presale">
+                        <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white font-bold px-8 shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all" data-testid="button-join-presale">
                           <Award className="w-5 h-5 mr-2" />
                           Join Presale
                         </Button>

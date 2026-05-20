@@ -88,7 +88,7 @@ const ECOSYSTEM_FEATURES = [
     description: "Unprecedented adventure platform where YOU are the hero",
     icon: Sparkles,
     image: fantasyWorld,
-    gradient: "from-purple-500/20 to-pink-600/20",
+    gradient: "from-sky-500/20 to-pink-600/20",
     fullDescription: "Chronicles is a revolutionary parallel life experience where your choices shape history. Explore different eras, build relationships, and discover who you could become in another time.",
     features: ["AI-driven narrative that adapts to you", "Multiple historical eras to explore", "Persistent world that remembers your choices", "Community-driven content creation", "Earn rewards through gameplay"],
   },
@@ -115,7 +115,7 @@ const ECOSYSTEM_FEATURES = [
     description: "Community-driven protocol decisions",
     icon: Users,
     image: communityVisual,
-    gradient: "from-purple-500/20 to-cyan-600/20",
+    gradient: "from-sky-500/20 to-cyan-600/20",
     fullDescription: "Your voice matters in Trust Layer. Signal holders participate in governance decisions that shape the future of the ecosystem through our decentralized autonomous organization.",
     features: ["Vote on protocol upgrades", "Propose new features", "Treasury allocation decisions", "Transparent on-chain governance", "Voting power based on Signal holdings"],
   },
@@ -124,7 +124,7 @@ const ECOSYSTEM_FEATURES = [
 function HolographicCard({ children, className = "", glow = "cyan" }: { children: React.ReactNode; className?: string; glow?: string }) {
   const glowColors: Record<string, string> = {
     cyan: "shadow-cyan-500/20",
-    purple: "shadow-purple-500/20",
+    purple: "shadow-sky-500/20",
     pink: "shadow-pink-500/20",
   };
   
@@ -203,7 +203,7 @@ function QuickBuyModal({ open, onClose }: { open: boolean; onClose: () => void }
   const TIERS = [
     { id: "founders_25", name: "Founders $25", amount: 2500, bonus: 5, color: "from-green-400 to-emerald-500" },
     { id: "founders_50", name: "Founders $50", amount: 5000, bonus: 10, color: "from-cyan-400 to-blue-500" },
-    { id: "founders_100", name: "Founders $100", amount: 10000, bonus: 15, color: "from-purple-400 to-pink-500" },
+    { id: "founders_100", name: "Founders $100", amount: 10000, bonus: 15, color: "from-sky-400 to-pink-500" },
     { id: "founders_250", name: "Founders $250", amount: 25000, bonus: 25, color: "from-teal-400 to-cyan-500" },
   ];
   
@@ -260,7 +260,7 @@ function QuickBuyModal({ open, onClose }: { open: boolean; onClose: () => void }
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="bg-slate-900 border-white/10 w-[90vw] max-w-sm p-4 rounded-xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
             Acquire Signal
           </DialogTitle>
           <DialogDescription className="text-gray-400">
@@ -270,7 +270,7 @@ function QuickBuyModal({ open, onClose }: { open: boolean; onClose: () => void }
         
         <div className="space-y-4 mt-3">
           {authUser && (
-            <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-lg p-3 flex items-center gap-2">
+            <div className="bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/30 rounded-lg p-3 flex items-center gap-2">
               <UserCheck className="w-4 h-4 text-cyan-400" />
               <span className="text-sm text-cyan-300">
                 Welcome back, {authUser.displayName || authUser.firstName || authUser.email}! Your info is pre-filled.
@@ -327,7 +327,7 @@ function QuickBuyModal({ open, onClose }: { open: boolean; onClose: () => void }
               </div>
             ) : (
               <div className="space-y-3">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+                <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20">
                   <p className="text-xs text-cyan-300 mb-3 text-center font-medium">
                     Connect your wallet for easy checkout
                   </p>
@@ -343,7 +343,7 @@ function QuickBuyModal({ open, onClose }: { open: boolean; onClose: () => void }
                     <button
                       type="button"
                       onClick={connectSolana}
-                      className="flex-1 py-2.5 px-3 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 text-sm font-medium hover:bg-purple-500/30 transition-colors flex items-center justify-center gap-2"
+                      className="flex-1 py-2.5 px-3 rounded-lg bg-sky-500/20 border border-sky-500/30 text-sky-400 text-sm font-medium hover:bg-sky-500/30 transition-colors flex items-center justify-center gap-2"
                     >
                       <Wallet className="w-4 h-4" />
                       Phantom
@@ -485,7 +485,7 @@ function QuickBuyModal({ open, onClose }: { open: boolean; onClose: () => void }
             className={`w-full py-6 text-lg font-bold hover:opacity-90 disabled:opacity-50 ${
               paymentMethod === "crypto" 
                 ? "bg-gradient-to-r from-cyan-500 to-teal-500" 
-                : "bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600"
+                : "bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600"
             }`}
           >
             {checkoutMutation.isPending ? (
@@ -498,8 +498,8 @@ function QuickBuyModal({ open, onClose }: { open: boolean; onClose: () => void }
             {paymentMethod === "crypto" ? "Pay with Crypto" : "Pay with Card"} - ${(amountCents / 100).toLocaleString()}
           </Button>
           
-          <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20">
-            <p className="text-xs text-purple-400 text-center">
+          <div className="p-3 rounded-lg bg-sky-500/10 border border-sky-500/20">
+            <p className="text-xs text-sky-400 text-center">
               No wallet needed now! Your allocation is tracked by email. You'll create a Trust Layer wallet before launch to receive your Signal.
             </p>
           </div>
@@ -527,7 +527,7 @@ function PresaleProgress() {
     <>
       <QuickBuyModal open={showBuyModal} onClose={() => setShowBuyModal(false)} />
       <HolographicCard className="p-8" glow="cyan">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500" />
         
         <div className="flex items-center gap-4 mb-6">
           <div className="relative">
@@ -537,7 +537,7 @@ function PresaleProgress() {
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.div
-              className="absolute inset-[-16px] rounded-full border border-purple-400/30"
+              className="absolute inset-[-16px] rounded-full border border-sky-400/30"
               animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0, 0.4] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
             />
@@ -560,16 +560,16 @@ function PresaleProgress() {
             <p className="text-xl sm:text-3xl font-bold text-cyan-400">${currentPrice}</p>
             <p className="text-gray-500 text-xs sm:text-sm">Current Price</p>
             {nextMilestone && nextPrice && (
-              <p className="text-xs text-purple-400 mt-1">
+              <p className="text-xs text-sky-400 mt-1">
                 ${nextPrice} at ${(nextMilestone / 1000).toFixed(0)}K raised
               </p>
             )}
           </div>
           <div className="text-center p-3 sm:p-4 rounded-xl bg-white/5" data-testid="stat-tokens-sold">
             {isLoading ? (
-              <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin mx-auto text-purple-400" />
+              <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin mx-auto text-sky-400" />
             ) : (
-              <p className="text-xl sm:text-3xl font-bold text-purple-400">
+              <p className="text-xl sm:text-3xl font-bold text-sky-400">
                 {tokensSold > 0 ? `${(tokensSold / 1000).toFixed(1)}K` : "0"}
               </p>
             )}
@@ -594,7 +594,7 @@ function PresaleProgress() {
           </div>
           <div className="h-4 bg-gray-800 rounded-full overflow-hidden relative">
             <motion.div
-              className="h-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full"
+              className="h-full bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-full"
               initial={{ width: 0 }}
               animate={{ width: `${Math.max(progress, 0.5)}%` }}
               transition={{ duration: 2, ease: "easeOut" }}
@@ -623,7 +623,7 @@ function PresaleProgress() {
           </p>
         </div>
 
-        <div className="mb-4 p-4 rounded-xl bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-purple-500/10 border border-purple-500/20">
+        <div className="mb-4 p-4 rounded-xl bg-gradient-to-r from-sky-500/10 via-cyan-500/10 to-sky-500/10 border border-sky-500/20">
           <div className="flex items-center gap-2 mb-2">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             <p className="text-white font-semibold text-sm">Building in Public</p>
@@ -638,9 +638,9 @@ function PresaleProgress() {
             <span className="px-3 py-1.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 text-center whitespace-nowrap">Portal Live</span>
             <span className="px-3 py-1.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 text-center whitespace-nowrap">DEX Live</span>
             <span className="px-3 py-1.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 text-center whitespace-nowrap">Staking Live</span>
-            <span className="px-3 py-1.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center whitespace-nowrap">Chronicles</span>
-            <span className="px-3 py-1.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center whitespace-nowrap">Scanner</span>
-            <span className="px-3 py-1.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center whitespace-nowrap col-span-2">Arcade Building</span>
+            <span className="px-3 py-1.5 rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/30 text-center whitespace-nowrap">Chronicles</span>
+            <span className="px-3 py-1.5 rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/30 text-center whitespace-nowrap">Scanner</span>
+            <span className="px-3 py-1.5 rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/30 text-center whitespace-nowrap col-span-2">Arcade Building</span>
           </div>
           <p className="text-gray-400 text-[10px] leading-relaxed">
             Have an idea for a web app or website? We're building an ecosystem of connected applications. 
@@ -650,7 +650,7 @@ function PresaleProgress() {
 
         <Button 
           onClick={() => setShowBuyModal(true)}
-          className="w-full py-6 text-lg font-bold bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 hover:opacity-90"
+          className="w-full py-6 text-lg font-bold bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600 hover:opacity-90"
           data-testid="button-buy-signal"
         >
           <Wallet className="w-5 h-5 mr-2" />
@@ -727,8 +727,8 @@ function TierCard({ tier, index }: { tier: PresaleTier; index: number }) {
   const [paymentMethod, setPaymentMethod] = useState<"card" | "crypto">("card");
   const tierImages = [quantumRealm, deepSpace, cyberpunkCity, fantasyWorld];
   const tierColors: Record<string, string> = {
-    genesis: "from-teal-400 to-purple-500",
-    founder: "from-purple-400 to-pink-500",
+    genesis: "from-teal-400 to-sky-500",
+    founder: "from-sky-400 to-pink-500",
     pioneer: "from-cyan-400 to-blue-500",
     early_bird: "from-green-400 to-emerald-500",
   };
@@ -818,7 +818,7 @@ function TierCard({ tier, index }: { tier: PresaleTier; index: number }) {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               {tier.tier === "genesis" && <Crown className="w-6 h-6 text-teal-400" />}
-              {tier.tier === "founder" && <Star className="w-6 h-6 text-purple-400" />}
+              {tier.tier === "founder" && <Star className="w-6 h-6 text-sky-400" />}
               {tier.tier === "pioneer" && <Rocket className="w-6 h-6 text-cyan-400" />}
               {tier.tier === "early_bird" && <Gift className="w-6 h-6 text-green-400" />}
               <h3 className="text-xl font-bold text-white">{tier.name}</h3>
@@ -910,7 +910,7 @@ function TierCard({ tier, index }: { tier: PresaleTier; index: number }) {
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-2xl">
               {tier.tier === "genesis" && <Crown className="w-6 h-6 sm:w-8 sm:h-8 text-teal-400 flex-shrink-0" />}
-              {tier.tier === "founder" && <Star className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400 flex-shrink-0" />}
+              {tier.tier === "founder" && <Star className="w-6 h-6 sm:w-8 sm:h-8 text-sky-400 flex-shrink-0" />}
               {tier.tier === "pioneer" && <Rocket className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 flex-shrink-0" />}
               {tier.tier === "early_bird" && <Gift className="w-6 h-6 sm:w-8 sm:h-8 text-green-400 flex-shrink-0" />}
               <span className={`bg-gradient-to-r ${color} bg-clip-text text-transparent`}>
@@ -952,7 +952,7 @@ function TierCard({ tier, index }: { tier: PresaleTier; index: number }) {
               <ul className="space-y-1.5 sm:space-y-2">
                 {tierDetails.benefits.map((benefit, i) => (
                   <li key={i} className="flex items-start gap-2 text-gray-300 text-sm sm:text-base">
-                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-400 mt-0.5 flex-shrink-0" />
                     {benefit}
                   </li>
                 ))}
@@ -1063,7 +1063,7 @@ function EcosystemCard({ feature, index }: { feature: typeof ECOSYSTEM_FEATURES[
 
           <Button 
             onClick={() => setShowModal(false)}
-            className="w-full mt-3 sm:mt-4 bg-gradient-to-r from-cyan-600 to-purple-600 hover:opacity-90 py-3"
+            className="w-full mt-3 sm:mt-4 bg-gradient-to-r from-cyan-600 to-sky-600 hover:opacity-90 py-3"
           >
             Got It
           </Button>
@@ -1121,15 +1121,15 @@ function PurchaseCalculator() {
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+        <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-400 text-sm">Total Signal</p>
-              <p className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <p className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                 {totalTokens.toLocaleString(undefined, { maximumFractionDigits: 0 })}
               </p>
             </div>
-            <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-white border-cyan-500/30">
+            <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-white border-cyan-500/30">
               {matchedTier?.name || "Standard"} Tier
             </Badge>
           </div>
@@ -1177,7 +1177,7 @@ function LaunchCountdownBanner() {
         <div
           className="relative overflow-hidden rounded-2xl p-5 sm:p-6 cursor-pointer group transition-all hover:scale-[1.01]"
           style={{
-            background: "linear-gradient(135deg, rgba(239,68,68,0.1) 0%, rgba(245,158,11,0.1) 30%, rgba(6,182,212,0.1) 70%, rgba(139,92,246,0.1) 100%)",
+            background: "linear-gradient(135deg, rgba(239,68,68,0.1) 0%, rgba(245,158,11,0.1) 30%, rgba(6,182,212,0.1) 70%, rgba(14,165,233,0.1) 100%)",
             border: "1px solid rgba(239,68,68,0.3)",
             boxShadow: "0 0 40px rgba(239,68,68,0.1), 0 0 80px rgba(6,182,212,0.05)",
           }}
@@ -1192,7 +1192,7 @@ function LaunchCountdownBanner() {
           
           <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-purple-500 flex items-center justify-center" style={{ boxShadow: "0 0 15px rgba(239,68,68,0.4)" }}>
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-sky-500 flex items-center justify-center" style={{ boxShadow: "0 0 15px rgba(239,68,68,0.4)" }}>
                 <Rocket className="w-5 h-5 text-white" />
               </div>
               <div className="text-left">
@@ -1247,8 +1247,8 @@ function MyPurchases({ userEmail, walletAddress }: { userEmail?: string; walletA
   return (
     <HolographicCard className="p-6 mb-8" glow="purple">
       <div className="flex items-center gap-3 mb-4">
-        <div className="p-2 rounded-lg bg-purple-500/20">
-          <History className="w-5 h-5 text-purple-400" />
+        <div className="p-2 rounded-lg bg-sky-500/20">
+          <History className="w-5 h-5 text-sky-400" />
         </div>
         <div>
           <h3 className="text-lg font-bold text-white">Your Purchases</h3>
@@ -1257,15 +1257,15 @@ function MyPurchases({ userEmail, walletAddress }: { userEmail?: string; walletA
       </div>
 
       <div className="grid grid-cols-2 gap-4 mb-4">
-        <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+        <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20">
           <p className="text-gray-400 text-xs">Total Signal Tokens</p>
           <p className="text-xl font-bold text-cyan-400">{data.total.tokens.toLocaleString()} SIG</p>
           <p className="text-[10px] text-cyan-400/60 mt-1">Delivered at mainnet launch</p>
         </div>
-        <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+        <div className="p-3 rounded-xl bg-gradient-to-r from-sky-500/10 to-pink-500/10 border border-sky-500/20">
           <p className="text-gray-400 text-xs">Total Invested</p>
-          <p className="text-xl font-bold text-purple-400">${data.total.spent.toLocaleString()}</p>
-          <p className="text-[10px] text-purple-400/60 mt-1">@ $0.001 per SIG</p>
+          <p className="text-xl font-bold text-sky-400">${data.total.spent.toLocaleString()}</p>
+          <p className="text-[10px] text-sky-400/60 mt-1">@ $0.001 per SIG</p>
         </div>
       </div>
 
@@ -1298,7 +1298,7 @@ function MyPurchases({ userEmail, walletAddress }: { userEmail?: string; walletA
       </div>
 
       <Link href="/my-hub">
-        <Button className="w-full bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700" data-testid="button-presale-go-to-hub">
+        <Button className="w-full bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-700 hover:to-sky-700" data-testid="button-presale-go-to-hub">
           View Your Portal <ArrowRight className="w-4 h-4 ml-2" />
         </Button>
       </Link>
@@ -1367,7 +1367,7 @@ function LiveTransactionFeed() {
               data-testid={`recent-tx-${tx.id}`}
             >
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 flex items-center justify-center text-sm font-bold text-cyan-300 border border-cyan-500/20">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500/30 to-sky-500/30 flex items-center justify-center text-sm font-bold text-cyan-300 border border-cyan-500/20">
                   {tx.name.charAt(0).toUpperCase()}
                 </div>
                 <div>
@@ -1392,11 +1392,11 @@ function ReferralBanner({ referrer }: { referrer: string }) {
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-purple-500/20 via-cyan-500/20 to-purple-500/20 border border-purple-500/30"
+      className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-sky-500/20 via-cyan-500/20 to-sky-500/20 border border-sky-500/30"
     >
       <div className="flex items-center justify-center gap-3">
-        <User className="w-5 h-5 text-purple-400" />
-        <span className="text-purple-300 font-medium">
+        <User className="w-5 h-5 text-sky-400" />
+        <span className="text-sky-300 font-medium">
           You were referred by: <span className="text-white font-bold">{referrer}</span>
         </span>
       </div>
@@ -1469,13 +1469,13 @@ function AllocationLookup() {
           {lookupResult.purchases.length > 0 ? (
             <div className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
-                <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20">
                   <p className="text-gray-400 text-xs">Total Signal Tokens</p>
                   <p className="text-xl font-bold text-cyan-400" data-testid="text-lookup-total-tokens">{lookupResult.total.tokens.toLocaleString()} SIG</p>
                 </div>
-                <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-sky-500/10 to-pink-500/10 border border-sky-500/20">
                   <p className="text-gray-400 text-xs">Total Invested</p>
-                  <p className="text-xl font-bold text-purple-400">${lookupResult.total.spent.toLocaleString()}</p>
+                  <p className="text-xl font-bold text-sky-400">${lookupResult.total.spent.toLocaleString()}</p>
                 </div>
               </div>
               <div className="space-y-2">
@@ -1520,7 +1520,7 @@ export default function Presale() {
       <div 
         className="absolute inset-0 opacity-30"
         style={{
-          background: "radial-gradient(circle at 20% 20%, rgba(0,200,255,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(168,85,247,0.15) 0%, transparent 50%)",
+          background: "radial-gradient(circle at 20% 20%, rgba(0,200,255,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(14,165,233,0.15) 0%, transparent 50%)",
         }}
       />
       
@@ -1574,7 +1574,7 @@ export default function Presale() {
 
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-8">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
               The Trust Layer Ecosystem
             </span>
           </h2>
@@ -1606,8 +1606,8 @@ export default function Presale() {
                 </HolographicCard>
                 
                 <HolographicCard className="p-6 pt-4 text-center w-64 lg:w-auto flex-shrink-0" glow="purple">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm shadow-lg mx-auto mb-3">2</div>
-                  <Wallet className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-sky-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm shadow-lg mx-auto mb-3">2</div>
+                  <Wallet className="w-8 h-8 text-sky-400 mx-auto mb-4" />
                   <h3 className="text-lg font-bold text-white mb-2">Pay with Crypto</h3>
                   <p className="text-gray-400 text-sm">Complete checkout via Coinbase - BTC, ETH, USDC accepted</p>
                 </HolographicCard>
@@ -1620,8 +1620,8 @@ export default function Presale() {
                 </HolographicCard>
                 
                 <HolographicCard className="p-6 pt-4 text-center w-64 lg:w-auto flex-shrink-0" glow="purple">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg mx-auto mb-3">4</div>
-                  <Coins className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg mx-auto mb-3">4</div>
+                  <Coins className="w-8 h-8 text-sky-400 mx-auto mb-4" />
                   <h3 className="text-lg font-bold text-white mb-2">Receive Signal</h3>
                   <p className="text-gray-400 text-sm">Signal + converted Shells airdropped to your wallet</p>
                 </HolographicCard>
@@ -1630,7 +1630,7 @@ export default function Presale() {
             <p className="text-center text-gray-500 text-xs mt-3 lg:hidden">Swipe to see all steps →</p>
           </div>
           
-          <div className="max-w-3xl mx-auto p-6 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-white/10">
+          <div className="max-w-3xl mx-auto p-6 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-white/10">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
                 <Shield className="w-5 h-5 text-blue-400" />
@@ -1655,7 +1655,7 @@ export default function Presale() {
             <p className="text-gray-400 text-sm">Smart contracts verified by leading security firms</p>
           </HolographicCard>
           <HolographicCard className="p-6 text-center">
-            <Clock className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+            <Clock className="w-8 h-8 text-sky-400 mx-auto mb-4" />
             <h3 className="text-lg font-bold text-white mb-2">Vesting Schedule</h3>
             <p className="text-gray-400 text-sm">20% at launch, 80% vested</p>
           </HolographicCard>
@@ -1668,7 +1668,7 @@ export default function Presale() {
 
         <div className="mb-16">
           <div className="text-center mb-8">
-            <Badge className="mb-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-400 border-cyan-500/30">
+            <Badge className="mb-4 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-400 border-cyan-500/30">
               <Shield className="w-3 h-3 mr-1" />
               Trust Layer Membership
             </Badge>
@@ -1690,7 +1690,7 @@ export default function Presale() {
             
             <Link href="/member-portal" data-testid="link-individual-signup">
               <HolographicCard className="p-6 text-center cursor-pointer hover:scale-105 transition-transform" glow="purple">
-                <User className="w-10 h-10 text-purple-400 mx-auto mb-4" />
+                <User className="w-10 h-10 text-sky-400 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-white mb-2">Individual Member</h3>
                 <p className="text-gray-400 text-sm mb-4">Sign up instantly and start building your trust profile</p>
                 <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-xs">Instant Access</Badge>
@@ -1699,10 +1699,10 @@ export default function Presale() {
             
             <Link href="/business-application" data-testid="link-business-signup">
               <HolographicCard className="p-6 text-center cursor-pointer hover:scale-105 transition-transform" glow="purple">
-                <Crown className="w-10 h-10 text-purple-400 mx-auto mb-4" />
+                <Crown className="w-10 h-10 text-sky-400 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-white mb-2">Business Member</h3>
                 <p className="text-gray-400 text-sm mb-4">Verified business accounts with API access</p>
-                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs">Requires Verification</Badge>
+                <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 text-xs">Requires Verification</Badge>
               </HolographicCard>
             </Link>
           </div>
@@ -1710,13 +1710,13 @@ export default function Presale() {
 
         <div className="text-center mb-8">
           <Link href="/home" data-testid="link-explore-trust-layer">
-            <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-semibold px-8 py-3 mb-6" size="lg">
+            <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 text-white font-semibold px-8 py-3 mb-6" size="lg">
               <Globe className="w-5 h-5 mr-2" />
               Explore Trust Layer
             </Button>
           </Link>
           <div className="flex flex-wrap justify-center gap-6">
-            <Link href="/investment-simulator" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300" data-testid="link-simulator">
+            <Link href="/investment-simulator" className="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300" data-testid="link-simulator">
               <Calculator className="w-4 h-4" /> Investment Simulator
             </Link>
             <Link href="/roadmap" className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300" data-testid="link-view-roadmap">

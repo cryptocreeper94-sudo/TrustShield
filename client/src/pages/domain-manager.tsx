@@ -304,12 +304,12 @@ export default function DomainManager() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <h1 className="text-3xl md:text-4xl font-bold">
-                  <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                     {domain.name}.{domain.tld}
                   </span>
                 </h1>
                 {domain.isPremium && (
-                  <Badge className="bg-gradient-to-r from-purple-500 to-teal-500 text-black">
+                  <Badge className="bg-gradient-to-r from-sky-500 to-teal-500 text-black">
                     <Crown className="w-3 h-3 mr-1" /> Premium
                   </Badge>
                 )}
@@ -334,7 +334,7 @@ export default function DomainManager() {
             {isOwner && domain.ownershipType === "term" && (
               <Button 
                 onClick={() => setShowRenewDialog(true)}
-                className="bg-gradient-to-r from-cyan-500 to-purple-500"
+                className="bg-gradient-to-r from-cyan-500 to-sky-500"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Renew Domain
@@ -344,10 +344,10 @@ export default function DomainManager() {
         </motion.div>
 
         {!isOwner && (
-          <GlassCard className="p-4 mb-6 border-purple-500/30 bg-purple-500/10">
+          <GlassCard className="p-4 mb-6 border-sky-500/30 bg-sky-500/10">
             <div className="flex items-center gap-3">
-              <Shield className="w-5 h-5 text-purple-400" />
-              <p className="text-purple-200">
+              <Shield className="w-5 h-5 text-sky-400" />
+              <p className="text-sky-200">
                 You are viewing this domain. Connect the owner wallet to make changes.
               </p>
             </div>
@@ -435,7 +435,7 @@ export default function DomainManager() {
                   return (
                     <div key={wallet.value} className="flex items-center gap-4 p-4 bg-white/5 rounded-lg border border-white/10">
                       <div className="w-24">
-                        <Badge variant="outline" className="bg-purple-500/20 text-purple-400 border-purple-500/30">
+                        <Badge variant="outline" className="bg-sky-500/20 text-sky-400 border-sky-500/30">
                           {wallet.label}
                         </Badge>
                       </div>

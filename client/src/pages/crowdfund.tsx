@@ -78,8 +78,8 @@ const CATEGORY_ICONS: Record<string, any> = {
 const CATEGORY_COLORS: Record<string, string> = {
   defi: "from-green-500/20 to-emerald-500/20 border-green-500/30",
   wallet: "from-blue-500/20 to-cyan-500/20 border-blue-500/30",
-  nft: "from-purple-500/20 to-pink-500/20 border-purple-500/30",
-  governance: "from-purple-500/20 to-cyan-500/20 border-purple-500/30",
+  nft: "from-sky-500/20 to-pink-500/20 border-sky-500/30",
+  governance: "from-sky-500/20 to-cyan-500/20 border-sky-500/30",
   infrastructure: "from-cyan-500/20 to-blue-500/20 border-cyan-500/30",
   gaming: "from-pink-500/20 to-rose-500/20 border-pink-500/30",
   security: "from-red-500/20 to-cyan-500/20 border-red-500/30",
@@ -102,7 +102,7 @@ function ProgressMeter({ raised, goal, size = "default" }: { raised: number; goa
       <div className="relative">
         <div className={`h-${size === "large" ? "4" : "2"} bg-gray-800 rounded-full overflow-hidden`}>
           <motion.div
-            className="h-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full"
+            className="h-full bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${percentage}%` }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -254,7 +254,7 @@ function DonationModal({ feature, onSuccess }: { feature?: CrowdfundFeature; onS
             onClick={() => setPaymentMethod("card")}
             className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
               paymentMethod === "card" 
-                ? "bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-white border border-cyan-500/30" 
+                ? "bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-white border border-cyan-500/30" 
                 : "text-gray-400 hover:text-white bg-gray-800/50"
             }`}
             data-testid="button-pay-card"
@@ -279,7 +279,7 @@ function DonationModal({ feature, onSuccess }: { feature?: CrowdfundFeature; onS
       </div>
 
       <Button
-        className={`w-full ${paymentMethod === "crypto" ? "bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-600 hover:to-teal-600" : "bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600"}`}
+        className={`w-full ${paymentMethod === "crypto" ? "bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-600 hover:to-teal-600" : "bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600"}`}
         onClick={handleDonate}
         disabled={isLoading}
         data-testid="button-donate"
@@ -325,7 +325,7 @@ function FeatureCard({ feature }: { feature: CrowdfundFeature }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
         </div>
         
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500" />
         
         <div className="absolute inset-0 opacity-30 pointer-events-none" style={{
           background: "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px)",
@@ -349,7 +349,7 @@ function FeatureCard({ feature }: { feature: CrowdfundFeature }) {
           <div className="space-y-2">
             <div className="h-3 bg-black/50 backdrop-blur-sm rounded-full overflow-hidden border border-white/10">
               <motion.div
-                className="h-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full"
+                className="h-full bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${Math.min(percentage, 100)}%` }}
                 transition={{ duration: 1, ease: "easeOut" }}
@@ -371,7 +371,7 @@ function FeatureCard({ feature }: { feature: CrowdfundFeature }) {
           <Dialog>
             <DialogTrigger asChild>
               <Button 
-                className="w-full bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 hover:opacity-90 border-0"
+                className="w-full bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600 hover:opacity-90 border-0"
                 data-testid={`button-fund-${feature.id}`}
               >
                 <Heart className="w-4 h-4 mr-2" />
@@ -405,7 +405,7 @@ function ContributionRow({ contribution }: { contribution: Contribution }) {
       className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg border border-gray-700/50"
     >
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center">
           <Heart className="w-4 h-4 text-white" />
         </div>
         <div>
@@ -511,7 +511,7 @@ export default function CrowdfundPage() {
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-8">
@@ -540,7 +540,7 @@ export default function CrowdfundPage() {
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <Shield className="w-7 h-7 text-cyan-400" />
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Development Fund
             </h1>
           </div>
@@ -570,7 +570,7 @@ export default function CrowdfundPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
             </div>
             
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500" />
             
             <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
               background: "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px)",
@@ -593,7 +593,7 @@ export default function CrowdfundPage() {
                   <DialogTrigger asChild>
                     <Button 
                       size="lg" 
-                      className="bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 hover:opacity-90 px-8 border-0"
+                      className="bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600 hover:opacity-90 px-8 border-0"
                       data-testid="button-donate-main"
                     >
                       <Gift className="w-5 h-5 mr-2" />
@@ -633,7 +633,7 @@ export default function CrowdfundPage() {
                 <p className="text-[10px] sm:text-sm text-gray-400">Total Raised</p>
               </div>
               <div className="text-center p-2 sm:p-4 bg-black/40 backdrop-blur-sm rounded-xl border border-white/10">
-                <p className="text-lg sm:text-2xl font-bold text-purple-400">
+                <p className="text-lg sm:text-2xl font-bold text-sky-400">
                   {stats?.contributorCount || 0}
                 </p>
                 <p className="text-[10px] sm:text-sm text-gray-400">Backers</p>
@@ -706,11 +706,11 @@ export default function CrowdfundPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <GlassCard className="p-6 h-full bg-gradient-to-br from-purple-500/5 to-cyan-500/5 border-purple-500/20">
+            <GlassCard className="p-6 h-full bg-gradient-to-br from-sky-500/5 to-cyan-500/5 border-sky-500/20">
               <div className="flex items-center gap-2 mb-6">
-                <Lock className="w-5 h-5 text-purple-400" />
+                <Lock className="w-5 h-5 text-sky-400" />
                 <h3 className="text-xl font-bold text-white">Community Voting</h3>
-                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 ml-auto">
+                <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 ml-auto">
                   Coming Soon
                 </Badge>
               </div>
@@ -718,13 +718,13 @@ export default function CrowdfundPage() {
               <div className="relative min-h-[280px]">
                 <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-sm rounded-lg z-10 flex items-center justify-center">
                   <div className="text-center p-4">
-                    <Lock className="w-10 h-10 text-purple-400 mx-auto mb-3" />
+                    <Lock className="w-10 h-10 text-sky-400 mx-auto mb-3" />
                     <h4 className="text-base font-semibold text-white mb-2">Voting Unlocks with Funding</h4>
                     <p className="text-gray-400 text-xs mb-3">
                       Community voting will be enabled once we reach our initial funding milestone. 
                       Contributors will have weighted voting power.
                     </p>
-                    <Badge variant="outline" className="text-purple-400 border-purple-400/30">
+                    <Badge variant="outline" className="text-sky-400 border-sky-400/30">
                       Target: $25,000
                     </Badge>
                   </div>

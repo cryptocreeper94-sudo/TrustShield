@@ -137,10 +137,10 @@ export default function CoinStore() {
     switch (packId) {
       case "starter": return "from-blue-500/20 to-blue-600/10";
       case "value": return "from-green-500/20 to-emerald-600/10";
-      case "popular": return "from-purple-500/20 to-violet-600/10";
-      case "mega": return "from-cyan-500/20 to-purple-600/10";
+      case "popular": return "from-sky-500/20 to-cyan-600/10";
+      case "mega": return "from-cyan-500/20 to-sky-600/10";
       case "premium": return "from-pink-500/20 to-rose-600/10";
-      case "whale": return "from-teal-400/20 to-purple-500/10";
+      case "whale": return "from-teal-400/20 to-sky-500/10";
       default: return "from-gray-500/20 to-gray-600/10";
     }
   };
@@ -149,7 +149,7 @@ export default function CoinStore() {
     switch (packId) {
       case "starter": return "border-blue-500/30 hover:border-blue-400/50";
       case "value": return "border-green-500/30 hover:border-green-400/50";
-      case "popular": return "border-purple-500/30 hover:border-purple-400/50 ring-2 ring-purple-500/20";
+      case "popular": return "border-sky-500/30 hover:border-sky-400/50 ring-2 ring-sky-500/20";
       case "mega": return "border-cyan-500/30 hover:border-cyan-400/50";
       case "premium": return "border-pink-500/30 hover:border-pink-400/50";
       case "whale": return "border-teal-400/30 hover:border-teal-300/50 ring-2 ring-teal-400/20";
@@ -179,14 +179,14 @@ export default function CoinStore() {
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-purple-400">Loading...</div>
+        <div className="animate-pulse text-sky-400">Loading...</div>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0a0f] via-[#12121a] to-[#0a0a0f] text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-900/20 via-transparent to-transparent pointer-events-none" />
       
       <div className="relative z-10 container mx-auto px-4 py-8 max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
@@ -196,9 +196,9 @@ export default function CoinStore() {
               Coin Store
             </h1>
             <p className="text-gray-400 mt-2">Purchase Gold Coins to play games. Get FREE Sweeps Coins with every purchase!</p>
-            <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-              <span className="text-[10px] text-purple-400 font-semibold uppercase tracking-wider">Beta — Early Access</span>
+            <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+              <span className="text-[10px] text-sky-400 font-semibold uppercase tracking-wider">Beta — Early Access</span>
             </div>
           </div>
           
@@ -206,7 +206,7 @@ export default function CoinStore() {
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 backdrop-blur-xl rounded-2xl p-4 border border-purple-500/30"
+              className="bg-gradient-to-r from-sky-900/50 to-pink-900/50 backdrop-blur-xl rounded-2xl p-4 border border-sky-500/30"
             >
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2">
@@ -234,10 +234,10 @@ export default function CoinStore() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <Card className="bg-gradient-to-br from-purple-900/30 to-purple-900/10 border-purple-500/30 backdrop-blur-xl">
+          <Card className="bg-gradient-to-br from-sky-900/30 to-sky-900/10 border-sky-500/30 backdrop-blur-xl">
             <CardContent className="p-6 flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center">
-                <Shield className="w-7 h-7 text-purple-400" />
+              <div className="w-14 h-14 rounded-full bg-sky-500/20 flex items-center justify-center">
+                <Shield className="w-7 h-7 text-sky-400" />
               </div>
               <div>
                 <h3 className="font-semibold text-white">Secure Payments</h3>
@@ -289,12 +289,12 @@ export default function CoinStore() {
                   <Card className={`relative overflow-hidden bg-gradient-to-br ${getPackGradient(pack.id)} border ${getPackBorder(pack.id)} backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl cursor-pointer group`}
                     onClick={() => handlePurchase(pack)}>
                     {isPopular && (
-                      <div className="absolute -top-1 -right-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                      <div className="absolute -top-1 -right-1 bg-gradient-to-r from-sky-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                         MOST POPULAR
                       </div>
                     )}
                     {isWhale && (
-                      <div className="absolute -top-1 -right-1 bg-gradient-to-r from-teal-400 to-purple-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                      <div className="absolute -top-1 -right-1 bg-gradient-to-r from-teal-400 to-sky-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                         BEST VALUE
                       </div>
                     )}
@@ -302,7 +302,7 @@ export default function CoinStore() {
                     <CardHeader className="pb-2">
                       <div className="flex items-center justify-between">
                         <div className="w-14 h-14 rounded-2xl bg-black/30 flex items-center justify-center border border-white/10">
-                          <Icon className={`w-7 h-7 ${isWhale ? 'text-teal-400' : isPopular ? 'text-purple-400' : 'text-white/80'}`} />
+                          <Icon className={`w-7 h-7 ${isWhale ? 'text-teal-400' : isPopular ? 'text-sky-400' : 'text-white/80'}`} />
                         </div>
                         <Badge variant="outline" className="bg-green-500/20 border-green-500/50 text-green-400">
                           +{pack.bonusSc} SC FREE
@@ -323,7 +323,7 @@ export default function CoinStore() {
                       <div className="flex items-center justify-between">
                         <div className="text-2xl font-bold text-white">${pack.priceUsd}</div>
                         <Button 
-                          className={`${isWhale ? 'bg-gradient-to-r from-teal-400 to-purple-500 text-black hover:from-teal-300 hover:to-purple-400' : isPopular ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400' : 'bg-white/10 hover:bg-white/20'} transition-all group-hover:scale-105`}
+                          className={`${isWhale ? 'bg-gradient-to-r from-teal-400 to-sky-500 text-black hover:from-teal-300 hover:to-sky-400' : isPopular ? 'bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-400 hover:to-pink-400' : 'bg-white/10 hover:bg-white/20'} transition-all group-hover:scale-105`}
                           data-testid={`buy-button-${pack.id}`}
                         >
                           Buy Now <ChevronRight className="w-4 h-4 ml-1" />
@@ -342,10 +342,10 @@ export default function CoinStore() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <Card className="bg-gradient-to-r from-blue-900/30 via-purple-900/30 to-pink-900/30 border-blue-500/30 backdrop-blur-xl overflow-hidden">
+          <Card className="bg-gradient-to-r from-blue-900/30 via-sky-900/30 to-pink-900/30 border-blue-500/30 backdrop-blur-xl overflow-hidden">
             <CardContent className="p-6 md:p-8">
               <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center flex-shrink-0">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 to-sky-600 flex items-center justify-center flex-shrink-0">
                   <Gift className="w-10 h-10 text-white" />
                 </div>
                 <div className="flex-1 text-center md:text-left">
@@ -370,7 +370,7 @@ export default function CoinStore() {
 
         <div className="bg-black/30 rounded-2xl border border-white/10 p-6 md:p-8">
           <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <Info className="w-5 h-5 text-purple-400" />
+            <Info className="w-5 h-5 text-sky-400" />
             How It Works
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -393,8 +393,8 @@ export default function CoinStore() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-purple-400 font-bold">3</span>
+              <div className="w-10 h-10 rounded-full bg-sky-500/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-sky-400 font-bold">3</span>
               </div>
               <div>
                 <h4 className="font-semibold text-white mb-1">Redeem for Prizes</h4>
@@ -410,18 +410,18 @@ export default function CoinStore() {
               No purchase necessary to obtain SC via the Alternate Method of Entry (AMOE).
             </p>
             <p>
-              By purchasing, you agree to our <a href="/terms" className="text-purple-400 hover:underline">Terms of Service</a> and 
-              <a href="/sweepstakes-rules" className="text-purple-400 hover:underline ml-1">Official Sweepstakes Rules</a>.
+              By purchasing, you agree to our <a href="/terms" className="text-sky-400 hover:underline">Terms of Service</a> and 
+              <a href="/sweepstakes-rules" className="text-sky-400 hover:underline ml-1">Official Sweepstakes Rules</a>.
             </p>
           </div>
         </div>
       </div>
 
       <Dialog open={purchaseDialogOpen} onOpenChange={setPurchaseDialogOpen}>
-        <DialogContent className="bg-gradient-to-br from-gray-900 to-gray-950 border-purple-500/30">
+        <DialogContent className="bg-gradient-to-br from-gray-900 to-gray-950 border-sky-500/30">
           <DialogHeader>
             <DialogTitle className="text-xl flex items-center gap-2">
-              <CreditCard className="w-5 h-5 text-purple-400" />
+              <CreditCard className="w-5 h-5 text-sky-400" />
               Confirm Purchase
             </DialogTitle>
             <DialogDescription>
@@ -468,7 +468,7 @@ export default function CoinStore() {
             <Button 
               onClick={confirmPurchase}
               disabled={purchaseMutation.isPending}
-              className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400"
+              className="flex-1 bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-400 hover:to-pink-400"
               data-testid="confirm-purchase-button"
             >
               {purchaseMutation.isPending ? (
@@ -532,7 +532,7 @@ export default function CoinStore() {
             <Button 
               onClick={() => amoeMutation.mutate()}
               disabled={amoeMutation.isPending || !user}
-              className="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400"
+              className="flex-1 bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-400 hover:to-sky-400"
               data-testid="claim-amoe-button"
             >
               {amoeMutation.isPending ? (

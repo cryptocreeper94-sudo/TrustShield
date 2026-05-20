@@ -68,7 +68,7 @@ export default function TrustDocumentOps() {
                   alt="Trust Layer Official Seal" 
                   className="w-32 h-32 mx-auto object-contain drop-shadow-[0_0_30px_rgba(34,211,238,0.4)]"
                 />
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 rounded-full">
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30 rounded-full">
                   <span className="text-xs font-mono text-cyan-400">OFFICIAL DOCUMENT</span>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function TrustDocumentOps() {
             <div className="space-y-6 mb-8">
               <div>
                 <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
-                  <Award className="w-5 h-5 text-purple-400" />
+                  <Award className="w-5 h-5 text-sky-400" />
                   Appointment
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -124,11 +124,11 @@ export default function TrustDocumentOps() {
 
               <div>
                 <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
-                  <Hash className="w-5 h-5 text-purple-400" />
+                  <Hash className="w-5 h-5 text-sky-400" />
                   Token Allocation
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-                  Party B shall receive a total allocation of <span className="text-purple-400 font-bold">5,000,000 SIG</span> (0.5% of total supply), 
+                  Party B shall receive a total allocation of <span className="text-sky-400 font-bold">5,000,000 SIG</span> (0.5% of total supply), 
                   subject to graduated milestone-based vesting:
                 </p>
                 <div className="bg-black/30 rounded-lg p-4 space-y-2 text-sm">
@@ -150,7 +150,7 @@ export default function TrustDocumentOps() {
                   </div>
                   <div className="flex justify-between border-t border-white/10 pt-2">
                     <span className="text-muted-foreground">$10M Market Cap</span>
-                    <span className="text-purple-400 font-bold">+1,500,000 SIG (Complete)</span>
+                    <span className="text-sky-400 font-bold">+1,500,000 SIG (Complete)</span>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
@@ -160,7 +160,7 @@ export default function TrustDocumentOps() {
 
               <div>
                 <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
-                  <User className="w-5 h-5 text-purple-400" />
+                  <User className="w-5 h-5 text-sky-400" />
                   Party B Responsibilities
                 </h3>
                 <p className="text-muted-foreground text-sm mb-3">
@@ -169,23 +169,23 @@ export default function TrustDocumentOps() {
                 </p>
                 <ul className="text-muted-foreground text-sm space-y-2">
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
+                    <span className="text-sky-400 mt-1">•</span>
                     <span><span className="text-white">Active & Consistent Contribution</span> - Regular, meaningful work toward Trust Layer development and operations</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
+                    <span className="text-sky-400 mt-1">•</span>
                     <span><span className="text-white">Loyalty & Alignment</span> - Commitment to the project's success and alignment with Signal Core principles</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
+                    <span className="text-sky-400 mt-1">•</span>
                     <span><span className="text-white">Effectiveness</span> - Delivering results, not just effort. Quality of contribution matters.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
+                    <span className="text-sky-400 mt-1">•</span>
                     <span><span className="text-white">Good Faith Communication</span> - Transparent, honest communication. No ghosting, no hidden agendas.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
+                    <span className="text-sky-400 mt-1">•</span>
                     <span><span className="text-white">Long-term Commitment</span> - This is a building journey, not a quick payout. Expect years of work.</span>
                   </li>
                 </ul>
@@ -244,7 +244,7 @@ export default function TrustDocumentOps() {
                     size="lg"
                     onClick={handleAcknowledge}
                     disabled={submitting}
-                    className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 min-w-[200px]"
+                    className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 min-w-[200px]"
                     data-testid="button-acknowledge-trust-doc"
                   >
                     {submitting ? (

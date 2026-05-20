@@ -19,9 +19,9 @@ import { queryClient } from "@/lib/queryClient";
 const TIER_CONFIG = {
   base: { label: "Base", icon: Star, conversions: 0, rate: 10, color: "text-slate-400", bg: "bg-slate-500/20", border: "border-slate-500/30", next: "silver", nextConversions: 5 },
   silver: { label: "Silver", icon: Award, conversions: 5, rate: 12.5, color: "text-cyan-400", bg: "bg-cyan-500/20", border: "border-cyan-500/30", next: "gold", nextConversions: 15 },
-  gold: { label: "Gold", icon: Crown, conversions: 15, rate: 15, color: "text-purple-400", bg: "bg-purple-500/20", border: "border-purple-500/30", next: "platinum", nextConversions: 30 },
+  gold: { label: "Gold", icon: Crown, conversions: 15, rate: 15, color: "text-sky-400", bg: "bg-sky-500/20", border: "border-sky-500/30", next: "platinum", nextConversions: 30 },
   platinum: { label: "Platinum", icon: Gem, conversions: 30, rate: 17.5, color: "text-cyan-300", bg: "bg-cyan-400/20", border: "border-cyan-400/30", next: "diamond", nextConversions: 50 },
-  diamond: { label: "Diamond", icon: Gem, conversions: 50, rate: 20, color: "text-purple-300", bg: "bg-purple-400/20", border: "border-purple-400/30", next: null, nextConversions: null },
+  diamond: { label: "Diamond", icon: Gem, conversions: 50, rate: 20, color: "text-sky-300", bg: "bg-sky-400/20", border: "border-sky-400/30", next: null, nextConversions: null },
 } as const;
 
 type TierKey = keyof typeof TIER_CONFIG;
@@ -123,7 +123,7 @@ export default function AffiliateDashboard() {
             <h1 className="text-2xl font-bold mb-2">Affiliate Program</h1>
             <p className="text-white/60 mb-6">Sign in to access your affiliate dashboard and start earning.</p>
             <Link href="/">
-              <Button data-testid="button-signin-affiliate" className="bg-gradient-to-r from-cyan-500 to-purple-500">
+              <Button data-testid="button-signin-affiliate" className="bg-gradient-to-r from-cyan-500 to-sky-500">
                 Sign In to Continue
               </Button>
             </Link>
@@ -135,7 +135,7 @@ export default function AffiliateDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(6,182,212,0.15)_0%,_transparent_50%)] pointer-events-none" />
 
       <div className="relative container mx-auto px-4 pt-6 pb-12 max-w-5xl">
@@ -168,7 +168,7 @@ export default function AffiliateDashboard() {
                       data-testid="button-copy-referral"
                       onClick={copyLink}
                       size="sm"
-                      className="min-w-[44px] min-h-[44px] bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 shrink-0"
+                      className="min-w-[44px] min-h-[44px] bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 shrink-0"
                     >
                       {linkCopied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                     </Button>
@@ -218,7 +218,7 @@ export default function AffiliateDashboard() {
             {[
               { label: "Total Referrals", value: String(dashboard?.totalReferrals || 0), icon: Users, color: "text-cyan-400" },
               { label: "Converted", value: String(dashboard?.converted || 0), icon: CheckCircle, color: "text-emerald-400" },
-              { label: "Pending (SIG)", value: dashboard?.pendingEarnings || "0.00", icon: Clock, color: "text-purple-400" },
+              { label: "Pending (SIG)", value: dashboard?.pendingEarnings || "0.00", icon: Clock, color: "text-sky-400" },
               { label: "Paid (SIG)", value: dashboard?.paidEarnings || "0.00", icon: DollarSign, color: "text-cyan-300" },
             ].map((stat, i) => (
               <GlassCard key={stat.label}>
@@ -294,7 +294,7 @@ export default function AffiliateDashboard() {
                           ) : ref.status === "expired" ? (
                             <XCircle className="w-4 h-4 text-red-400" />
                           ) : (
-                            <Clock className="w-4 h-4 text-purple-400" />
+                            <Clock className="w-4 h-4 text-sky-400" />
                           )}
                           <div>
                             <p className="text-sm text-white font-mono">{ref.referralHash.slice(0, 8)}...</p>
@@ -305,7 +305,7 @@ export default function AffiliateDashboard() {
                           <Badge className={`text-[10px] ${
                             ref.status === "converted" ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30" :
                             ref.status === "expired" ? "bg-red-500/20 text-red-400 border-red-500/30" :
-                            "bg-purple-500/20 text-purple-400 border-purple-500/30"
+                            "bg-sky-500/20 text-sky-400 border-sky-500/30"
                           }`}>
                             {ref.status}
                           </Badge>
@@ -325,7 +325,7 @@ export default function AffiliateDashboard() {
             <GlassCard>
               <div className="p-5">
                 <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-                  <DollarSign className="w-4 h-4 text-purple-400" />
+                  <DollarSign className="w-4 h-4 text-sky-400" />
                   Recent Commissions
                 </h3>
                 {(!dashboard?.recentCommissions || dashboard.recentCommissions.length === 0) ? (
@@ -342,7 +342,7 @@ export default function AffiliateDashboard() {
                           <Badge className={`text-[10px] ${
                             comm.status === "paid" ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30" :
                             comm.status === "processing" ? "bg-cyan-500/20 text-cyan-400 border-cyan-500/30" :
-                            "bg-purple-500/20 text-purple-400 border-purple-500/30"
+                            "bg-sky-500/20 text-sky-400 border-sky-500/30"
                           }`}>
                             {comm.status}
                           </Badge>
@@ -371,7 +371,7 @@ export default function AffiliateDashboard() {
                   data-testid="button-request-payout"
                   onClick={() => payoutMutation.mutate()}
                   disabled={!canPayout || payoutMutation.isPending}
-                  className="min-h-[44px] min-w-[44px] bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="min-h-[44px] min-w-[44px] bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {payoutMutation.isPending ? "Processing..." : "Request Payout"}
                   <ArrowUpRight className="w-4 h-4 ml-2" />

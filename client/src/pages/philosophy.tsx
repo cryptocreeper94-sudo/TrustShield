@@ -26,9 +26,9 @@ export default function Philosophy() {
       subtitle: "The Immutable Foundation",
       description: "The permanent principles that cannot be changed, voted away, or circumvented. These define who we are and what we stand for. Break the Core, the Signal dies.",
       icon: Zap,
-      color: "from-cyan-500 to-purple-500",
+      color: "from-cyan-500 to-sky-500",
       badge: "Immutable",
-      badgeColor: "bg-purple-500/20 text-purple-300",
+      badgeColor: "bg-sky-500/20 text-sky-300",
       href: "/signal-core",
       featured: true
     },
@@ -38,7 +38,7 @@ export default function Philosophy() {
       subtitle: "The Path to Ownership",
       description: "How governance evolves from founding to full community autonomy. Defines council roles, voting mechanics, treasury controls, and the milestones for power transfer.",
       icon: Scale,
-      color: "from-purple-500 to-pink-500",
+      color: "from-sky-500 to-pink-500",
       badge: "Framework",
       badgeColor: "bg-pink-500/20 text-pink-300",
       href: "/governance-charter",
@@ -103,21 +103,21 @@ export default function Philosophy() {
         >
           <div className="relative inline-block mb-6">
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-50"
+              className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-full blur-xl opacity-50"
               animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.5, 0.8, 0.5]
               }}
               transition={{ duration: 3, repeat: Infinity }}
             />
-            <div className="relative w-20 h-20 mx-auto bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+            <div className="relative w-20 h-20 mx-auto bg-gradient-to-br from-cyan-500 via-sky-500 to-pink-500 rounded-full flex items-center justify-center">
               <BookOpen className="w-10 h-10 text-white" />
             </div>
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Our{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Philosophy
             </span>
           </h1>
@@ -127,7 +127,7 @@ export default function Philosophy() {
             this community operates. These aren't marketing — they're commitments.
           </p>
 
-          <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/30 text-cyan-300">
+          <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/30 text-cyan-300">
             <Sparkles className="w-3 h-3 mr-1" />
             Your Community. Your Standards.
           </Badge>
@@ -229,7 +229,7 @@ export default function Philosophy() {
                 transition={{ delay: 0.1 * index }}
               >
                 <GlassCard glow className="p-5 h-full text-center">
-                  <div className="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center mb-3">
+                  <div className="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center mb-3">
                     <belief.icon className="w-6 h-6 text-cyan-400" />
                   </div>
                   <h3 className="font-bold text-white mb-2">{belief.title}</h3>
@@ -260,7 +260,7 @@ export default function Philosophy() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/welcome">
-                <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600">
+                <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600">
                   Join the Community
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>

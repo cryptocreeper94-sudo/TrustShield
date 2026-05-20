@@ -48,7 +48,7 @@ WHITELIST SYSTEM
 The executive summary is now prominently featured as "The Transmission":
 
 HEADER BUTTON
-• Gradient cyan-to-purple button in main navigation bar
+• Gradient cyan-to-sky button in main navigation bar
 • Shows "The Transmission" on desktop, "Vision" on mobile
 • Visible on every page via header
 
@@ -235,7 +235,7 @@ export default function AdminHandoff() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950/20 to-slate-950 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-sky-950/20 to-slate-950 p-4 md:p-8">
       <div className="max-w-4xl mx-auto space-y-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -243,8 +243,8 @@ export default function AdminHandoff() {
           className="text-center space-y-4"
         >
           <div className="flex items-center justify-center gap-3">
-            <Shield className="w-10 h-10 text-purple-400" />
-            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+            <Shield className="w-10 h-10 text-sky-400" />
+            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
               Admin Handoff Document
             </h1>
             <Sparkles className="w-10 h-10 text-pink-400" />
@@ -271,7 +271,7 @@ export default function AdminHandoff() {
                 className={`${
                   copied
                     ? "bg-green-600 hover:bg-green-700"
-                    : "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                    : "bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-700 hover:to-pink-700"
                 } text-white font-semibold transition-all duration-300`}
                 data-testid="button-copy-handoff"
               >
@@ -290,7 +290,7 @@ export default function AdminHandoff() {
             </div>
 
             <div
-              className="bg-slate-900/80 rounded-lg p-4 max-h-[600px] overflow-y-auto border border-purple-500/20"
+              className="bg-slate-900/80 rounded-lg p-4 max-h-[600px] overflow-y-auto border border-sky-500/20"
               data-testid="text-handoff-content"
             >
               <pre className="text-sm text-slate-300 whitespace-pre-wrap font-mono leading-relaxed">

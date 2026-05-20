@@ -24,7 +24,7 @@ const SAMPLE_NFT = {
   floorPrice: 250,
   lastSale: 320,
   traits: [
-    { name: "Background", value: "Cosmic Void", rarity: 2.1, color: "#8b5cf6" },
+    { name: "Background", value: "Cosmic Void", rarity: 2.1, color: "#0ea5e9" },
     { name: "Body", value: "Holographic", rarity: 4.5, color: "#06b6d4" },
     { name: "Eyes", value: "Laser Red", rarity: 1.8, color: "#ef4444" },
     { name: "Accessory", value: "Golden Crown", rarity: 0.9, color: "#f59e0b" },
@@ -81,17 +81,17 @@ export default function RarityAnalyzer() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <motion.div 
-                className="p-3 rounded-2xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/30"
+                className="p-3 rounded-2xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 border border-sky-500/30"
                 animate={{ 
                   boxShadow: ["0 0 20px rgba(245,158,11,0.2)", "0 0 50px rgba(245,158,11,0.4)", "0 0 20px rgba(245,158,11,0.2)"]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Diamond className="w-7 h-7 text-purple-400" />
+                <Diamond className="w-7 h-7 text-sky-400" />
               </motion.div>
             </div>
             <h1 className="text-2xl md:text-3xl font-display font-bold mb-2">
-              Rarity <span className="text-purple-400">Analyzer</span>
+              Rarity <span className="text-sky-400">Analyzer</span>
             </h1>
             <p className="text-sm text-muted-foreground mb-4">
               Discover the true rarity of any NFT
@@ -111,9 +111,9 @@ export default function RarityAnalyzer() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <GlassCard glow className="p-4 lg:row-span-2">
-              <div className="aspect-square rounded-xl bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-purple-500/20 mb-4 flex items-center justify-center relative overflow-hidden">
+              <div className="aspect-square rounded-xl bg-gradient-to-br from-sky-500/20 via-pink-500/20 to-sky-500/20 mb-4 flex items-center justify-center relative overflow-hidden">
                 <Diamond className="w-24 h-24 text-white/20" />
-                <Badge className="absolute top-2 right-2 bg-purple-500/20 text-purple-400">
+                <Badge className="absolute top-2 right-2 bg-sky-500/20 text-sky-400">
                   Rank #{nft.rarityRank}
                 </Badge>
               </div>
@@ -140,7 +140,7 @@ export default function RarityAnalyzer() {
             <GlassCard className="p-4 lg:col-span-2">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="font-bold flex items-center gap-2">
-                  <Star className="w-4 h-4 text-purple-400" />
+                  <Star className="w-4 h-4 text-sky-400" />
                   Rarity Score
                 </h2>
                 <Badge variant="outline" className="text-[10px]">
@@ -182,7 +182,7 @@ export default function RarityAnalyzer() {
                   <div className="grid grid-cols-2 gap-2">
                     <div className="p-2 rounded-lg bg-white/5">
                       <p className="text-[10px] text-muted-foreground">Rank</p>
-                      <p className="font-bold text-purple-400">#{nft.rarityRank}</p>
+                      <p className="font-bold text-sky-400">#{nft.rarityRank}</p>
                     </div>
                     <div className="p-2 rounded-lg bg-white/5">
                       <p className="text-[10px] text-muted-foreground">Total NFTs</p>
@@ -206,7 +206,7 @@ export default function RarityAnalyzer() {
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-xs font-medium">{trait.value}</span>
-                        <span className="text-xs text-purple-400">{trait.rarity}%</span>
+                        <span className="text-xs text-sky-400">{trait.rarity}%</span>
                       </div>
                       <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
                         <motion.div
@@ -246,7 +246,7 @@ export default function RarityAnalyzer() {
                       {RARITY_DISTRIBUTION.map((entry, i) => (
                         <Cell 
                           key={i} 
-                          fill={i === 5 ? '#f59e0b' : i === 4 ? '#a855f7' : i === 3 ? '#8b5cf6' : '#6b7280'} 
+                          fill={i === 5 ? '#f59e0b' : i === 4 ? '#38bdf8' : i === 3 ? '#0ea5e9' : '#6b7280'} 
                         />
                       ))}
                     </Bar>
@@ -270,12 +270,12 @@ export default function RarityAnalyzer() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <GlassCard className={`p-3 ${i === 0 ? 'ring-1 ring-purple-500/50' : ''}`}>
+                    <GlassCard className={`p-3 ${i === 0 ? 'ring-1 ring-sky-500/50' : ''}`}>
                       <div className="flex items-center justify-between mb-2">
                         <Badge className={`${
-                          i === 0 ? 'bg-purple-500/20 text-purple-400' :
+                          i === 0 ? 'bg-sky-500/20 text-sky-400' :
                           i === 1 ? 'bg-gray-400/20 text-gray-300' :
-                          i === 2 ? 'bg-purple-700/20 text-purple-600' :
+                          i === 2 ? 'bg-sky-700/20 text-sky-600' :
                           'bg-white/10'
                         } text-[10px]`}>
                           #{item.rank}
@@ -283,7 +283,7 @@ export default function RarityAnalyzer() {
                         <span className="font-mono text-xs">{item.id}</span>
                       </div>
                       <div className="text-center">
-                        <p className="text-lg font-bold text-purple-400">{item.score}</p>
+                        <p className="text-lg font-bold text-sky-400">{item.score}</p>
                         <p className="text-[10px] text-muted-foreground truncate">{item.owner}</p>
                       </div>
                     </GlassCard>

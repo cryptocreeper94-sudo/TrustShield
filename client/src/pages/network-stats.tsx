@@ -118,10 +118,10 @@ export default function NetworkStats() {
             <GlassCard glow data-testid="stat-validators">
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <Server className="w-4 h-4 text-purple-400" />
+                  <Server className="w-4 h-4 text-sky-400" />
                   <span className="text-xs text-muted-foreground">Validators</span>
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold font-mono text-purple-400 tracking-tight">
+                <div className="text-2xl sm:text-3xl font-bold font-mono text-sky-400 tracking-tight">
                   {activeValidators}
                 </div>
                 <div className="text-[10px] text-muted-foreground">active nodes</div>
@@ -131,10 +131,10 @@ export default function NetworkStats() {
             <GlassCard glow data-testid="stat-network-load">
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <Cpu className="w-4 h-4 text-purple-400" />
+                  <Cpu className="w-4 h-4 text-sky-400" />
                   <span className="text-xs text-muted-foreground">Network Load</span>
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold font-mono text-purple-400 tracking-tight">
+                <div className="text-2xl sm:text-3xl font-bold font-mono text-sky-400 tracking-tight">
                   {networkLoad}%
                 </div>
                 <div className="text-[10px] text-muted-foreground">capacity used</div>
@@ -217,7 +217,7 @@ export default function NetworkStats() {
             <GlassCard data-testid="card-validators">
               <div className="p-6">
                 <h3 className="font-bold mb-4 flex items-center gap-2">
-                  <Server className="w-5 h-5 text-purple-400" /> Active Validators
+                  <Server className="w-5 h-5 text-sky-400" /> Active Validators
                 </h3>
                 <div className="space-y-3">
                   {[
@@ -229,7 +229,7 @@ export default function NetworkStats() {
                   ].map((validator) => (
                     <div key={validator.name} className="flex items-center justify-between text-sm">
                       <div className="flex items-center gap-2">
-                        <div className={`w-2 h-2 rounded-full ${validator.status === 'active' ? 'bg-green-400' : 'bg-purple-400'}`} />
+                        <div className={`w-2 h-2 rounded-full ${validator.status === 'active' ? 'bg-green-400' : 'bg-sky-400'}`} />
                         <span className="text-white">{validator.name}</span>
                       </div>
                       <span className="font-mono text-muted-foreground">{validator.uptime}</span>

@@ -47,27 +47,27 @@ interface ChainInfo {
 }
 
 const allChains: ChainInfo[] = [
-  { id: "ethereum", name: "Ethereum", symbol: "ETH", category: "evm-l1", status: "available-soon", image: ethereumImg, color: "from-blue-500 to-purple-500", latencyTarget: "~12s" },
-  { id: "polygon", name: "Polygon", symbol: "MATIC", category: "evm-l2", status: "available-soon", image: polygonImg, color: "from-purple-500 to-purple-700", latencyTarget: "~2s" },
+  { id: "ethereum", name: "Ethereum", symbol: "ETH", category: "evm-l1", status: "available-soon", image: ethereumImg, color: "from-blue-500 to-sky-500", latencyTarget: "~12s" },
+  { id: "polygon", name: "Polygon", symbol: "MATIC", category: "evm-l2", status: "available-soon", image: polygonImg, color: "from-sky-500 to-sky-700", latencyTarget: "~2s" },
   { id: "arbitrum", name: "Arbitrum", symbol: "ARB", category: "evm-l2", status: "available-soon", image: arbitrumImg, color: "from-blue-400 to-blue-600", latencyTarget: "~250ms" },
   { id: "optimism", name: "Optimism", symbol: "OP", category: "evm-l2", status: "available-soon", image: optimismImg, color: "from-red-500 to-red-700", latencyTarget: "~2s" },
   { id: "base", name: "Base", symbol: "BASE", category: "evm-l2", status: "in-diligence", image: baseImg, color: "from-blue-500 to-blue-700", latencyTarget: "~2s" },
-  { id: "zksync", name: "zkSync Era", symbol: "ZK", category: "evm-l2", status: "in-diligence", image: zksyncImg, color: "from-violet-500 to-indigo-600", latencyTarget: "~1s" },
+  { id: "zksync", name: "zkSync Era", symbol: "ZK", category: "evm-l2", status: "in-diligence", image: zksyncImg, color: "from-cyan-500 to-indigo-600", latencyTarget: "~1s" },
   { id: "linea", name: "Linea", symbol: "LINEA", category: "evm-l2", status: "in-diligence", image: lineaImg, color: "from-cyan-500 to-blue-500", latencyTarget: "~3s" },
-  { id: "scroll", name: "Scroll", symbol: "SCR", category: "evm-l2", status: "researching", image: genericChainImg, color: "from-purple-500 to-cyan-500", latencyTarget: "~3s" },
+  { id: "scroll", name: "Scroll", symbol: "SCR", category: "evm-l2", status: "researching", image: genericChainImg, color: "from-sky-500 to-cyan-500", latencyTarget: "~3s" },
   { id: "bnb", name: "BNB Chain", symbol: "BNB", category: "evm-l1", status: "available-soon", image: bnbImg, color: "from-teal-500 to-teal-600", latencyTarget: "~3s" },
   { id: "avalanche", name: "Avalanche", symbol: "AVAX", category: "evm-l1", status: "in-diligence", image: avalancheImg, color: "from-red-500 to-red-600", latencyTarget: "~2s" },
   { id: "fantom", name: "Fantom", symbol: "FTM", category: "evm-l1", status: "researching", image: genericChainImg, color: "from-blue-400 to-cyan-500", latencyTarget: "~1s" },
-  { id: "solana", name: "Solana", symbol: "SOL", category: "non-evm", status: "available-soon", image: solanaImg, color: "from-purple-500 to-green-400", latencyTarget: "~400ms" },
-  { id: "cosmos", name: "Cosmos Hub", symbol: "ATOM", category: "non-evm", status: "in-diligence", image: cosmosImg, color: "from-indigo-500 to-purple-600", latencyTarget: "~6s" },
+  { id: "solana", name: "Solana", symbol: "SOL", category: "non-evm", status: "available-soon", image: solanaImg, color: "from-sky-500 to-green-400", latencyTarget: "~400ms" },
+  { id: "cosmos", name: "Cosmos Hub", symbol: "ATOM", category: "non-evm", status: "in-diligence", image: cosmosImg, color: "from-indigo-500 to-sky-600", latencyTarget: "~6s" },
   { id: "polkadot", name: "Polkadot", symbol: "DOT", category: "non-evm", status: "researching", image: polkadotImg, color: "from-pink-500 to-pink-700", latencyTarget: "~6s" },
   { id: "near", name: "NEAR", symbol: "NEAR", category: "non-evm", status: "researching", image: nearImg, color: "from-green-400 to-teal-500", latencyTarget: "~1s" },
   { id: "aptos", name: "Aptos", symbol: "APT", category: "non-evm", status: "researching", image: genericChainImg, color: "from-teal-400 to-green-500", latencyTarget: "~400ms" },
   { id: "sui", name: "Sui", symbol: "SUI", category: "non-evm", status: "researching", image: genericChainImg, color: "from-cyan-400 to-blue-500", latencyTarget: "~400ms" },
   { id: "ton", name: "TON", symbol: "TON", category: "non-evm", status: "researching", image: genericChainImg, color: "from-blue-500 to-cyan-400", latencyTarget: "~5s" },
-  { id: "bitcoin", name: "Bitcoin", symbol: "BTC", category: "non-evm", status: "researching", image: bitcoinImg, color: "from-cyan-500 to-purple-500", latencyTarget: "~10m" },
-  { id: "starknet", name: "Starknet", symbol: "STRK", category: "rollups", status: "in-diligence", image: genericChainImg, color: "from-indigo-500 to-violet-600", latencyTarget: "~2s" },
-  { id: "celestia", name: "Celestia", symbol: "TIA", category: "rollups", status: "researching", image: genericChainImg, color: "from-purple-500 to-pink-500", latencyTarget: "~12s" },
+  { id: "bitcoin", name: "Bitcoin", symbol: "BTC", category: "non-evm", status: "researching", image: bitcoinImg, color: "from-cyan-500 to-sky-500", latencyTarget: "~10m" },
+  { id: "starknet", name: "Starknet", symbol: "STRK", category: "rollups", status: "in-diligence", image: genericChainImg, color: "from-indigo-500 to-cyan-600", latencyTarget: "~2s" },
+  { id: "celestia", name: "Celestia", symbol: "TIA", category: "rollups", status: "researching", image: genericChainImg, color: "from-sky-500 to-pink-500", latencyTarget: "~12s" },
 ];
 
 const categoryInfo: Record<ChainCategory, { label: string; description: string; icon: React.ReactNode }> = {
@@ -79,8 +79,8 @@ const categoryInfo: Record<ChainCategory, { label: string; description: string; 
 
 const statusInfo: Record<ReadinessStatus, { label: string; color: string; bgColor: string }> = {
   "available-soon": { label: "Available Soon", color: "text-green-400", bgColor: "bg-green-500/20 border-green-500/30" },
-  "in-diligence": { label: "In Diligence", color: "text-purple-400", bgColor: "bg-purple-500/20 border-purple-500/30" },
-  "researching": { label: "Researching", color: "text-purple-400", bgColor: "bg-purple-500/20 border-purple-500/30" },
+  "in-diligence": { label: "In Diligence", color: "text-sky-400", bgColor: "bg-sky-500/20 border-sky-500/30" },
+  "researching": { label: "Researching", color: "text-sky-400", bgColor: "bg-sky-500/20 border-sky-500/30" },
 };
 
 const faqItems = [
@@ -256,10 +256,10 @@ export default function Bridge() {
                   shadow-2xl shadow-primary/5
                 "
               >
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-purple-500/5" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-sky-500/5" />
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
                 <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
-                <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+                <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl" />
                 
                 <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                   <div className="flex-1">
@@ -283,7 +283,7 @@ export default function Bridge() {
                         <Lock className="w-3 h-3 mr-1.5" />
                         Lock & Mint
                       </Badge>
-                      <Badge variant="outline" className="border-purple-500/30 text-purple-400 text-xs">
+                      <Badge variant="outline" className="border-sky-500/30 text-sky-400 text-xs">
                         <Shield className="w-3 h-3 mr-1.5" />
                         Guardian Certified
                       </Badge>
@@ -297,7 +297,7 @@ export default function Bridge() {
                           <Rocket className="w-4 h-4 mr-2" />
                           Bridge
                         </TabsTrigger>
-                        <TabsTrigger value="networks" className="data-[state=active]:bg-purple-500/20">
+                        <TabsTrigger value="networks" className="data-[state=active]:bg-sky-500/20">
                           <Zap className="w-4 h-4 mr-2" />
                           Networks
                         </TabsTrigger>
@@ -328,8 +328,8 @@ export default function Bridge() {
             >
               {[
                 { label: "Supported Chains", value: "21+", icon: <Zap className="w-4 h-4" />, color: "from-cyan-500/20 to-blue-500/20" },
-                { label: "Bridge Fee", value: "0.1%", icon: <Sparkles className="w-4 h-4" />, color: "from-purple-500/20 to-pink-500/20" },
-                { label: "Avg. Finality", value: "~2min", icon: <Clock className="w-4 h-4" />, color: "from-purple-500/20 to-cyan-500/20" },
+                { label: "Bridge Fee", value: "0.1%", icon: <Sparkles className="w-4 h-4" />, color: "from-sky-500/20 to-pink-500/20" },
+                { label: "Avg. Finality", value: "~2min", icon: <Clock className="w-4 h-4" />, color: "from-sky-500/20 to-cyan-500/20" },
                 { label: "Security", value: "Guardian", icon: <Shield className="w-4 h-4" />, color: "from-green-500/20 to-emerald-500/20" },
               ].map((stat, i) => (
                 <motion.div
@@ -528,7 +528,7 @@ export default function Bridge() {
               className="mb-8"
             >
               <h2 className="text-lg font-display font-bold mb-4 flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-purple-400" />
+                <HelpCircle className="w-5 h-5 text-sky-400" />
                 Frequently Asked Questions
               </h2>
               
@@ -569,7 +569,7 @@ export default function Bridge() {
               transition={{ delay: 0.55 }}
               className="
                 relative p-6 rounded-3xl overflow-hidden text-center
-                bg-gradient-to-r from-primary/10 via-purple-500/10 to-pink-500/10
+                bg-gradient-to-r from-primary/10 via-sky-500/10 to-pink-500/10
                 border border-primary/20 backdrop-blur-xl
               "
             >

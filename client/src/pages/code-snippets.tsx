@@ -193,7 +193,7 @@ const LANGUAGE_COLORS = {
   javascript: "from-teal-500 to-cyan-500",
   python: "from-blue-500 to-green-500",
   curl: "from-gray-500 to-gray-700",
-  solidity: "from-purple-500 to-pink-500",
+  solidity: "from-sky-500 to-pink-500",
 };
 
 export default function CodeSnippets() {

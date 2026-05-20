@@ -78,18 +78,18 @@ function TraderCard({ trader, rank }: { trader: Trader; rank: number }) {
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl ${
-                  rank === 1 ? 'bg-purple-500/20 border-2 border-purple-500' :
+                  rank === 1 ? 'bg-sky-500/20 border-2 border-sky-500' :
                   rank === 2 ? 'bg-gray-400/20 border-2 border-gray-400' :
-                  rank === 3 ? 'bg-purple-700/20 border-2 border-purple-700' :
+                  rank === 3 ? 'bg-sky-700/20 border-2 border-sky-700' :
                   'bg-white/10 border border-white/20'
                 }`}>
                   {trader.avatar}
                 </div>
                 {rank <= 3 && (
                   <div className={`absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${
-                    rank === 1 ? 'bg-purple-500 text-black' :
+                    rank === 1 ? 'bg-sky-500 text-black' :
                     rank === 2 ? 'bg-gray-400 text-black' :
-                    'bg-purple-700 text-white'
+                    'bg-sky-700 text-white'
                   }`}>
                     {rank}
                   </div>
@@ -115,7 +115,7 @@ function TraderCard({ trader, rank }: { trader: Trader; rank: number }) {
                 <Button 
                   variant={following ? "outline" : "default"}
                   size="sm"
-                  className={following ? "gap-2" : "bg-gradient-to-r from-purple-500 to-pink-500 text-white gap-2"}
+                  className={following ? "gap-2" : "bg-gradient-to-r from-sky-500 to-pink-500 text-white gap-2"}
                   data-testid={`button-follow-${trader.id}`}
                 >
                   {following ? (
@@ -173,7 +173,7 @@ function TraderCard({ trader, rank }: { trader: Trader; rank: number }) {
                   </div>
                   
                   <Button 
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white"
+                    className="w-full bg-gradient-to-r from-sky-500 to-pink-500 text-white"
                     onClick={() => { setFollowing(true); setShowSettings(false); }}
                   >
                     <Play className="w-4 h-4 mr-2" />
@@ -241,7 +241,7 @@ export default function CopyTrading() {
             <span className="font-display font-bold text-lg tracking-tight hidden sm:inline">Trust Layer</span>
           </Link>
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="border-purple-500/50 text-purple-400 text-[10px]">Copy Trading</Badge>
+            <Badge variant="outline" className="border-sky-500/50 text-sky-400 text-[10px]">Copy Trading</Badge>
             <BackButton />
           </div>
         </div>
@@ -256,17 +256,17 @@ export default function CopyTrading() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <motion.div 
-                className="p-3 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30"
+                className="p-3 rounded-2xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 border border-sky-500/30"
                 animate={{ 
-                  boxShadow: ["0 0 20px rgba(168,85,247,0.2)", "0 0 50px rgba(168,85,247,0.4)", "0 0 20px rgba(168,85,247,0.2)"]
+                  boxShadow: ["0 0 20px rgba(14,165,233,0.2)", "0 0 50px rgba(14,165,233,0.4)", "0 0 20px rgba(14,165,233,0.2)"]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Users className="w-7 h-7 text-purple-400" />
+                <Users className="w-7 h-7 text-sky-400" />
               </motion.div>
             </div>
             <h1 className="text-2xl md:text-3xl font-display font-bold mb-2">
-              Copy <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Trading</span>
+              Copy <span className="bg-gradient-to-r from-sky-400 to-pink-400 bg-clip-text text-transparent">Trading</span>
             </h1>
             <p className="text-sm text-muted-foreground">
               Follow top traders and automatically mirror their trades
@@ -276,7 +276,7 @@ export default function CopyTrading() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             <GlassCard hover={false} className="p-3">
               <div className="flex items-center gap-2 mb-1">
-                <Users className="w-4 h-4 text-purple-400" />
+                <Users className="w-4 h-4 text-sky-400" />
                 <span className="text-[10px] text-muted-foreground">Following</span>
               </div>
               <div className="text-xl font-bold">{myStats.following}</div>

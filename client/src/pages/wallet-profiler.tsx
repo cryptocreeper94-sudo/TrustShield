@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const portfolioBreakdown = [
-  { name: "SIG", value: 45, color: "#8b5cf6", amount: "125,000", usd: "$18,750" },
+  { name: "SIG", value: 45, color: "#0ea5e9", amount: "125,000", usd: "$18,750" },
   { name: "stSIG", value: 30, color: "#06b6d4", amount: "75,000", usd: "$11,250" },
   { name: "LP Tokens", value: 15, color: "#22c55e", amount: "50,000", usd: "$7,500" },
   { name: "NFTs", value: 10, color: "#f59e0b", amount: "12", usd: "$5,000" },
@@ -255,7 +255,7 @@ export default function WalletProfiler() {
                 <div className="h-10">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={monthlyPnL}>
-                      <Bar dataKey="pnl" fill="#8b5cf6" radius={[2, 2, 0, 0]} />
+                      <Bar dataKey="pnl" fill="#0ea5e9" radius={[2, 2, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -287,8 +287,8 @@ export default function WalletProfiler() {
                       tx.type === 'buy' ? 'bg-green-500/20' :
                       tx.type === 'sell' ? 'bg-red-500/20' :
                       tx.type === 'swap' ? 'bg-blue-500/20' :
-                      tx.type === 'stake' ? 'bg-purple-500/20' :
-                      'bg-purple-500/20'
+                      tx.type === 'stake' ? 'bg-sky-500/20' :
+                      'bg-sky-500/20'
                     }`}>
                       {tx.type === 'buy' ? <ArrowDownRight className="w-4 h-4 text-green-400" /> :
                        tx.type === 'sell' ? <ArrowUpRight className="w-4 h-4 text-red-400" /> :

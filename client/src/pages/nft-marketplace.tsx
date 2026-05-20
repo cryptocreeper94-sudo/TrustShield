@@ -156,13 +156,13 @@ export default function NftMarketplace() {
               <div className="text-[10px] text-muted-foreground">NFTs Listed</div>
             </div>
             <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
-              <div className="text-lg font-bold text-purple-400">
+              <div className="text-lg font-bold text-sky-400">
                 {stats?.totalCollections || displayCollections.length}
               </div>
               <div className="text-[10px] text-muted-foreground">Collections</div>
             </div>
             <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
-              <div className="text-lg font-bold text-purple-400">0.5%</div>
+              <div className="text-lg font-bold text-sky-400">0.5%</div>
               <div className="text-[10px] text-muted-foreground">Platform Fee</div>
             </div>
           </motion.div>
@@ -190,7 +190,7 @@ export default function NftMarketplace() {
               </Button>
               <Dialog open={showMintDialog} onOpenChange={setShowMintDialog}>
                 <DialogTrigger asChild>
-                  <Button className="h-10 bg-gradient-to-r from-pink-500 to-purple-500 text-white" data-testid="button-mint">
+                  <Button className="h-10 bg-gradient-to-r from-pink-500 to-sky-500 text-white" data-testid="button-mint">
                     <Plus className="w-4 h-4 mr-1" />
                     Mint
                   </Button>
@@ -229,7 +229,7 @@ export default function NftMarketplace() {
                       />
                     </div>
                     <Button
-                      className="w-full bg-gradient-to-r from-pink-500 to-purple-500"
+                      className="w-full bg-gradient-to-r from-pink-500 to-sky-500"
                       onClick={() => mintMutation.mutate()}
                       disabled={mintMutation.isPending}
                       data-testid="button-confirm-mint"
@@ -266,7 +266,7 @@ export default function NftMarketplace() {
                     transition={{ delay: index * 0.05 }}
                   >
                     <GlassCard className="overflow-hidden group cursor-pointer hover:border-pink-500/30 transition-colors" data-testid={`nft-card-${nft.id}`}>
-                      <div className="aspect-square bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center relative">
+                      <div className="aspect-square bg-gradient-to-br from-pink-500/20 to-sky-500/20 flex items-center justify-center relative">
                         {nft.imageUrl ? (
                           <img src={nft.imageUrl} alt={nft.name} className="w-full h-full object-cover" />
                         ) : (
@@ -315,7 +315,7 @@ export default function NftMarketplace() {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-sky-500 flex items-center justify-center">
                           <span className="text-sm font-bold">{collection.symbol?.slice(0, 2) || "??"}</span>
                         </div>
                         <div>
@@ -345,7 +345,7 @@ export default function NftMarketplace() {
                             data-testid={`nft-carousel-card-${nft.id}`}
                           >
                             <GlassCard className="overflow-hidden group cursor-pointer hover:border-pink-500/30 transition-colors">
-                              <div className="aspect-square bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center relative">
+                              <div className="aspect-square bg-gradient-to-br from-pink-500/20 to-sky-500/20 flex items-center justify-center relative">
                                 {nft.imageUrl ? (
                                   <img src={nft.imageUrl} alt={nft.name} className="w-full h-full object-cover" />
                                 ) : (
@@ -398,11 +398,11 @@ export default function NftMarketplace() {
             transition={{ delay: 0.4 }}
             className="mt-4"
           >
-            <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
+            <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20">
               <div className="flex items-start gap-2">
-                <Sparkles className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
-                <p className="text-[10px] text-purple-200">
-                  <strong className="text-purple-300">Testnet:</strong> This marketplace operates on Trust Layer testnet. NFTs here are for testing only.
+                <Sparkles className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                <p className="text-[10px] text-sky-200">
+                  <strong className="text-sky-300">Testnet:</strong> This marketplace operates on Trust Layer testnet. NFTs here are for testing only.
                 </p>
               </div>
             </div>

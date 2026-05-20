@@ -297,7 +297,7 @@ const getGuardianColor = (score: string) => {
   switch (score) {
     case "A": return "from-emerald-500 to-green-500";
     case "B": return "from-blue-500 to-cyan-500";
-    case "C": return "from-teal-500 to-purple-500";
+    case "C": return "from-teal-500 to-sky-500";
     case "D": return "from-cyan-500 to-red-500";
     case "F": return "from-red-600 to-red-800";
     default: return "from-gray-500 to-gray-600";
@@ -391,7 +391,7 @@ export default function MarketsPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
       {/* Floating ambient orbs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
         <div className="absolute top-40 right-1/4 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
@@ -405,10 +405,10 @@ export default function MarketsPage() {
           className="text-center mb-8"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="p-3 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/30">
+            <div className="p-3 rounded-2xl bg-gradient-to-br from-sky-500 to-pink-500 shadow-lg shadow-sky-500/30">
               <BarChart3 className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Trust Layer Markets
             </h1>
           </div>
@@ -436,15 +436,15 @@ export default function MarketsPage() {
               exit={{ opacity: 0, height: 0 }}
               className="mb-6"
             >
-              <Card className="bg-purple-500/10 border-purple-500/30">
+              <Card className="bg-sky-500/10 border-sky-500/30">
                 <CardContent className="p-4">
                   <div className="flex items-start gap-3">
-                    <AlertTriangle className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <AlertTriangle className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
                     <div className="flex-1">
-                      <h3 className="font-semibold text-purple-400 mb-1">Risk Disclosure</h3>
+                      <h3 className="font-semibold text-sky-400 mb-1">Risk Disclosure</h3>
                       <p className="text-sm text-muted-foreground">
                         Trust Layer Markets provides intelligence, not financial advice. Guardian scores indicate security audits, not investment quality. 
-                        Pulse predictions are probabilistic, not guarantees. <strong className="text-purple-300">DYOR. You can still lose everything.</strong> 
+                        Pulse predictions are probabilistic, not guarantees. <strong className="text-sky-300">DYOR. You can still lose everything.</strong> 
                         But at least you'll know what you're walking into.
                       </p>
                     </div>
@@ -452,7 +452,7 @@ export default function MarketsPage() {
                       variant="ghost" 
                       size="sm" 
                       onClick={() => setShowRiskWarning(false)}
-                      className="text-purple-400 hover:bg-purple-500/20"
+                      className="text-sky-400 hover:bg-sky-500/20"
                       data-testid="button-dismiss-risk-warning"
                     >
                       Dismiss
@@ -485,7 +485,7 @@ export default function MarketsPage() {
           </Card>
           <Card className="bg-white/5 backdrop-blur-xl border-white/10">
             <CardContent className="p-4 text-center">
-              <p className="text-2xl font-bold text-purple-400" data-testid="stat-volume">$2.3M</p>
+              <p className="text-2xl font-bold text-sky-400" data-testid="stat-volume">$2.3M</p>
               <p className="text-xs text-muted-foreground">24h Volume</p>
             </CardContent>
           </Card>
@@ -497,7 +497,7 @@ export default function MarketsPage() {
           </Card>
           <Card className="bg-white/5 backdrop-blur-xl border-white/10 col-span-2 md:col-span-1">
             <CardContent className="p-4 text-center">
-              <p className="text-2xl font-bold text-purple-400" data-testid="stat-audits">9</p>
+              <p className="text-2xl font-bold text-sky-400" data-testid="stat-audits">9</p>
               <p className="text-xs text-muted-foreground">Security Checks</p>
             </CardContent>
           </Card>
@@ -550,7 +550,7 @@ export default function MarketsPage() {
             >
               <Card 
                 className={`bg-white/5 backdrop-blur-xl border-white/10 hover:bg-white/10 transition-all duration-300 cursor-pointer overflow-hidden ${
-                  expandedToken === token.id ? 'ring-2 ring-purple-500/50 shadow-lg shadow-purple-500/20' : ''
+                  expandedToken === token.id ? 'ring-2 ring-sky-500/50 shadow-lg shadow-sky-500/20' : ''
                 }`}
                 onClick={() => setExpandedToken(expandedToken === token.id ? null : token.id)}
                 data-testid={`card-token-${token.id}`}
@@ -570,7 +570,7 @@ export default function MarketsPage() {
                             <Shield className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                           )}
                           {token.hasUtility && (
-                            <Zap className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                            <Zap className="w-4 h-4 text-sky-400 flex-shrink-0" />
                           )}
                         </div>
                         <p className="text-sm text-muted-foreground">{token.symbol}</p>
@@ -673,7 +673,7 @@ export default function MarketsPage() {
                         {/* Creator History */}
                         <div className="mb-6">
                           <div className="flex items-center gap-2 mb-3">
-                            <History className="w-4 h-4 text-purple-400" />
+                            <History className="w-4 h-4 text-sky-400" />
                             <span className="font-semibold text-sm">Creator History</span>
                           </div>
                           <div className="grid grid-cols-3 gap-3">
@@ -701,7 +701,7 @@ export default function MarketsPage() {
                           <div className="flex items-center gap-2 mb-4">
                             <ShieldCheck className="w-5 h-5 text-emerald-400" />
                             <span className="font-semibold">Guardian Security Deep Scan</span>
-                            <span className="ml-auto text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">
+                            <span className="ml-auto text-xs px-2 py-1 rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/30">
                               9 Checks
                             </span>
                           </div>
@@ -713,13 +713,13 @@ export default function MarketsPage() {
                               detail={token.securityChecks.immutable.detail}
                             />
                             <SecurityCheckItem
-                              icon={<UserCheck className="w-4 h-4 text-purple-400" />}
+                              icon={<UserCheck className="w-4 h-4 text-sky-400" />}
                               title="Ownership Status"
                               status={token.securityChecks.ownershipRenounced.status}
                               detail={token.securityChecks.ownershipRenounced.detail}
                             />
                             <SecurityCheckItem
-                              icon={<Coins className="w-4 h-4 text-purple-400" />}
+                              icon={<Coins className="w-4 h-4 text-sky-400" />}
                               title="Mint Function"
                               status={token.securityChecks.mintDisabled.status}
                               detail={token.securityChecks.mintDisabled.detail}
@@ -755,7 +755,7 @@ export default function MarketsPage() {
                               detail={token.securityChecks.auditStatus.auditor !== "None" ? `${token.securityChecks.auditStatus.auditor} (${token.securityChecks.auditStatus.date})` : "No audit"}
                             />
                             <SecurityCheckItem
-                              icon={<GitBranch className="w-4 h-4 text-violet-400" />}
+                              icon={<GitBranch className="w-4 h-4 text-cyan-400" />}
                               title="Proxy Contract"
                               status={token.securityChecks.proxyContract.status}
                               detail={token.securityChecks.proxyContract.detail}
@@ -772,7 +772,7 @@ export default function MarketsPage() {
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div className="p-4 rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10">
                               <div className="flex items-center gap-2 mb-2">
-                                <PieChart className="w-4 h-4 text-purple-400" />
+                                <PieChart className="w-4 h-4 text-sky-400" />
                                 <span className="text-xs text-muted-foreground">Top 10 Holders</span>
                               </div>
                               <p className={`text-xl font-bold ${token.holderDistribution.top10Percent > 40 ? 'text-red-400' : token.holderDistribution.top10Percent > 25 ? 'text-teal-400' : 'text-emerald-400'}`}>
@@ -816,7 +816,7 @@ export default function MarketsPage() {
                             <span className="font-semibold">Trading Analytics</span>
                           </div>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+                            <div className="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-pink-500/10 border border-sky-500/20">
                               <div className="flex justify-between items-center mb-3">
                                 <span className="text-sm">Price Impact (on $1,000 buy)</span>
                                 <span className={`font-bold ${token.tradingMetrics.priceImpact1k < 0.5 ? 'text-emerald-400' : token.tradingMetrics.priceImpact1k < 2 ? 'text-teal-400' : 'text-red-400'}`}>
@@ -869,7 +869,7 @@ export default function MarketsPage() {
                         {/* Actions */}
                         <div className="flex flex-wrap gap-3">
                           <Button 
-                            className="flex-1 min-w-[140px] bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg shadow-purple-500/30"
+                            className="flex-1 min-w-[140px] bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-600 hover:to-pink-600 shadow-lg shadow-sky-500/30"
                             data-testid={`button-trade-${token.id}`}
                           >
                             Trade {token.symbol}
@@ -915,15 +915,15 @@ export default function MarketsPage() {
           transition={{ delay: 0.5 }}
           className="mt-8"
         >
-          <Card className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-purple-500/20 overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 animate-pulse" />
+          <Card className="bg-gradient-to-r from-sky-500/10 to-pink-500/10 border-sky-500/20 overflow-hidden relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-500/5 to-pink-500/5 animate-pulse" />
             <CardContent className="p-6 relative z-10">
               <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/30">
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-sky-500 to-pink-500 shadow-lg shadow-sky-500/30">
                   <Sparkles className="w-10 h-10 text-white" />
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-sky-400 to-pink-400 bg-clip-text text-transparent">
                     Unlock Pulse Quantum Predictions
                   </h3>
                   <p className="text-muted-foreground">
@@ -934,7 +934,7 @@ export default function MarketsPage() {
                 <Link href="/pulse">
                   <Button 
                     size="lg" 
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg shadow-purple-500/30"
+                    className="bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-600 hover:to-pink-600 shadow-lg shadow-sky-500/30"
                     data-testid="button-upgrade-pulse-pro"
                   >
                     <Zap className="w-5 h-5 mr-2" />
@@ -975,7 +975,7 @@ export default function MarketsPage() {
               <span>Good</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded bg-gradient-to-r from-teal-500 to-purple-500 flex items-center justify-center text-white font-bold text-xs">C</div>
+              <div className="w-6 h-6 rounded bg-gradient-to-r from-teal-500 to-sky-500 flex items-center justify-center text-white font-bold text-xs">C</div>
               <span>Caution</span>
             </div>
           </div>

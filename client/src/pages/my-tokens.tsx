@@ -121,14 +121,14 @@ export default function MyTokensPage() {
     <div className="min-h-screen bg-slate-950">
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl" />
       </div>
 
       <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/10">
         <div className="px-4 py-3 flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center">
               <Compass className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -182,12 +182,12 @@ export default function MyTokensPage() {
                 transition={{ delay: 0.05 }}
               >
                 <GlassCard glow className="h-full overflow-hidden">
-                  <div className="bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-pink-500/20 p-5 h-full">
+                  <div className="bg-gradient-to-br from-cyan-500/20 via-sky-500/20 to-pink-500/20 p-5 h-full">
                     <div className="flex items-center gap-2 mb-4">
                       <Coins className="w-5 h-5 text-cyan-400" />
                       <span className="text-sm font-medium text-white/70">Signal Balance</span>
                     </div>
-                    <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-1">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent mb-1">
                       {(bag?.totalDwc || 0).toLocaleString()}
                     </div>
                     <div className="text-sm text-white/50 mb-4">
@@ -200,7 +200,7 @@ export default function MyTokensPage() {
                       </div>
                     ) : (
                       <Link href="/presale">
-                        <Button size="sm" className="w-full bg-gradient-to-r from-cyan-500 to-purple-500">
+                        <Button size="sm" className="w-full bg-gradient-to-r from-cyan-500 to-sky-500">
                           Get Your First Tokens
                         </Button>
                       </Link>
@@ -218,13 +218,13 @@ export default function MyTokensPage() {
                 <GlassCard className="h-full">
                   <div className="p-5 h-full">
                     <div className="flex items-center gap-2 mb-4">
-                      <Award className="w-5 h-5 text-purple-400" />
+                      <Award className="w-5 h-5 text-sky-400" />
                       <span className="text-sm font-medium text-white/70">Member Status</span>
                     </div>
                     {earlyAdopterData?.isEarlyAdopter ? (
                       <>
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm font-medium">
+                          <span className="px-3 py-1 bg-sky-500/20 text-sky-400 rounded-full text-sm font-medium">
                             Early Adopter #{earlyAdopterData.signupPosition}
                           </span>
                         </div>
@@ -266,7 +266,7 @@ export default function MyTokensPage() {
                 <GlassCard className="h-full">
                   <div className="p-5 h-full">
                     <div className="flex items-center gap-2 mb-4">
-                      <Clock className="w-5 h-5 text-purple-400" />
+                      <Clock className="w-5 h-5 text-sky-400" />
                       <span className="text-sm font-medium text-white/70">Token Launch</span>
                     </div>
                     <div className="text-2xl font-bold text-white mb-1">
@@ -355,7 +355,7 @@ export default function MyTokensPage() {
                 className="mb-8"
               >
                 <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-purple-400" />
+                  <Sparkles className="w-5 h-5 text-sky-400" />
                   Your Token Sources
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -382,15 +382,15 @@ export default function MyTokensPage() {
                     <GlassCard>
                       <div className="p-4 flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                            <Award className="w-5 h-5 text-purple-400" />
+                          <div className="w-10 h-10 rounded-xl bg-sky-500/20 flex items-center justify-center">
+                            <Award className="w-5 h-5 text-sky-400" />
                           </div>
                           <div>
                             <div className="text-sm font-semibold text-white">Early Bonus</div>
                             <div className="text-xs text-white/50">5% extra</div>
                           </div>
                         </div>
-                        <div className="text-lg font-bold text-purple-400">
+                        <div className="text-lg font-bold text-sky-400">
                           +{(bag?.sources?.earlyAdopterBonus?.tokens || 0).toLocaleString()}
                         </div>
                       </div>
@@ -401,15 +401,15 @@ export default function MyTokensPage() {
                     <GlassCard>
                       <div className="p-4 flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                            <Gift className="w-5 h-5 text-purple-400" />
+                          <div className="w-10 h-10 rounded-xl bg-sky-500/20 flex items-center justify-center">
+                            <Gift className="w-5 h-5 text-sky-400" />
                           </div>
                           <div>
                             <div className="text-sm font-semibold text-white">Shell Rewards</div>
                             <div className="text-xs text-white/50">{bag?.sources?.shells?.balance} shells</div>
                           </div>
                         </div>
-                        <div className="text-lg font-bold text-purple-400">
+                        <div className="text-lg font-bold text-sky-400">
                           {(bag?.sources?.shells?.convertedToDwc || 0).toLocaleString()}
                         </div>
                       </div>
@@ -461,7 +461,7 @@ export default function MyTokensPage() {
                       Get Signal tokens now during the presale at the lowest price before launch.
                     </p>
                     <Link href="/presale">
-                      <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-90">
+                      <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:opacity-90">
                         <ShoppingBag className="w-4 h-4 mr-2" />
                         Buy Signal Tokens
                       </Button>
@@ -484,15 +484,15 @@ export default function MyTokensPage() {
                               {purchase.status === 'confirmed' ? (
                                 <CheckCircle className="w-4 h-4 text-emerald-400" />
                               ) : (
-                                <AlertCircle className="w-4 h-4 text-purple-400" />
+                                <AlertCircle className="w-4 h-4 text-sky-400" />
                               )}
                               <span className={`text-xs font-medium uppercase ${
-                                purchase.status === 'confirmed' ? 'text-emerald-400' : 'text-purple-400'
+                                purchase.status === 'confirmed' ? 'text-emerald-400' : 'text-sky-400'
                               }`}>
                                 {purchase.status}
                               </span>
                               {purchase.tier && (
-                                <span className="text-[10px] px-2 py-0.5 bg-purple-500/20 text-purple-400 rounded-full">
+                                <span className="text-[10px] px-2 py-0.5 bg-sky-500/20 text-sky-400 rounded-full">
                                   {purchase.tier}
                                 </span>
                               )}
@@ -532,7 +532,7 @@ export default function MyTokensPage() {
                 className="mb-8"
               >
                 <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <Star className="w-5 h-5 text-purple-400" />
+                  <Star className="w-5 h-5 text-sky-400" />
                   Getting Started
                 </h2>
                 <GlassCard>
@@ -562,14 +562,14 @@ export default function MyTokensPage() {
                         </div>
                       </div>
                       <div className="flex items-start gap-4">
-                        <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                          <span className="text-purple-400 font-bold text-sm">3</span>
+                        <div className="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center flex-shrink-0">
+                          <span className="text-sky-400 font-bold text-sm">3</span>
                         </div>
                         <div>
                           <h4 className="text-sm font-semibold text-white">Explore Chronicles</h4>
                           <p className="text-xs text-white/50">Journey through 70+ historical eras in our discernment-based game</p>
                           <a href="https://yourlegacy.io" target="_blank" rel="noopener noreferrer">
-                            <Button size="sm" variant="outline" className="mt-2 border-purple-500/30 text-purple-400 hover:bg-purple-500/10">
+                            <Button size="sm" variant="outline" className="mt-2 border-sky-500/30 text-sky-400 hover:bg-sky-500/10">
                               Play Chronicles <ChevronRight className="w-3 h-3 ml-1" />
                             </Button>
                           </a>
@@ -609,9 +609,9 @@ export default function MyTokensPage() {
                 </GlassCard>
               </Link>
               <Link href="/rewards">
-                <GlassCard className="hover:border-purple-500/50 transition-colors cursor-pointer">
+                <GlassCard className="hover:border-sky-500/50 transition-colors cursor-pointer">
                   <div className="p-4 flex flex-col items-center text-center">
-                    <Gift className="w-6 h-6 text-purple-400 mb-2" />
+                    <Gift className="w-6 h-6 text-sky-400 mb-2" />
                     <span className="text-xs font-medium text-white">Rewards</span>
                   </div>
                 </GlassCard>
@@ -625,9 +625,9 @@ export default function MyTokensPage() {
                 </GlassCard>
               </Link>
               <Link href="/support">
-                <GlassCard className="hover:border-purple-500/50 transition-colors cursor-pointer">
+                <GlassCard className="hover:border-sky-500/50 transition-colors cursor-pointer">
                   <div className="p-4 flex flex-col items-center text-center">
-                    <Shield className="w-6 h-6 text-purple-400 mb-2" />
+                    <Shield className="w-6 h-6 text-sky-400 mb-2" />
                     <span className="text-xs font-medium text-white">Support</span>
                   </div>
                 </GlassCard>

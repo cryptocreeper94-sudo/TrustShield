@@ -11,7 +11,7 @@ import { GlassCard } from "@/components/glass-card";
 const TOKEN_ALLOCATION = [
   { name: "Treasury Reserve", value: 50, color: "#f59e0b", icon: Shield, description: "Long-term sustainability, emergency fund, future growth" },
   { name: "Staking Rewards", value: 15, color: "#22c55e", icon: TrendingUp, description: "Validator and liquid staking APY distributions (12%)" },
-  { name: "Development & Team", value: 15, color: "#a855f7", icon: Building, description: "Core team, advisors, operations (4-year vesting)" },
+  { name: "Development & Team", value: 15, color: "#38bdf8", icon: Building, description: "Core team, advisors, operations (4-year vesting)" },
   { name: "Ecosystem Growth", value: 10, color: "#ec4899", icon: Rocket, description: "Partnerships, grants, exchange listings, integrations" },
   { name: "Community Rewards", value: 10, color: "#3b82f6", icon: Gift, description: "Presale rewards (1%), airdrops, community events (9%)" },
 ];
@@ -45,7 +45,7 @@ export default function Tokenomics() {
             <span className="font-display font-bold text-lg tracking-tight hidden sm:inline">Trust Layer</span>
           </Link>
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="border-purple-500/50 text-purple-400 bg-purple-500/10 text-[10px] sm:text-xs whitespace-nowrap">
+            <Badge variant="outline" className="border-sky-500/50 text-sky-400 bg-sky-500/10 text-[10px] sm:text-xs whitespace-nowrap">
               <Coins className="w-3 h-3 mr-1" /> Tokenomics
             </Badge>
             <BackButton />
@@ -60,11 +60,11 @@ export default function Tokenomics() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <Badge variant="outline" className="px-3 py-1 border-purple-500/50 text-purple-400 bg-purple-500/10 rounded-full text-xs tracking-wider uppercase mb-4">
+            <Badge variant="outline" className="px-3 py-1 border-sky-500/50 text-sky-400 bg-sky-500/10 rounded-full text-xs tracking-wider uppercase mb-4">
               Signal Economics
             </Badge>
             <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400">Signal Tokenomics</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400">Signal Tokenomics</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Designed for sustainability, utility, and long-term value. No burn mechanics, no inflation traps.
@@ -86,7 +86,7 @@ export default function Tokenomics() {
             </GlassCard>
             <GlassCard glow hover={false}>
               <div className="p-4 text-center">
-                <div className="text-2xl md:text-3xl font-bold text-purple-400">0%</div>
+                <div className="text-2xl md:text-3xl font-bold text-sky-400">0%</div>
                 <div className="text-[10px] text-white/50 uppercase tracking-wider">Burn Rate</div>
               </div>
             </GlassCard>
@@ -199,7 +199,7 @@ export default function Tokenomics() {
             className="mb-8"
           >
             <h2 className="text-2xl font-display font-bold mb-2 flex items-center gap-3">
-              <Lock className="w-6 h-6 text-purple-400" />
+              <Lock className="w-6 h-6 text-sky-400" />
               Vesting Schedule
             </h2>
             <p className="text-muted-foreground text-sm">Structured unlocks to ensure long-term alignment and prevent dumps</p>
@@ -232,7 +232,7 @@ export default function Tokenomics() {
                           {row.cliff === "None" ? (
                             <CheckCircle className="w-4 h-4 text-green-400" />
                           ) : (
-                            <Clock className="w-4 h-4 text-purple-400" />
+                            <Clock className="w-4 h-4 text-sky-400" />
                           )}
                           {row.cliff}
                         </div>
@@ -274,7 +274,7 @@ export default function Tokenomics() {
               >
                 <GlassCard hover glow>
                   <div className="p-5">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center mb-3">
                       <item.icon className="w-5 h-5 text-cyan-400" />
                     </div>
                     <h3 className="font-bold text-white mb-1">{item.title}</h3>
@@ -297,8 +297,8 @@ export default function Tokenomics() {
             <GlassCard glow hover={false}>
               <div className="p-6 md:p-8">
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center shrink-0">
-                    <Shield className="w-6 h-6 text-purple-400" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center shrink-0">
+                    <Shield className="w-6 h-6 text-sky-400" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white mb-2">No Burn, No Inflation</h3>
@@ -320,7 +320,7 @@ export default function Tokenomics() {
                     <div className="text-xs text-white/50">All allocations on-chain and verifiable</div>
                   </div>
                   <div className="p-4 rounded-lg bg-white/[0.03] border border-white/5">
-                    <div className="text-2xl font-bold text-purple-400 mb-1">Sustainable</div>
+                    <div className="text-2xl font-bold text-sky-400 mb-1">Sustainable</div>
                     <div className="text-xs text-white/50">Revenue-backed, not speculation-driven</div>
                   </div>
                 </div>
@@ -353,7 +353,7 @@ export default function Tokenomics() {
                 </Button>
               </Link>
               <Link href="/presale">
-                <Button size="lg" variant="outline" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 rounded-full" data-testid="button-presale">
+                <Button size="lg" variant="outline" className="border-sky-500/30 text-sky-400 hover:bg-sky-500/10 rounded-full" data-testid="button-presale">
                   Join Presale
                 </Button>
               </Link>

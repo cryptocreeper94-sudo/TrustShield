@@ -98,11 +98,11 @@ export default function BusinessPortal() {
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 pt-20 pb-12">
         <div className="container mx-auto px-4 max-w-4xl">
           <GlassCard glow className="p-12 text-center">
-            <Building2 className="w-16 h-16 text-purple-400 mx-auto mb-6" />
+            <Building2 className="w-16 h-16 text-sky-400 mx-auto mb-6" />
             <h1 className="text-2xl font-bold text-white mb-4">Business Portal</h1>
             <p className="text-white/70 mb-6">Sign in to access your business dashboard</p>
             <Link href="/login">
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600" data-testid="button-login">
+              <Button className="bg-gradient-to-r from-sky-600 to-pink-600" data-testid="button-login">
                 Sign In
               </Button>
             </Link>
@@ -122,7 +122,7 @@ export default function BusinessPortal() {
         >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <Badge className="mb-2 bg-purple-500/20 text-purple-400 border-purple-500/30">
+              <Badge className="mb-2 bg-sky-500/20 text-sky-400 border-sky-500/30">
                 Business Member
               </Badge>
               <h1 className="text-3xl font-bold text-white">Business Portal</h1>
@@ -157,7 +157,7 @@ export default function BusinessPortal() {
               key={tab.id}
               variant={activeTab === tab.id ? "default" : "outline"}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`flex-shrink-0 ${activeTab === tab.id ? "bg-purple-600" : "border-white/20"}`}
+              className={`flex-shrink-0 ${activeTab === tab.id ? "bg-sky-600" : "border-white/20"}`}
               data-testid={`tab-${tab.id}`}
             >
               <tab.icon className="w-4 h-4 mr-2" />
@@ -175,8 +175,8 @@ export default function BusinessPortal() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <GlassCard className="p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-purple-400" />
+                  <div className="w-10 h-10 rounded-lg bg-sky-500/20 flex items-center justify-center">
+                    <Zap className="w-5 h-5 text-sky-400" />
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-white">{businessStats.apiCalls.toLocaleString()}</p>
@@ -208,8 +208,8 @@ export default function BusinessPortal() {
               </GlassCard>
               <GlassCard className="p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-purple-400" />
+                  <div className="w-10 h-10 rounded-lg bg-sky-500/20 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-sky-400" />
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-white">{businessStats.trustScore}</p>
@@ -223,7 +223,7 @@ export default function BusinessPortal() {
               <GlassCard glow className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-white">Recent API Activity</h3>
-                  <Button variant="ghost" size="sm" className="text-purple-400" data-testid="button-view-all-api">
+                  <Button variant="ghost" size="sm" className="text-sky-400" data-testid="button-view-all-api">
                     View All <ChevronRight className="w-4 h-4 ml-1" />
                   </Button>
                 </div>
@@ -276,7 +276,7 @@ export default function BusinessPortal() {
                     <Building2 className="w-12 h-12 text-white/20 mx-auto mb-3" />
                     <p className="text-white/60 mb-4">Business verification required to access full features</p>
                     <Link href="/business-application">
-                      <Button className="bg-purple-600" data-testid="button-apply-business">
+                      <Button className="bg-sky-600" data-testid="button-apply-business">
                         Apply for Business Verification
                       </Button>
                     </Link>
@@ -334,7 +334,7 @@ export default function BusinessPortal() {
                     <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                       <span className="text-white/70">Trust Layer Hash</span>
                       <div className="flex items-center gap-2">
-                        <code className="text-xs text-purple-400">
+                        <code className="text-xs text-sky-400">
                           {(memberCard as any)?.dataHash?.slice(0, 16) || "Not generated"}...
                         </code>
                         {(memberCard as any)?.dataHash && (
@@ -366,22 +366,22 @@ export default function BusinessPortal() {
               <h3 className="font-bold text-white mb-4">Quick Integration Guide</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="p-4 bg-white/5 rounded-xl">
-                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-3">
-                    <Key className="w-5 h-5 text-purple-400" />
+                  <div className="w-10 h-10 rounded-lg bg-sky-500/20 flex items-center justify-center mb-3">
+                    <Key className="w-5 h-5 text-sky-400" />
                   </div>
                   <h4 className="font-medium text-white mb-1">1. Get API Key</h4>
                   <p className="text-sm text-white/60">Generate your API key from the API Keys tab</p>
                 </div>
                 <div className="p-4 bg-white/5 rounded-xl">
-                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-3">
-                    <Code className="w-5 h-5 text-purple-400" />
+                  <div className="w-10 h-10 rounded-lg bg-sky-500/20 flex items-center justify-center mb-3">
+                    <Code className="w-5 h-5 text-sky-400" />
                   </div>
                   <h4 className="font-medium text-white mb-1">2. Integrate API</h4>
                   <p className="text-sm text-white/60">Use our SDK or REST API to verify trust</p>
                 </div>
                 <div className="p-4 bg-white/5 rounded-xl">
-                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-3">
-                    <Webhook className="w-5 h-5 text-purple-400" />
+                  <div className="w-10 h-10 rounded-lg bg-sky-500/20 flex items-center justify-center mb-3">
+                    <Webhook className="w-5 h-5 text-sky-400" />
                   </div>
                   <h4 className="font-medium text-white mb-1">3. Set Up Webhooks</h4>
                   <p className="text-sm text-white/60">Receive real-time event notifications</p>
@@ -404,7 +404,7 @@ export default function BusinessPortal() {
                   <p className="text-sm text-white/60">Manage your API access credentials</p>
                 </div>
                 <Link href="/developers/register">
-                  <Button className="bg-purple-600" data-testid="button-create-api-key">
+                  <Button className="bg-sky-600" data-testid="button-create-api-key">
                     <Plus className="w-4 h-4 mr-2" />
                     Create New Key
                   </Button>
@@ -417,7 +417,7 @@ export default function BusinessPortal() {
                     <div key={i} className="p-4 bg-white/5 rounded-xl">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-3">
-                          <Key className="w-5 h-5 text-purple-400" />
+                          <Key className="w-5 h-5 text-sky-400" />
                           <span className="font-medium text-white">{key.name}</span>
                         </div>
                         <Badge className={key.isActive 
@@ -460,7 +460,7 @@ export default function BusinessPortal() {
                   <Key className="w-12 h-12 text-white/20 mx-auto mb-4" />
                   <p className="text-white/60 mb-4">No API keys yet</p>
                   <Link href="/developers/register">
-                    <Button className="bg-purple-600" data-testid="button-create-first-key">
+                    <Button className="bg-sky-600" data-testid="button-create-first-key">
                       Create Your First Key
                     </Button>
                   </Link>
@@ -500,7 +500,7 @@ export default function BusinessPortal() {
                   <h3 className="font-bold text-white text-lg">Webhooks</h3>
                   <p className="text-sm text-white/60">Receive real-time event notifications</p>
                 </div>
-                <Button className="bg-purple-600" data-testid="button-add-webhook">
+                <Button className="bg-sky-600" data-testid="button-add-webhook">
                   <Plus className="w-4 h-4 mr-2" />
                   Add Webhook
                 </Button>
@@ -537,7 +537,7 @@ export default function BusinessPortal() {
                     "trust.updated",
                     "member.connected",
                   ].map((event) => (
-                    <code key={event} className="p-2 bg-white/5 rounded text-purple-400">{event}</code>
+                    <code key={event} className="p-2 bg-white/5 rounded text-sky-400">{event}</code>
                   ))}
                 </div>
               </div>
@@ -557,7 +557,7 @@ export default function BusinessPortal() {
                   <h3 className="font-bold text-white text-lg">Team Members</h3>
                   <p className="text-sm text-white/60">Manage who has access to your business portal</p>
                 </div>
-                <Button className="bg-purple-600" data-testid="button-invite-member">
+                <Button className="bg-sky-600" data-testid="button-invite-member">
                   <Plus className="w-4 h-4 mr-2" />
                   Invite Member
                 </Button>
@@ -567,7 +567,7 @@ export default function BusinessPortal() {
                 {teamMembers.map((member, i) => (
                   <div key={i} className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-medium">
+                      <div className="w-10 h-10 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 font-medium">
                         {member.name.split(" ").map(n => n[0]).join("")}
                       </div>
                       <div>
@@ -596,7 +596,7 @@ export default function BusinessPortal() {
               <h3 className="font-bold text-white mb-4">Role Permissions</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="p-4 bg-white/5 rounded-lg">
-                  <h4 className="font-medium text-purple-400 mb-2">Admin</h4>
+                  <h4 className="font-medium text-sky-400 mb-2">Admin</h4>
                   <ul className="text-sm text-white/60 space-y-1">
                     <li>• Full portal access</li>
                     <li>• Manage team members</li>
@@ -671,7 +671,7 @@ export default function BusinessPortal() {
                     data-testid="input-description"
                   />
                 </div>
-                <Button className="bg-purple-600" data-testid="button-save-settings">
+                <Button className="bg-sky-600" data-testid="button-save-settings">
                   Save Changes
                 </Button>
               </div>

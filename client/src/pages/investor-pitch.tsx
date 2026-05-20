@@ -304,9 +304,9 @@ export default function InvestorPitch() {
   return (
     <div className="min-h-screen bg-[#06060a] text-white relative overflow-hidden">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/15 via-[#06060a] to-[#06060a] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-sky-900/10 via-transparent to-transparent pointer-events-none" />
       <div className="fixed top-32 left-16 w-96 h-96 rounded-full bg-cyan-500/5 blur-[120px] animate-pulse pointer-events-none" />
-      <div className="fixed top-64 right-24 w-80 h-80 rounded-full bg-purple-500/8 blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: "1s" }} />
+      <div className="fixed top-64 right-24 w-80 h-80 rounded-full bg-sky-500/8 blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: "1s" }} />
 
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#06060a]/80 backdrop-blur-2xl">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
@@ -315,7 +315,7 @@ export default function InvestorPitch() {
               <Briefcase className="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
               <div className="absolute inset-0 bg-cyan-400/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <span className="font-display font-bold text-lg tracking-tight bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="font-display font-bold text-lg tracking-tight bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
               Pitch Deck
             </span>
           </Link>
@@ -344,7 +344,7 @@ export default function InvestorPitch() {
               </motion.div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black mb-6 leading-tight">
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+                <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)]">
                   Trust Layer
                 </span>
                 <br />
@@ -360,7 +360,7 @@ export default function InvestorPitch() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <DownloadButton />
                 <Link href="/presale">
-                  <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold px-8 shadow-[0_0_30px_rgba(6,182,212,0.4)]" data-testid="button-join-presale">
+                  <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white font-bold px-8 shadow-[0_0_30px_rgba(6,182,212,0.4)]" data-testid="button-join-presale">
                     <Coins className="w-5 h-5 mr-2" />
                     Join Presale — Launching Soon
                   </Button>
@@ -373,8 +373,8 @@ export default function InvestorPitch() {
                 transition={{ delay: 0.5 }}
                 className="max-w-2xl mx-auto mb-12"
               >
-                <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-purple-500/10 p-4 sm:p-5">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(168,85,247,0.15),transparent_70%)]" />
+                <div className="relative overflow-hidden rounded-2xl border border-sky-500/30 bg-gradient-to-r from-sky-500/10 via-cyan-500/10 to-sky-500/10 p-4 sm:p-5">
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(14,165,233,0.15),transparent_70%)]" />
                   <div className="relative flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
                     <div className="flex items-center gap-2 shrink-0">
                       <div className="w-3 h-3 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
@@ -384,7 +384,7 @@ export default function InvestorPitch() {
                       Early investors lock in pre-launch pricing. Projected $45M Year 3 revenue across 35 products.
                     </p>
                     <Link href="/investor-room" className="shrink-0">
-                      <Button size="sm" variant="outline" className="border-purple-500/40 text-purple-400 hover:bg-purple-500/10 text-xs whitespace-nowrap" data-testid="button-data-room-hero">
+                      <Button size="sm" variant="outline" className="border-sky-500/40 text-sky-400 hover:bg-sky-500/10 text-xs whitespace-nowrap" data-testid="button-data-room-hero">
                         <Lock className="w-3 h-3 mr-1" />
                         Private Data Room
                       </Button>
@@ -423,7 +423,7 @@ export default function InvestorPitch() {
               </Badge>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black mb-4 text-white">
                 Not a Concept.{" "}
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Live Infrastructure.</span>
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Live Infrastructure.</span>
               </h2>
               <p className="text-white/50 mb-6 leading-relaxed">
                 Our Layer 1 blockchain is live and producing blocks right now. BFT Proof-of-Authority
@@ -457,12 +457,12 @@ export default function InvestorPitch() {
         <section className="py-12 sm:py-16 px-4">
           <div className="container mx-auto max-w-6xl">
             <ImageSection src={trustHomeImg} alt="TrustHome Real Estate Platform" reverse>
-              <Badge className="mb-3 px-3 py-1.5 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs">
+              <Badge className="mb-3 px-3 py-1.5 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs">
                 <Home className="w-3 h-3 mr-1" /> Real Estate
               </Badge>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black mb-4 text-white">
                 TrustHome:{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Real Estate Reimagined</span>
+                <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">Real Estate Reimagined</span>
               </h2>
               <p className="text-white/50 mb-6 leading-relaxed">
                 A blockchain-powered platform built specifically for real estate professionals.
@@ -478,14 +478,14 @@ export default function InvestorPitch() {
                   "Verifiable track record that traditional platforms cannot offer",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                     <span className="text-sm text-white/70">{item}</span>
                   </div>
                 ))}
               </div>
               <div className="mt-4">
                 <Link href="/trusthome">
-                  <Button variant="outline" size="sm" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10" data-testid="button-trusthome">
+                  <Button variant="outline" size="sm" className="border-sky-500/30 text-sky-400 hover:bg-sky-500/10" data-testid="button-trusthome">
                     Explore TrustHome <ArrowUpRight className="w-4 h-4 ml-1" />
                   </Button>
                 </Link>
@@ -501,7 +501,7 @@ export default function InvestorPitch() {
                 <Layers className="w-3 h-3 mr-1" /> Ecosystem
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">35 Products.</span>{" "}
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">35 Products.</span>{" "}
                 One Ecosystem.
               </h2>
               <p className="text-white/50 max-w-2xl mx-auto">
@@ -516,7 +516,7 @@ export default function InvestorPitch() {
                   <motion.div whileHover={{ scale: 1.02, y: -2 }} transition={{ type: "spring", stiffness: 400 }}>
                     <GlassCard className="hover:border-cyan-500/20 transition-all duration-300" data-testid={`product-${i}`}>
                       <div className="p-4 flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center shrink-0">
                           <product.icon className="w-5 h-5 text-cyan-400" />
                         </div>
                         <div className="min-w-0">
@@ -550,7 +550,7 @@ export default function InvestorPitch() {
               </Badge>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black mb-6 text-white">
                 Why{" "}
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Trust Layer</span>
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Trust Layer</span>
               </h2>
               <div className="space-y-4">
                 {[
@@ -578,12 +578,12 @@ export default function InvestorPitch() {
         <section className="py-12 sm:py-16 px-4">
           <div className="container mx-auto max-w-6xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-10">
-              <Badge className="mb-4 px-3 py-1.5 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs">
+              <Badge className="mb-4 px-3 py-1.5 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs">
                 <Coins className="w-3 h-3 mr-1" /> Tokenomics
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black mb-4">
                 Signal{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">(SIG)</span>
+                <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">(SIG)</span>
               </h2>
               <p className="text-white/50 max-w-xl mx-auto">
                 1,000,000,000 total supply. Fixed. No inflationary emissions.
@@ -601,10 +601,10 @@ export default function InvestorPitch() {
                           <span className="font-bold text-white text-sm">{item.label}</span>
                           <span className="text-white/30 text-xs ml-2">— {item.desc}</span>
                         </div>
-                        <span className="text-xl font-black bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">{item.pct}</span>
+                        <span className="text-xl font-black bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">{item.pct}</span>
                       </div>
                       <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
-                        <div className={`h-full ${item.width} bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full`} />
+                        <div className={`h-full ${item.width} bg-gradient-to-r from-cyan-500 to-sky-500 rounded-full`} />
                       </div>
                     </div>
                   </GlassCard>
@@ -627,7 +627,7 @@ export default function InvestorPitch() {
 
             <div className="mt-6 text-center">
               <Link href="/tokenomics">
-                <Button variant="outline" size="sm" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10" data-testid="button-tokenomics">
+                <Button variant="outline" size="sm" className="border-sky-500/30 text-sky-400 hover:bg-sky-500/10" data-testid="button-tokenomics">
                   Full Tokenomics Breakdown <ArrowUpRight className="w-4 h-4 ml-1" />
                 </Button>
               </Link>
@@ -642,7 +642,7 @@ export default function InvestorPitch() {
                 <TrendingUp className="w-3 h-3 mr-1" /> Revenue
               </Badge>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black mb-6 text-white">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">8 Revenue</span>{" "}
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">8 Revenue</span>{" "}
                 Streams
               </h2>
               <div className="space-y-3">
@@ -664,7 +664,7 @@ export default function InvestorPitch() {
                 <Calendar className="w-3 h-3 mr-1" /> Roadmap
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Milestones</span>{" "}
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Milestones</span>{" "}
                 & Timeline
               </h2>
             </motion.div>
@@ -711,12 +711,12 @@ export default function InvestorPitch() {
         <section className="py-12 sm:py-16 px-4">
           <div className="container mx-auto max-w-6xl">
             <ImageSection src={communityImg} alt="Trust Layer Community">
-              <Badge className="mb-3 px-3 py-1.5 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs">
+              <Badge className="mb-3 px-3 py-1.5 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs">
                 <Users className="w-3 h-3 mr-1" /> Team
               </Badge>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black mb-4 text-white">
                 Built{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Independently</span>
+                <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">Independently</span>
               </h2>
               <p className="text-white/50 mb-6 leading-relaxed">
                 Trust Layer has been built independently with a small, focused team.
@@ -731,7 +731,7 @@ export default function InvestorPitch() {
                   { label: "Security Engineering", icon: Shield },
                 ].map((item) => (
                   <div key={item.label} className="bg-white/5 rounded-xl p-3 border border-white/5 flex items-center gap-2">
-                    <item.icon className="w-4 h-4 text-purple-400 shrink-0" />
+                    <item.icon className="w-4 h-4 text-sky-400 shrink-0" />
                     <span className="text-xs text-white/60">{item.label}</span>
                   </div>
                 ))}
@@ -747,7 +747,7 @@ export default function InvestorPitch() {
                 <FileText className="w-3 h-3 mr-1" /> Resources
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-display font-black mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Explore</span>{" "}
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Explore</span>{" "}
                 Further
               </h2>
             </motion.div>
@@ -770,7 +770,7 @@ export default function InvestorPitch() {
                     <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 400 }}>
                       <GlassCard className="hover:border-cyan-500/20 transition-all duration-300 cursor-pointer" data-testid={`link-${link.title.toLowerCase().replace(/\s+/g, "-")}`}>
                         <div className="p-4 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center shrink-0">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center shrink-0">
                             <link.icon className="w-5 h-5 text-cyan-400" />
                           </div>
                           <div className="min-w-0 flex-1">
@@ -793,9 +793,9 @@ export default function InvestorPitch() {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <GlassCard glow>
                 <div className="p-8 sm:p-12 text-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-cyan-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-cyan-500/10" />
                   <div className="absolute top-0 left-1/4 w-64 h-64 bg-cyan-500/15 rounded-full blur-3xl" />
-                  <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/15 rounded-full blur-3xl" />
+                  <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-sky-500/15 rounded-full blur-3xl" />
 
                   <div className="relative z-10">
                     <Rocket className="w-14 h-14 text-cyan-400 mx-auto mb-6" />
@@ -812,13 +812,13 @@ export default function InvestorPitch() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <DownloadButton />
                       <Link href="/presale">
-                        <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold px-8 shadow-[0_0_30px_rgba(6,182,212,0.4)]" data-testid="button-cta-presale">
+                        <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white font-bold px-8 shadow-[0_0_30px_rgba(6,182,212,0.4)]" data-testid="button-cta-presale">
                           <Coins className="w-5 h-5 mr-2" />
                           Join Presale Now
                         </Button>
                       </Link>
                       <Link href="/investor-room">
-                        <Button size="lg" variant="outline" className="border-purple-500/40 text-purple-400 hover:bg-purple-500/10 font-bold px-8" data-testid="button-cta-data-room">
+                        <Button size="lg" variant="outline" className="border-sky-500/40 text-sky-400 hover:bg-sky-500/10 font-bold px-8" data-testid="button-cta-data-room">
                           <Lock className="w-5 h-5 mr-2" />
                           Private Data Room
                         </Button>

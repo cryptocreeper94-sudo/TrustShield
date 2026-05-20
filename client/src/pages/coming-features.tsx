@@ -147,14 +147,14 @@ const categoryConfig = {
   "chronicles-estate": {
     label: "Chronicles Estate",
     icon: Building2,
-    gradient: "from-purple-400 via-cyan-400 to-red-400",
+    gradient: "from-sky-400 via-cyan-400 to-red-400",
     bgGlow: "rgba(251,146,60,0.15)"
   },
   "strategic": {
     label: "Strategic Platform Features",
     icon: TrendingUp,
-    gradient: "from-cyan-400 via-purple-400 to-pink-400",
-    bgGlow: "rgba(139,92,246,0.15)"
+    gradient: "from-cyan-400 via-sky-400 to-pink-400",
+    bgGlow: "rgba(14,165,233,0.15)"
   },
   "compliance": {
     label: "Institutional Compliance",
@@ -166,7 +166,7 @@ const categoryConfig = {
 
 const statusConfig = {
   pending: { icon: Circle, color: "text-slate-400", bg: "bg-slate-500/20", label: "Upcoming" },
-  "in-progress": { icon: Clock, color: "text-purple-400", bg: "bg-purple-500/20", label: "In Progress" },
+  "in-progress": { icon: Clock, color: "text-sky-400", bg: "bg-sky-500/20", label: "In Progress" },
   completed: { icon: Check, color: "text-emerald-400", bg: "bg-emerald-500/20", label: "Complete" }
 };
 
@@ -190,7 +190,7 @@ export default function ComingFeatures() {
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       {/* Floating ambient orbs */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+      <div className="absolute bottom-40 right-20 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 py-12">
@@ -200,13 +200,13 @@ export default function ComingFeatures() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-white/10 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-white/10 mb-6">
             <Rocket className="w-4 h-4 text-cyan-400" />
             <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Development Roadmap</span>
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Coming Features
             </span>
           </h1>
@@ -230,8 +230,8 @@ export default function ComingFeatures() {
             </GlassCard>
             <GlassCard glow className="px-6 py-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-purple-400" />
+                <div className="w-10 h-10 rounded-full bg-sky-500/20 flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-sky-400" />
                 </div>
                 <div className="text-left">
                   <p className="text-2xl font-bold text-white">{inProgressCount}</p>
@@ -241,8 +241,8 @@ export default function ComingFeatures() {
             </GlassCard>
             <GlassCard glow className="px-6 py-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-purple-400" />
+                <div className="w-10 h-10 rounded-full bg-sky-500/20 flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-sky-400" />
                 </div>
                 <div className="text-left">
                   <p className="text-2xl font-bold text-white">{totalCount}</p>

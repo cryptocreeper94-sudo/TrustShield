@@ -307,7 +307,7 @@ function MilestoneItem({ milestone, index }: { milestone: Milestone; index: numb
           milestone.status === "in_progress" ? "text-cyan-400" : "text-white"
         }`}>
           {milestone.title}
-          {milestone.isRequired && <span className="ml-2 text-xs text-purple-400/80">Required</span>}
+          {milestone.isRequired && <span className="ml-2 text-xs text-sky-400/80">Required</span>}
         </h4>
         <p className="text-gray-400 text-sm mt-1">{milestone.description}</p>
       </div>
@@ -344,7 +344,7 @@ export default function RoadmapEcosystem() {
             </motion.div>
             
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent">
                 Ecosystem Roadmap
               </span>
             </h1>
@@ -376,7 +376,7 @@ export default function RoadmapEcosystem() {
                     <span className="text-cyan-400 font-semibold ml-1">{inProgressMilestones}</span> in progress of {totalMilestones} milestones
                   </p>
                 </div>
-                <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent">
                   {Math.round(overallProgress)}%
                 </div>
               </div>
@@ -385,7 +385,7 @@ export default function RoadmapEcosystem() {
                   initial={{ width: 0 }}
                   animate={{ width: `${overallProgress}%` }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500"
+                  className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-sky-500"
                 />
               </div>
             </div>
@@ -409,9 +409,9 @@ export default function RoadmapEcosystem() {
         <div className="mt-12 grid md:grid-cols-2 gap-4">
           <Link 
             href="/roadmap-chronicles" 
-            className="block relative overflow-hidden rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all group"
+            className="block relative overflow-hidden rounded-2xl border border-sky-500/20 hover:border-sky-500/40 transition-all group"
             data-testid="link-chronicles-roadmap"
-            style={{ boxShadow: "0 0 40px rgba(168, 85, 247, 0.1)" }}
+            style={{ boxShadow: "0 0 40px rgba(14,165,233, 0.1)" }}
           >
             <div className="absolute inset-0">
               <img src={fantasyWorld} alt="Chronicles" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />

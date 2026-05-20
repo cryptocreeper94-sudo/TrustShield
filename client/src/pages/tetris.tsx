@@ -23,7 +23,7 @@ interface Piece {
 const PIECES = {
   I: { shape: [[1, 1, 1, 1]], color: "#06b6d4" },
   O: { shape: [[1, 1], [1, 1]], color: "#eab308" },
-  T: { shape: [[0, 1, 0], [1, 1, 1]], color: "#a855f7" },
+  T: { shape: [[0, 1, 0], [1, 1, 1]], color: "#38bdf8" },
   S: { shape: [[0, 1, 1], [1, 1, 0]], color: "#22c55e" },
   Z: { shape: [[1, 1, 0], [0, 1, 1]], color: "#ef4444" },
   J: { shape: [[1, 0, 0], [1, 1, 1]], color: "#3b82f6" },
@@ -406,7 +406,7 @@ export default function Tetris() {
 
   if (gameState.status === "menu") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white">
+      <div className="min-h-screen bg-gradient-to-br from-sky-900 via-indigo-900 to-blue-900 text-white">
         <div className="container mx-auto px-4 py-8 max-w-2xl">
           <div className="flex items-center gap-4 mb-8">
             <BackButton />
@@ -433,11 +433,11 @@ export default function Tetris() {
 
               {gameState.highScore > 0 && (
                 <div className="text-center">
-                  <p className="text-purple-400">High Score: {gameState.highScore.toLocaleString()}</p>
+                  <p className="text-sky-400">High Score: {gameState.highScore.toLocaleString()}</p>
                 </div>
               )}
 
-              <Button onClick={startGame} className="w-full bg-purple-600 hover:bg-purple-500 text-white py-6 text-lg">
+              <Button onClick={startGame} className="w-full bg-sky-600 hover:bg-sky-500 text-white py-6 text-lg">
                 <Play className="w-5 h-5 mr-2" />
                 Start Game
               </Button>
@@ -451,7 +451,7 @@ export default function Tetris() {
   const displayBoard = renderBoard();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-sky-900 via-indigo-900 to-blue-900 text-white">
       {/* Header */}
       <div className="bg-black/30 backdrop-blur-sm px-4 py-2 sticky top-0 z-50">
         <div className="flex items-center justify-between max-w-md mx-auto">
@@ -583,7 +583,7 @@ export default function Tetris() {
               <Pause className="w-12 h-12 mx-auto mb-4 text-white/50" />
               <h2 className="text-2xl font-bold mb-4">Paused</h2>
               <div className="space-y-2">
-                <Button onClick={togglePause} className="bg-purple-600 hover:bg-purple-500 px-8 w-full">
+                <Button onClick={togglePause} className="bg-sky-600 hover:bg-sky-500 px-8 w-full">
                   Resume
                 </Button>
                 <Button onClick={startGame} variant="outline" className="w-full">
@@ -607,7 +607,7 @@ export default function Tetris() {
             <motion.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              className="bg-gradient-to-br from-purple-900 to-indigo-900 rounded-3xl p-8 max-w-md w-full mx-4 text-center border-2 border-purple-500/50"
+              className="bg-gradient-to-br from-sky-900 to-indigo-900 rounded-3xl p-8 max-w-md w-full mx-4 text-center border-2 border-sky-500/50"
             >
               {gameState.score >= gameState.highScore && gameState.score > 0 ? (
                 <Trophy className="w-16 h-16 mx-auto mb-4 text-teal-400" />
@@ -622,7 +622,7 @@ export default function Tetris() {
                   New High Score!
                 </Badge>
               )}
-              <Button onClick={startGame} className="bg-purple-600 hover:bg-purple-500 px-8">
+              <Button onClick={startGame} className="bg-sky-600 hover:bg-sky-500 px-8">
                 <RotateCcw className="w-4 h-4 mr-2" />
                 Play Again
               </Button>

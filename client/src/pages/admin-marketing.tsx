@@ -49,7 +49,7 @@ interface DeployLog {
 }
 
 const PLATFORMS = [
-  { id: "discord", label: "Discord", icon: "💬", color: "from-indigo-500 to-purple-600" },
+  { id: "discord", label: "Discord", icon: "💬", color: "from-indigo-500 to-sky-600" },
   { id: "telegram", label: "Telegram", icon: "✈️", color: "from-blue-400 to-cyan-500" },
   { id: "twitter", label: "X (Twitter)", icon: "𝕏", color: "from-gray-700 to-gray-900" },
   { id: "facebook", label: "Facebook", icon: "📘", color: "from-blue-600 to-blue-800" },
@@ -195,7 +195,7 @@ export default function AdminMarketing() {
       {/* Floating ambient glow orbs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-8 pt-20">
@@ -208,7 +208,7 @@ export default function AdminMarketing() {
           <Link href="/admin" className="text-cyan-400 hover:text-cyan-300 text-sm mb-4 inline-block">
             ← Back to Admin
           </Link>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
             Marketing Command Center
           </h1>
           <p className="text-slate-400 mt-2">Proprietary social media auto-deployment system</p>
@@ -304,7 +304,7 @@ export default function AdminMarketing() {
                   </Select>
                   <Button 
                     onClick={() => setShowNewPostForm(true)}
-                    className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600"
+                    className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600"
                     data-testid="add-post-btn"
                   >
                     <Plus className="w-4 h-4 mr-1" /> Add Post
@@ -365,7 +365,7 @@ export default function AdminMarketing() {
                       <Button
                         onClick={() => createPostMutation.mutate(newPost)}
                         disabled={!newPost.content || createPostMutation.isPending}
-                        className="bg-gradient-to-r from-cyan-500 to-purple-500"
+                        className="bg-gradient-to-r from-cyan-500 to-sky-500"
                         data-testid="save-new-post"
                       >
                         {createPostMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4 mr-1" />}
@@ -467,7 +467,7 @@ export default function AdminMarketing() {
             {/* Recent Deploys */}
             <div className="p-4 rounded-xl border border-white/10 bg-slate-900/50 backdrop-blur-lg">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <Clock className="w-4 h-4 text-purple-400" />
+                <Clock className="w-4 h-4 text-sky-400" />
                 Recent Deploys
               </h3>
               {logs.length === 0 ? (
@@ -498,8 +498,8 @@ export default function AdminMarketing() {
             </div>
 
             {/* Setup Instructions */}
-            <div className="p-4 rounded-xl border border-purple-500/30 bg-purple-500/10 backdrop-blur-lg">
-              <h3 className="text-lg font-semibold text-purple-400 mb-3 flex items-center gap-2">
+            <div className="p-4 rounded-xl border border-sky-500/30 bg-sky-500/10 backdrop-blur-lg">
+              <h3 className="text-lg font-semibold text-sky-400 mb-3 flex items-center gap-2">
                 <AlertTriangle className="w-4 h-4" />
                 Platform Setup
               </h3>

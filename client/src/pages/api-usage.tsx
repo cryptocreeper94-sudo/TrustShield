@@ -168,7 +168,7 @@ export default function ApiUsage() {
                         initial={{ width: 0 }}
                         animate={{ width: `${(endpoint.count / maxEndpointCount) * 100}%` }}
                         transition={{ duration: 0.5, delay: idx * 0.05 }}
-                        className="h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                        className="h-full bg-gradient-to-r from-primary to-sky-500 rounded-full"
                       />
                     </div>
                   </div>
@@ -184,7 +184,7 @@ export default function ApiUsage() {
           >
             <GlassCard className="p-6" data-testid="card-errors">
               <div className="flex items-center gap-2 mb-4">
-                <AlertTriangle className="w-5 h-5 text-purple-400" />
+                <AlertTriangle className="w-5 h-5 text-sky-400" />
                 <h3 className="font-semibold">Recent Errors</h3>
               </div>
               {MOCK_USAGE.recentErrors.length === 0 ? (

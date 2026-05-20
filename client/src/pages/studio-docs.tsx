@@ -109,7 +109,7 @@ export default function StudioDocs() {
             <div className="grid gap-4">
               <GlassCard className="p-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <FolderTree className="w-5 h-5 text-purple-400" />
+                  <FolderTree className="w-5 h-5 text-sky-400" />
                   <span className="text-white font-medium">Left Sidebar - File Explorer</span>
                 </div>
                 <p className="text-white/60 text-sm">Browse, create, rename, and delete files and folders in your project</p>
@@ -426,7 +426,7 @@ export default function StudioDocs() {
 
           <section id="ai-credits" className="pt-6">
             <h3 className="text-2xl font-bold text-white mb-4">Understanding Credits</h3>
-            <GlassCard className="p-4 bg-purple-500/10 border-purple-500/30">
+            <GlassCard className="p-4 bg-sky-500/10 border-sky-500/30">
               <p className="text-white/70 mb-3">
                 AI features use credits. Each request costs credits based on the mode you use.
               </p>
@@ -436,7 +436,7 @@ export default function StudioDocs() {
                   <span className="text-white/60">Chat mode: $0.05/request</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-sky-500"></div>
                   <span className="text-white/60">Agent mode: $0.25/session</span>
                 </div>
               </div>
@@ -450,7 +450,7 @@ export default function StudioDocs() {
               Toggle it on in the AI panel and describe a task — the agent will read your files, 
               plan changes, and execute them across your project.
             </p>
-            <GlassCard className="p-4 bg-purple-500/10 border-purple-500/30">
+            <GlassCard className="p-4 bg-sky-500/10 border-sky-500/30">
               <p className="text-white font-medium mb-2">What Agent Mode can do:</p>
               <ul className="text-white/60 text-sm space-y-1">
                 <li>Read and understand all project files</li>
@@ -645,7 +645,7 @@ export default function StudioDocs() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold flex-shrink-0">4</div>
+                <div className="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 font-bold flex-shrink-0">4</div>
                 <div>
                   <p className="text-white font-medium">Push (Optional)</p>
                   <p className="text-white/60 text-sm">Upload your commits to GitHub or another remote repository</p>
@@ -762,9 +762,9 @@ export default function StudioDocs() {
                 </div>
               </div>
             </div>
-            <GlassCard className="p-4 bg-purple-500/10 border-purple-500/30 mt-4">
+            <GlassCard className="p-4 bg-sky-500/10 border-sky-500/30 mt-4">
               <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-white font-medium">Setup Required</p>
                   <p className="text-white/60 text-sm">GitHub integration requires a GitHub OAuth App to be configured by the platform admin. Contact team@dwsc.io if the Connect button shows "Configure".</p>
@@ -945,8 +945,8 @@ export default function StudioDocs() {
               </GlassCard>
               <GlassCard className="p-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-4 h-4 rounded bg-purple-500/20 flex items-center justify-center">
-                    <AlertTriangle className="w-2.5 h-2.5 text-purple-400" />
+                  <div className="w-4 h-4 rounded bg-sky-500/20 flex items-center justify-center">
+                    <AlertTriangle className="w-2.5 h-2.5 text-sky-400" />
                   </div>
                   <span className="text-white font-medium">Warnings (Purple)</span>
                 </div>
@@ -970,9 +970,9 @@ export default function StudioDocs() {
               Every time you save a file, Studio automatically runs lint checks and updates 
               the Problems panel. The tab shows error/warning counts so you can spot issues at a glance.
             </p>
-            <GlassCard className="p-4 bg-purple-500/10 border-purple-500/30">
+            <GlassCard className="p-4 bg-sky-500/10 border-sky-500/30">
               <div className="flex items-start gap-3">
-                <Zap className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                <Zap className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
                 <p className="text-white/60 text-sm">You can also run lint manually by clicking the "Lint" button in the Problems panel or using the Command Palette (Ctrl+K → "Run Lint Check").</p>
               </div>
             </GlassCard>
@@ -1317,9 +1317,9 @@ export default function StudioDocs() {
               Your installed packages are listed in <code className="text-cyan-400">package.json</code> (Node.js) or <code className="text-cyan-400">requirements.txt</code> (Python). 
               The Packages panel shows all currently installed packages with version numbers.
             </p>
-            <GlassCard className="p-4 bg-purple-500/10 border-purple-500/30">
+            <GlassCard className="p-4 bg-sky-500/10 border-sky-500/30">
               <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
                 <p className="text-white/60 text-sm">Be careful about removing packages that other packages depend on. If something breaks after removing a package, reinstall it.</p>
               </div>
             </GlassCard>
@@ -1378,7 +1378,7 @@ export default function StudioDocs() {
                   <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" /><span>Search & Replace</span></li>
                 </ul>
               </GlassCard>
-              <GlassCard className="p-4 bg-gradient-to-br from-cyan-500/10 to-purple-500/10">
+              <GlassCard className="p-4 bg-gradient-to-br from-cyan-500/10 to-sky-500/10">
                 <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
                   <Lock className="w-4 h-4 text-cyan-400" />
                   With Account (Free)
@@ -1411,7 +1411,7 @@ export default function StudioDocs() {
               <GlassCard className="p-4">
                 <div className="flex items-center justify-between">
                   <span className="text-white font-medium">Agent Mode</span>
-                  <Badge variant="outline" className="bg-purple-500/10 text-purple-400 border-purple-500/30">$0.25 per session</Badge>
+                  <Badge variant="outline" className="bg-sky-500/10 text-sky-400 border-sky-500/30">$0.25 per session</Badge>
                 </div>
                 <p className="text-white/60 text-sm mt-2">Autonomous multi-file coding, refactoring, feature building</p>
               </GlassCard>
@@ -1566,7 +1566,7 @@ export default function StudioDocs() {
               </GlassCard>
               <GlassCard className="p-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <MessageSquare className="w-5 h-5 text-purple-400" />
+                  <MessageSquare className="w-5 h-5 text-sky-400" />
                   <span className="text-white font-medium">Contact Support</span>
                 </div>
                 <p className="text-white/60 text-sm">Email team@dwsc.io for account issues, bug reports, or feature requests. We typically respond within 24 hours.</p>
@@ -1668,7 +1668,7 @@ export default function StudioDocs() {
               </GlassCard>
               <GlassCard className="p-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <Code className="w-5 h-5 text-purple-400" />
+                  <Code className="w-5 h-5 text-sky-400" />
                   <span className="text-white font-medium">Use Split View for Reference</span>
                 </div>
                 <p className="text-white/60 text-sm">Open your main file in one pane and a reference file (API docs, types, tests) in the other. This eliminates tab-switching.</p>
@@ -1765,7 +1765,7 @@ export default function StudioDocs() {
               </GlassCard>
               <GlassCard className="p-4 hover:border-cyan-500/30 transition-colors">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-sky-500 to-pink-600 flex items-center justify-center flex-shrink-0">
                     <Terminal className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -1776,7 +1776,7 @@ export default function StudioDocs() {
                       Interactive coding lessons in Python, JavaScript, SQL, and more. 
                       Free tier available with many courses.
                     </p>
-                    <Badge className="mt-2 bg-purple-500/20 text-purple-400 border-purple-500/30">Interactive</Badge>
+                    <Badge className="mt-2 bg-sky-500/20 text-sky-400 border-sky-500/30">Interactive</Badge>
                   </div>
                 </div>
               </GlassCard>
@@ -1858,18 +1858,18 @@ export default function StudioDocs() {
                 <p className="text-white font-medium">E-commerce Store</p>
                 <p className="text-white/60 text-sm mt-1">Product listings, cart, and checkout flow with payments.</p>
               </GlassCard>
-              <GlassCard className="p-4 bg-gradient-to-br from-purple-500/10 to-transparent">
+              <GlassCard className="p-4 bg-gradient-to-br from-sky-500/10 to-transparent">
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-purple-500"></div>
-                  <span className="text-purple-400 text-xs font-medium">ADVANCED</span>
+                  <div className="w-2 h-2 rounded-full bg-sky-500"></div>
+                  <span className="text-sky-400 text-xs font-medium">ADVANCED</span>
                 </div>
                 <p className="text-white font-medium">Real-time Chat App</p>
                 <p className="text-white/60 text-sm mt-1">WebSocket connections, user authentication, message history.</p>
               </GlassCard>
-              <GlassCard className="p-4 bg-gradient-to-br from-purple-500/10 to-transparent">
+              <GlassCard className="p-4 bg-gradient-to-br from-sky-500/10 to-transparent">
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-purple-500"></div>
-                  <span className="text-purple-400 text-xs font-medium">ADVANCED</span>
+                  <div className="w-2 h-2 rounded-full bg-sky-500"></div>
+                  <span className="text-sky-400 text-xs font-medium">ADVANCED</span>
                 </div>
                 <p className="text-white font-medium">AI-Powered Tool</p>
                 <p className="text-white/60 text-sm mt-1">Integrate OpenAI API to build something intelligent.</p>
@@ -1910,7 +1910,7 @@ export default function StudioDocs() {
           </Link>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
                 <BookOpen className="w-8 h-8 text-white" />
               </div>
               <div>
@@ -1924,7 +1924,7 @@ export default function StudioDocs() {
             </div>
             <Link href="/studio/projects">
               <Button
-                className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-semibold"
+                className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white font-semibold"
                 data-testid="button-start-building-top"
               >
                 <Rocket className="w-4 h-4 mr-2" />
@@ -2000,7 +2000,7 @@ export default function StudioDocs() {
               <div className="mt-6 pt-4 border-t border-white/10">
                 <Link href="/studio/projects">
                   <Button
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-semibold"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white font-semibold"
                     data-testid="button-start-building-sidebar"
                   >
                     <Rocket className="w-4 h-4 mr-2" />
@@ -2062,7 +2062,7 @@ export default function StudioDocs() {
                 ) : (
                   <Link href="/studio/projects">
                     <Button
-                      className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-semibold"
+                      className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white font-semibold"
                       data-testid="button-start-building"
                     >
                       <Rocket className="w-4 h-4 mr-2" />

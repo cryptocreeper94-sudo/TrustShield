@@ -389,8 +389,8 @@ export default function MarketingCatalogAdmin() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
-      <GlowOrb color="linear-gradient(135deg, #8b5cf6, #ec4899)" size={600} top="-10%" left="-10%" />
-      <GlowOrb color="linear-gradient(135deg, #06b6d4, #8b5cf6)" size={500} top="50%" left="70%" delay={2} />
+      <GlowOrb color="linear-gradient(135deg, #0ea5e9, #ec4899)" size={600} top="-10%" left="-10%" />
+      <GlowOrb color="linear-gradient(135deg, #06b6d4, #0ea5e9)" size={500} top="50%" left="70%" delay={2} />
       
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 py-8 pt-20">
@@ -407,11 +407,11 @@ export default function MarketingCatalogAdmin() {
           </Link>
           
           <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500">
+            <div className="p-2 rounded-lg bg-gradient-to-br from-sky-500 to-pink-500">
               <MessageSquare className="w-6 h-6 text-white" />
             </div>
             <h1 className="text-3xl md:text-4xl font-bold">
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 to-pink-400 bg-clip-text text-transparent">
                 Discord & Telegram
               </span>{" "}
               Marketing Catalog
@@ -430,7 +430,7 @@ export default function MarketingCatalogAdmin() {
           <Button
             variant={activeTab === "messages" ? "default" : "outline"}
             onClick={() => setActiveTab("messages")}
-            className={activeTab === "messages" ? "bg-purple-600" : "border-slate-700"}
+            className={activeTab === "messages" ? "bg-sky-600" : "border-slate-700"}
           >
             <MessageSquare className="w-4 h-4 mr-2" />
             Messages ({DISCORD_TELEGRAM_MESSAGES.evergreen.length + DISCORD_TELEGRAM_MESSAGES.seasonal.length})
@@ -438,7 +438,7 @@ export default function MarketingCatalogAdmin() {
           <Button
             variant={activeTab === "images" ? "default" : "outline"}
             onClick={() => setActiveTab("images")}
-            className={activeTab === "images" ? "bg-purple-600" : "border-slate-700"}
+            className={activeTab === "images" ? "bg-sky-600" : "border-slate-700"}
           >
             <Image className="w-4 h-4 mr-2" />
             Images ({IMAGE_ASSETS.length})
@@ -450,7 +450,7 @@ export default function MarketingCatalogAdmin() {
             <div className="flex gap-2 mb-6">
               <Badge 
                 variant={filter === "all" ? "default" : "outline"}
-                className={`cursor-pointer ${filter === "all" ? "bg-purple-600" : "border-slate-700"}`}
+                className={`cursor-pointer ${filter === "all" ? "bg-sky-600" : "border-slate-700"}`}
                 onClick={() => setFilter("all")}
               >
                 All

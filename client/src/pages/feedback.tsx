@@ -70,7 +70,7 @@ export default function Feedback() {
   if (submitted) {
     return (
       <div className="min-h-screen bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
         
         <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/90 backdrop-blur-xl">
           <div className="w-full px-4 h-14 flex items-center justify-between">
@@ -119,7 +119,7 @@ export default function Feedback() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
       
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/90 backdrop-blur-xl">
         <div className="w-full px-4 h-14 flex items-center justify-between">
@@ -141,7 +141,7 @@ export default function Feedback() {
             </Link>
             
             <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                 Bug Reports & Feedback
               </span>
             </h1>
@@ -156,10 +156,10 @@ export default function Feedback() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-6"
             >
-              <GlassCard className="p-4 border-purple-500/30 bg-purple-500/5">
+              <GlassCard className="p-4 border-sky-500/30 bg-sky-500/5">
                 <div className="flex items-center gap-3">
-                  <AlertCircle className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                  <p className="text-sm text-purple-200">
+                  <AlertCircle className="w-5 h-5 text-sky-400 flex-shrink-0" />
+                  <p className="text-sm text-sky-200">
                     <Link href="/" className="underline hover:text-white">Sign in</Link> to track your submissions and receive updates on your reports.
                   </p>
                 </div>
@@ -283,7 +283,7 @@ export default function Feedback() {
                 <Button
                   onClick={handleSubmit}
                   disabled={!title.trim() || !description.trim() || submitMutation.isPending}
-                  className="flex-1 bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-90"
+                  className="flex-1 bg-gradient-to-r from-cyan-500 to-sky-500 hover:opacity-90"
                   data-testid="button-submit-feedback"
                 >
                   {submitMutation.isPending ? (
@@ -310,13 +310,13 @@ export default function Feedback() {
             transition={{ delay: 0.2 }}
             className="mt-8"
           >
-            <GlassCard className="p-6 bg-gradient-to-r from-purple-500/5 to-purple-500/5 border-purple-500/20">
+            <GlassCard className="p-6 bg-gradient-to-r from-sky-500/5 to-sky-500/5 border-sky-500/20">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-purple-500/20">
-                  <Gamepad2 className="w-6 h-6 text-purple-400" />
+                <div className="p-3 rounded-xl bg-sky-500/20">
+                  <Gamepad2 className="w-6 h-6 text-sky-400" />
                 </div>
                 <div>
-                  <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 mb-2">
+                  <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 mb-2">
                     BETA TESTING
                   </Badge>
                   <h3 className="font-bold text-lg mb-2">Chronicles is in Beta</h3>

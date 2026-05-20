@@ -65,11 +65,11 @@ import { startAuthentication as webauthnStartAuthentication } from "@simplewebau
 import { PhoneVerification } from "@/components/phone-verification";
 
 const SUPPORTED_CHAINS = [
-  { id: 'darkwave', name: 'Trust Layer', symbol: 'SIG', icon: '⚡', color: 'from-purple-500 to-pink-500', explorer: '/explorer' },
+  { id: 'darkwave', name: 'Trust Layer', symbol: 'SIG', icon: '⚡', color: 'from-sky-500 to-pink-500', explorer: '/explorer' },
   { id: 'solana', name: 'Solana', symbol: 'SOL', icon: '◎', color: 'from-green-400 to-teal-500', explorer: 'https://solscan.io' },
   { id: 'ethereum', name: 'Ethereum', symbol: 'ETH', icon: 'Ξ', color: 'from-blue-400 to-indigo-500', explorer: 'https://etherscan.io' },
   { id: 'base', name: 'Base', symbol: 'ETH', icon: '🔵', color: 'from-blue-500 to-blue-600', explorer: 'https://basescan.org' },
-  { id: 'polygon', name: 'Polygon', symbol: 'MATIC', icon: '⬡', color: 'from-purple-400 to-violet-500', explorer: 'https://polygonscan.com' },
+  { id: 'polygon', name: 'Polygon', symbol: 'MATIC', icon: '⬡', color: 'from-sky-400 to-cyan-500', explorer: 'https://polygonscan.com' },
   { id: 'arbitrum', name: 'Arbitrum', symbol: 'ETH', icon: '🔷', color: 'from-blue-400 to-cyan-500', explorer: 'https://arbiscan.io' },
   { id: 'bsc', name: 'BNB Chain', symbol: 'BNB', icon: '🔶', color: 'from-teal-400 to-cyan-500', explorer: 'https://bscscan.com' },
   { id: 'optimism', name: 'Optimism', symbol: 'ETH', icon: '🔴', color: 'from-red-400 to-red-500', explorer: 'https://optimistic.etherscan.io' },
@@ -631,7 +631,7 @@ export default function WalletPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-purple-950/20 pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-sky-950/20 pb-20">
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/90 backdrop-blur-xl">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
@@ -649,7 +649,7 @@ export default function WalletPage() {
         </div>
       </nav>
 
-      <div className="fixed top-14 left-0 right-0 z-40 bg-gradient-to-r from-cyan-600/90 to-purple-600/90 backdrop-blur-sm border-b border-cyan-500/50">
+      <div className="fixed top-14 left-0 right-0 z-40 bg-gradient-to-r from-cyan-600/90 to-sky-600/90 backdrop-blur-sm border-b border-cyan-500/50">
         <div className="container mx-auto px-4 py-3 flex flex-col items-center gap-1 text-center">
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-white flex-shrink-0" />
@@ -660,7 +660,7 @@ export default function WalletPage() {
       </div>
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-500" />
       </div>
@@ -671,12 +671,12 @@ export default function WalletPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 mb-6">
-            <Sparkles className="w-4 h-4 text-purple-400" />
-            <span className="text-sm text-purple-300">Shells Economy Wallet</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-sky-500/20 to-cyan-500/20 border border-sky-500/30 mb-6">
+            <Sparkles className="w-4 h-4 text-sky-400" />
+            <span className="text-sm text-sky-300">Shells Economy Wallet</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-sky-400 bg-clip-text text-transparent">
               Trust Layer Wallet
             </span>
           </h1>
@@ -685,7 +685,7 @@ export default function WalletPage() {
           </p>
           <div className="max-w-xl mx-auto p-4 rounded-xl bg-slate-800/50 border border-white/10">
             <p className="text-sm text-gray-300">
-              <strong className="text-purple-400">Pre-Launch Mode:</strong> This wallet is for Shells only. For presale purchases, use your preferred third-party wallet (MetaMask for Ethereum, Phantom for Solana, etc.) with the "Buy Crypto" button below.
+              <strong className="text-sky-400">Pre-Launch Mode:</strong> This wallet is for Shells only. For presale purchases, use your preferred third-party wallet (MetaMask for Ethereum, Phantom for Solana, etc.) with the "Buy Crypto" button below.
             </p>
           </div>
         </motion.div>
@@ -708,10 +708,10 @@ export default function WalletPage() {
             className="max-w-lg mx-auto"
           >
             <Card className="bg-white/5 backdrop-blur-xl border-white/10 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5" />
+              <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-pink-500/5" />
               <CardHeader className="relative">
                 <CardTitle className="flex items-center gap-3">
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-sky-500 to-pink-500">
                     {showLogin ? <Unlock className="w-6 h-6 text-white" /> : <Shield className="w-6 h-6 text-white" />}
                   </div>
                   {showLogin ? "Unlock Your Wallet" : "Create Your Wallet"}
@@ -763,7 +763,7 @@ export default function WalletPage() {
                     <Button
                       onClick={handleLogin}
                       disabled={isCreating || !loginPassword}
-                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                      className="w-full bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-600 hover:to-pink-600"
                       data-testid="button-unlock-wallet"
                     >
                       {isCreating ? (
@@ -865,7 +865,7 @@ export default function WalletPage() {
                     <Button
                       onClick={handleCreateWallet}
                       disabled={isCreating || !validatePassword(password).valid || password !== confirmPassword}
-                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                      className="w-full bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-600 hover:to-pink-600"
                       data-testid="button-create-wallet"
                     >
                       {isCreating ? (
@@ -884,7 +884,7 @@ export default function WalletPage() {
                         placeholder="Enter your 12-word BIP39 recovery phrase..."
                         value={importMnemonic}
                         onChange={(e) => setImportMnemonic(e.target.value)}
-                        className="w-full h-24 px-3 py-2 bg-white/5 border border-white/10 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full h-24 px-3 py-2 bg-white/5 border border-white/10 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-sky-500"
                         data-testid="input-import-mnemonic"
                       />
                     </div>
@@ -916,8 +916,8 @@ export default function WalletPage() {
                   </TabsContent>
                 </Tabs>
 
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-purple-500/10 border border-purple-500/20">
-                  <Lock className="w-5 h-5 text-purple-400" />
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-sky-500/10 border border-sky-500/20">
+                  <Lock className="w-5 h-5 text-sky-400" />
                   <p className="text-sm text-muted-foreground">
                     Your wallet is encrypted locally. We never have access to your keys.
                   </p>
@@ -935,10 +935,10 @@ export default function WalletPage() {
             >
               <Link href="/multisig">
                 <Card className="bg-white/5 backdrop-blur-xl border-white/10 overflow-hidden cursor-pointer hover:border-cyan-500/40 transition-all group" data-testid="card-multisig-signup">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 group-hover:from-cyan-500/10 group-hover:to-purple-500/10 transition-all" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-sky-500/5 group-hover:from-cyan-500/10 group-hover:to-sky-500/10 transition-all" />
                   <CardContent className="relative p-5">
                     <div className="flex items-center gap-4">
-                      <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 flex-shrink-0">
+                      <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-500 flex-shrink-0">
                         <Users className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -967,7 +967,7 @@ export default function WalletPage() {
               className="mb-8"
             >
               <Card className="bg-white/5 backdrop-blur-xl border-white/10 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10" />
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-pink-500/10" />
                 <CardContent className="relative p-6">
                   <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="text-center md:text-left">
@@ -1013,7 +1013,7 @@ export default function WalletPage() {
                         Receive
                       </Button>
                       <Button
-                        className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                        className="bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-600 hover:to-pink-600"
                         data-testid="button-send"
                       >
                         <Send className="w-4 h-4 mr-2" />
@@ -1039,14 +1039,14 @@ export default function WalletPage() {
                 animate={{ opacity: 1, height: 'auto' }}
                 className="mb-8"
               >
-                <Card className="bg-purple-500/10 border-purple-500/30">
+                <Card className="bg-sky-500/10 border-sky-500/30">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 rounded-xl bg-purple-500/20">
-                        <Key className="w-6 h-6 text-purple-400" />
+                      <div className="p-3 rounded-xl bg-sky-500/20">
+                        <Key className="w-6 h-6 text-sky-400" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-purple-400 mb-2">Backup Your Recovery Phrase</h3>
+                        <h3 className="font-semibold text-sky-400 mb-2">Backup Your Recovery Phrase</h3>
                         <p className="text-sm text-muted-foreground mb-4">
                           Write down these 12 words and store them safely. This is the ONLY way to recover your wallet.
                         </p>
@@ -1087,7 +1087,7 @@ export default function WalletPage() {
                           <Button
                             size="sm"
                             onClick={() => setMnemonic("")}
-                            className="bg-purple-500 hover:bg-purple-600"
+                            className="bg-sky-500 hover:bg-sky-600"
                             data-testid="button-confirm-backup"
                           >
                             <Check className="w-4 h-4 mr-2" />
@@ -1134,7 +1134,7 @@ export default function WalletPage() {
                                     {getTestnetName(chain.id)}
                                   </span>
                                   {chain.id === 'darkwave' && (
-                                    <span className="px-2 py-0.5 text-xs rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                                    <span className="px-2 py-0.5 text-xs rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30">
                                       Native
                                     </span>
                                   )}
@@ -1179,7 +1179,7 @@ export default function WalletPage() {
                 <Card className="bg-white/5 backdrop-blur-xl border-white/10 overflow-hidden">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-base sm:text-lg flex items-center gap-2">
-                      <Send className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                      <Send className="w-5 h-5 text-sky-400 flex-shrink-0" />
                       Quick Send
                     </CardTitle>
                   </CardHeader>
@@ -1258,7 +1258,7 @@ export default function WalletPage() {
                     </div>
                     
                     <Button
-                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                      className="w-full bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-600 hover:to-pink-600"
                       data-testid="button-confirm-send"
                       onClick={handleSendTransaction}
                       disabled={isSending}
@@ -1298,12 +1298,12 @@ export default function WalletPage() {
                       </div>
                       <Check className="w-4 h-4 text-green-400" />
                     </div>
-                    <div className="flex items-center justify-between p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
+                    <div className="flex items-center justify-between p-3 rounded-xl bg-sky-500/10 border border-sky-500/20">
                       <div className="flex items-center gap-2">
-                        <Globe className="w-4 h-4 text-purple-400" />
+                        <Globe className="w-4 h-4 text-sky-400" />
                         <span className="text-sm">9 Chains Supported</span>
                       </div>
-                      <Zap className="w-4 h-4 text-purple-400" />
+                      <Zap className="w-4 h-4 text-sky-400" />
                     </div>
                     
                     <div className="pt-3 border-t border-white/10 space-y-2">
@@ -1341,7 +1341,7 @@ export default function WalletPage() {
                             variant="outline"
                             onClick={handleCloudRestore}
                             disabled={isRestoring || !backupStatus?.exists}
-                            className="flex-1 border-purple-500/30 text-purple-400 hover:bg-purple-500/10"
+                            className="flex-1 border-sky-500/30 text-sky-400 hover:bg-sky-500/10"
                             data-testid="button-cloud-restore"
                           >
                             {isRestoring ? (
@@ -1370,7 +1370,7 @@ export default function WalletPage() {
                   <CardContent className="p-4">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
-                        <ExternalLink className="w-4 h-4 text-purple-400" />
+                        <ExternalLink className="w-4 h-4 text-sky-400" />
                         <span className="text-sm font-medium">Third-Party Wallets</span>
                       </div>
                       <Button
@@ -1429,7 +1429,7 @@ export default function WalletPage() {
                             size="sm"
                             onClick={handleSaveExternalWallet}
                             disabled={isSavingExternalWallet || !newExternalAddress.trim()}
-                            className="w-full bg-purple-500/20 border border-purple-500/30 text-purple-400 hover:bg-purple-500/30"
+                            className="w-full bg-sky-500/20 border border-sky-500/30 text-sky-400 hover:bg-sky-500/30"
                             data-testid="button-save-external-wallet"
                           >
                             {isSavingExternalWallet ? <Loader className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4 mr-1" />}
@@ -1445,7 +1445,7 @@ export default function WalletPage() {
                               <div key={wallet.id} className="flex items-center justify-between p-2 rounded-lg bg-white/5 border border-white/10">
                                 <div className="min-w-0 flex-1">
                                   <div className="flex items-center gap-2">
-                                    <span className="text-xs font-medium text-purple-400 uppercase">{wallet.chain}</span>
+                                    <span className="text-xs font-medium text-sky-400 uppercase">{wallet.chain}</span>
                                     {wallet.label && <span className="text-xs text-muted-foreground">({wallet.label})</span>}
                                   </div>
                                   <code className="text-xs text-muted-foreground font-mono truncate block">
@@ -1671,10 +1671,10 @@ export default function WalletPage() {
         >
           <Link href="/multisig">
             <Card className="bg-white/5 backdrop-blur-xl border-white/10 overflow-hidden cursor-pointer hover:border-cyan-500/40 transition-all group" data-testid="card-multisig-cta">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 group-hover:from-cyan-500/10 group-hover:to-purple-500/10 transition-all" />
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-sky-500/5 group-hover:from-cyan-500/10 group-hover:to-sky-500/10 transition-all" />
               <CardContent className="relative p-6">
                 <div className="flex flex-col sm:flex-row items-center gap-5">
-                  <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 flex-shrink-0 shadow-lg shadow-cyan-500/20">
+                  <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-500 flex-shrink-0 shadow-lg shadow-cyan-500/20">
                     <Users className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1 text-center sm:text-left">
@@ -1693,7 +1693,7 @@ export default function WalletPage() {
                     <span>Set Up</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </div>
-                  <Button className="sm:hidden bg-gradient-to-r from-cyan-500 to-purple-500 text-white w-full" data-testid="button-multisig-mobile-cta">
+                  <Button className="sm:hidden bg-gradient-to-r from-cyan-500 to-sky-500 text-white w-full" data-testid="button-multisig-mobile-cta">
                     Set Up Multi-SIG Wallet
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>

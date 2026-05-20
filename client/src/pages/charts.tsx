@@ -102,7 +102,7 @@ export default function Charts() {
             </div>
           </motion.div>
 
-          <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-white/10">
+          <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-white/10">
             <div className="flex items-center justify-center gap-2 text-primary">
               <Clock className="w-5 h-5" />
               <span className="font-semibold">Live Price Data — Available at Mainnet Launch</span>
@@ -219,7 +219,7 @@ export default function Charts() {
             </GlassCard>
             <GlassCard>
               <div className="p-4 text-center">
-                <DollarSign className="w-5 h-5 text-purple-400 mx-auto mb-2" />
+                <DollarSign className="w-5 h-5 text-sky-400 mx-auto mb-2" />
                 <div className="text-sm font-bold">Total Supply</div>
                 <div className="text-lg font-bold">1B SIG</div>
                 <div className="text-[10px] text-muted-foreground">Fixed supply</div>

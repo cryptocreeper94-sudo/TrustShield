@@ -197,7 +197,7 @@ function PinGate({ onSuccess }: { onSuccess: (label?: string) => void }) {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", delay: 0.2 }}
-              className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center"
+              className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/30 flex items-center justify-center"
             >
               <Lock className="w-8 h-8 text-cyan-400" />
             </motion.div>
@@ -219,7 +219,7 @@ function PinGate({ onSuccess }: { onSuccess: (label?: string) => void }) {
                   onChange={(e) => setPin(e.target.value.toUpperCase())}
                   placeholder="INV-XXXXXX"
                   className={`w-full h-14 px-4 text-center text-lg font-mono tracking-widest rounded-xl bg-[#0a0b10] border ${
-                    error ? "border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.3)]" : "border-[#1a1b2e] focus:border-cyan-500/50"
+                    error ? "border-sky-500 shadow-[0_0_20px_rgba(14,165,233,0.3)]" : "border-[#1a1b2e] focus:border-cyan-500/50"
                   } text-white placeholder:text-white/20 outline-none transition-all`}
                   data-testid="input-investor-pin"
                 />
@@ -228,7 +228,7 @@ function PinGate({ onSuccess }: { onSuccess: (label?: string) => void }) {
                 <motion.p
                   initial={{ opacity: 0, y: -5 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-purple-400 text-sm mt-3"
+                  className="text-sky-400 text-sm mt-3"
                 >
                   Invalid PIN. Please try again.
                 </motion.p>
@@ -236,7 +236,7 @@ function PinGate({ onSuccess }: { onSuccess: (label?: string) => void }) {
               <Button
                 type="submit"
                 disabled={loading || !pin.trim()}
-                className="w-full mt-6 h-12 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold text-base shadow-[0_0_30px_rgba(6,182,212,0.3)]"
+                className="w-full mt-6 h-12 bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white font-bold text-base shadow-[0_0_30px_rgba(6,182,212,0.3)]"
                 data-testid="button-verify-pin"
               >
                 {loading ? (
@@ -283,9 +283,9 @@ export default function InvestorDataRoom() {
   return (
     <div className="min-h-screen bg-[#06060a] text-white relative overflow-hidden">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/15 via-[#06060a] to-[#06060a] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-sky-900/10 via-transparent to-transparent pointer-events-none" />
       <div className="fixed top-32 left-16 w-96 h-96 rounded-full bg-cyan-500/5 blur-[120px] animate-pulse pointer-events-none" />
-      <div className="fixed top-64 right-24 w-80 h-80 rounded-full bg-purple-500/8 blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: "1s" }} />
+      <div className="fixed top-64 right-24 w-80 h-80 rounded-full bg-sky-500/8 blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: "1s" }} />
 
       <main className="relative pb-16">
 
@@ -296,7 +296,7 @@ export default function InvestorDataRoom() {
           </div>
           <div className="container mx-auto max-w-6xl relative">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center">
-              <Badge className="mb-6 px-4 py-2 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs font-bold tracking-wider shadow-[0_0_20px_rgba(168,85,247,0.2)]" data-testid="badge-confidential">
+              <Badge className="mb-6 px-4 py-2 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs font-bold tracking-wider shadow-[0_0_20px_rgba(14,165,233,0.2)]" data-testid="badge-confidential">
                 <Lock className="w-3 h-3 mr-2" />
                 Confidential Investor Materials
               </Badge>
@@ -304,10 +304,10 @@ export default function InvestorDataRoom() {
                 {label ? (
                   <>
                     <span className="text-white/70 text-xl sm:text-2xl block mb-2">Welcome back,</span>
-                    <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">{label}</span>
+                    <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">{label}</span>
                   </>
                 ) : (
-                  <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-300 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-300 bg-clip-text text-transparent">
                     Investor Data Room
                   </span>
                 )}
@@ -338,7 +338,7 @@ export default function InvestorDataRoom() {
             </Badge>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-8">
               Growth{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Trajectory</span>
+              <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Trajectory</span>
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
@@ -350,7 +350,7 @@ export default function InvestorDataRoom() {
               <motion.div key={item.year} variants={fadeUp}>
                 <GlassCard glow>
                   <div className="p-6 sm:p-8">
-                    <div className="text-xs font-bold text-purple-400 uppercase tracking-widest mb-3">{item.year}</div>
+                    <div className="text-xs font-bold text-sky-400 uppercase tracking-widest mb-3">{item.year}</div>
                     <div className="text-3xl sm:text-4xl font-black text-white mb-1" data-testid={`stat-revenue-year-${i + 1}`}>
                       <AnimatedCounter target={item.revenue} prefix="$" suffix="M" />
                     </div>
@@ -362,7 +362,7 @@ export default function InvestorDataRoom() {
                       </div>
                       <div className="flex items-center justify-between text-sm">
                         <span className="text-white/50">Milestone</span>
-                        <span className="text-purple-400 font-medium text-xs">{item.products}</span>
+                        <span className="text-sky-400 font-medium text-xs">{item.products}</span>
                       </div>
                       <div className="h-2 bg-[#0a0b10] rounded-full overflow-hidden border border-[#1a1b2e]">
                         <motion.div
@@ -370,7 +370,7 @@ export default function InvestorDataRoom() {
                           whileInView={{ width: `${item.progress}%` }}
                           viewport={{ once: true }}
                           transition={{ duration: 1.5, delay: i * 0.2 }}
-                          className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-purple-500"
+                          className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-sky-500"
                         />
                       </div>
                     </div>
@@ -383,13 +383,13 @@ export default function InvestorDataRoom() {
 
         <SectionWrapper>
           <motion.div variants={fadeUp}>
-            <Badge className="mb-4 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs">
+            <Badge className="mb-4 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs">
               <DollarSign className="w-3 h-3 mr-1" />
               Revenue Model
             </Badge>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-8">
               8 Revenue{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Streams</span>
+              <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">Streams</span>
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -397,7 +397,7 @@ export default function InvestorDataRoom() {
               <motion.div key={stream.source} variants={fadeUp}>
                 <GlassCard glow>
                   <div className="p-5 sm:p-6">
-                    <div className="text-2xl font-black bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-1">
+                    <div className="text-2xl font-black bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent mb-1">
                       {stream.contribution}
                     </div>
                     <div className="text-sm font-bold text-white mb-2">{stream.source}</div>
@@ -408,7 +408,7 @@ export default function InvestorDataRoom() {
                         whileInView={{ width: stream.contribution }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: i * 0.1 }}
-                        className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-purple-500"
+                        className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-sky-500"
                       />
                     </div>
                   </div>
@@ -426,7 +426,7 @@ export default function InvestorDataRoom() {
             </Badge>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-8">
               Addressable{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Markets</span>
+              <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Markets</span>
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -434,12 +434,12 @@ export default function InvestorDataRoom() {
               <motion.div key={mkt.market} variants={fadeUp}>
                 <GlassCard glow>
                   <div className="p-6 sm:p-8 flex items-start gap-4">
-                    <div className="w-12 h-12 min-w-[48px] rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20 flex items-center justify-center">
+                    <div className="w-12 h-12 min-w-[48px] rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20 flex items-center justify-center">
                       <mkt.icon className="w-6 h-6 text-cyan-400" />
                     </div>
                     <div>
                       <div className="text-sm text-white/50 mb-1">{mkt.market}</div>
-                      <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2" data-testid={`stat-market-${mkt.market.toLowerCase().replace(/\s+/g, "-")}`}>
+                      <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent mb-2" data-testid={`stat-market-${mkt.market.toLowerCase().replace(/\s+/g, "-")}`}>
                         {mkt.size}
                       </div>
                       <p className="text-xs text-white/40 leading-relaxed">{mkt.desc}</p>
@@ -462,7 +462,7 @@ export default function InvestorDataRoom() {
                 <motion.div
                   animate={{ opacity: [0.5, 1, 0.5] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/40 text-purple-300 text-sm font-black tracking-wider mb-6"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/20 border border-sky-500/40 text-sky-300 text-sm font-black tracking-wider mb-6"
                   data-testid="badge-presale-countdown"
                 >
                   <Rocket className="w-4 h-4" />
@@ -470,7 +470,7 @@ export default function InvestorDataRoom() {
                 </motion.div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-4">
                   Signal{" "}
-                  <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Presale</span>
+                  <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Presale</span>
                 </h2>
                 <p className="text-white/50 max-w-2xl mb-8 leading-relaxed">
                   The Signal (SIG) presale represents a rare opportunity to acquire the native asset
@@ -492,7 +492,7 @@ export default function InvestorDataRoom() {
                 </div>
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold px-10 min-h-[44px] shadow-[0_0_30px_rgba(6,182,212,0.4)]"
+                  className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white font-bold px-10 min-h-[44px] shadow-[0_0_30px_rgba(6,182,212,0.4)]"
                   data-testid="button-view-presale"
                   onClick={() => window.open("/presale", "_blank")}
                 >
@@ -506,13 +506,13 @@ export default function InvestorDataRoom() {
 
         <SectionWrapper>
           <motion.div variants={fadeUp}>
-            <Badge className="mb-4 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs">
+            <Badge className="mb-4 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs">
               <Briefcase className="w-3 h-3 mr-1" />
               Investment Packages
             </Badge>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-3">
               Structured{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Investment Tiers</span>
+              <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">Investment Tiers</span>
             </h2>
             <p className="text-white/40 max-w-2xl mb-8 text-sm sm:text-base">
               Three tiers designed for different investment levels. All tiers include pre-launch Signal pricing and ecosystem access.
@@ -573,25 +573,25 @@ export default function InvestorDataRoom() {
                 <GlassCard glow={tier.highlight}>
                   <div className={`relative overflow-hidden ${tier.highlight ? "" : ""}`}>
                     {tier.highlight && (
-                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500" />
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-500" />
                     )}
                     <div className="p-6 sm:p-8">
                       {tier.highlight && (
-                        <Badge className="mb-4 bg-purple-500/20 border-purple-500/40 text-purple-300 text-[10px] font-bold uppercase tracking-wider">
+                        <Badge className="mb-4 bg-sky-500/20 border-sky-500/40 text-sky-300 text-[10px] font-bold uppercase tracking-wider">
                           Most Popular
                         </Badge>
                       )}
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20 flex items-center justify-center mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20 flex items-center justify-center mb-4">
                         <tier.icon className="w-6 h-6 text-cyan-400" />
                       </div>
                       <h3 className="text-xl font-black text-white mb-1" data-testid={`tier-name-${tier.name.toLowerCase().replace(/\s+/g, "-")}`}>{tier.name}</h3>
                       <div className="text-xs text-white/40 mb-4">{tier.perSig}</div>
                       <div className="flex items-baseline gap-2 mb-2">
-                        <span className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent" data-testid={`tier-price-${tier.name.toLowerCase().replace(/\s+/g, "-")}`}>
+                        <span className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent" data-testid={`tier-price-${tier.name.toLowerCase().replace(/\s+/g, "-")}`}>
                           {tier.price}
                         </span>
                       </div>
-                      <div className="text-sm text-purple-400 font-medium mb-6">{tier.allocation}</div>
+                      <div className="text-sm text-sky-400 font-medium mb-6">{tier.allocation}</div>
                       <div className="space-y-3">
                         {tier.benefits.map((benefit, j) => (
                           <div key={j} className="flex items-start gap-2.5">
@@ -604,7 +604,7 @@ export default function InvestorDataRoom() {
                         <Button
                           className={`w-full min-h-[44px] font-bold ${
                             tier.highlight
-                              ? "bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+                              ? "bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.3)]"
                               : "bg-white/5 border border-white/10 text-white hover:bg-white/10"
                           }`}
                           onClick={() => window.location.href = "mailto:cryptocreeper94@gmail.com?subject=Trust%20Layer%20Investment%20-%20" + encodeURIComponent(tier.name) + "%20Tier"}
@@ -635,7 +635,7 @@ export default function InvestorDataRoom() {
             </Badge>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-8">
               Defensible{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Infrastructure</span>
+              <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Infrastructure</span>
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
@@ -669,11 +669,11 @@ export default function InvestorDataRoom() {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(12,18,36,1)]" />
                   </div>
                   <div className="p-6">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20 flex items-center justify-center mb-4 -mt-10 relative z-10">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20 flex items-center justify-center mb-4 -mt-10 relative z-10">
                       <moat.icon className="w-5 h-5 text-cyan-400" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-1">{moat.title}</h3>
-                    <div className="text-xs text-purple-400 font-medium mb-3">{moat.stats}</div>
+                    <div className="text-xs text-sky-400 font-medium mb-3">{moat.stats}</div>
                     <p className="text-xs text-white/40 leading-relaxed">{moat.desc}</p>
                   </div>
                 </GlassCard>
@@ -688,13 +688,13 @@ export default function InvestorDataRoom() {
               <img src={trustHomeImg} alt="TrustHome Platform" className="w-full h-48 sm:h-64 lg:h-80 object-cover" loading="lazy" />
             </div>
             <motion.div variants={fadeUp} className="w-full lg:w-1/2">
-              <Badge className="mb-4 bg-purple-500/10 border-purple-500/30 text-purple-400 text-xs">
+              <Badge className="mb-4 bg-sky-500/10 border-sky-500/30 text-sky-400 text-xs">
                 <Home className="w-3 h-3 mr-1" />
                 Real Estate Deep Dive
               </Badge>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-4">
                 TrustHome:{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">$3.7T Market</span>
+                <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">$3.7T Market</span>
               </h2>
               <p className="text-white/50 mb-6 leading-relaxed text-sm sm:text-base">
                 TrustHome is the first blockchain-powered real estate agent verification platform.
@@ -727,7 +727,7 @@ export default function InvestorDataRoom() {
             </Badge>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-4">
               Ready to{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Connect?</span>
+              <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Connect?</span>
             </h2>
             <p className="text-white/40 max-w-lg mx-auto mb-8">
               For detailed discussions, due diligence materials, or to schedule a call,
@@ -736,7 +736,7 @@ export default function InvestorDataRoom() {
             <GlassCard glow>
               <div className="p-8 sm:p-10">
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20 flex items-center justify-center">
                     <Mail className="w-7 h-7 text-cyan-400" />
                   </div>
                   <div className="text-center sm:text-left">
@@ -763,7 +763,7 @@ export default function InvestorDataRoom() {
                   <Button
                     onClick={() => window.open("/pitch-deck", "_blank")}
                     variant="outline"
-                    className="border-purple-500/50 text-purple-400 hover:bg-purple-500/10 font-bold min-h-[44px]"
+                    className="border-sky-500/50 text-sky-400 hover:bg-sky-500/10 font-bold min-h-[44px]"
                     data-testid="button-view-pitch-deck"
                   >
                     <Briefcase className="w-4 h-4 mr-2" />

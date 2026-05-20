@@ -33,7 +33,7 @@ export default function AIAdvisor() {
   const allocationData = Object.entries(riskProfile.allocation).map(([name, value]) => ({
     name: name.toUpperCase(),
     value,
-    color: name === "dwc" ? "#8b5cf6" : name === "staking" ? "#06b6d4" : name === "stablecoins" ? "#22c55e" : "#ec4899",
+    color: name === "dwc" ? "#0ea5e9" : name === "staking" ? "#06b6d4" : name === "stablecoins" ? "#22c55e" : "#ec4899",
   }));
 
   const handleAnalyze = () => {
@@ -189,7 +189,7 @@ export default function AIAdvisor() {
 
             <GlassCard className="p-4">
               <h3 className="font-bold mb-4 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-purple-400" />
+                <Sparkles className="w-4 h-4 text-sky-400" />
                 AI Recommendations
               </h3>
 

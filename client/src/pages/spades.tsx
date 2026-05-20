@@ -57,10 +57,10 @@ function PlayingCard({
     return (
       <div className={`
         ${small ? 'w-8 h-12' : 'w-16 h-24 md:w-20 md:h-28'}
-        rounded-lg bg-gradient-to-br from-blue-800 to-purple-900 border-2 border-white/30
+        rounded-lg bg-gradient-to-br from-blue-800 to-sky-900 border-2 border-white/30
         shadow-lg flex items-center justify-center
       `}>
-        <div className="w-3/4 h-3/4 border border-white/20 rounded-sm bg-gradient-to-br from-purple-600/50 to-blue-600/50" />
+        <div className="w-3/4 h-3/4 border border-white/20 rounded-sm bg-gradient-to-br from-sky-600/50 to-blue-600/50" />
       </div>
     );
   }
@@ -128,7 +128,7 @@ function PlayerArea({
         `}>
           <div className="flex items-center gap-2">
             {player.isAI ? (
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold">
                 AI
               </div>
             ) : (
@@ -541,7 +541,7 @@ export default function Spades() {
 
       {/* Game Table */}
       <div className="relative w-full h-screen pt-16">
-        <div className="absolute inset-8 md:inset-16 rounded-[50%] bg-green-700/50 border-8 border-purple-900/50 shadow-inner" />
+        <div className="absolute inset-8 md:inset-16 rounded-[50%] bg-green-700/50 border-8 border-sky-900/50 shadow-inner" />
         
         {/* Players */}
         <PlayerArea 

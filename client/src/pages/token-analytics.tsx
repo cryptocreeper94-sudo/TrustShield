@@ -62,9 +62,9 @@ export default function TokenAnalytics() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 p-4 rounded-xl bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-cyan-500/10 border border-white/10"
+            className="mb-6 p-4 rounded-xl bg-gradient-to-r from-sky-500/10 via-pink-500/10 to-cyan-500/10 border border-white/10"
           >
-            <div className="flex items-center justify-center gap-2 text-purple-400">
+            <div className="flex items-center justify-center gap-2 text-sky-400">
               <Clock className="w-5 h-5" />
               <span className="font-semibold">Analytics — Coming at Mainnet Launch</span>
             </div>
@@ -113,11 +113,11 @@ export default function TokenAnalytics() {
             </BentoCard>
 
             <BentoCard colSpan={2} rowSpan={1} delay={0.3}>
-              <ComingSoonCard icon={BarChart3} title="24h Volume" iconColor="text-purple-400" />
+              <ComingSoonCard icon={BarChart3} title="24h Volume" iconColor="text-sky-400" />
             </BentoCard>
 
             <BentoCard colSpan={4} rowSpan={2} delay={0.35}>
-              <ComingSoonCard icon={Wallet} title="Top Holders" iconColor="text-purple-400" />
+              <ComingSoonCard icon={Wallet} title="Top Holders" iconColor="text-sky-400" />
             </BentoCard>
 
             <BentoCard colSpan={2} rowSpan={2} delay={0.4}>

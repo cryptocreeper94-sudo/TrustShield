@@ -192,7 +192,7 @@ export default function TrustShieldHome() {
     {
       icon: Brain, title: "AI Agent Certification",
       desc: "Certify Axiom agents before deployment. Verify knowledge packs, scan for drift, and issue tamper-proof trust badges.",
-      color: "from-purple-500/20 to-purple-500/5", accent: "text-purple-400", border: "border-purple-500/20",
+      color: "from-sky-500/20 to-sky-500/5", accent: "text-sky-400", border: "border-sky-500/20",
     },
     {
       icon: FileCheck, title: "Smart Contract Audits",
@@ -220,7 +220,7 @@ export default function TrustShieldHome() {
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between backdrop-blur-xl bg-black/60 border-b border-white/5">
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
             <Shield className="w-4 h-4 text-white" />
           </div>
           <span className="font-black text-sm tracking-widest text-white">TRUSTSHIELD</span>
@@ -231,7 +231,7 @@ export default function TrustShieldHome() {
           <a href="#how" className="text-xs text-white/50 hover:text-cyan-400 transition-colors">How It Works</a>
           <Link href="/guardian-scanner" className="text-xs text-white/50 hover:text-cyan-400 transition-colors">Token Screener</Link>
           <Link href="/guardian-certification">
-            <Button size="sm" className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-xs font-bold hover:opacity-90 border-0">
+            <Button size="sm" className="bg-gradient-to-r from-cyan-500 to-sky-600 text-white text-xs font-bold hover:opacity-90 border-0">
               Get Certified
             </Button>
           </Link>
@@ -253,7 +253,7 @@ export default function TrustShieldHome() {
 
             <h1 className="text-5xl md:text-7xl font-black leading-[1.05] tracking-tight mb-6">
               Verify Trust.<br />
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_4s_ease_infinite]">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_4s_ease_infinite]">
                 Certify Safety.
               </span>
             </h1>
@@ -280,7 +280,7 @@ export default function TrustShieldHome() {
                 <Button
                   onClick={handleScan}
                   disabled={scanning || !scanUrl.trim()}
-                  className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold px-6 hover:opacity-90 border-0 disabled:opacity-30"
+                  className="bg-gradient-to-r from-cyan-500 to-sky-600 text-white font-bold px-6 hover:opacity-90 border-0 disabled:opacity-30"
                 >
                   {scanning ? (
                     <div className="flex items-center gap-2">
@@ -358,7 +358,7 @@ export default function TrustShieldHome() {
       <section id="how" className="py-24 px-6 bg-white/[0.01] border-y border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-xs font-mono text-purple-400/60 uppercase tracking-widest mb-3">Process</p>
+            <p className="text-xs font-mono text-sky-400/60 uppercase tracking-widest mb-3">Process</p>
             <h2 className="text-3xl md:text-4xl font-black">How TrustShield Works</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -389,7 +389,7 @@ export default function TrustShieldHome() {
       {/* CTA */}
       <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="bg-gradient-to-b from-cyan-500/5 to-purple-500/5 border border-white/10 rounded-3xl p-12">
+          <div className="bg-gradient-to-b from-cyan-500/5 to-sky-500/5 border border-white/10 rounded-3xl p-12">
             <Shield className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
             <h2 className="text-2xl md:text-3xl font-black mb-4">Ready to Certify?</h2>
             <p className="text-white/35 text-sm mb-8 max-w-md mx-auto">
@@ -397,7 +397,7 @@ export default function TrustShieldHome() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link href="/guardian-certification">
-                <Button className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold px-8 py-3 hover:opacity-90 border-0">
+                <Button className="bg-gradient-to-r from-cyan-500 to-sky-600 text-white font-bold px-8 py-3 hover:opacity-90 border-0">
                   Start Certification <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>

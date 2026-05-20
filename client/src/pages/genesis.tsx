@@ -41,7 +41,7 @@ const FOUNDING_PRINCIPLES = [
 
 export default function GenesisBlock() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-purple-950/20 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-sky-950/20 to-slate-950 text-white">
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/5">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -67,11 +67,11 @@ export default function GenesisBlock() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-8"
           >
-            <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 mb-4">
+            <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/30 mb-4">
               <Hash className="w-3 h-3 mr-1" />
               Block #0
             </Badge>
-            <h1 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
               Trust Layer Genesis Block
             </h1>
             <p className="text-sm text-white/60 max-w-xl mx-auto">
@@ -101,7 +101,7 @@ export default function GenesisBlock() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {BLOCKCHAIN_SPECS.map((spec, i) => (
                 <GlassCard key={i} className="p-4 text-center" glow>
-                  <spec.icon className="w-6 h-6 mx-auto mb-2 text-purple-400" />
+                  <spec.icon className="w-6 h-6 mx-auto mb-2 text-sky-400" />
                   <div className="text-lg font-bold">{spec.value}</div>
                   <div className="text-[10px] text-muted-foreground uppercase tracking-wider">{spec.label}</div>
                   <div className="text-[10px] text-white/40 mt-1">{spec.desc}</div>
@@ -117,15 +117,15 @@ export default function GenesisBlock() {
             className="mb-8"
           >
             <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
-              <Award className="w-5 h-5 text-purple-400" />
+              <Award className="w-5 h-5 text-sky-400" />
               Founding Principles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {FOUNDING_PRINCIPLES.map((principle, i) => (
                 <GlassCard key={i} className="p-4" glow>
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center shrink-0">
-                      <principle.icon className="w-5 h-5 text-purple-400" />
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 flex items-center justify-center shrink-0">
+                      <principle.icon className="w-5 h-5 text-sky-400" />
                     </div>
                     <div>
                       <div className="font-bold text-sm mb-1">{principle.title}</div>
@@ -155,14 +155,14 @@ export default function GenesisBlock() {
               </div>
               <div className="p-3 rounded-lg bg-black/30 border border-white/10 mb-4">
                 <div className="text-[10px] text-muted-foreground mb-1">Validator Address</div>
-                <code className="text-xs text-purple-300 font-mono break-all">
+                <code className="text-xs text-sky-300 font-mono break-all">
                   dwsc1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpz7qw8k
                 </code>
               </div>
               <div className="flex flex-wrap gap-2">
                 <Badge className="bg-green-500/20 text-green-400 border-green-500/30">Active</Badge>
                 <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">99.99% Uptime</Badge>
-                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">Founding Member</Badge>
+                <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30">Founding Member</Badge>
               </div>
             </GlassCard>
           </motion.div>

@@ -111,7 +111,7 @@ export default function SocialFeed() {
               {/* Compose Post */}
               <GlassCard glow className="p-4">
                 <div className="flex gap-3">
-                  <Avatar className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500">
+                  <Avatar className="w-10 h-10 bg-gradient-to-br from-sky-500 to-pink-500">
                     <AvatarFallback>
                       {isConnected ? "👤" : "?"}
                     </AvatarFallback>
@@ -136,7 +136,7 @@ export default function SocialFeed() {
                       </div>
                       {isConnected ? (
                         <Button 
-                          className="bg-gradient-to-r from-purple-500 to-pink-500 gap-2"
+                          className="bg-gradient-to-r from-sky-500 to-pink-500 gap-2"
                           disabled={!newPost.trim()}
                           data-testid="button-post"
                         >
@@ -166,7 +166,7 @@ export default function SocialFeed() {
                   {FEATURED_POSTS.map((post) => (
                     <GlassCard key={post.id} className="p-4">
                       <div className="flex gap-3">
-                        <Avatar className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500">
+                        <Avatar className="w-10 h-10 bg-gradient-to-br from-sky-500 to-pink-500">
                           <AvatarFallback>{post.author[0]}</AvatarFallback>
                         </Avatar>
                         <div className="flex-1">
@@ -194,7 +194,7 @@ export default function SocialFeed() {
                                 <span className="text-xs">{post.reposts}</span>
                               </button>
                             </div>
-                            <Badge className="bg-purple-500/20 text-purple-400 text-[10px]">
+                            <Badge className="bg-sky-500/20 text-sky-400 text-[10px]">
                               <Coins className="w-3 h-3 mr-1" />
                               {post.tips}
                             </Badge>
@@ -240,7 +240,7 @@ export default function SocialFeed() {
                   {FEATURED_POSTS.slice().reverse().map((post) => (
                     <GlassCard key={post.id} className="p-4">
                       <div className="flex gap-3">
-                        <Avatar className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500">
+                        <Avatar className="w-10 h-10 bg-gradient-to-br from-sky-500 to-pink-500">
                           <AvatarFallback>{post.author[0]}</AvatarFallback>
                         </Avatar>
                         <div className="flex-1">
@@ -268,7 +268,7 @@ export default function SocialFeed() {
                                 <span className="text-xs">{post.reposts}</span>
                               </button>
                             </div>
-                            <Badge className="bg-purple-500/20 text-purple-400 text-[10px]">
+                            <Badge className="bg-sky-500/20 text-sky-400 text-[10px]">
                               <Coins className="w-3 h-3 mr-1" />
                               {post.tips}
                             </Badge>
@@ -299,14 +299,14 @@ export default function SocialFeed() {
 
               <GlassCard className="p-4">
                 <h3 className="font-bold mb-3 flex items-center gap-2">
-                  <Award className="w-4 h-4 text-purple-400" />
+                  <Award className="w-4 h-4 text-sky-400" />
                   Top Creators
                 </h3>
                 <div className="space-y-3">
                   {TOP_CREATORS.map((creator, i) => (
                     <div key={i} className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Avatar className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500">
+                        <Avatar className="w-8 h-8 bg-gradient-to-br from-sky-500 to-pink-500">
                           <AvatarFallback className="text-xs">{creator.name[0]}</AvatarFallback>
                         </Avatar>
                         <div>
@@ -341,7 +341,7 @@ export default function SocialFeed() {
                     <p className="text-[10px] text-muted-foreground">Posts Today</p>
                   </div>
                   <div className="p-2 rounded-lg bg-white/5 text-center">
-                    <p className="text-lg font-bold text-purple-400">{COMMUNITY_STATS.tipsSent}</p>
+                    <p className="text-lg font-bold text-sky-400">{COMMUNITY_STATS.tipsSent}</p>
                     <p className="text-[10px] text-muted-foreground">Tips Sent</p>
                   </div>
                 </div>

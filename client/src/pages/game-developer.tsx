@@ -167,7 +167,7 @@ export default function GameDeveloper() {
               >
                 <GlassCard className="p-4 h-full relative">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-sm font-bold">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-sky-500 flex items-center justify-center text-sm font-bold">
                       {step.step}
                     </div>
                     <h3 className="font-bold text-sm">{step.title}</h3>
@@ -185,7 +185,7 @@ export default function GameDeveloper() {
             <div className="lg:col-span-2 space-y-6">
               <GlassCard glow className="p-6">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-pink-500/30">
+                  <div className="p-2 rounded-xl bg-gradient-to-br from-pink-500/20 to-sky-500/20 border border-pink-500/30">
                     <Bot className="w-6 h-6 text-pink-400" />
                   </div>
                   <div>
@@ -242,11 +242,11 @@ export default function GameDeveloper() {
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-lg bg-purple-500/10 border border-purple-500/30">
+                  <div className="p-4 rounded-lg bg-sky-500/10 border border-sky-500/30">
                     <div className="flex items-start gap-3">
-                      <AlertTriangle className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+                      <AlertTriangle className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm font-medium text-purple-400">Requirements</p>
+                        <p className="text-sm font-medium text-sky-400">Requirements</p>
                         <ul className="text-xs text-muted-foreground mt-1 space-y-1">
                           <li>• Game must use verifiable on-chain randomness</li>
                           <li>• Smart contracts must be included for review</li>
@@ -260,7 +260,7 @@ export default function GameDeveloper() {
                   {user ? (
                     <Button
                       type="submit"
-                      className="w-full h-12 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600"
+                      className="w-full h-12 bg-gradient-to-r from-pink-500 to-sky-500 hover:from-pink-600 hover:to-sky-600"
                       disabled={submitMutation.isPending}
                       data-testid="button-submit-game"
                     >
@@ -278,7 +278,7 @@ export default function GameDeveloper() {
                     </Button>
                   ) : (
                     <Link href="/wallet">
-                      <Button className="w-full h-12 bg-gradient-to-r from-pink-500 to-purple-500" data-testid="button-connect-to-submit">
+                      <Button className="w-full h-12 bg-gradient-to-r from-pink-500 to-sky-500" data-testid="button-connect-to-submit">
                         <Lock className="w-4 h-4 mr-2" />
                         Connect Wallet to Submit
                       </Button>
@@ -289,7 +289,7 @@ export default function GameDeveloper() {
 
               <GlassCard className="p-6">
                 <h3 className="font-bold mb-4 flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-purple-400" />
+                  <Sparkles className="w-5 h-5 text-sky-400" />
                   AI Review Criteria
                 </h3>
                 
@@ -302,8 +302,8 @@ export default function GameDeveloper() {
                       transition={{ delay: i * 0.1 }}
                       className="flex items-start gap-3 p-3 rounded-lg bg-white/5"
                     >
-                      <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20">
-                        <criteria.icon className="w-4 h-4 text-purple-400" />
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-sky-500/20 to-pink-500/20">
+                        <criteria.icon className="w-4 h-4 text-sky-400" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
@@ -374,7 +374,7 @@ export default function GameDeveloper() {
                 </div>
               </GlassCard>
 
-              <GlassCard className="p-6 bg-gradient-to-br from-pink-500/10 to-purple-500/10 border-pink-500/20">
+              <GlassCard className="p-6 bg-gradient-to-br from-pink-500/10 to-sky-500/10 border-pink-500/20">
                 <h3 className="font-bold mb-3 flex items-center gap-2">
                   <Rocket className="w-5 h-5 text-pink-400" />
                   Developer Benefits
@@ -394,7 +394,7 @@ export default function GameDeveloper() {
                     <span>Verified "Trust Layer Approved" badge</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-purple-400" />
+                    <Zap className="w-4 h-4 text-sky-400" />
                     <span>Integration with Signal payments</span>
                   </li>
                 </ul>

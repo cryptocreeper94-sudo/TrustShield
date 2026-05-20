@@ -110,7 +110,7 @@ export default function PresaleSuccess() {
               We couldn't verify your payment. If you completed the purchase, please contact support.
             </p>
             <Link href="/presale">
-              <Button className="bg-gradient-to-r from-cyan-600 to-purple-600">
+              <Button className="bg-gradient-to-r from-cyan-600 to-sky-600">
                 Return to Presale
               </Button>
             </Link>
@@ -136,7 +136,7 @@ export default function PresaleSuccess() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 Purchase Already Confirmed
               </span>
             </h1>
@@ -163,7 +163,7 @@ export default function PresaleSuccess() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/my-hub">
                 <Button 
-                  className="bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600"
+                  className="bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600"
                   data-testid="button-go-to-hub-existing"
                 >
                   <LayoutDashboard className="w-4 h-4 mr-2" /> Go to Your Portal
@@ -201,7 +201,7 @@ export default function PresaleSuccess() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 Welcome to Trust Layer!
               </span>
             </h1>
@@ -238,7 +238,7 @@ export default function PresaleSuccess() {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-white/10 mb-8">
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-white/10 mb-8">
               <h3 className="text-white font-semibold mb-4 text-lg">What Happens Next?</h3>
               <div className="space-y-3 text-left">
                 <div className="flex items-start gap-3">
@@ -258,11 +258,11 @@ export default function PresaleSuccess() {
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-purple-400 font-bold text-xs">3</span>
+                  <div className="w-6 h-6 rounded-full bg-sky-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-sky-400 font-bold text-xs">3</span>
                   </div>
                   <p className="text-gray-300 text-sm">
-                    <span className="text-purple-400 font-medium">Launch Day:</span> Your Signal tokens will be delivered to your wallet on August 23, 2026
+                    <span className="text-sky-400 font-medium">Launch Day:</span> Your Signal tokens will be delivered to your wallet on August 23, 2026
                   </p>
                 </div>
               </div>
@@ -274,7 +274,7 @@ export default function PresaleSuccess() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/my-hub">
                 <Button 
-                  className="bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 text-white font-bold text-lg px-8 py-3"
+                  className="bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600 text-white font-bold text-lg px-8 py-3"
                   data-testid="button-go-to-hub"
                 >
                   <LayoutDashboard className="w-4 h-4 mr-2" /> Go to Your Portal <ArrowRight className="w-4 h-4 ml-2" />

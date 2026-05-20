@@ -97,7 +97,7 @@ export default function InnovationHub() {
       title: "ChronoPass Identity",
       description: "Unified cross-app identity with reputation scoring and passkey login",
       icon: Users,
-      gradient: "from-purple-500 to-pink-600",
+      gradient: "from-sky-500 to-pink-600",
       href: "/profile",
       stats: "One identity, all apps",
       size: "medium"
@@ -117,7 +117,7 @@ export default function InnovationHub() {
       title: "Quest Mining",
       description: "Earn Shells and Signal through verifiable contributions",
       icon: Target,
-      gradient: "from-purple-500 to-cyan-600",
+      gradient: "from-sky-500 to-cyan-600",
       href: "/quests",
       stats: `${quests?.quests?.length || 8} active quests`,
       size: "small"
@@ -127,7 +127,7 @@ export default function InnovationHub() {
       title: "Reality Oracles",
       description: "On-chain notarization for game outcomes",
       icon: Globe,
-      gradient: "from-indigo-500 to-violet-600",
+      gradient: "from-indigo-500 to-cyan-600",
       href: "#oracles",
       stats: `${oracles?.oracles?.length || 5} oracles`,
       size: "small"
@@ -157,10 +157,10 @@ export default function InnovationHub() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-black to-black pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-900/15 via-transparent to-transparent pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-sky-900/15 via-transparent to-transparent pointer-events-none" />
       
       <div className="fixed top-32 left-16 w-96 h-96 rounded-full bg-cyan-500/8 blur-[120px] animate-pulse pointer-events-none" />
-      <div className="fixed top-64 right-24 w-80 h-80 rounded-full bg-purple-500/10 blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
+      <div className="fixed top-64 right-24 w-80 h-80 rounded-full bg-sky-500/10 blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
       <div className="fixed bottom-32 left-1/3 w-72 h-72 rounded-full bg-pink-500/8 blur-[90px] animate-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
       <div className="fixed bottom-48 right-1/4 w-64 h-64 rounded-full bg-emerald-500/6 blur-[80px] animate-pulse pointer-events-none" style={{ animationDelay: '3s' }} />
       
@@ -171,7 +171,7 @@ export default function InnovationHub() {
               <Sparkles className="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
               <div className="absolute inset-0 bg-cyan-400/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <span className="font-display font-bold text-lg tracking-tight bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="font-display font-bold text-lg tracking-tight bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
               Innovation Hub
             </span>
           </Link>
@@ -186,7 +186,7 @@ export default function InnovationHub() {
 
       <main className="pt-20 pb-12 relative">
         <section className="py-16 px-4 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-purple-500/3 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-sky-500/3 to-transparent" />
           
           <div className="container mx-auto max-w-7xl relative">
             <motion.div
@@ -199,7 +199,7 @@ export default function InnovationHub() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-white/10 text-cyan-400 text-sm font-medium mb-6 shadow-[0_0_30px_rgba(6,182,212,0.2)]"
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-pink-500/20 border border-white/10 text-cyan-400 text-sm font-medium mb-6 shadow-[0_0_30px_rgba(6,182,212,0.2)]"
               >
                 <Zap className="w-4 h-4 animate-pulse" />
                 Next-Generation Blockchain Innovation
@@ -207,7 +207,7 @@ export default function InnovationHub() {
               </motion.div>
               
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-6 leading-tight">
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+                <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)]">
                   The Guardian-Assured
                 </span>
                 <br />
@@ -217,7 +217,7 @@ export default function InnovationHub() {
               <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
                 Where security is <span className="text-emerald-400 font-medium">built-in</span>, 
                 AI is <span className="text-pink-400 font-medium">verifiable</span>, 
-                and your digital identity is <span className="text-purple-400 font-medium">portable</span> across all experiences
+                and your digital identity is <span className="text-sky-400 font-medium">portable</span> across all experiences
               </p>
             </motion.div>
 
@@ -341,11 +341,11 @@ export default function InnovationHub() {
                       <div className="flex items-center justify-between mb-5">
                         <div className="flex items-center gap-3">
                           <div className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg ${
-                            shard.shardType === 'gaming' ? 'bg-gradient-to-br from-purple-500 to-pink-600' :
+                            shard.shardType === 'gaming' ? 'bg-gradient-to-br from-sky-500 to-pink-600' :
                             shard.shardType === 'defi' ? 'bg-gradient-to-br from-emerald-500 to-teal-600' :
                             shard.shardType === 'nft' ? 'bg-gradient-to-br from-pink-500 to-rose-600' :
                             shard.shardType === 'ai' ? 'bg-gradient-to-br from-cyan-500 to-blue-600' :
-                            shard.shardType === 'social' ? 'bg-gradient-to-br from-purple-500 to-cyan-600' :
+                            shard.shardType === 'social' ? 'bg-gradient-to-br from-sky-500 to-cyan-600' :
                             'bg-gradient-to-br from-slate-500 to-slate-600'
                           }`}>
                             {shard.shardType === 'gaming' ? <Gamepad2 className="w-6 h-6 text-white" /> :
@@ -359,7 +359,7 @@ export default function InnovationHub() {
                             <span className="text-xs text-white/40 capitalize">{shard.shardType} Shard</span>
                           </div>
                         </div>
-                        <Badge className={`${shard.status === 'active' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'bg-purple-500/20 text-purple-400 border-purple-500/30'} border`}>
+                        <Badge className={`${shard.status === 'active' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'bg-sky-500/20 text-sky-400 border-sky-500/30'} border`}>
                           {shard.status}
                         </Badge>
                       </div>
@@ -389,7 +389,7 @@ export default function InnovationHub() {
                               transition={{ duration: 1, ease: "easeOut" }}
                               className={`h-full rounded-full ${
                                 shard.currentLoad > 80 ? 'bg-gradient-to-r from-red-500 to-cyan-500' :
-                                shard.currentLoad > 50 ? 'bg-gradient-to-r from-purple-500 to-teal-500' :
+                                shard.currentLoad > 50 ? 'bg-gradient-to-r from-sky-500 to-teal-500' :
                                 'bg-gradient-to-r from-emerald-500 to-cyan-500'
                               }`}
                             />
@@ -412,7 +412,7 @@ export default function InnovationHub() {
         </section>
 
         <section className="py-16 px-4 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/3 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-500/3 to-transparent" />
           
           <div className="container mx-auto max-w-7xl relative">
             <motion.div
@@ -422,7 +422,7 @@ export default function InnovationHub() {
               className="mb-10"
             >
               <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-600 flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.4)]">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.4)]">
                   <Target className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -443,12 +443,12 @@ export default function InnovationHub() {
               >
                 <GlassCard glow>
                   <div className="p-6 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-pink-500/10" />
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-500/20 to-transparent rounded-full blur-3xl" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 via-cyan-500/10 to-pink-500/10" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-sky-500/20 to-transparent rounded-full blur-3xl" />
                     
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
                       <div>
-                        <Badge className="bg-purple-500/20 text-purple-400 border border-purple-500/30 mb-3 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                        <Badge className="bg-sky-500/20 text-sky-400 border border-sky-500/30 mb-3 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
                           <Star className="w-3 h-3 mr-1" />
                           Active Season
                         </Badge>
@@ -456,7 +456,7 @@ export default function InnovationHub() {
                         <p className="text-white/50 mt-1">{seasons.seasons[0].description}</p>
                       </div>
                       <div className="text-right">
-                        <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                        <div className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
                           {parseInt(seasons.seasons[0].totalPrizePoolDwc || '0').toLocaleString()} SIG
                         </div>
                         <div className="text-sm text-white/40">Total Prize Pool</div>
@@ -482,9 +482,9 @@ export default function InnovationHub() {
                       <div className="flex items-start justify-between mb-3">
                         <Badge className={`text-xs border ${
                           quest.difficultyLevel === 'easy' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' :
-                          quest.difficultyLevel === 'medium' ? 'bg-purple-500/20 text-purple-400 border-purple-500/30' :
+                          quest.difficultyLevel === 'medium' ? 'bg-sky-500/20 text-sky-400 border-sky-500/30' :
                           quest.difficultyLevel === 'hard' ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30' :
-                          'bg-purple-500/20 text-purple-400 border-purple-500/30'
+                          'bg-sky-500/20 text-sky-400 border-sky-500/30'
                         }`}>
                           {quest.difficultyLevel}
                         </Badge>
@@ -523,7 +523,7 @@ export default function InnovationHub() {
               className="mb-10"
             >
               <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.4)]">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-600 flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.4)]">
                   <Globe className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -548,7 +548,7 @@ export default function InnovationHub() {
                   <GlassCard hover>
                     <div className="p-5">
                       <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/30 to-violet-600/30 border border-indigo-500/20 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/30 to-cyan-600/30 border border-indigo-500/20 flex items-center justify-center">
                           <Globe className="w-6 h-6 text-indigo-400" />
                         </div>
                         <div>
@@ -603,7 +603,7 @@ export default function InnovationHub() {
               >
                 <GlassCard glow>
                   <div className="p-6 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-sky-500/10" />
                     
                     <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3 relative z-10">
                       <Lock className="w-5 h-5 text-pink-400" />
@@ -624,7 +624,7 @@ export default function InnovationHub() {
                           transition={{ delay: i * 0.1 }}
                           className="flex gap-4 group"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-sky-600 flex items-center justify-center text-white font-bold text-sm shrink-0 shadow-lg group-hover:scale-110 transition-transform">
                             {item.step}
                           </div>
                           <div>
@@ -662,7 +662,7 @@ export default function InnovationHub() {
                       <GlassCard hover>
                         <div className="p-4 flex items-center justify-between" data-testid={`ai-model-${model.modelId}`}>
                           <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-pink-500/20 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/20 to-sky-500/20 border border-pink-500/20 flex items-center justify-center">
                               <Brain className="w-6 h-6 text-pink-400" />
                             </div>
                             <div>
@@ -697,9 +697,9 @@ export default function InnovationHub() {
             >
               <GlassCard glow>
                 <div className="p-8 md:p-12 text-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10" />
                   <div className="absolute top-0 left-1/4 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl" />
-                  <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
+                  <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-sky-500/20 rounded-full blur-3xl" />
                   
                   <div className="relative z-10">
                     <Sparkles className="w-14 h-14 text-cyan-400 mx-auto mb-6 animate-pulse" />
@@ -711,7 +711,7 @@ export default function InnovationHub() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Link href="/studio">
-                        <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold px-8 shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all" data-testid="button-start-building">
+                        <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white font-bold px-8 shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all" data-testid="button-start-building">
                           <Code className="w-5 h-5 mr-2" />
                           Start Building
                         </Button>

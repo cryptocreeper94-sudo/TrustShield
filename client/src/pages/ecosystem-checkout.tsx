@@ -114,7 +114,7 @@ export default function EcosystemCheckout() {
     <div className="min-h-screen pt-24 pb-12 bg-[#020617] relative overflow-hidden flex flex-col items-center justify-center">
       {/* Background Ambience */}
       <div className="absolute top-1/4 -left-1/4 w-[1000px] h-[1000px] bg-cyan-900/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-1/4 w-[1000px] h-[1000px] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-1/4 w-[1000px] h-[1000px] bg-sky-900/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full max-w-xl">
         <motion.div
@@ -171,8 +171,8 @@ export default function EcosystemCheckout() {
                     </div>
                   </li>
                   <li className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                      <Wallet className="w-4 h-4 text-purple-400" />
+                    <div className="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center flex-shrink-0">
+                      <Wallet className="w-4 h-4 text-sky-400" />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-slate-200">Unified Portfolio Unlocked</p>

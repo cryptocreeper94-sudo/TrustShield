@@ -67,7 +67,7 @@ function getIcon(iconName: string) {
 function getColorClasses(color: string) {
   const colors: Record<string, { bg: string; text: string; border: string; glow: string }> = {
     cyan: { bg: "bg-cyan-500/20", text: "text-cyan-400", border: "border-cyan-500/30", glow: "shadow-cyan-500/20" },
-    purple: { bg: "bg-purple-500/20", text: "text-purple-400", border: "border-purple-500/30", glow: "shadow-purple-500/20" },
+    purple: { bg: "bg-sky-500/20", text: "text-sky-400", border: "border-sky-500/30", glow: "shadow-sky-500/20" },
     green: { bg: "bg-green-500/20", text: "text-green-400", border: "border-green-500/30", glow: "shadow-green-500/20" },
     blue: { bg: "bg-blue-500/20", text: "text-blue-400", border: "border-blue-500/30", glow: "shadow-blue-500/20" },
     pink: { bg: "bg-pink-500/20", text: "text-pink-400", border: "border-pink-500/30", glow: "shadow-pink-500/20" },
@@ -159,11 +159,11 @@ export default function Treasury() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center space-y-4"
           >
-            <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-white border-0">
+            <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-white border-0">
               <Sparkles className="w-3 h-3 mr-1" /> Full Transparency
             </Badge>
             <h1 className="text-3xl md:text-5xl font-display font-bold">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 Treasury Transparency
               </span>
             </h1>
@@ -179,7 +179,7 @@ export default function Treasury() {
             transition={{ delay: 0.1 }}
           >
             <GlassCard glow className="relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5" />
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-sky-500/5" />
               <div className="p-6 md:p-8 relative">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                   <div>
@@ -215,7 +215,7 @@ export default function Treasury() {
                 ) : treasury ? (
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <div className="text-4xl md:text-5xl font-bold font-mono bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent" data-testid="text-treasury-balance">
+                      <div className="text-4xl md:text-5xl font-bold font-mono bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent" data-testid="text-treasury-balance">
                         {treasury.balance}
                       </div>
                       <div className="text-sm text-muted-foreground mt-2">

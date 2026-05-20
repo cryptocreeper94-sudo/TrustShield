@@ -40,7 +40,7 @@ export default function TokenCompare() {
               <div className="flex flex-col items-center justify-center gap-6">
                 <div className="relative">
                   <motion.div
-                    className="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center"
+                    className="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-pink-500/20 flex items-center justify-center"
                     animate={{ rotate: [0, 360] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   >
@@ -49,7 +49,7 @@ export default function TokenCompare() {
                 </div>
                 
                 <div>
-                  <h2 className="text-2xl font-display font-bold mb-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <h2 className="text-2xl font-display font-bold mb-2 bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                     Launching Soon
                   </h2>
                   <p className="text-muted-foreground max-w-md mx-auto">

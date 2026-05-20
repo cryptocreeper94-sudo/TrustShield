@@ -106,7 +106,7 @@ const BUSINESS_TIERS = [
       "Partner network access",
       "Multi-SIG treasury",
     ],
-    gradient: "from-purple-500 to-pink-500",
+    gradient: "from-sky-500 to-pink-500",
     icon: Building2,
     popular: true,
   },
@@ -124,7 +124,7 @@ const BUSINESS_TIERS = [
       "White-label options",
       "SLA guarantees",
     ],
-    gradient: "from-purple-500 to-cyan-500",
+    gradient: "from-sky-500 to-cyan-500",
     icon: Globe,
   },
 ];
@@ -156,7 +156,7 @@ const INDIVIDUAL_TIERS = [
       "Exclusive Guardian network",
       "Advanced verification features",
     ],
-    gradient: "from-purple-500 to-violet-500",
+    gradient: "from-sky-500 to-cyan-500",
     icon: Shield,
     popular: true,
   },
@@ -169,7 +169,7 @@ export default function TrustLayerPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-3xl" />
       </div>
@@ -181,13 +181,13 @@ export default function TrustLayerPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 mb-6">
-              <Shield className="w-4 h-4 text-purple-400" />
-              <span className="text-sm text-purple-300">The Future of Business Trust</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-sky-500/20 to-cyan-500/20 border border-sky-500/30 mb-6">
+              <Shield className="w-4 h-4 text-sky-400" />
+              <span className="text-sm text-sky-300">The Future of Business Trust</span>
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 Trust Layer
               </span>
             </h1>
@@ -200,7 +200,7 @@ export default function TrustLayerPage() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="#membership">
-                <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500">
+                <Button size="lg" className="bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500">
                   Join the Network
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -219,13 +219,13 @@ export default function TrustLayerPage() {
             transition={{ delay: 0.2 }}
             className="relative max-w-4xl mx-auto"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-cyan-500/20 rounded-3xl blur-xl" />
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-500/20 via-pink-500/20 to-cyan-500/20 rounded-3xl blur-xl" />
             <GlassCard glow className="relative overflow-hidden">
               <div className="p-8 md:p-12">
                 <div className="grid md:grid-cols-3 gap-8 text-center">
                   <div>
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-                      <Lock className="w-8 h-8 text-purple-400" />
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 flex items-center justify-center">
+                      <Lock className="w-8 h-8 text-sky-400" />
                     </div>
                     <h3 className="font-bold text-lg mb-2">Verified Identity</h3>
                     <p className="text-sm text-muted-foreground">
@@ -266,7 +266,7 @@ export default function TrustLayerPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 to-pink-400 bg-clip-text text-transparent">
                 The Trust Crisis
               </span>
             </h2>
@@ -320,7 +320,7 @@ export default function TrustLayerPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gradient-to-b from-transparent via-purple-950/20 to-transparent">
+      <section className="py-20 px-4 bg-gradient-to-b from-transparent via-sky-950/20 to-transparent">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -333,14 +333,14 @@ export default function TrustLayerPage() {
               <span className="text-sm text-cyan-300">Development Roadmap</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold">
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                 Building the Future of Trust
               </span>
             </h2>
           </motion.div>
 
           <div className="relative">
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/50 via-cyan-500/50 to-pink-500/50 hidden md:block" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-sky-500/50 via-cyan-500/50 to-pink-500/50 hidden md:block" />
             
             <div className="space-y-12">
               {ROADMAP_PHASES.map((phase, index) => (
@@ -358,7 +358,7 @@ export default function TrustLayerPage() {
                   <div className="relative">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                       phase.status === "active" 
-                        ? "bg-gradient-to-r from-purple-500 to-pink-500" 
+                        ? "bg-gradient-to-r from-sky-500 to-pink-500" 
                         : "bg-white/10"
                     }`}>
                       {phase.status === "active" ? (
@@ -368,14 +368,14 @@ export default function TrustLayerPage() {
                       )}
                     </div>
                     {phase.status === "active" && (
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-lg opacity-50 animate-pulse" />
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-500 to-pink-500 blur-lg opacity-50 animate-pulse" />
                     )}
                   </div>
                   <div className="flex-1">
                     <GlassCard glow={phase.status === "active"}>
                       <div className="p-6">
                         <div className="flex items-center gap-3 mb-4">
-                          <span className="text-sm font-medium text-purple-400">{phase.phase}</span>
+                          <span className="text-sm font-medium text-sky-400">{phase.phase}</span>
                           <span className="text-sm text-muted-foreground">•</span>
                           <span className="text-sm text-muted-foreground">{phase.quarter}</span>
                           {phase.status === "active" && (
@@ -388,7 +388,7 @@ export default function TrustLayerPage() {
                         <ul className="space-y-2">
                           {phase.items.map((item, i) => (
                             <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <ChevronRight className="w-4 h-4 text-purple-400" />
+                              <ChevronRight className="w-4 h-4 text-sky-400" />
                               {item}
                             </li>
                           ))}
@@ -411,15 +411,15 @@ export default function TrustLayerPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/30 mb-4">
-              <Network className="w-4 h-4 text-purple-400" />
-              <span className="text-sm text-purple-300">Join the Network</span>
-              <span className="px-2 py-0.5 text-[10px] font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded uppercase">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/20 border border-sky-500/30 mb-4">
+              <Network className="w-4 h-4 text-sky-400" />
+              <span className="text-sm text-sky-300">Join the Network</span>
+              <span className="px-2 py-0.5 text-[10px] font-bold bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded uppercase">
                 Beta
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 Membership Tiers
               </span>
             </h2>
@@ -433,7 +433,7 @@ export default function TrustLayerPage() {
                 onClick={() => setActiveTab("business")}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   activeTab === "business"
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                    ? "bg-gradient-to-r from-sky-600 to-pink-600 text-white"
                     : "text-muted-foreground hover:text-white"
                 }`}
               >
@@ -444,7 +444,7 @@ export default function TrustLayerPage() {
                 onClick={() => setActiveTab("individual")}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   activeTab === "individual"
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                    ? "bg-gradient-to-r from-sky-600 to-pink-600 text-white"
                     : "text-muted-foreground hover:text-white"
                 }`}
               >
@@ -465,7 +465,7 @@ export default function TrustLayerPage() {
               >
                 <GlassCard glow={tier.popular} className="h-full relative">
                   {tier.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-xs font-bold text-white">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-sky-500 to-pink-500 text-xs font-bold text-white">
                       Most Popular
                     </div>
                   )}
@@ -492,7 +492,7 @@ export default function TrustLayerPage() {
                       <Button 
                         className={`w-full ${
                           tier.popular 
-                            ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500" 
+                            ? "bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500" 
                             : "bg-white/10 hover:bg-white/20"
                         }`}
                       >
@@ -508,7 +508,7 @@ export default function TrustLayerPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gradient-to-b from-transparent via-purple-950/20 to-transparent">
+      <section className="py-20 px-4 bg-gradient-to-b from-transparent via-sky-950/20 to-transparent">
         <div className="container mx-auto max-w-4xl">
           <GlassCard glow>
             <div className="p-8 md:p-12 text-center">
@@ -530,7 +530,7 @@ export default function TrustLayerPage() {
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Link href={isAuthenticated ? "/dashboard" : "/?login=true"}>
-                    <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500">
+                    <Button size="lg" className="bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500">
                       <BadgeCheck className="w-5 h-5 mr-2" />
                       Get Your Trust Card
                     </Button>
@@ -541,8 +541,8 @@ export default function TrustLayerPage() {
                     </Button>
                   </Link>
                 </div>
-                <div className="mt-8 p-4 rounded-lg bg-purple-500/10 border border-purple-500/20 max-w-2xl mx-auto">
-                  <p className="text-xs text-purple-400/80 text-center leading-relaxed">
+                <div className="mt-8 p-4 rounded-lg bg-sky-500/10 border border-sky-500/20 max-w-2xl mx-auto">
+                  <p className="text-xs text-sky-400/80 text-center leading-relaxed">
                     <strong>BETA DISCLAIMER:</strong> The Trust Layer is currently in beta. 
                     All features and functionality are subject to change without notice. 
                     Do your own research (DYOR). Participation is at your own risk. 

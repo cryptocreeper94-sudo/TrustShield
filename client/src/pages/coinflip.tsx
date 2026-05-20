@@ -289,7 +289,7 @@ export default function Coinflip() {
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0a0a0f] via-[#12121a] to-[#0a0a0f]">
-        <div className="animate-pulse text-purple-400">Loading...</div>
+        <div className="animate-pulse text-sky-400">Loading...</div>
       </div>
     );
   }
@@ -313,7 +313,7 @@ export default function Coinflip() {
               top: `${Math.random() * 100}%`,
               width: 2 + Math.random() * 3,
               height: 2 + Math.random() * 3,
-              background: i % 3 === 0 ? '#fbbf24' : i % 3 === 1 ? '#a855f7' : '#f59e0b',
+              background: i % 3 === 0 ? '#fbbf24' : i % 3 === 1 ? '#38bdf8' : '#f59e0b',
               boxShadow: `0 0 ${4 + Math.random() * 6}px currentColor`,
             }}
             animate={{
@@ -346,7 +346,7 @@ export default function Coinflip() {
                     color: '#fbbf24',
                   }} />
                 </motion.div>
-                <span className="bg-gradient-to-r from-teal-200 via-teal-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg">
+                <span className="bg-gradient-to-r from-teal-200 via-teal-400 to-sky-500 bg-clip-text text-transparent drop-shadow-lg">
                   Royal Coin Flip
                 </span>
               </h1>
@@ -365,11 +365,11 @@ export default function Coinflip() {
         </div>
 
         {isDemo && (
-          <div className="mb-4 bg-gradient-to-r from-purple-900/50 to-pink-900/50 border border-purple-500/30 rounded-xl p-3 text-center">
-            <p className="text-purple-300 text-sm">
+          <div className="mb-4 bg-gradient-to-r from-sky-900/50 to-pink-900/50 border border-sky-500/30 rounded-xl p-3 text-center">
+            <p className="text-sky-300 text-sm">
               <Sparkles className="w-4 h-4 inline mr-1" />
               <strong>Demo Mode</strong> - Playing with free demo coins! 
-              <button onClick={() => setShowLoginModal(true)} className="underline ml-2 text-purple-200 hover:text-white">Sign up</button> to save your winnings.
+              <button onClick={() => setShowLoginModal(true)} className="underline ml-2 text-sky-200 hover:text-white">Sign up</button> to save your winnings.
             </p>
           </div>
         )}
@@ -531,7 +531,7 @@ export default function Coinflip() {
                   className={`
                     px-8 py-6 text-lg font-bold rounded-xl transition-all
                     ${choice === "heads" 
-                      ? 'bg-gradient-to-r from-teal-400 to-purple-500 text-black scale-105 ring-2 ring-teal-300 shadow-lg shadow-teal-500/30' 
+                      ? 'bg-gradient-to-r from-teal-400 to-sky-500 text-black scale-105 ring-2 ring-teal-300 shadow-lg shadow-teal-500/30' 
                       : 'bg-white/10 hover:bg-white/20 text-white border border-white/10'}
                   `}
                   data-testid="choice-heads"
@@ -545,7 +545,7 @@ export default function Coinflip() {
                   className={`
                     px-8 py-6 text-lg font-bold rounded-xl transition-all
                     ${choice === "tails" 
-                      ? 'bg-gradient-to-r from-teal-400 to-purple-500 text-black scale-105 ring-2 ring-teal-300 shadow-lg shadow-teal-500/30' 
+                      ? 'bg-gradient-to-r from-teal-400 to-sky-500 text-black scale-105 ring-2 ring-teal-300 shadow-lg shadow-teal-500/30' 
                       : 'bg-white/10 hover:bg-white/20 text-white border border-white/10'}
                   `}
                   data-testid="choice-tails"
@@ -574,7 +574,7 @@ export default function Coinflip() {
                 <Coins className="w-4 h-4" />
                 Bet Amount
               </span>
-              <Badge className="bg-gradient-to-r from-teal-500/20 to-purple-500/20 border-teal-500/40 text-teal-300 font-bold">
+              <Badge className="bg-gradient-to-r from-teal-500/20 to-sky-500/20 border-teal-500/40 text-teal-300 font-bold">
                 1.96x Payout
               </Badge>
             </div>
@@ -591,7 +591,7 @@ export default function Coinflip() {
                   ½
                 </Button>
                 <div className="flex-1 text-center">
-                  <div className="text-3xl font-black bg-gradient-to-r from-teal-300 via-teal-400 to-purple-400 bg-clip-text text-transparent">
+                  <div className="text-3xl font-black bg-gradient-to-r from-teal-300 via-teal-400 to-sky-400 bg-clip-text text-transparent">
                     {formatNumber(betAmount)} {currencyType}
                   </div>
                 </div>
@@ -617,7 +617,7 @@ export default function Coinflip() {
                     className={`
                       border-teal-600/20 font-semibold transition-all
                       ${betAmount === amount 
-                        ? 'bg-gradient-to-r from-teal-500/20 to-purple-500/20 text-teal-300 ring-1 ring-teal-400/50 shadow-md shadow-teal-500/10' 
+                        ? 'bg-gradient-to-r from-teal-500/20 to-sky-500/20 text-teal-300 ring-1 ring-teal-400/50 shadow-md shadow-teal-500/10' 
                         : 'hover:bg-teal-500/10 text-gray-400 hover:text-teal-400'}
                     `}
                   >
@@ -638,7 +638,7 @@ export default function Coinflip() {
               className={`
                 px-16 py-8 text-2xl font-black rounded-full transition-all relative overflow-hidden
                 ${!isFlipping && getBalance() >= betAmount
-                  ? 'bg-gradient-to-r from-teal-400 via-purple-500 to-cyan-500 hover:from-teal-300 hover:via-purple-400 hover:to-cyan-400 text-black shadow-xl shadow-purple-500/30'
+                  ? 'bg-gradient-to-r from-teal-400 via-sky-500 to-cyan-500 hover:from-teal-300 hover:via-sky-400 hover:to-cyan-400 text-black shadow-xl shadow-sky-500/30'
                   : 'bg-gray-700 text-gray-400 cursor-not-allowed'
                 }
               `}
@@ -708,8 +708,8 @@ export default function Coinflip() {
                         style={{
                           left: `${Math.random() * 100}%`,
                           top: `${Math.random() * 100}%`,
-                          backgroundColor: ['#fbbf24', '#34d399', '#fff', '#a78bfa'][i % 4],
-                          boxShadow: `0 0 4px ${['#fbbf24', '#34d399', '#fff', '#a78bfa'][i % 4]}`,
+                          backgroundColor: ['#fbbf24', '#34d399', '#fff', '#38bdf8'][i % 4],
+                          boxShadow: `0 0 4px ${['#fbbf24', '#34d399', '#fff', '#38bdf8'][i % 4]}`,
                         }}
                         animate={{
                           opacity: [0, 1, 0],
@@ -817,13 +817,13 @@ export default function Coinflip() {
                       w-8 h-8 rounded-full flex items-center justify-center
                       ${result === "heads" 
                         ? 'bg-teal-500/20 border border-teal-500/50' 
-                        : 'bg-purple-500/20 border border-purple-500/50'}
+                        : 'bg-sky-500/20 border border-sky-500/50'}
                     `}
                   >
                     {result === "heads" ? (
                       <Crown className="w-4 h-4 text-teal-400" />
                     ) : (
-                      <Star className="w-4 h-4 text-purple-400" />
+                      <Star className="w-4 h-4 text-sky-400" />
                     )}
                   </motion.div>
                 ))
@@ -839,7 +839,7 @@ export default function Coinflip() {
                   <span>Heads: {recentResults.filter(r => r === "heads").length}</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Star className="w-4 h-4 text-purple-400" />
+                  <Star className="w-4 h-4 text-sky-400" />
                   <span>Tails: {recentResults.filter(r => r === "tails").length}</span>
                 </div>
               </div>

@@ -154,14 +154,14 @@ export default function ReferralProgram() {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-8 p-4 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl border border-purple-500/20 text-center"
+              className="mb-8 p-4 bg-gradient-to-r from-sky-500/10 to-blue-500/10 rounded-xl border border-sky-500/20 text-center"
             >
               <div className="flex items-center justify-center gap-2 mb-2">
-                <Building2 className="w-5 h-5 text-purple-400" />
+                <Building2 className="w-5 h-5 text-sky-400" />
                 <span className="font-semibold">Business Partner Program</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Verified businesses earn <span className="text-purple-400 font-bold">2.5x rewards</span> and unlock exclusive milestone bonuses.
+                Verified businesses earn <span className="text-sky-400 font-bold">2.5x rewards</span> and unlock exclusive milestone bonuses.
                 Perfect for agencies, consultants, and business networks.
               </p>
             </motion.div>
@@ -174,7 +174,7 @@ export default function ReferralProgram() {
                   <Gift className="w-5 h-5 text-teal-400" />
                   <h2 className="font-bold text-lg">Multiplier Rewards</h2>
                   {activeTab === "business" && (
-                    <Badge className="ml-2 bg-purple-500/20 text-purple-400 border-purple-500/30">+2.5x Business</Badge>
+                    <Badge className="ml-2 bg-sky-500/20 text-sky-400 border-sky-500/30">+2.5x Business</Badge>
                   )}
                 </div>
 
@@ -216,19 +216,19 @@ export default function ReferralProgram() {
                       </div>
                       <div className="font-mono text-blue-400 font-bold">{(MULTIPLIERS.tier_25.shells * baseMultiplier).toLocaleString()}</div>
                     </div>
-                    <div className="p-3 bg-gradient-to-br from-purple-500/10 to-pink-500/5 rounded-lg border border-purple-500/20">
+                    <div className="p-3 bg-gradient-to-br from-sky-500/10 to-pink-500/5 rounded-lg border border-sky-500/20">
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-xs text-muted-foreground">$50 - $99</span>
-                        <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs font-mono">7x</Badge>
+                        <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 text-xs font-mono">7x</Badge>
                       </div>
-                      <div className="font-mono text-purple-400 font-bold">{(MULTIPLIERS.tier_50.shells * baseMultiplier).toLocaleString()}</div>
+                      <div className="font-mono text-sky-400 font-bold">{(MULTIPLIERS.tier_50.shells * baseMultiplier).toLocaleString()}</div>
                     </div>
-                    <div className="p-3 bg-gradient-to-br from-purple-500/10 to-cyan-500/5 rounded-lg border border-purple-500/20">
+                    <div className="p-3 bg-gradient-to-br from-sky-500/10 to-cyan-500/5 rounded-lg border border-sky-500/20">
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-xs text-muted-foreground">$100+</span>
-                        <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs font-mono">10x</Badge>
+                        <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 text-xs font-mono">10x</Badge>
                       </div>
-                      <div className="font-mono text-purple-400 font-bold">{(MULTIPLIERS.tier_100.shells * baseMultiplier).toLocaleString()}</div>
+                      <div className="font-mono text-sky-400 font-bold">{(MULTIPLIERS.tier_100.shells * baseMultiplier).toLocaleString()}</div>
                     </div>
                   </div>
                 </div>
@@ -345,8 +345,8 @@ export default function ReferralProgram() {
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-purple-500/10 to-transparent rounded-lg border border-purple-500/20">
-                      <Badge className="w-12 bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs font-mono">7x</Badge>
+                    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-sky-500/10 to-transparent rounded-lg border border-sky-500/20">
+                      <Badge className="w-12 bg-sky-500/20 text-sky-400 border-sky-500/30 text-xs font-mono">7x</Badge>
                       <div className="flex-1">
                         <label className="text-xs text-muted-foreground block mb-1">Purchased $50-$99</label>
                         <Input
@@ -359,12 +359,12 @@ export default function ReferralProgram() {
                         />
                       </div>
                       <div className="text-right min-w-[80px]">
-                        <span className="font-mono text-purple-400">{shells7x.toLocaleString()}</span>
+                        <span className="font-mono text-sky-400">{shells7x.toLocaleString()}</span>
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-purple-500/10 to-transparent rounded-lg border border-purple-500/20">
-                      <Badge className="w-12 bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs font-mono">10x</Badge>
+                    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-sky-500/10 to-transparent rounded-lg border border-sky-500/20">
+                      <Badge className="w-12 bg-sky-500/20 text-sky-400 border-sky-500/30 text-xs font-mono">10x</Badge>
                       <div className="flex-1">
                         <label className="text-xs text-muted-foreground block mb-1">Purchased $100+</label>
                         <Input
@@ -377,7 +377,7 @@ export default function ReferralProgram() {
                         />
                       </div>
                       <div className="text-right min-w-[80px]">
-                        <span className="font-mono text-purple-400">{shells10x.toLocaleString()}</span>
+                        <span className="font-mono text-sky-400">{shells10x.toLocaleString()}</span>
                       </div>
                     </div>
                   </div>

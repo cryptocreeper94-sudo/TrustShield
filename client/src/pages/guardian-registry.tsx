@@ -26,7 +26,7 @@ function getTierInfo(tier: string) {
     case "guardian_premier":
       return { name: "Guardian Premier", gradient: "from-pink-500 to-pink-700", icon: Award, glow: "rgba(236,72,153,0.3)" };
     case "assurance_lite":
-      return { name: "Assurance Lite", gradient: "from-purple-500 to-purple-700", icon: ShieldCheck, glow: "rgba(168,85,247,0.3)" };
+      return { name: "Assurance Lite", gradient: "from-sky-500 to-sky-700", icon: ShieldCheck, glow: "rgba(14,165,233,0.3)" };
     default:
       return { name: "Self-Cert", gradient: "from-cyan-500 to-cyan-700", icon: Shield, glow: "rgba(6,182,212,0.3)" };
   }
@@ -34,7 +34,7 @@ function getTierInfo(tier: string) {
 
 function getScoreColor(score: number) {
   if (score >= 90) return "text-emerald-400";
-  if (score >= 70) return "text-purple-400";
+  if (score >= 70) return "text-sky-400";
   return "text-red-400";
 }
 
@@ -55,7 +55,7 @@ export default function GuardianRegistry() {
   return (
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+      <div className="absolute bottom-40 right-20 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
@@ -84,7 +84,7 @@ export default function GuardianRegistry() {
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Certified Projects
             </span>
           </h1>
@@ -119,7 +119,7 @@ export default function GuardianRegistry() {
             transition={{ delay: 0.15 }}
           >
             <GlassCard glow className="p-6 text-center">
-              <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent mb-2">
                 {registry.length}
               </div>
               <p className="text-white/60">Certified Projects</p>
@@ -131,7 +131,7 @@ export default function GuardianRegistry() {
             transition={{ delay: 0.2 }}
           >
             <GlassCard glow className="p-6 text-center">
-              <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-sky-400 to-pink-400 bg-clip-text text-transparent mb-2">
                 {registry.filter(r => r.tier === "guardian_premier").length}
               </div>
               <p className="text-white/60">Premier Certifications</p>
@@ -201,7 +201,7 @@ export default function GuardianRegistry() {
                             {isValid ? "Active" : "Expired"}
                           </Badge>
                           {entry.nftTokenId && (
-                            <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
+                            <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30">
                               <Sparkles className="w-3 h-3 mr-1" />
                               NFT Minted
                             </Badge>
@@ -261,7 +261,7 @@ export default function GuardianRegistry() {
             </p>
             <a
               href="/guardian-certification"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl text-white font-semibold hover:from-cyan-600 hover:to-purple-700 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-sky-600 rounded-xl text-white font-semibold hover:from-cyan-600 hover:to-sky-700 transition-all"
               data-testid="button-get-certified"
             >
               Start Certification Process

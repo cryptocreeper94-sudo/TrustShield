@@ -89,22 +89,22 @@ const categories: Category[] = [
       { label: "Platform Dashboard", description: "High-level operational overview", href: "/dashboard", icon: <LayoutGrid className="size-5" />, image: hubHomeOverview, glowColor: "shadow-blue-400/30", badge: "Live" },
       { label: "SEO Manager", description: "Search engine optimization controls", href: "/owner-admin/seo", icon: <Search className="size-5" />, image: hubAiTools, glowColor: "shadow-indigo-500/30" },
       { label: "Network Stats", description: "Blockchain network performance", href: "/network", icon: <Activity className="size-5" />, image: ccBlockchain, glowColor: "shadow-teal-500/30" },
-      { label: "ML Dashboard", description: "Machine learning model insights", href: "/ml-dashboard", icon: <Cpu className="size-5" />, image: ccDeveloper, glowColor: "shadow-violet-500/30", badge: "Beta" },
+      { label: "ML Dashboard", description: "Machine learning model insights", href: "/ml-dashboard", icon: <Cpu className="size-5" />, image: ccDeveloper, glowColor: "shadow-cyan-500/30", badge: "Beta" },
       { label: "API Usage", description: "Track API consumption and limits", href: "/api-usage", icon: <LineChart className="size-5" />, image: hubPortfolioChart, glowColor: "shadow-cyan-500/30" },
     ]
   },
   {
     title: "Users & Community",
     icon: <Users className="size-4" />,
-    gradient: "from-purple-500 to-pink-500",
+    gradient: "from-sky-500 to-pink-500",
     description: "Manage user accounts, verify identities, handle KYC processes, review business applications, and oversee the community. Everything people-related lives here.",
     cards: [
-      { label: "User Management", description: "View, edit, and manage all users", href: "/owner-admin/users", icon: <Users className="size-5" />, image: ccUsers, glowColor: "shadow-purple-500/30", featured: false },
+      { label: "User Management", description: "View, edit, and manage all users", href: "/owner-admin/users", icon: <Users className="size-5" />, image: ccUsers, glowColor: "shadow-sky-500/30", featured: false },
       { label: "KYC Verification", description: "Identity verification queue", href: "/owner-admin/kyc", icon: <ClipboardCheck className="size-5" />, image: hubIdentitySecurity, glowColor: "shadow-pink-500/30", badge: "Queue" },
-      { label: "Business Verification", description: "Review business applications", href: "/owner-admin/business-verification", icon: <Building2 className="size-5" />, image: hubCommunitySocial, glowColor: "shadow-fuchsia-500/30" },
+      { label: "Business Verification", description: "Review business applications", href: "/owner-admin/business-verification", icon: <Building2 className="size-5" />, image: hubCommunitySocial, glowColor: "shadow-teal-500/30" },
       { label: "Partner Requests", description: "Incoming partnership applications", href: "/owner-admin", icon: <HandCoins className="size-5" />, image: hubReferralNetwork, glowColor: "shadow-rose-500/30" },
-      { label: "User Feedback", description: "Read and respond to user feedback", href: "/owner-admin/feedback", icon: <MessageSquare className="size-5" />, image: hubChatMessaging, glowColor: "shadow-purple-400/30" },
-      { label: "Team Admin", description: "Manage team access and roles", href: "/team-admin", icon: <UserCog className="size-5" />, image: hubMembershipVip, glowColor: "shadow-violet-500/30" },
+      { label: "User Feedback", description: "Read and respond to user feedback", href: "/owner-admin/feedback", icon: <MessageSquare className="size-5" />, image: hubChatMessaging, glowColor: "shadow-sky-400/30" },
+      { label: "Team Admin", description: "Manage team access and roles", href: "/team-admin", icon: <UserCog className="size-5" />, image: hubMembershipVip, glowColor: "shadow-cyan-500/30" },
       { label: "Zealy Integration", description: "Community engagement platform", href: "/owner-admin/zealy", icon: <Zap className="size-5" />, image: ccRewards, glowColor: "shadow-teal-500/30", badge: "Earn" },
     ]
   },
@@ -116,10 +116,10 @@ const categories: Category[] = [
     cards: [
       { label: "Marketing Hub", description: "Campaign management & automation", href: "/owner-admin/messaging", icon: <Megaphone className="size-5" />, image: ccMarketing, glowColor: "shadow-cyan-500/30", featured: false },
       { label: "Blog Admin", description: "Create and manage blog content", href: "/blog-admin", icon: <Newspaper className="size-5" />, image: hubLearnExplore, glowColor: "shadow-rose-500/30" },
-      { label: "Messaging Center", description: "Send announcements & notifications", href: "/owner-admin/messaging", icon: <Mail className="size-5" />, image: hubChatMessaging, glowColor: "shadow-purple-500/30" },
+      { label: "Messaging Center", description: "Send announcements & notifications", href: "/owner-admin/messaging", icon: <Mail className="size-5" />, image: hubChatMessaging, glowColor: "shadow-sky-500/30" },
       { label: "Marketing Catalog", description: "Manage marketing asset library", href: "/marketing-catalog/admin", icon: <Palette className="size-5" />, image: hubNftGallery, glowColor: "shadow-pink-500/30" },
       { label: "Marketing Dev", description: "Marketing development tools", href: "/marketing-catalog/dev", icon: <Code className="size-5" />, image: ccDeveloper, glowColor: "shadow-red-500/30", badge: "Dev" },
-      { label: "Competitive Analysis", description: "Market positioning analysis", href: "/competitive-analysis", icon: <PieChart className="size-5" />, image: hubPortfolioChart, glowColor: "shadow-violet-500/30" },
+      { label: "Competitive Analysis", description: "Market positioning analysis", href: "/competitive-analysis", icon: <PieChart className="size-5" />, image: hubPortfolioChart, glowColor: "shadow-cyan-500/30" },
       { label: "Investor Pitch", description: "Investor presentation materials", href: "/investor-pitch", icon: <Rocket className="size-5" />, image: hubPresaleLaunch, glowColor: "shadow-emerald-500/30" },
       { label: "Innovation Hub", description: "Innovation features and research", href: "/innovation", icon: <Sparkles className="size-5" />, image: hubAiTools, glowColor: "shadow-cyan-500/30" },
       { label: "Team Messaging", description: "Internal team communications", href: "/team-message", icon: <MessageSquare className="size-5" />, image: hubCommunitySocial, glowColor: "shadow-blue-500/30" },
@@ -146,7 +146,7 @@ const categories: Category[] = [
     cards: [
       { label: "Guardian Portal", description: "Security certification management", href: "/owner-admin/guardian", icon: <ShieldCheck className="size-5" />, image: ccSecurity, glowColor: "shadow-red-500/30", featured: false },
       { label: "Guardian Scanner", description: "AI-powered token security analysis", href: "/guardian-scanner", icon: <Search className="size-5" />, image: hubGuardianSentinel, glowColor: "shadow-cyan-500/30", badge: "AI" },
-      { label: "Guardian AI Registry", description: "Certified AI agent registry", href: "/guardian-ai-registry", icon: <Bot className="size-5" />, image: hubAiTools, glowColor: "shadow-purple-500/30" },
+      { label: "Guardian AI Registry", description: "Certified AI agent registry", href: "/guardian-ai-registry", icon: <Bot className="size-5" />, image: hubAiTools, glowColor: "shadow-sky-500/30" },
       { label: "Guardian Shield", description: "Continuous security monitoring", href: "/guardian-shield", icon: <Shield className="size-5" />, image: hubIdentitySecurity, glowColor: "shadow-rose-500/30" },
       { label: "Guardian Certification", description: "Audit certification program", href: "/guardian-certification", icon: <ScrollText className="size-5" />, image: hubSmartContract, glowColor: "shadow-red-400/30" },
     ]
@@ -162,7 +162,7 @@ const categories: Category[] = [
       { label: "Validators", description: "Validator set and staking", href: "/validators", icon: <Server className="size-5" />, image: hubStakingVault, glowColor: "shadow-indigo-500/30" },
       { label: "Bridge Monitor", description: "Cross-chain bridge operations", href: "/bridge", icon: <Layers className="size-5" />, image: hubBridgeChains, glowColor: "shadow-sky-500/30" },
       { label: "Domain Manager", description: ".tlid blockchain domain service", href: "/owner-admin/domains", icon: <Globe className="size-5" />, image: hubEcosystemGlobe, glowColor: "shadow-teal-500/30" },
-      { label: "Governance", description: "DAO proposals and voting", href: "/governance", icon: <Gavel className="size-5" />, image: hubGovernanceVote, glowColor: "shadow-purple-500/30" },
+      { label: "Governance", description: "DAO proposals and voting", href: "/governance", icon: <Gavel className="size-5" />, image: hubGovernanceVote, glowColor: "shadow-sky-500/30" },
     ]
   },
   {
@@ -172,7 +172,7 @@ const categories: Category[] = [
     description: "Referral program management, airdrop distribution, rewards configuration, early adopter tracking, and Shell economy controls. Keep the community engaged and rewarded.",
     cards: [
       { label: "Referral Manager", description: "Referral program stats & payouts", href: "/owner-admin/referrals", icon: <Star className="size-5" />, image: ccRewards, glowColor: "shadow-teal-500/30", featured: false, badge: "Earn" },
-      { label: "Rewards Config", description: "Configure reward distributions", href: "/owner-admin/referrals", icon: <Gift className="size-5" />, image: hubEarnRewards, glowColor: "shadow-purple-500/30" },
+      { label: "Rewards Config", description: "Configure reward distributions", href: "/owner-admin/referrals", icon: <Gift className="size-5" />, image: hubEarnRewards, glowColor: "shadow-sky-500/30" },
       { label: "Airdrop Claims", description: "Manage airdrop distribution", href: "/airdrop", icon: <Sparkles className="size-5" />, image: hubPresaleLaunch, glowColor: "shadow-cyan-500/30" },
       { label: "Leaderboard", description: "Community rankings and scores", href: "/leaderboard", icon: <Trophy className="size-5" />, image: hubReferralNetwork, glowColor: "shadow-teal-400/30" },
     ]
@@ -180,15 +180,15 @@ const categories: Category[] = [
   {
     title: "Games & Entertainment",
     icon: <Gamepad2 className="size-4" />,
-    gradient: "from-pink-500 to-purple-500",
+    gradient: "from-pink-500 to-sky-500",
     description: "Chronicles admin, arcade game controls, sweepstakes rules, and all gaming infrastructure. Manage the entertainment side of the ecosystem.",
     cards: [
       { label: "Chronicles Admin", description: "Game world and content management", href: "/chronicles-admin", icon: <Swords className="size-5" />, image: ccGames, glowColor: "shadow-pink-500/30", featured: false },
-      { label: "Arcade Hub", description: "Arcade and game management", href: "/arcade", icon: <Gamepad2 className="size-5" />, image: hubChroniclesGame, glowColor: "shadow-purple-500/30" },
-      { label: "Sweepstakes Rules", description: "Contest rules and compliance", href: "/sweepstakes-rules", icon: <ScrollText className="size-5" />, image: hubGamesCombat, glowColor: "shadow-fuchsia-500/30" },
+      { label: "Arcade Hub", description: "Arcade and game management", href: "/arcade", icon: <Gamepad2 className="size-5" />, image: hubChroniclesGame, glowColor: "shadow-sky-500/30" },
+      { label: "Sweepstakes Rules", description: "Contest rules and compliance", href: "/sweepstakes-rules", icon: <ScrollText className="size-5" />, image: hubGamesCombat, glowColor: "shadow-teal-500/30" },
       { label: "Daily Bonus", description: "Configure daily reward system", href: "/daily-bonus", icon: <Flame className="size-5" />, image: hubDiceChance, glowColor: "shadow-rose-500/30" },
       { label: "Game Developer Portal", description: "Third-party game submission and review", href: "/game-developer", icon: <Code className="size-5" />, image: hubRetroSpace, glowColor: "shadow-indigo-500/30" },
-      { label: "Chronicles Builder", description: "Game content creation tools", href: "/chronicles/builder", icon: <Layers className="size-5" />, image: hubSlotsCasino, glowColor: "shadow-violet-500/30" },
+      { label: "Chronicles Builder", description: "Game content creation tools", href: "/chronicles/builder", icon: <Layers className="size-5" />, image: hubSlotsCasino, glowColor: "shadow-cyan-500/30" },
     ]
   },
   {
@@ -203,8 +203,8 @@ const categories: Category[] = [
       { label: "Webhooks", description: "Event webhook configuration", href: "/webhooks", icon: <Radio className="size-5" />, image: hubEcosystemGlobe, glowColor: "shadow-teal-500/30" },
       { label: "Studio", description: "Blockchain IDE and tools", href: "/studio", icon: <Cpu className="size-5" />, image: ccSettings, glowColor: "shadow-green-400/30" },
       { label: "Doc Hub", description: "System documentation hub", href: "/doc-hub", icon: <BookOpen className="size-5" />, image: hubLearnExplore, glowColor: "shadow-cyan-500/30" },
-      { label: "Code Snippets", description: "Reusable code snippet library", href: "/code-snippets", icon: <FileText className="size-5" />, image: ccAnalytics, glowColor: "shadow-purple-500/30" },
-      { label: "Dev Studio", description: "Development sandbox environment", href: "/dev-studio", icon: <Server className="size-5" />, image: hubExplorerBlocks, glowColor: "shadow-violet-500/30" },
+      { label: "Code Snippets", description: "Reusable code snippet library", href: "/code-snippets", icon: <FileText className="size-5" />, image: ccAnalytics, glowColor: "shadow-sky-500/30" },
+      { label: "Dev Studio", description: "Development sandbox environment", href: "/dev-studio", icon: <Server className="size-5" />, image: hubExplorerBlocks, glowColor: "shadow-cyan-500/30" },
     ]
   },
   {
@@ -218,7 +218,7 @@ const categories: Category[] = [
       { label: "Technical Roadmap", description: "Development timeline and plans", href: "/technical-roadmap", icon: <Compass className="size-5" />, image: hubQuestCompass, glowColor: "shadow-gray-400/30" },
       { label: "System Status", description: "Service health and uptime", href: "/status", icon: <Activity className="size-5" />, image: ccAnalytics, glowColor: "shadow-green-500/30", badge: "Live" },
       { label: "Team Operations", description: "Internal team coordination", href: "/ops-center", icon: <UserCog className="size-5" />, image: ccUsers, glowColor: "shadow-blue-400/30" },
-      { label: "Coming Features", description: "Upcoming feature release tracker", href: "/coming-features", icon: <Rocket className="size-5" />, image: hubPresaleLaunch, glowColor: "shadow-purple-500/30" },
+      { label: "Coming Features", description: "Upcoming feature release tracker", href: "/coming-features", icon: <Rocket className="size-5" />, image: hubPresaleLaunch, glowColor: "shadow-sky-500/30" },
       { label: "Genesis", description: "Platform genesis configuration", href: "/genesis", icon: <Sparkles className="size-5" />, image: hubEcosystemGlobe, glowColor: "shadow-cyan-500/30" },
       { label: "Roadmap (Chronicles)", description: "Chronicles development roadmap", href: "/roadmap-chronicles", icon: <Compass className="size-5" />, image: hubChroniclesGame, glowColor: "shadow-pink-500/30" },
       { label: "Roadmap (Ecosystem)", description: "Ecosystem development timeline", href: "/roadmap-ecosystem", icon: <Map className="size-5" />, image: hubGovernanceVote, glowColor: "shadow-emerald-500/30" },
@@ -274,8 +274,8 @@ function PinLogin({ onSuccess }: { onSuccess: () => void }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ background: "linear-gradient(180deg, #070b16, #0c1222, #070b16)" }}>
-      <GlowOrb color="linear-gradient(135deg, #06b6d4, #8b5cf6)" size={400} top="10%" left="10%" />
-      <GlowOrb color="linear-gradient(135deg, #ec4899, #8b5cf6)" size={300} top="60%" left="70%" delay={2} />
+      <GlowOrb color="linear-gradient(135deg, #06b6d4, #0ea5e9)" size={400} top="10%" left="10%" />
+      <GlowOrb color="linear-gradient(135deg, #ec4899, #0ea5e9)" size={300} top="60%" left="70%" delay={2} />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -284,7 +284,7 @@ function PinLogin({ onSuccess }: { onSuccess: () => void }) {
         style={{ boxShadow: "0 0 60px rgba(0,200,255,0.1)" }}
       >
         <div className="text-center mb-8">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-white/10 flex items-center justify-center">
             <Lock className="w-8 h-8 text-cyan-400" />
           </div>
           <h1 className="text-2xl font-bold text-white mb-2">Command Center</h1>
@@ -319,7 +319,7 @@ function PinLogin({ onSuccess }: { onSuccess: () => void }) {
           <button
             onClick={handleSubmit}
             disabled={loading || !secret}
-            className="w-full py-3 rounded-xl font-semibold text-white transition-all bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full py-3 rounded-xl font-semibold text-white transition-all bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 disabled:opacity-40 disabled:cursor-not-allowed"
             data-testid="button-command-center-login"
           >
             {loading ? (
@@ -516,13 +516,13 @@ export default function CommandCenter() {
   return (
     <div className="min-h-screen pb-12 overflow-x-hidden" style={{ background: "linear-gradient(180deg, #070b16, #0c1222, #070b16)" }}>
       <GlowOrb color="linear-gradient(135deg, #06b6d4, #3b82f6)" size={600} top="-5%" left="60%" />
-      <GlowOrb color="linear-gradient(135deg, #8b5cf6, #ec4899)" size={500} top="40%" left="-10%" delay={3} />
+      <GlowOrb color="linear-gradient(135deg, #0ea5e9, #ec4899)" size={500} top="40%" left="-10%" delay={3} />
       <GlowOrb color="linear-gradient(135deg, #f59e0b, #ef4444)" size={400} top="70%" left="80%" delay={5} />
 
       <div className="sticky top-0 z-30 backdrop-blur-xl bg-[#070b16]/80 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
               <Zap className="w-4 h-4 text-white" />
             </div>
             <h1 className="text-white font-bold text-sm sm:text-base tracking-wide" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
@@ -560,7 +560,7 @@ export default function CommandCenter() {
             </button>
             <motion.button
               onClick={() => setShowGenesis(!showGenesis)}
-              className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 hover:border-cyan-400/40 hover:bg-cyan-500/15 transition-all"
+              className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500/10 to-sky-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 hover:border-cyan-400/40 hover:bg-cyan-500/15 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               data-testid="button-genesis-stamp"
@@ -590,9 +590,9 @@ export default function CommandCenter() {
           >
             <div className="backdrop-blur-xl bg-[#070b16]/90 border-b border-cyan-500/10 px-4 sm:px-6 py-4">
               <div className="max-w-7xl mx-auto">
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-cyan-500/5 border border-cyan-500/10">
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-cyan-500/5 via-sky-500/5 to-cyan-500/5 border border-cyan-500/10">
                   <div
-                    className="shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+                    className="shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.3)]"
                   >
                     <Shield className="w-7 h-7 text-cyan-400" />
                   </div>
@@ -625,7 +625,7 @@ export default function CommandCenter() {
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
             Welcome to{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Mission Control
             </span>
           </h2>

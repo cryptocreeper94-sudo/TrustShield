@@ -93,13 +93,13 @@ export default function GuardianAIRegistry() {
           className="text-center mb-12"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-xl border border-cyan-500/30">
+            <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-sky-500/20 rounded-xl border border-cyan-500/30">
               <ShieldCheck className="w-8 h-8 text-cyan-400" />
             </div>
           </div>
           
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
               Guardian AI Registry
             </span>
           </h1>
@@ -110,7 +110,7 @@ export default function GuardianAIRegistry() {
           </p>
 
           <Link href="/guardian-ai">
-            <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600" data-testid="button-submit-yours">
+            <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600" data-testid="button-submit-yours">
               Submit Your Agent
             </Button>
           </Link>
@@ -152,7 +152,7 @@ export default function GuardianAIRegistry() {
                     variant={filterType === key ? 'default' : 'outline'}
                     size="sm"
                     onClick={() => setFilterType(key)}
-                    className={filterType === key ? 'bg-purple-500' : 'border-slate-600'}
+                    className={filterType === key ? 'bg-sky-500' : 'border-slate-600'}
                     data-testid={`filter-${key}`}
                   >
                     {label}
@@ -182,7 +182,7 @@ export default function GuardianAIRegistry() {
               <div className="text-sm text-slate-400">High Trust Score</div>
             </GlassCard>
             <GlassCard className="p-4 text-center">
-              <div className="text-2xl font-bold text-purple-400">
+              <div className="text-2xl font-bold text-sky-400">
                 {filteredAgents.filter((a: any) => a.certificationTier === 'enterprise').length}
               </div>
               <div className="text-sm text-slate-400">Enterprise Tier</div>
@@ -220,7 +220,7 @@ export default function GuardianAIRegistry() {
                 Be among the first to get your AI agent certified and listed in the registry.
               </p>
               <Link href="/guardian-ai">
-                <Button className="bg-gradient-to-r from-cyan-500 to-purple-500">
+                <Button className="bg-gradient-to-r from-cyan-500 to-sky-500">
                   Submit Your Agent
                 </Button>
               </Link>
@@ -326,7 +326,7 @@ export default function GuardianAIRegistry() {
           transition={{ delay: 0.3 }}
           className="mt-12"
         >
-          <GlassCard className="p-8 bg-gradient-to-br from-slate-900/50 to-purple-900/20">
+          <GlassCard className="p-8 bg-gradient-to-br from-slate-900/50 to-sky-900/20">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-bold text-white mb-4">What is Guardian AI Certification?</h3>
@@ -352,7 +352,7 @@ export default function GuardianAIRegistry() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <ShieldCheck className="w-5 h-5 text-purple-400" />
+                    <ShieldCheck className="w-5 h-5 text-sky-400" />
                     <div>
                       <span className="font-medium text-white">Advanced</span>
                       <span className="text-slate-400 text-sm ml-2">Deep code review & testing</span>

@@ -24,13 +24,13 @@ interface SweepsBalance {
 }
 
 const WHEEL_SEGMENTS = [
-  { id: 1, color: "from-teal-400 to-purple-500", prize: "500 GC", type: "gc", value: 500 },
+  { id: 1, color: "from-teal-400 to-sky-500", prize: "500 GC", type: "gc", value: 500 },
   { id: 2, color: "from-green-400 to-emerald-500", prize: "1 SC", type: "sc", value: 1 },
-  { id: 3, color: "from-purple-400 to-violet-500", prize: "750 GC", type: "gc", value: 750 },
+  { id: 3, color: "from-sky-400 to-cyan-500", prize: "750 GC", type: "gc", value: 750 },
   { id: 4, color: "from-pink-400 to-rose-500", prize: "2 SC", type: "sc", value: 2 },
   { id: 5, color: "from-blue-400 to-cyan-500", prize: "1000 GC", type: "gc", value: 1000 },
   { id: 6, color: "from-cyan-400 to-red-500", prize: "3 SC", type: "sc", value: 3 },
-  { id: 7, color: "from-indigo-400 to-purple-500", prize: "2000 GC", type: "gc", value: 2000 },
+  { id: 7, color: "from-indigo-400 to-sky-500", prize: "2000 GC", type: "gc", value: 2000 },
   { id: 8, color: "from-teal-400 to-green-500", prize: "5 SC", type: "sc", value: 5 },
 ];
 
@@ -132,7 +132,7 @@ export default function DailyBonus() {
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0a0a0f] via-[#12121a] to-[#0a0a0f]">
-        <div className="animate-pulse text-purple-400">Loading...</div>
+        <div className="animate-pulse text-sky-400">Loading...</div>
       </div>
     );
   }
@@ -140,12 +140,12 @@ export default function DailyBonus() {
   if (!user) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#0a0a0f] via-[#12121a] to-[#0a0a0f] text-white p-4">
-        <Gift className="w-20 h-20 text-purple-400 mb-6" />
+        <Gift className="w-20 h-20 text-sky-400 mb-6" />
         <h1 className="text-3xl font-bold mb-4">Login Required</h1>
         <p className="text-gray-400 mb-6 text-center">Sign in to claim your daily bonus!</p>
         <Button 
           onClick={() => navigate("/arcade")}
-          className="bg-gradient-to-r from-purple-500 to-pink-500"
+          className="bg-gradient-to-r from-sky-500 to-pink-500"
         >
           Go to Arcade
         </Button>
@@ -155,7 +155,7 @@ export default function DailyBonus() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0a0f] via-[#12121a] to-[#0a0a0f] text-white overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/30 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-900/30 via-transparent to-transparent pointer-events-none" />
       
       {/* Animated stars background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -197,7 +197,7 @@ export default function DailyBonus() {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 backdrop-blur-xl rounded-2xl p-4 border border-purple-500/30 mb-8"
+            className="bg-gradient-to-r from-sky-900/50 to-pink-900/50 backdrop-blur-xl rounded-2xl p-4 border border-sky-500/30 mb-8"
           >
             <div className="flex items-center justify-center gap-8">
               <div className="flex items-center gap-3">
@@ -233,7 +233,7 @@ export default function DailyBonus() {
           {/* Wheel Container */}
           <div className="relative">
             {/* Outer glow */}
-            <div className="absolute inset-[-20px] rounded-full bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-purple-500/30 blur-xl animate-pulse" />
+            <div className="absolute inset-[-20px] rounded-full bg-gradient-to-r from-sky-500/30 via-pink-500/30 to-sky-500/30 blur-xl animate-pulse" />
             
             {/* Wheel */}
             <motion.div
@@ -272,7 +272,7 @@ export default function DailyBonus() {
               
               {/* Center button */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-teal-400 to-purple-600 border-4 border-teal-300 shadow-lg flex items-center justify-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-teal-400 to-sky-600 border-4 border-teal-300 shadow-lg flex items-center justify-center">
                   <Sparkles className="w-8 h-8 text-white" />
                 </div>
               </div>
@@ -287,7 +287,7 @@ export default function DailyBonus() {
               className={`
                 px-10 py-6 text-xl font-bold rounded-full shadow-lg transition-all
                 ${dailyStatus?.canClaim && !isSpinning
-                  ? 'bg-gradient-to-r from-teal-400 via-purple-500 to-cyan-500 hover:from-teal-300 hover:via-purple-400 hover:to-cyan-400 text-black hover:scale-105'
+                  ? 'bg-gradient-to-r from-teal-400 via-sky-500 to-cyan-500 hover:from-teal-300 hover:via-sky-400 hover:to-cyan-400 text-black hover:scale-105'
                   : 'bg-gray-700 text-gray-400 cursor-not-allowed'
                 }
               `}
@@ -326,13 +326,13 @@ export default function DailyBonus() {
               <motion.div
                 initial={{ y: 50 }}
                 animate={{ y: 0 }}
-                className="bg-gradient-to-br from-purple-900/90 to-pink-900/90 rounded-3xl p-8 border border-purple-500/50 text-center max-w-md w-full"
+                className="bg-gradient-to-br from-sky-900/90 to-pink-900/90 rounded-3xl p-8 border border-sky-500/50 text-center max-w-md w-full"
                 onClick={e => e.stopPropagation()}
               >
                 <motion.div
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                  className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-teal-400 to-purple-600 flex items-center justify-center"
+                  className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-teal-400 to-sky-600 flex items-center justify-center"
                 >
                   <Trophy className="w-12 h-12 text-white" />
                 </motion.div>
@@ -358,7 +358,7 @@ export default function DailyBonus() {
                 
                 <Button
                   onClick={() => setShowResult(false)}
-                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 py-6 text-lg"
+                  className="w-full bg-gradient-to-r from-sky-500 to-pink-500 py-6 text-lg"
                 >
                   Awesome! <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -368,7 +368,7 @@ export default function DailyBonus() {
         </AnimatePresence>
 
         {/* Streak Calendar */}
-        <Card className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 border-purple-500/30 backdrop-blur-xl">
+        <Card className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 border-sky-500/30 backdrop-blur-xl">
           <CardContent className="p-6">
             <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
               <Flame className="w-5 h-5 text-cyan-400" />
@@ -389,7 +389,7 @@ export default function DailyBonus() {
                       ${isCompleted 
                         ? 'bg-gradient-to-br from-green-500/30 to-emerald-600/30 border border-green-500/50' 
                         : isCurrent
-                          ? 'bg-gradient-to-br from-purple-500/30 to-pink-600/30 border border-purple-500/50 ring-2 ring-purple-500/50'
+                          ? 'bg-gradient-to-br from-sky-500/30 to-pink-600/30 border border-sky-500/50 ring-2 ring-sky-500/50'
                           : 'bg-black/30 border border-white/10'
                       }
                     `}
@@ -399,7 +399,7 @@ export default function DailyBonus() {
                         <Sparkles className="w-3 h-3 text-white" />
                       </div>
                     )}
-                    <Icon className={`w-6 h-6 mx-auto mb-1 ${isCompleted ? 'text-green-400' : isCurrent ? 'text-purple-400' : 'text-gray-500'}`} />
+                    <Icon className={`w-6 h-6 mx-auto mb-1 ${isCompleted ? 'text-green-400' : isCurrent ? 'text-sky-400' : 'text-gray-500'}`} />
                     <div className={`text-xs font-bold ${isCompleted ? 'text-green-400' : isCurrent ? 'text-white' : 'text-gray-500'}`}>
                       Day {reward.day}
                     </div>

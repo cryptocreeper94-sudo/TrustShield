@@ -26,7 +26,7 @@ const FEATURED_GAMES = [
     description: "Watch the multiplier climb. Cash out before the crash!",
     image: crashArt,
     href: "/crash",
-    gradient: "from-cyan-500 to-purple-500",
+    gradient: "from-cyan-500 to-sky-500",
     glow: "cyan",
     players: "4.7K",
     tag: "MOST POPULAR",
@@ -50,7 +50,7 @@ const FEATURED_GAMES = [
     description: "Double or nothing on every flip. Simple, fast, addictive.",
     image: coinflipArt,
     href: "/coinflip",
-    gradient: "from-teal-500 to-purple-500",
+    gradient: "from-teal-500 to-sky-500",
     glow: "teal",
     players: "3.1K",
     tag: "HOT",
@@ -62,7 +62,7 @@ const QUICK_PLAY = [
   { id: "crash", title: "Crash", icon: Rocket, href: "/crash", color: "text-cyan-400", bg: "from-cyan-500/20" },
   { id: "coinflip", title: "Coin Flip", icon: Coins, href: "/coinflip", color: "text-green-400", bg: "from-green-500/20" },
   { id: "snake", title: "Snake", icon: Gamepad2, href: "/snake", color: "text-pink-400", bg: "from-pink-500/20" },
-  { id: "tetris", title: "Tetris", icon: Dice1, href: "/tetris", color: "text-purple-400", bg: "from-purple-500/20" },
+  { id: "tetris", title: "Tetris", icon: Dice1, href: "/tetris", color: "text-sky-400", bg: "from-sky-500/20" },
   { id: "solitaire", title: "Solitaire", icon: Heart, href: "/solitaire", color: "text-red-400", bg: "from-red-500/20" },
 ];
 
@@ -223,7 +223,7 @@ function HeroSection() {
                 </div>
                 <div className="flex -space-x-2">
                   {Array.from({ length: 4 }).map((_, i) => (
-                    <div key={i} className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 border-2 border-slate-950 flex items-center justify-center">
+                    <div key={i} className="w-7 h-7 rounded-full bg-gradient-to-br from-sky-400 to-pink-400 border-2 border-slate-950 flex items-center justify-center">
                       <Users className="w-3 h-3 text-white" />
                     </div>
                   ))}
@@ -242,7 +242,7 @@ function HeroSection() {
                 onClick={() => setCurrentSlide(i)}
                 className={`transition-all duration-300 rounded-full ${
                   i === currentSlide
-                    ? "w-8 h-2 bg-gradient-to-r from-pink-500 to-purple-500"
+                    ? "w-8 h-2 bg-gradient-to-r from-pink-500 to-sky-500"
                     : "w-2 h-2 bg-white/30 hover:bg-white/50"
                 }`}
                 data-testid={`hero-dot-${i}`}
@@ -266,7 +266,7 @@ function LiveStats() {
             { label: "Active Players", value: 12400, suffix: "+", icon: <Users className="w-5 h-5 text-cyan-400" />, color: "border-cyan-500/20" },
             { label: "Games Played", value: 847000, suffix: "+", icon: <Gamepad2 className="w-5 h-5 text-pink-400" />, color: "border-pink-500/20" },
             { label: "GC Wagered", value: 2100000, suffix: "", icon: <Coins className="w-5 h-5 text-teal-400" />, color: "border-teal-500/20" },
-            { label: "Biggest Win", value: 500000, suffix: " GC", icon: <Crown className="w-5 h-5 text-purple-400" />, color: "border-purple-500/20" },
+            { label: "Biggest Win", value: 500000, suffix: " GC", icon: <Crown className="w-5 h-5 text-sky-400" />, color: "border-sky-500/20" },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -424,7 +424,7 @@ function GameCategories() {
       description: "Slots, Crash, Coinflip and more",
       games: 4,
       image: leprechaunSlots,
-      gradient: "from-teal-500 to-purple-500",
+      gradient: "from-teal-500 to-sky-500",
       href: "/arcade",
     },
     {
@@ -440,7 +440,7 @@ function GameCategories() {
       description: "Solitaire, Spades, Minesweeper",
       games: 3,
       image: cardGames,
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-sky-500 to-pink-500",
       href: "/arcade",
     },
   ];
@@ -513,10 +513,10 @@ function CurrencySection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="p-5 sm:p-6 rounded-xl bg-gradient-to-br from-teal-500/5 to-purple-500/5 border border-teal-500/15"
+                className="p-5 sm:p-6 rounded-xl bg-gradient-to-br from-teal-500/5 to-sky-500/5 border border-teal-500/15"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-teal-500 to-purple-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-teal-500 to-sky-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
                     <Coins className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -546,7 +546,7 @@ function CurrencySection() {
 
             <div className="mt-6 flex justify-center">
               <Link href="/coin-store">
-                <Button className="bg-gradient-to-r from-teal-500 to-purple-500 hover:from-teal-400 hover:to-purple-400 text-black font-bold px-8 py-3 rounded-xl" data-testid="cta-coin-store">
+                <Button className="bg-gradient-to-r from-teal-500 to-sky-500 hover:from-teal-400 hover:to-sky-400 text-black font-bold px-8 py-3 rounded-xl" data-testid="cta-coin-store">
                   <Store className="w-4 h-4 mr-2" />
                   Visit Coin Store
                 </Button>
@@ -565,7 +565,7 @@ function BottomCTA() {
     <section className="pb-24 lg:pb-14">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <GlassCard className="px-6 py-10 sm:px-12 sm:py-14 text-center relative overflow-hidden" glow>
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 via-purple-500/5 to-cyan-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 via-sky-500/5 to-cyan-500/5" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-pink-500/10 to-transparent rounded-full blur-3xl" />
 
           <div className="relative z-10">
@@ -575,7 +575,7 @@ function BottomCTA() {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="inline-block"
               >
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-pink-500/30 flex items-center justify-center shadow-xl shadow-pink-500/10">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500/20 to-sky-500/20 border border-pink-500/30 flex items-center justify-center shadow-xl shadow-pink-500/10">
                   <Gamepad2 className="w-10 h-10 text-pink-400" />
                 </div>
               </motion.div>
@@ -583,7 +583,7 @@ function BottomCTA() {
 
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
               Ready to{" "}
-              <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-pink-400 to-sky-400 bg-clip-text text-transparent">
                 Play?
               </span>
             </h2>
@@ -595,7 +595,7 @@ function BottomCTA() {
               <Link href="/arcade">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 text-white font-bold px-8 rounded-xl shadow-xl shadow-pink-500/20"
+                  className="w-full sm:w-auto bg-gradient-to-r from-pink-500 to-sky-500 hover:from-pink-400 hover:to-sky-400 text-white font-bold px-8 rounded-xl shadow-xl shadow-pink-500/20"
                   data-testid="cta-browse-arcade"
                 >
                   <Gamepad2 className="w-5 h-5 mr-2" />

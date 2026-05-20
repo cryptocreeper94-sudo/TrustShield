@@ -133,9 +133,9 @@ export default function PaperTrading() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-6"
           >
-            <Badge className="mb-2 bg-violet-500/20 text-violet-400">Paper Trading - No Real Money</Badge>
+            <Badge className="mb-2 bg-cyan-500/20 text-cyan-400">Paper Trading - No Real Money</Badge>
             <h1 className="text-2xl md:text-3xl font-display font-bold mb-2">
-              Paper <span className="text-violet-400">Trading</span>
+              Paper <span className="text-cyan-400">Trading</span>
             </h1>
             <p className="text-sm text-muted-foreground">
               Practice trading with ${STARTING_BALANCE.toLocaleString()} virtual money
@@ -144,7 +144,7 @@ export default function PaperTrading() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             <GlassCard hover={false} className="p-3 text-center">
-              <Wallet className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+              <Wallet className="w-5 h-5 mx-auto mb-1 text-sky-400" />
               <p className="text-xl font-bold">${portfolioValue.toLocaleString()}</p>
               <p className="text-[10px] text-muted-foreground">Portfolio Value</p>
             </GlassCard>
@@ -163,7 +163,7 @@ export default function PaperTrading() {
               <p className="text-[10px] text-muted-foreground">ROI</p>
             </GlassCard>
             <GlassCard hover={false} className="p-3 text-center">
-              <Award className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+              <Award className="w-5 h-5 mx-auto mb-1 text-sky-400" />
               <p className="text-xl font-bold">{trades.length}</p>
               <p className="text-[10px] text-muted-foreground">Trades Made</p>
             </GlassCard>
@@ -332,14 +332,14 @@ export default function PaperTrading() {
           </GlassCard>
 
           {isConnected && (
-            <GlassCard className="mt-4 p-4 text-center bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-purple-500/20">
-              <Sparkles className="w-8 h-8 mx-auto mb-2 text-purple-400" />
+            <GlassCard className="mt-4 p-4 text-center bg-gradient-to-r from-sky-500/10 to-pink-500/10 border-sky-500/20">
+              <Sparkles className="w-8 h-8 mx-auto mb-2 text-sky-400" />
               <h3 className="font-bold mb-2">Ready for Real Trading?</h3>
               <p className="text-sm text-muted-foreground mb-3">
                 Your paper trading stats are saved. When you're confident, switch to real trading on the DEX!
               </p>
               <Link href="/swap">
-                <Button className="bg-gradient-to-r from-purple-500 to-pink-500">
+                <Button className="bg-gradient-to-r from-sky-500 to-pink-500">
                   Go to DEX
                 </Button>
               </Link>

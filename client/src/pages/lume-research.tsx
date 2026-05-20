@@ -38,7 +38,7 @@ function CodeBlock({ code, language = "lume", label }: { code: string; language?
               {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
             </button>
             <Link href="/studio">
-              <button className="text-white/30 hover:text-purple-400 transition-colors text-[10px] font-mono flex items-center gap-1" data-testid="button-try-studio">
+              <button className="text-white/30 hover:text-sky-400 transition-colors text-[10px] font-mono flex items-center gap-1" data-testid="button-try-studio">
                 <Terminal className="w-3 h-3" /> Try in Studio
               </button>
             </Link>
@@ -89,7 +89,7 @@ function SectionHeading({ number, title, id }: { number: string; title: string; 
 function SubHeading({ number, title }: { number: string; title: string }) {
   return (
     <h3 className="text-xl font-bold mt-10 mb-4">
-      <span className="text-purple-400 mr-2 font-mono text-sm">{number}</span>
+      <span className="text-sky-400 mr-2 font-mono text-sm">{number}</span>
       <span className="text-white">{title}</span>
     </h3>
   );
@@ -171,7 +171,7 @@ function WhitepaperContent() {
           <FileText className="w-3 h-3 mr-1" /> Academic Paper
         </Badge>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black leading-tight mb-4">
-          <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
             LUME: Eliminating Cognitive Distance
           </span>
         </h1>
@@ -196,7 +196,7 @@ function WhitepaperContent() {
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {["programming languages", "natural language processing", "voice-to-code", "compiler security", "cognitive distance", "deterministic natural-language computation"].map(kw => (
-                <span key={kw} className="text-[10px] px-2 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20 font-mono">{kw}</span>
+                <span key={kw} className="text-[10px] px-2 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 font-mono">{kw}</span>
               ))}
             </div>
           </div>
@@ -265,7 +265,7 @@ function WhitepaperContent() {
           { title: "The Cognitive Distance Framework", desc: "A theoretical contribution connecting programming language design to cognitive psychology, with implications for accessibility and human-computer interaction" },
         ].map((c, i) => (
           <div key={i} className="flex items-start gap-3 text-sm">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center flex-shrink-0 mt-0.5">
               <span className="text-[10px] font-bold text-white">{i + 1}</span>
             </div>
             <div>
@@ -418,7 +418,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
           <p className="text-xs font-mono text-white/40 mb-3">Standard Pipeline:</p>
           <p className="text-sm font-mono text-cyan-300 mb-4">Lume Source Ã¢â€ â€™ Lexer Ã¢â€ â€™ Parser Ã¢â€ â€™ AST Ã¢â€ â€™ Transpiler Ã¢â€ â€™ JavaScript</p>
           <p className="text-xs font-mono text-white/40 mb-3">English Mode Pipeline:</p>
-          <p className="text-sm font-mono text-purple-300">English Source Ã¢â€ â€™ Auto-Correct Ã¢â€ â€™ Intent Resolver Ã¢â€ â€™ Security Check Ã¢â€ â€™ AST Ã¢â€ â€™ Transpiler Ã¢â€ â€™ JavaScript + Source Map + Compile Lock</p>
+          <p className="text-sm font-mono text-sky-300">English Source Ã¢â€ â€™ Auto-Correct Ã¢â€ â€™ Intent Resolver Ã¢â€ â€™ Security Check Ã¢â€ â€™ AST Ã¢â€ â€™ Transpiler Ã¢â€ â€™ JavaScript + Source Map + Compile Lock</p>
         </div>
       </GlassCard>
 
@@ -462,7 +462,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
           { step: "7", title: "Sentence Splitting", desc: "Pause-based boundaries, action verb detection (40 verbs)" },
         ].map(s => (
           <div key={s.step} className="flex items-start gap-3 text-sm">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500 flex items-center justify-center flex-shrink-0 mt-0.5">
               <span className="text-[10px] font-bold text-white">{s.step}</span>
             </div>
             <div>
@@ -491,7 +491,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
           <GlassCard key={i} glow>
             <div className="p-5 text-center">
               <l.icon className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-              <p className="text-[10px] uppercase tracking-widest text-purple-400 mb-1">{l.layer}</p>
+              <p className="text-[10px] uppercase tracking-widest text-sky-400 mb-1">{l.layer}</p>
               <p className="text-white font-bold text-sm mb-2">{l.title}</p>
               <p className="text-white/50 text-xs">{l.desc}</p>
             </div>
@@ -509,9 +509,9 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
       <div className="space-y-3 my-6">
         {[
           { layer: "Layer 1", title: "Self-Monitoring", keyword: "@monitor", desc: "Automatic metrics collection, anomaly detection, health checks", bg: "bg-cyan-500/20", text: "text-cyan-400" },
-          { layer: "Layer 2", title: "Self-Healing", keyword: "@healable", desc: "Automatic retries, circuit breakers, fallback strategies, state recovery", bg: "bg-purple-500/20", text: "text-purple-400" },
+          { layer: "Layer 2", title: "Self-Healing", keyword: "@healable", desc: "Automatic retries, circuit breakers, fallback strategies, state recovery", bg: "bg-sky-500/20", text: "text-sky-400" },
           { layer: "Layer 3", title: "Self-Optimizing", keyword: "@optimize", desc: "AI-powered profiling, cache insertion, query rewriting, algorithm selection", bg: "bg-cyan-500/20", text: "text-cyan-400" },
-          { layer: "Layer 4", title: "Self-Evolving", keyword: "evolve:", desc: "Dependency monitoring, model benchmarking, schema adaptation, cost optimization", bg: "bg-purple-500/20", text: "text-purple-400" },
+          { layer: "Layer 4", title: "Self-Evolving", keyword: "evolve:", desc: "Dependency monitoring, model benchmarking, schema adaptation, cost optimization", bg: "bg-sky-500/20", text: "text-sky-400" },
         ].map((l, i) => (
           <GlassCard key={i}>
             <div className="p-4 flex items-start gap-4">
@@ -521,7 +521,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-[10px] uppercase tracking-widest text-white/40">{l.layer}</span>
-                  <code className="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono">{l.keyword}</code>
+                  <code className="text-[10px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 font-mono">{l.keyword}</code>
                 </div>
                 <p className="text-white font-semibold text-sm">{l.title}</p>
                 <p className="text-white/50 text-xs mt-1">{l.desc}</p>
@@ -601,7 +601,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
           <a key={i} href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all text-sm no-underline"
           >
-            <span className="w-5 h-5 rounded-md bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center text-[10px] font-bold text-cyan-400 flex-shrink-0">{i + 1}</span>
+            <span className="w-5 h-5 rounded-md bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center text-[10px] font-bold text-cyan-400 flex-shrink-0">{i + 1}</span>
             <div className="flex-1 min-w-0">
               <span className="text-white font-semibold">{p.title}</span>
               <span className="text-white/40 ml-2 text-xs hidden sm:inline">{p.sub}</span>
@@ -612,7 +612,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
       </div>
 
       <div className="space-y-2 my-6">
-        <p className="text-[10px] uppercase tracking-widest text-purple-400/60 font-mono mb-2">DAIGS Vertical Substrates</p>
+        <p className="text-[10px] uppercase tracking-widest text-sky-400/60 font-mono mb-2">DAIGS Vertical Substrates</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {[
             { title: "LumeÃ¢â‚¬â€˜Med", sub: "Medical AI", doi: "10.5281/zenodo.19499466" },
@@ -638,7 +638,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
             { title: "Unified Ecosystem", sub: "Synthetic Deterministic Organisms", doi: "10.5281/zenodo.19509861" },
           ].map((p, i) => (
             <a key={i} href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 bg-white/[0.02] hover:border-purple-500/30 hover:bg-purple-500/5 transition-all no-underline"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 bg-white/[0.02] hover:border-sky-500/30 hover:bg-sky-500/5 transition-all no-underline"
             >
               <span className="text-white font-semibold text-xs">{p.title}</span>
               <span className="text-white/30 text-[10px]">{p.sub}</span>
@@ -656,7 +656,7 @@ let data = fetch "https://api.example.com" or fail with "Could not connect"`}
 
       <GlassCard glow className="mt-12">
         <div className="p-8 text-center">
-          <p className="text-lg font-display font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
+          <p className="text-lg font-display font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent mb-2">
             Lume Ã¢â‚¬â€ The Deterministic Natural-Language Programming Language
           </p>
           <p className="text-white/50 text-sm">
@@ -675,11 +675,11 @@ function MasterSpecContent() {
   return (
     <article className="prose-invert max-w-none">
       <div id="sp-overview" className="scroll-mt-24">
-        <Badge className="mb-6 bg-purple-500/20 text-purple-400 border-purple-500/30">
+        <Badge className="mb-6 bg-sky-500/20 text-sky-400 border-sky-500/30">
           <Code className="w-3 h-3 mr-1" /> Technical Specification
         </Badge>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black leading-tight mb-4">
-          <span className="bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-sky-400 bg-clip-text text-transparent">
             Lume Language Specification
           </span>
         </h1>
@@ -700,7 +700,7 @@ function MasterSpecContent() {
                 { value: "179+", label: "Pattern Library" },
               ].map(s => (
                 <div key={s.label} className="text-center">
-                  <p className="text-2xl font-display font-black bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">{s.value}</p>
+                  <p className="text-2xl font-display font-black bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">{s.value}</p>
                   <p className="text-white/40 text-[10px] uppercase tracking-widest mt-1">{s.label}</p>
                 </div>
               ))}
@@ -831,7 +831,7 @@ while count is less than 10:
           { category: "Testing", keywords: "test, expect, to, equal, intent, given, expects" },
         ].map(g => (
           <div key={g.category} className="flex items-start gap-2 text-sm">
-            <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/20 text-[10px] flex-shrink-0">{g.category}</Badge>
+            <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/20 text-[10px] flex-shrink-0">{g.category}</Badge>
             <span className="text-white/60 font-mono text-xs">{g.keywords}</span>
           </div>
         ))}
@@ -995,7 +995,7 @@ if it fails 3 times, show "Service unavailable"
 
       <GlassCard glow className="mt-12">
         <div className="p-8 text-center">
-          <p className="text-lg font-display font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+          <p className="text-lg font-display font-bold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent mb-2">
             Complete Specification: 7,074 Lines Ã‚Â· 305 Criteria Ã‚Â· 13 Milestones
           </p>
           <p className="text-white/50 text-sm">
@@ -1043,8 +1043,8 @@ export default function LumeResearch() {
       <SiteNav />
 
       <section className="pt-28 pb-12 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-transparent" />
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-900/10 via-transparent to-transparent" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-[120px]" />
         <div className="absolute top-40 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-[120px]" />
 
         <div className="container mx-auto max-w-5xl relative z-10">
@@ -1063,11 +1063,11 @@ export default function LumeResearch() {
               <span className="text-white/40 text-sm">Research & Publications</span>
             </div>
 
-            <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
               <GraduationCap className="w-3 h-3 mr-1" /> Trust Layer Academy Research
             </Badge>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-black mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
                 Research & Publications
               </span>
             </h1>
@@ -1080,7 +1080,7 @@ export default function LumeResearch() {
                 onClick={() => setActiveTab("whitepaper")}
                 className={`gap-2 rounded-xl transition-all ${
                   activeTab === "whitepaper"
-                    ? "bg-gradient-to-r from-cyan-600 to-purple-600 text-white shadow-lg shadow-purple-500/20"
+                    ? "bg-gradient-to-r from-cyan-600 to-sky-600 text-white shadow-lg shadow-sky-500/20"
                     : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white/80"
                 }`}
                 data-testid="tab-whitepaper"
@@ -1092,7 +1092,7 @@ export default function LumeResearch() {
                 onClick={() => setActiveTab("spec")}
                 className={`gap-2 rounded-xl transition-all ${
                   activeTab === "spec"
-                    ? "bg-gradient-to-r from-purple-600 to-cyan-600 text-white shadow-lg shadow-cyan-500/20"
+                    ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white shadow-lg shadow-cyan-500/20"
                     : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white/80"
                 }`}
                 data-testid="tab-spec"

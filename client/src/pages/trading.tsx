@@ -22,7 +22,7 @@ const TIMEFRAMES = [
 ];
 
 const INDICATORS = [
-  { id: "ma", name: "Moving Average", color: "#8b5cf6" },
+  { id: "ma", name: "Moving Average", color: "#0ea5e9" },
   { id: "ema", name: "EMA", color: "#06b6d4" },
   { id: "bb", name: "Bollinger Bands", color: "#f59e0b" },
   { id: "rsi", name: "RSI", color: "#10b981" },
@@ -74,7 +74,7 @@ export default function Trading() {
             <span className="font-display font-bold text-lg tracking-tight hidden sm:inline">Trust Layer</span>
           </Link>
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="border-purple-500/50 text-purple-400 text-[10px]">Testnet Preview</Badge>
+            <Badge variant="outline" className="border-sky-500/50 text-sky-400 text-[10px]">Testnet Preview</Badge>
             <BackButton />
           </div>
         </div>
@@ -123,7 +123,7 @@ export default function Trading() {
               </div>
             </div>
 
-            <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-white/10">
+            <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-white/10">
               <div className="flex items-center justify-center gap-2 text-primary">
                 <Clock className="w-4 h-4" />
                 <span className="text-sm font-semibold">Live Trading Available at Launch</span>

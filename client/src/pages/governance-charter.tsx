@@ -224,14 +224,14 @@ export default function GovernanceCharter() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/30 text-cyan-300 mb-4">
+          <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/30 text-cyan-300 mb-4">
             <FileText className="w-3 h-3 mr-1" />
             Governance Framework
           </Badge>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Governance{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Charter
             </span>
           </h1>
@@ -250,7 +250,7 @@ export default function GovernanceCharter() {
               </Button>
             </Link>
             <Link href="/philosophy">
-              <Button variant="outline" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10">
+              <Button variant="outline" className="border-sky-500/30 text-sky-400 hover:bg-sky-500/10">
                 <FileText className="w-4 h-4 mr-2" />
                 Philosophy Hub
               </Button>
@@ -266,7 +266,7 @@ export default function GovernanceCharter() {
         >
           <GlassCard glow className="p-6 sm:p-8 border-cyan-500/30">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center flex-shrink-0">
                 <Scale className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -310,7 +310,7 @@ export default function GovernanceCharter() {
                     <div className="flex items-center gap-3 md:w-48 flex-shrink-0">
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                         phase.status === "current" 
-                          ? "bg-gradient-to-br from-cyan-500 to-purple-500" 
+                          ? "bg-gradient-to-br from-cyan-500 to-sky-500" 
                           : "bg-slate-700"
                       }`}>
                         {phase.status === "current" ? (
@@ -399,7 +399,7 @@ export default function GovernanceCharter() {
                       <div className="space-y-1">
                         {role.limitations.map((limit, i) => (
                           <div key={i} className="flex items-center gap-2 text-sm">
-                            <Lock className="w-3 h-3 text-purple-400 flex-shrink-0" />
+                            <Lock className="w-3 h-3 text-sky-400 flex-shrink-0" />
                             <span className="text-slate-400">{limit}</span>
                           </div>
                         ))}
@@ -487,20 +487,20 @@ export default function GovernanceCharter() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <GlassCard glow className="p-8 text-center border-purple-500/30">
-            <Calendar className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+          <GlassCard glow className="p-8 text-center border-sky-500/30">
+            <Calendar className="w-12 h-12 text-sky-400 mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-white mb-4">
               When Does This Become Yours?
             </h2>
             <p className="text-slate-300 max-w-2xl mx-auto mb-6">
               We're not putting an arbitrary date on governance transfer. Instead, we're tying it to 
               real milestones — community size, ecosystem maturity, and readiness. When we reach 
-              Phase 3, the power shifts. When we reach Phase 4, <strong className="text-purple-400">you run this</strong>. 
+              Phase 3, the power shifts. When we reach Phase 4, <strong className="text-sky-400">you run this</strong>. 
               We become advisory. The Signal Core remains forever. This is the promise.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/signal-core">
-                <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600">
+                <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600">
                   Read Signal Core
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>

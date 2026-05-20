@@ -90,13 +90,13 @@ export default function Verify() {
     <div className="min-h-screen bg-slate-950 pt-20 pb-12">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl"
+          className="absolute rounded-full bg-gradient-to-r from-cyan-500/20 to-sky-500/20 blur-3xl"
           style={{ width: 600, height: 600, top: "10%", left: "-10%" }}
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
         <motion.div
-          className="absolute rounded-full bg-gradient-to-r from-purple-500/15 to-pink-500/15 blur-3xl"
+          className="absolute rounded-full bg-gradient-to-r from-sky-500/15 to-pink-500/15 blur-3xl"
           style={{ width: 500, height: 500, bottom: "10%", right: "-5%" }}
           animate={{ scale: [1, 1.3, 1], opacity: [0.15, 0.25, 0.15] }}
           transition={{ duration: 12, repeat: Infinity, delay: 2 }}
@@ -111,7 +111,7 @@ export default function Verify() {
         >
           <div className="relative inline-block mb-6">
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-50"
+              className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-full blur-xl opacity-50"
               animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
@@ -121,7 +121,7 @@ export default function Verify() {
                 alt="Trust Layer Shield" 
                 className="w-full h-full object-contain"
                 style={{ 
-                  filter: 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.5)) drop-shadow(0 0 12px rgba(168, 85, 247, 0.4))'
+                  filter: 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.5)) drop-shadow(0 0 12px rgba(14,165,233, 0.4))'
                 }}
               />
             </div>
@@ -129,7 +129,7 @@ export default function Verify() {
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Document{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Verification
             </span>
           </h1>
@@ -162,7 +162,7 @@ export default function Verify() {
               <Button 
                 onClick={handleVerify}
                 disabled={isSearching || !searchHash.trim()}
-                className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white h-12 px-8"
+                className="bg-gradient-to-r from-cyan-500 to-sky-500 text-white h-12 px-8"
                 data-testid="button-verify-document"
               >
                 {isSearching ? (
@@ -257,12 +257,12 @@ export default function Verify() {
               >
                 <GlassCard className="p-5 h-full" data-testid={`card-document-${doc.id}`}>
                   <div className="flex items-start gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center flex-shrink-0">
                       <Fingerprint className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-bold text-white text-sm truncate">{doc.title}</h3>
-                      <Badge variant="outline" className="mt-1 text-xs border-purple-500/30 text-purple-400">
+                      <Badge variant="outline" className="mt-1 text-xs border-sky-500/30 text-sky-400">
                         {doc.type}
                       </Badge>
                     </div>

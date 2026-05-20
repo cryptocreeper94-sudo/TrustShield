@@ -319,7 +319,7 @@ function SectionCard({ section, isExpanded, onToggle }: { section: Section; isEx
         onClick={onToggle}
         className="w-full flex items-center gap-4 p-6 text-left hover:bg-white/5 transition-colors"
       >
-        <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 text-cyan-400">
+        <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 text-cyan-400">
           {section.icon}
         </div>
         <div className="flex-1">
@@ -378,7 +378,7 @@ export default function LearnPage() {
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       {/* Ambient orbs */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+      <div className="absolute bottom-40 right-20 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
 
       <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
         {/* Header */}
@@ -394,7 +394,7 @@ export default function LearnPage() {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Learn the Trust Layer
             </span>
           </h1>
@@ -418,7 +418,7 @@ export default function LearnPage() {
             </Button>
           </Link>
           <Link href="/presale">
-            <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-90">
+            <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:opacity-90">
               <Zap className="w-4 h-4 mr-2" /> Join Presale
             </Button>
           </Link>

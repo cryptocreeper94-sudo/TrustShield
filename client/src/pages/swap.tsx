@@ -175,7 +175,7 @@ export default function Swap() {
         </div>
       </nav>
 
-      <div className="fixed top-14 left-0 right-0 z-40 bg-gradient-to-r from-cyan-500/90 via-purple-500/90 to-pink-500/90 backdrop-blur-sm border-b border-white/20">
+      <div className="fixed top-14 left-0 right-0 z-40 bg-gradient-to-r from-cyan-500/90 via-sky-500/90 to-pink-500/90 backdrop-blur-sm border-b border-white/20">
         <div className="container mx-auto px-4 py-2 flex items-center justify-center gap-2">
           <Clock className="w-4 h-4 text-white" />
           <span className="text-xs sm:text-sm font-medium text-white">DEX Trading Launches with Mainnet — Coming Soon</span>
@@ -225,7 +225,7 @@ export default function Swap() {
               <div className="text-[10px] text-muted-foreground">Supported Tokens</div>
             </div>
             <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
-              <div className="text-lg font-bold text-purple-400">0.3%</div>
+              <div className="text-lg font-bold text-sky-400">0.3%</div>
               <div className="text-[10px] text-muted-foreground">Swap Fee</div>
             </div>
           </motion.div>
@@ -362,9 +362,9 @@ export default function Swap() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-3 p-3 rounded-lg bg-purple-500/10 border border-purple-500/30"
+                    className="mt-3 p-3 rounded-lg bg-sky-500/10 border border-sky-500/30"
                   >
-                    <div className="flex items-center justify-center gap-2 text-purple-400 text-sm">
+                    <div className="flex items-center justify-center gap-2 text-sky-400 text-sm">
                       <Clock className="w-4 h-4" />
                       <span>Live quotes available at mainnet launch</span>
                     </div>
@@ -501,11 +501,11 @@ export default function Swap() {
             transition={{ delay: 0.4 }}
             className="mt-4"
           >
-            <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
+            <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20">
               <div className="flex items-start gap-2">
-                <AlertCircle className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
-                <p className="text-[10px] text-purple-200">
-                  <strong className="text-purple-300">Testnet:</strong> This DEX operates on Trust Layer testnet. Trade with test tokens only.
+                <AlertCircle className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                <p className="text-[10px] text-sky-200">
+                  <strong className="text-sky-300">Testnet:</strong> This DEX operates on Trust Layer testnet. Trade with test tokens only.
                 </p>
               </div>
             </div>

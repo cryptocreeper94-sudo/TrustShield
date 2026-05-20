@@ -141,7 +141,7 @@ function AltcoinSeasonGauge({ value }: { value: number }) {
       <div className="p-4">
         <div className="flex items-center justify-between mb-3">
           <p className="text-xs text-gray-400 uppercase tracking-wider">Altcoin Season</p>
-          <Badge className={`${isAltSeason ? 'bg-purple-500/20 text-purple-400' : isBtcSeason ? 'bg-cyan-500/20 text-cyan-400' : 'bg-gray-500/20 text-gray-400'}`}>
+          <Badge className={`${isAltSeason ? 'bg-sky-500/20 text-sky-400' : isBtcSeason ? 'bg-cyan-500/20 text-cyan-400' : 'bg-gray-500/20 text-gray-400'}`}>
             {isAltSeason ? 'ALT SEASON' : isBtcSeason ? 'BTC SEASON' : 'NEUTRAL'}
           </Badge>
         </div>
@@ -150,7 +150,7 @@ function AltcoinSeasonGauge({ value }: { value: number }) {
             className="absolute inset-y-0 left-0 rounded-full transition-all duration-500"
             style={{ 
               width: `${value}%`,
-              background: `linear-gradient(90deg, #f97316 0%, #a855f7 100%)`
+              background: `linear-gradient(90deg, #f97316 0%, #38bdf8 100%)`
             }}
           />
         </div>
@@ -255,7 +255,7 @@ function TopCoinRow({ coin, rank, selected, onSelect }: { coin: TopCoin; rank: n
           {coin.image ? (
             <img src={coin.image} alt={coin.symbol} className="w-6 h-6 rounded-full" />
           ) : (
-            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-[10px] font-bold text-white">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center text-[10px] font-bold text-white">
               {coin.symbol.slice(0, 2)}
             </div>
           )}
@@ -325,7 +325,7 @@ function PriceChart({ coin, candles }: { coin: TopCoin | null; candles: CandleDa
       <div className="p-4">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-sm font-bold text-white">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center text-sm font-bold text-white">
               {coin.symbol.slice(0, 2).toUpperCase()}
             </div>
             <div>
@@ -584,7 +584,7 @@ export default function PulseDashboard() {
       case 'BUY':
         return 'bg-green-500/20 text-green-400 border-green-500/30';
       case 'HOLD':
-        return 'bg-purple-500/20 text-purple-400 border-purple-500/30';
+        return 'bg-sky-500/20 text-sky-400 border-sky-500/30';
       case 'SELL':
         return 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30';
       case 'STRONG_SELL':
@@ -606,12 +606,12 @@ export default function PulseDashboard() {
       productDescription="AI-powered market intelligence with ML predictions, Fear & Greed tracking, and verified accuracy analytics."
       price="$14.99"
       checkoutPath="/billing"
-      icon={<Zap className="w-10 h-10 text-purple-400" />}
+      icon={<Zap className="w-10 h-10 text-sky-400" />}
     >
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 right-20 w-80 h-80 bg-sky-500/5 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
       </div>
 
@@ -623,11 +623,11 @@ export default function PulseDashboard() {
         >
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-[0_0_30px_rgba(0,255,255,0.3)]">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 via-sky-500 to-pink-500 flex items-center justify-center shadow-[0_0_30px_rgba(0,255,255,0.3)]">
                 <Brain className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                   Pulse Market Intelligence
                 </h1>
                 <p className="text-sm text-white/50">
@@ -652,8 +652,8 @@ export default function PulseDashboard() {
               </div>
             </Link>
             <Link href="/charts">
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-colors cursor-pointer">
-                <LineChart className="w-4 h-4 text-purple-400" />
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-sky-500/50 transition-colors cursor-pointer">
+                <LineChart className="w-4 h-4 text-sky-400" />
                 <span className="text-xs font-medium text-white">Charts</span>
               </div>
             </Link>
@@ -739,7 +739,7 @@ export default function PulseDashboard() {
           <GlassCard glow>
             <div className="p-4">
               <div className="flex items-center gap-2 mb-3">
-                <Trophy className="w-5 h-5 text-purple-400" />
+                <Trophy className="w-5 h-5 text-sky-400" />
                 <span className="text-sm font-semibold text-white">AI Prediction Accuracy</span>
               </div>
               <div className="text-4xl font-bold text-emerald-400 mb-2">{avgWinRate}%</div>
@@ -752,7 +752,7 @@ export default function PulseDashboard() {
                   <div className="text-[10px] text-white/40">Active Signals</div>
                 </div>
                 <div className="text-center p-2 bg-white/5 rounded-lg">
-                  <div className="text-lg font-bold text-purple-400">{stats.length}</div>
+                  <div className="text-lg font-bold text-sky-400">{stats.length}</div>
                   <div className="text-[10px] text-white/40">Tracked Assets</div>
                 </div>
               </div>
@@ -911,7 +911,7 @@ export default function PulseDashboard() {
                           <td className="py-3 pr-4">
                             <span className={`text-xs ${
                               pred.confidence === 'HIGH' ? 'text-emerald-400' :
-                              pred.confidence === 'MEDIUM' ? 'text-purple-400' : 'text-white/50'
+                              pred.confidence === 'MEDIUM' ? 'text-sky-400' : 'text-white/50'
                             }`}>
                               {pred.confidence || 'N/A'}
                             </span>

@@ -74,7 +74,7 @@ export default function MLDashboard() {
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-cyan-500/3 to-transparent rounded-full" />
       </div>
 
@@ -87,10 +87,10 @@ export default function MLDashboard() {
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 rounded-lg bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30">
+                <div className="p-2 rounded-lg bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30">
                   <Brain className="w-6 h-6 text-cyan-400" />
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                   ML Analytics Dashboard
                 </h1>
               </div>
@@ -112,7 +112,7 @@ export default function MLDashboard() {
                 Refresh
               </Button>
               <Link href="/pulse">
-                <Button variant="outline" size="sm" className="border-purple-500/30 hover:bg-purple-500/10">
+                <Button variant="outline" size="sm" className="border-sky-500/30 hover:bg-sky-500/10">
                   <Activity className="w-4 h-4 mr-2" />
                   Back to Pulse
                 </Button>
@@ -182,10 +182,10 @@ export default function MLDashboard() {
               >
                 <GlassCard glow className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 rounded-lg bg-purple-500/20">
-                      <TrendingUp className="w-5 h-5 text-purple-400" />
+                    <div className="p-2 rounded-lg bg-sky-500/20">
+                      <TrendingUp className="w-5 h-5 text-sky-400" />
                     </div>
-                    <span className="text-xs text-purple-400 font-medium">RETURN</span>
+                    <span className="text-xs text-sky-400 font-medium">RETURN</span>
                   </div>
                   <div className={cn("text-3xl font-bold mb-1", getReturnColor(stats.overview.avgReturn))} data-testid="avg-return">
                     {parseFloat(stats.overview.avgReturn) > 0 ? "+" : ""}{stats.overview.avgReturn}%
@@ -254,7 +254,7 @@ export default function MLDashboard() {
                         </div>
                         <div className="mt-2 h-2 bg-gray-700 rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full transition-all"
+                            className="h-full bg-gradient-to-r from-cyan-500 to-sky-500 rounded-full transition-all"
                             style={{ width: `${Math.min(parseFloat(horizon.accuracy), 100)}%` }}
                           />
                         </div>
@@ -277,7 +277,7 @@ export default function MLDashboard() {
               >
                 <GlassCard glow className="p-6 h-full">
                   <h2 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-                    <Activity className="w-5 h-5 text-purple-400" />
+                    <Activity className="w-5 h-5 text-sky-400" />
                     Recent Performance
                   </h2>
                   
@@ -334,7 +334,7 @@ export default function MLDashboard() {
                     </div>
                   </div>
                   
-                  <div className="mt-6 p-4 rounded-lg bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+                  <div className="mt-6 p-4 rounded-lg bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20">
                     <div className="flex items-center gap-2 text-sm">
                       <Brain className="w-4 h-4 text-cyan-400" />
                       <span className="text-gray-300">
@@ -418,7 +418,7 @@ export default function MLDashboard() {
             <h3 className="text-xl font-semibold text-gray-400 mb-2">No Statistics Available</h3>
             <p className="text-gray-500 mb-6">Start making predictions to see ML analytics</p>
             <Link href="/pulse">
-              <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600">
+              <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600">
                 Go to Pulse Agent
               </Button>
             </Link>

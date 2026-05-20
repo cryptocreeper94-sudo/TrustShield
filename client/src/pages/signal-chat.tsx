@@ -134,17 +134,17 @@ function AuthScreen({ onAuth }: { onAuth: (token: string, user: ChatUser) => voi
         className="w-full max-w-md"
       >
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-[0_0_40px_rgba(0,255,255,0.3)]">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center mx-auto mb-4 shadow-[0_0_40px_rgba(0,255,255,0.3)]">
             <MessageSquare className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent" data-testid="signal-chat-title">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent" data-testid="signal-chat-title">
             Signal Chat
           </h1>
           <p className="text-slate-400 text-sm mt-2">Trust Layer Network Messaging</p>
         </div>
 
         <div className="relative rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 p-6 shadow-2xl">
-          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-cyan-500/20 via-purple-500/10 to-cyan-500/20 -z-10 blur-sm opacity-50" />
+          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-cyan-500/20 via-sky-500/10 to-cyan-500/20 -z-10 blur-sm opacity-50" />
           
           <div className="flex gap-1 mb-6 p-1 bg-slate-800/50 rounded-lg">
             <button
@@ -256,7 +256,7 @@ function AuthScreen({ onAuth }: { onAuth: (token: string, user: ChatUser) => voi
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-semibold hover:from-cyan-400 hover:to-purple-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(0,255,255,0.2)]"
+              className="w-full py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-sky-600 text-white font-semibold hover:from-cyan-400 hover:to-sky-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(0,255,255,0.2)]"
               data-testid="btn-auth-submit"
             >
               {loading ? (
@@ -438,11 +438,11 @@ function ChatApp({ initialToken, initialUser }: { initialToken: string; initialU
           >
             <Hash className="w-5 h-5" />
           </button>
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-[0_0_20px_rgba(0,255,255,0.2)]">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center shadow-[0_0_20px_rgba(0,255,255,0.2)]">
             <MessageSquare className="w-4 h-4 text-white" />
           </div>
           <div>
-            <h1 className="text-sm font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">ChronoChat</h1>
+            <h1 className="text-sm font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">ChronoChat</h1>
             <div className="flex items-center gap-1.5">
               {connected ? (
                 <><Wifi className="w-3 h-3 text-green-400" /><span className="text-[10px] text-green-400">Connected</span></>
@@ -606,7 +606,7 @@ function ChatApp({ initialToken, initialUser }: { initialToken: string; initialU
               <button
                 onClick={sendMessage}
                 disabled={!input.trim() || !connected}
-                className="px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-medium disabled:opacity-30 disabled:cursor-not-allowed hover:from-cyan-400 hover:to-purple-500 transition-all shadow-[0_2px_12px_rgba(0,255,255,0.15)]"
+                className="px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 text-white font-medium disabled:opacity-30 disabled:cursor-not-allowed hover:from-cyan-400 hover:to-sky-500 transition-all shadow-[0_2px_12px_rgba(0,255,255,0.15)]"
                 data-testid="chat-send"
               >
                 <Send className="w-4 h-4" />
@@ -678,7 +678,7 @@ function ChannelSidebar({
         </button>
       )}
       <div className="flex items-center gap-2 mb-4 px-2">
-        <div className="w-6 h-6 rounded-md bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center">
+        <div className="w-6 h-6 rounded-md bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
           <MessageSquare className="w-3 h-3 text-white" />
         </div>
         <span className="text-sm font-bold text-white">Channels</span>
@@ -724,7 +724,7 @@ export default function SignalChatPage() {
     manifestLink.href = '/manifest-signal-chat.webmanifest';
     document.head.appendChild(manifestLink);
     const themeColor = document.querySelector('meta[name="theme-color"]');
-    if (themeColor) themeColor.setAttribute('content', '#8b5cf6');
+    if (themeColor) themeColor.setAttribute('content', '#0ea5e9');
     document.title = 'Signal Chat | DarkWave';
 
     const appleTouchIcon = document.createElement('link');
@@ -828,7 +828,7 @@ function SignalChatInstallBanner({ show, onInstall, onDismiss }: { show: boolean
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -60, opacity: 0 }}
-      className="fixed top-0 left-0 right-0 z-[100] bg-gradient-to-r from-purple-600/95 to-cyan-600/95 backdrop-blur-xl border-b border-white/10 px-4 py-3 flex items-center justify-between gap-3"
+      className="fixed top-0 left-0 right-0 z-[100] bg-gradient-to-r from-sky-600/95 to-cyan-600/95 backdrop-blur-xl border-b border-white/10 px-4 py-3 flex items-center justify-between gap-3"
       data-testid="signal-chat-install-banner"
     >
       <div className="flex items-center gap-3 min-w-0">
@@ -843,7 +843,7 @@ function SignalChatInstallBanner({ show, onInstall, onDismiss }: { show: boolean
       <div className="flex items-center gap-2 flex-shrink-0">
         <button
           onClick={onInstall}
-          className="bg-white text-purple-700 px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-white/90 transition-colors flex items-center gap-1.5"
+          className="bg-white text-sky-700 px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-white/90 transition-colors flex items-center gap-1.5"
           data-testid="button-install-signal-chat"
         >
           <Download className="w-4 h-4" />

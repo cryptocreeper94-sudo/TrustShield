@@ -129,14 +129,14 @@ function BentoCard({ children, className = "", span = "col-span-1", delay = 0 }:
       <div className={`relative h-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[rgba(10,14,30,0.8)] backdrop-blur-2xl transition-all duration-500 hover:border-white/[0.15] hover:shadow-[0_8px_60px_rgba(0,200,255,0.08)] shadow-xl ${className}`}>
         {children}
       </div>
-      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 -z-10 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 -z-10 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </motion.div>
   );
 }
 
 function GlowText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span className={`bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent ${className}`}>
+    <span className={`bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent ${className}`}>
       {children}
     </span>
   );
@@ -290,9 +290,9 @@ export default function GuardianAI() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {AGENT_TYPES.map((type) => (
             <button key={type.id} type="button" onClick={() => setFormData({ ...formData, agentType: type.id })}
-              className={`p-3 rounded-lg border flex items-center gap-2 transition-all ${formData.agentType === type.id ? 'border-purple-500 bg-purple-500/10' : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'}`}
+              className={`p-3 rounded-lg border flex items-center gap-2 transition-all ${formData.agentType === type.id ? 'border-sky-500 bg-sky-500/10' : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'}`}
               data-testid={`type-${type.id}`}>
-              <type.icon className={`w-4 h-4 ${formData.agentType === type.id ? 'text-purple-400' : 'text-slate-400'}`} />
+              <type.icon className={`w-4 h-4 ${formData.agentType === type.id ? 'text-sky-400' : 'text-slate-400'}`} />
               <span className="text-sm text-white">{type.label}</span>
             </button>
           ))}
@@ -329,7 +329,7 @@ export default function GuardianAI() {
           <Input value={formData.chainDeployed} onChange={(e) => setFormData({ ...formData, chainDeployed: e.target.value })} placeholder="Chain (e.g., Ethereum, Solana)" className="bg-slate-800 border-slate-700" data-testid="input-chain" />
         </div>
       </div>
-      <Button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 h-12 text-base" disabled={isSubmitting} data-testid="button-submit-form">
+      <Button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 h-12 text-base" disabled={isSubmitting} data-testid="button-submit-form">
         {isSubmitting ? (<><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />Submitting...</>) : (<><Send className="w-4 h-4 mr-2" />Submit for Certification</>)}
       </Button>
     </form>
@@ -340,7 +340,7 @@ export default function GuardianAI() {
       <div className="fixed inset-0 pointer-events-none -z-10">
         <motion.div style={{ y: bgY }} className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cyan-500/[0.03] rounded-full blur-[120px]" />
-          <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-purple-500/[0.04] rounded-full blur-[100px]" />
+          <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-sky-500/[0.04] rounded-full blur-[100px]" />
           <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-pink-500/[0.03] rounded-full blur-[100px]" />
         </motion.div>
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -357,7 +357,7 @@ export default function GuardianAI() {
           <div className="text-center mb-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
               <div className="inline-flex items-center gap-2 mb-6">
-                <div className="p-2.5 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20">
+                <div className="p-2.5 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20">
                   <Shield className="w-7 h-7 text-cyan-400" />
                 </div>
                 <span className="text-sm font-semibold text-cyan-400 tracking-widest uppercase">TrustShield.tech</span>
@@ -412,7 +412,7 @@ export default function GuardianAI() {
           <div className="relative rounded-3xl overflow-hidden border border-white/[0.06]">
             <img src={heroImg} alt="Guardian AI Command Center" className="w-full h-[160px] sm:h-[280px] md:h-[400px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/[0.05] via-transparent to-purple-500/[0.05]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/[0.05] via-transparent to-sky-500/[0.05]" />
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mt-5">
@@ -482,14 +482,14 @@ export default function GuardianAI() {
                       <div className="flex items-center gap-4">
                         <div className={`w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-black ${
                           scanResult.score >= 85 ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/20' :
-                          scanResult.score >= 70 ? 'bg-purple-500/15 text-purple-400 border border-purple-500/20' :
+                          scanResult.score >= 70 ? 'bg-sky-500/15 text-sky-400 border border-sky-500/20' :
                           'bg-red-500/15 text-red-400 border border-red-500/20'
                         }`}>
                           {scanResult.score}
                         </div>
                         <div>
                           <div className="text-white font-bold text-lg">Quick Security Score</div>
-                          <div className={`text-sm font-medium ${scanResult.safe ? 'text-emerald-400' : 'text-purple-400'}`}>
+                          <div className={`text-sm font-medium ${scanResult.safe ? 'text-emerald-400' : 'text-sky-400'}`}>
                             {scanResult.safe ? 'Looks Safe' : 'Issues Detected'} - {scanResult.risks.length} finding{scanResult.risks.length !== 1 ? 's' : ''}
                           </div>
                         </div>
@@ -499,13 +499,13 @@ export default function GuardianAI() {
                       <div className="space-y-2">
                         {scanResult.risks.map((risk, i) => (
                           <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-slate-800/40 border border-white/[0.03]">
-                            <AlertTriangle className="w-4 h-4 text-purple-400 mt-0.5 shrink-0" />
+                            <AlertTriangle className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
                             <span className="text-sm text-slate-300">{risk}</span>
                           </div>
                         ))}
                       </div>
                     )}
-                    <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/[0.08] to-purple-500/[0.08] border border-cyan-500/20">
+                    <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/[0.08] to-sky-500/[0.08] border border-cyan-500/20">
                       <p className="text-sm text-slate-300">
                         <span className="text-cyan-400 font-semibold">Want a full audit?</span> This quick scan covers surface-level checks. A Guardian AI certification provides deep code review, penetration testing, and a verified trust score.
                       </p>
@@ -569,7 +569,7 @@ export default function GuardianAI() {
                   <div className="text-xs text-slate-500 uppercase tracking-widest font-semibold mb-6">Our Capabilities</div>
                   {MARKET_STATS.map((stat, i) => (
                     <div key={i} className={`${i > 0 ? 'mt-5 pt-5 border-t border-white/[0.05]' : ''}`}>
-                      <div className="text-2xl font-black bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                      <div className="text-2xl font-black bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                         <AnimatedCounter value={stat.value} />
                       </div>
                       <div className="text-xs text-slate-400 mt-1">{stat.label}</div>
@@ -623,7 +623,7 @@ export default function GuardianAI() {
                 <img src={certifiedImg} alt="Certified Badge" className="absolute inset-0 w-full h-full object-cover opacity-20" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
                 <div className="relative p-10 flex flex-col justify-end h-full">
-                  <BadgeCheck className="w-8 h-8 text-purple-400 mb-4" />
+                  <BadgeCheck className="w-8 h-8 text-sky-400 mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">Verified Badge</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">Display the Guardian AI Certified badge across your site, app, and marketing materials.</p>
                 </div>
@@ -636,20 +636,20 @@ export default function GuardianAI() {
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-slate-950/50" />
                 <div className="relative p-10 md:p-12 flex items-center h-full">
                   <div className="flex-1">
-                    <Globe className="w-8 h-8 text-purple-400 mb-4" />
+                    <Globe className="w-8 h-8 text-sky-400 mb-4" />
                     <h3 className="text-2xl font-bold text-white mb-3">Public Registry</h3>
                     <p className="text-slate-400 leading-relaxed max-w-md">Featured listing in the Guardian AI registry reaches thousands of potential users and enterprise clients globally.</p>
                   </div>
                   <div className="hidden md:flex flex-col items-center gap-2 ml-8">
                     <div className="text-6xl font-black text-white/10">GA</div>
-                    <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">Registry</Badge>
+                    <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/30">Registry</Badge>
                   </div>
                 </div>
               </div>
             </BentoCard>
 
             <BentoCard delay={0.2}>
-              <div className="p-10 flex flex-col justify-between h-full min-h-[240px] bg-gradient-to-br from-cyan-500/[0.05] to-purple-500/[0.05]">
+              <div className="p-10 flex flex-col justify-between h-full min-h-[240px] bg-gradient-to-br from-cyan-500/[0.05] to-sky-500/[0.05]">
                 <Sparkles className="w-8 h-8 text-cyan-400" />
                 <div>
                   <div className="flex items-baseline gap-2 mb-2">
@@ -681,7 +681,7 @@ export default function GuardianAI() {
                 <img src={trustScoreImg} alt="Trust Score Dashboard" className="absolute inset-0 w-full h-full object-cover opacity-30" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40" />
                 <div className="relative p-10 flex flex-col justify-end h-full">
-                  <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/20 flex items-center justify-center mb-6">
+                  <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 border border-sky-500/20 flex items-center justify-center mb-6">
                     <span className="text-3xl font-black text-white">A+</span>
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">Trust Scorecard</h3>
@@ -694,10 +694,10 @@ export default function GuardianAI() {
               <BentoCard key={i} delay={0.05 * (i + 1)}>
                 <div className="p-6 sm:p-8 lg:p-8 h-full">
                   <div className="flex items-center justify-between mb-6">
-                    <div className="p-3 bg-purple-500/10 rounded-xl border border-purple-500/10">
-                      <metric.icon className="w-5 h-5 text-purple-400" />
+                    <div className="p-3 bg-sky-500/10 rounded-xl border border-sky-500/10">
+                      <metric.icon className="w-5 h-5 text-sky-400" />
                     </div>
-                    <span className="text-2xl font-black text-purple-400">{metric.value}</span>
+                    <span className="text-2xl font-black text-sky-400">{metric.value}</span>
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">{metric.name}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">{metric.description}</p>
@@ -707,7 +707,7 @@ export default function GuardianAI() {
                       whileInView={{ width: `${parseFloat(metric.value)}%` }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.2, delay: 0.3 + i * 0.1, ease: "easeOut" }}
-                      className="h-full bg-gradient-to-r from-purple-500 to-cyan-400 rounded-full"
+                      className="h-full bg-gradient-to-r from-sky-500 to-cyan-400 rounded-full"
                     />
                   </div>
                 </div>
@@ -729,25 +729,25 @@ export default function GuardianAI() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {CERTIFICATION_TIERS.map((tier, i) => (
-              <BentoCard key={tier.id} delay={i * 0.08} className={tier.highlight ? 'border-purple-500/30 ring-1 ring-purple-500/10' : ''}>
-                <div className={`p-10 relative flex flex-col h-full ${tier.highlight ? 'bg-gradient-to-b from-purple-500/[0.05] to-transparent' : ''}`}>
+              <BentoCard key={tier.id} delay={i * 0.08} className={tier.highlight ? 'border-sky-500/30 ring-1 ring-sky-500/10' : ''}>
+                <div className={`p-10 relative flex flex-col h-full ${tier.highlight ? 'bg-gradient-to-b from-sky-500/[0.05] to-transparent' : ''}`}>
                   {tier.highlight && (
                     <div className="absolute -top-px left-1/2 -translate-x-1/2">
-                      <div className="px-5 py-1.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-b-xl text-white text-xs font-bold tracking-wider uppercase">
+                      <div className="px-5 py-1.5 bg-gradient-to-r from-sky-500 to-pink-500 rounded-b-xl text-white text-xs font-bold tracking-wider uppercase">
                         Most Popular
                       </div>
                     </div>
                   )}
                   
-                  <div className={`p-3 rounded-xl w-fit mb-6 ${tier.highlight ? 'bg-purple-500/15' : 'bg-slate-800/80'}`}>
-                    <tier.icon className={`w-7 h-7 ${tier.color === 'cyan' ? 'text-cyan-400' : tier.color === 'purple' ? 'text-purple-400' : 'text-pink-400'}`} />
+                  <div className={`p-3 rounded-xl w-fit mb-6 ${tier.highlight ? 'bg-sky-500/15' : 'bg-slate-800/80'}`}>
+                    <tier.icon className={`w-7 h-7 ${tier.color === 'cyan' ? 'text-cyan-400' : tier.color === 'purple' ? 'text-sky-400' : 'text-pink-400'}`} />
                   </div>
                   
                   <h3 className="text-2xl font-bold text-white mb-1">{tier.name}</h3>
                   <p className="text-slate-500 text-sm mb-6">{tier.tagline}</p>
                   
                   <div className="mb-6">
-                    <span className={`text-4xl font-black ${tier.color === 'cyan' ? 'text-cyan-400' : tier.color === 'purple' ? 'text-purple-400' : 'text-pink-400'}`}>{tier.price}</span>
+                    <span className={`text-4xl font-black ${tier.color === 'cyan' ? 'text-cyan-400' : tier.color === 'purple' ? 'text-sky-400' : 'text-pink-400'}`}>{tier.price}</span>
                     <span className="text-slate-500 text-sm ml-2">{tier.priceNote}</span>
                   </div>
 
@@ -759,7 +759,7 @@ export default function GuardianAI() {
                   <ul className="space-y-4 mb-8 flex-1">
                     {tier.features.map((feature, j) => (
                       <li key={j} className="flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
-                        <CheckCircle className={`w-4 h-4 mt-0.5 shrink-0 ${tier.color === 'cyan' ? 'text-cyan-400' : tier.color === 'purple' ? 'text-purple-400' : 'text-pink-400'}`} />
+                        <CheckCircle className={`w-4 h-4 mt-0.5 shrink-0 ${tier.color === 'cyan' ? 'text-cyan-400' : tier.color === 'purple' ? 'text-sky-400' : 'text-pink-400'}`} />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -777,7 +777,7 @@ export default function GuardianAI() {
                   ) : (
                     <Button 
                       className={`w-full h-12 text-base font-semibold rounded-xl ${tier.highlight 
-                        ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg shadow-purple-500/20' 
+                        ? 'bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-600 hover:to-pink-600 shadow-lg shadow-sky-500/20' 
                         : 'bg-slate-800 hover:bg-slate-700 border border-white/[0.08]'
                       }`}
                       onClick={() => { setSelectedTier(tier.id); setCheckoutTier(tier); }}
@@ -818,12 +818,12 @@ export default function GuardianAI() {
                   
                   <div className="p-6 bg-white/[0.02] rounded-xl border border-white/[0.05]">
                     <div className="flex items-center gap-4 mb-5">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-500/10 flex items-center justify-center border border-purple-500/10">
-                        <Code className="w-6 h-6 text-purple-400" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-sky-500/10 flex items-center justify-center border border-sky-500/10">
+                        <Code className="w-6 h-6 text-sky-400" />
                       </div>
                       <div>
                         <h3 className="font-bold text-white">Loom</h3>
-                        <p className="text-xs text-purple-400 font-medium">Trust Layer Partner</p>
+                        <p className="text-xs text-sky-400 font-medium">Trust Layer Partner</p>
                       </div>
                     </div>
                     <p className="text-slate-400 text-sm leading-relaxed italic">
@@ -896,7 +896,7 @@ export default function GuardianAI() {
                       <Input required value={formData.agentName} onChange={(e) => setFormData({ ...formData, agentName: e.target.value })} placeholder="Agent Name" className="bg-slate-800 border-slate-700" />
                       <Input required type="email" value={formData.developerEmail} onChange={(e) => setFormData({ ...formData, developerEmail: e.target.value })} placeholder="Your Email" className="bg-slate-800 border-slate-700" />
                       <Textarea value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} placeholder="Brief description of your AI agent..." className="bg-slate-800 border-slate-700" />
-                      <Button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-purple-500" disabled={isSubmitting}>{isSubmitting ? 'Sending...' : 'Submit Inquiry'}</Button>
+                      <Button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-sky-500" disabled={isSubmitting}>{isSubmitting ? 'Sending...' : 'Submit Inquiry'}</Button>
                     </form>
                   </DialogContent>
                 </Dialog>
@@ -947,16 +947,16 @@ export default function GuardianAI() {
 
             <div className="text-center mb-6">
               <div className={`w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center ${
-                checkoutTier.color === 'cyan' ? 'bg-cyan-500/15' : checkoutTier.color === 'purple' ? 'bg-purple-500/15' : 'bg-pink-500/15'
+                checkoutTier.color === 'cyan' ? 'bg-cyan-500/15' : checkoutTier.color === 'purple' ? 'bg-sky-500/15' : 'bg-pink-500/15'
               }`}>
                 <checkoutTier.icon className={`w-8 h-8 ${
-                  checkoutTier.color === 'cyan' ? 'text-cyan-400' : checkoutTier.color === 'purple' ? 'text-purple-400' : 'text-pink-400'
+                  checkoutTier.color === 'cyan' ? 'text-cyan-400' : checkoutTier.color === 'purple' ? 'text-sky-400' : 'text-pink-400'
                 }`} />
               </div>
               <h3 className="text-xl font-bold text-white">{checkoutTier.name}</h3>
               <p className="text-slate-400 text-sm mt-1">{checkoutTier.tagline}</p>
               <div className={`text-3xl font-black mt-3 ${
-                checkoutTier.color === 'cyan' ? 'text-cyan-400' : checkoutTier.color === 'purple' ? 'text-purple-400' : 'text-pink-400'
+                checkoutTier.color === 'cyan' ? 'text-cyan-400' : checkoutTier.color === 'purple' ? 'text-sky-400' : 'text-pink-400'
               }`}>{checkoutTier.price}</div>
             </div>
 
@@ -997,7 +997,7 @@ export default function GuardianAI() {
               <Button
                 onClick={handleCheckout}
                 disabled={checkoutLoading || !checkoutData.agentName || !checkoutData.email}
-                className="w-full h-12 text-base font-semibold bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 rounded-xl"
+                className="w-full h-12 text-base font-semibold bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 rounded-xl"
                 data-testid="button-proceed-checkout"
               >
                 {checkoutLoading ? (

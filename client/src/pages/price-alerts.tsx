@@ -136,7 +136,7 @@ export default function PriceAlerts() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             <GlassCard hover={false} className="p-3 text-center">
-              <Bell className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+              <Bell className="w-5 h-5 mx-auto mb-1 text-sky-400" />
               <p className="text-xl font-bold">{alerts.filter(a => a.active).length}</p>
               <p className="text-[10px] text-muted-foreground">Active Alerts</p>
             </GlassCard>
@@ -151,7 +151,7 @@ export default function PriceAlerts() {
               <p className="text-[10px] text-muted-foreground">Monitoring</p>
             </GlassCard>
             <GlassCard hover={false} className="p-3 text-center">
-              <Volume2 className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+              <Volume2 className="w-5 h-5 mx-auto mb-1 text-sky-400" />
               <p className="text-xl font-bold">3</p>
               <p className="text-[10px] text-muted-foreground">Channels</p>
             </GlassCard>

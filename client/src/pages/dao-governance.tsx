@@ -191,7 +191,7 @@ export default function DAOGovernance() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <motion.div 
-                className="p-3 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30"
+                className="p-3 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-sky-500/20 border border-indigo-500/30"
                 animate={{ 
                   boxShadow: ["0 0 20px rgba(99,102,241,0.2)", "0 0 50px rgba(99,102,241,0.4)", "0 0 20px rgba(99,102,241,0.2)"]
                 }}
@@ -267,7 +267,7 @@ export default function DAOGovernance() {
                       Requires 10,000 SIG to submit a proposal
                     </div>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white" data-testid="button-submit-proposal">
+                  <Button className="w-full bg-gradient-to-r from-indigo-500 to-sky-500 text-white" data-testid="button-submit-proposal">
                     Submit Proposal
                   </Button>
                 </div>

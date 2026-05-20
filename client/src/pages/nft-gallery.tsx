@@ -45,7 +45,7 @@ function NFTCard({ nft, onClick }: { nft: NFT; onClick: () => void }) {
   return (
     <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 300 }} onClick={onClick}>
       <GlassCard className="cursor-pointer">
-        <div className="aspect-square bg-gradient-to-br from-primary/20 via-purple-500/20 to-pink-500/20 rounded-t-xl flex items-center justify-center">
+        <div className="aspect-square bg-gradient-to-br from-primary/20 via-sky-500/20 to-pink-500/20 rounded-t-xl flex items-center justify-center">
           {nft.imageUrl ? (
             <img src={nft.imageUrl} alt={nft.name} className="w-full h-full object-cover rounded-t-xl" />
           ) : (
@@ -93,7 +93,7 @@ export default function NftGallery() {
             <span className="font-display font-bold text-lg tracking-tight hidden sm:inline">Trust Layer</span>
           </Link>
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="border-purple-500/50 text-purple-400 text-[10px]">Gallery</Badge>
+            <Badge variant="outline" className="border-sky-500/50 text-sky-400 text-[10px]">Gallery</Badge>
             <BackButton />
           </div>
         </div>
@@ -103,12 +103,12 @@ export default function NftGallery() {
         <div className="container mx-auto max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-3">
-              <motion.div className="p-2 rounded-xl bg-purple-500/20 border border-purple-500/30" animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-                <ImageIcon className="w-6 h-6 text-purple-400" />
+              <motion.div className="p-2 rounded-xl bg-sky-500/20 border border-sky-500/30" animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 2, repeat: Infinity }}>
+                <ImageIcon className="w-6 h-6 text-sky-400" />
               </motion.div>
             </div>
             <h1 className="text-2xl md:text-3xl font-display font-bold mb-2">
-              NFT <span className="text-purple-400">Gallery</span>
+              NFT <span className="text-sky-400">Gallery</span>
             </h1>
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               View NFT collections by wallet address. Explore the Trust Layer NFT ecosystem.
@@ -128,7 +128,7 @@ export default function NftGallery() {
                     data-testid="input-wallet-address"
                   />
                 </div>
-                <Button className="bg-purple-500 hover:bg-purple-600 shrink-0" onClick={() => refetch()} data-testid="button-view-nfts">
+                <Button className="bg-sky-500 hover:bg-sky-600 shrink-0" onClick={() => refetch()} data-testid="button-view-nfts">
                   <Search className="w-4 h-4 mr-2" /> View NFTs
                 </Button>
               </div>
@@ -170,8 +170,8 @@ export default function NftGallery() {
           </div>
 
           {!walletAddress && (
-            <div className="mb-6 p-4 rounded-lg bg-purple-500/10 border border-purple-500/20 text-center">
-              <p className="text-sm text-purple-300">Enter a wallet address above to view NFTs, or browse sample NFTs below.</p>
+            <div className="mb-6 p-4 rounded-lg bg-sky-500/10 border border-sky-500/20 text-center">
+              <p className="text-sm text-sky-300">Enter a wallet address above to view NFTs, or browse sample NFTs below.</p>
             </div>
           )}
 
@@ -204,7 +204,7 @@ export default function NftGallery() {
               <h2 className="text-lg font-bold mb-4">Collections ({collections.length})</h2>
               <div className="flex flex-wrap gap-2">
                 {collections.map(collection => (
-                  <Badge key={collection} variant="outline" className="border-purple-500/30 text-purple-300 cursor-pointer hover:bg-purple-500/10">
+                  <Badge key={collection} variant="outline" className="border-sky-500/30 text-sky-300 cursor-pointer hover:bg-sky-500/10">
                     {collection}
                   </Badge>
                 ))}
@@ -221,7 +221,7 @@ export default function NftGallery() {
           </DialogHeader>
           {selectedNft && (
             <div className="space-y-4 mt-4">
-              <div className="aspect-square bg-gradient-to-br from-primary/20 via-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center">
+              <div className="aspect-square bg-gradient-to-br from-primary/20 via-sky-500/20 to-pink-500/20 rounded-xl flex items-center justify-center">
                 {selectedNft.imageUrl ? (
                   <img src={selectedNft.imageUrl} alt={selectedNft.name} className="w-full h-full object-cover rounded-xl" />
                 ) : (

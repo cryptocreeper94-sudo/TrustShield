@@ -39,7 +39,7 @@ function LotteryBall({ number, delay = 0 }: { number: number; delay?: number }) 
       initial={{ scale: 0, rotate: -180 }}
       animate={{ scale: 1, rotate: 0 }}
       transition={{ delay, type: "spring", stiffness: 200 }}
-      className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center font-bold text-lg shadow-lg"
+      className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center font-bold text-lg shadow-lg"
     >
       {number}
     </motion.div>
@@ -89,7 +89,7 @@ export default function Lottery() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <motion.div 
-                className="p-3 rounded-2xl bg-gradient-to-br from-teal-500/20 to-purple-500/20 border border-teal-500/30"
+                className="p-3 rounded-2xl bg-gradient-to-br from-teal-500/20 to-sky-500/20 border border-teal-500/30"
                 animate={{ 
                   boxShadow: ["0 0 20px rgba(234,179,8,0.2)", "0 0 50px rgba(234,179,8,0.4)", "0 0 20px rgba(234,179,8,0.2)"],
                   scale: [1, 1.05, 1]
@@ -110,7 +110,7 @@ export default function Lottery() {
           {/* Live Jackpot - Always visible */}
           <GlassCard glow className="p-6 mb-6 text-center relative overflow-hidden">
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-teal-500/10 via-transparent to-purple-500/10"
+              className="absolute inset-0 bg-gradient-to-r from-teal-500/10 via-transparent to-sky-500/10"
               animate={{ x: ["-100%", "100%"] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
@@ -121,7 +121,7 @@ export default function Lottery() {
                 <Sparkles className="w-5 h-5 text-teal-400" />
               </div>
               <motion.p
-                className="text-5xl md:text-6xl font-bold font-mono bg-gradient-to-r from-teal-400 to-purple-500 bg-clip-text text-transparent"
+                className="text-5xl md:text-6xl font-bold font-mono bg-gradient-to-r from-teal-400 to-sky-500 bg-clip-text text-transparent"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
@@ -131,7 +131,7 @@ export default function Lottery() {
               
               <div className="flex items-center justify-center gap-6 mt-4">
                 <div className="text-center">
-                  <Clock className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+                  <Clock className="w-5 h-5 mx-auto mb-1 text-sky-400" />
                   <p className="font-mono text-lg">
                     {GLOBAL_STATS.nextDraw.days}d {GLOBAL_STATS.nextDraw.hours}h {GLOBAL_STATS.nextDraw.minutes}m
                   </p>
@@ -159,7 +159,7 @@ export default function Lottery() {
                     key={num}
                     variant={selectedNumbers.includes(num) ? "default" : "outline"}
                     size="sm"
-                    className={`w-full h-8 p-0 text-xs ${selectedNumbers.includes(num) ? "bg-gradient-to-r from-purple-500 to-pink-500" : ""}`}
+                    className={`w-full h-8 p-0 text-xs ${selectedNumbers.includes(num) ? "bg-gradient-to-r from-sky-500 to-pink-500" : ""}`}
                     onClick={() => toggleNumber(num)}
                     data-testid={`button-number-${num}`}
                   >
@@ -204,7 +204,7 @@ export default function Lottery() {
 
               {isConnected ? (
                 <Button 
-                  className="w-full h-12 bg-gradient-to-r from-teal-500 to-purple-500 text-black font-bold"
+                  className="w-full h-12 bg-gradient-to-r from-teal-500 to-sky-500 text-black font-bold"
                   disabled={selectedNumbers.length !== 6}
                   data-testid="button-buy-tickets"
                 >
@@ -214,7 +214,7 @@ export default function Lottery() {
               ) : (
                 <Link href="/wallet" className="block">
                   <Button 
-                    className="w-full h-12 bg-gradient-to-r from-purple-500 to-pink-500 font-bold"
+                    className="w-full h-12 bg-gradient-to-r from-sky-500 to-pink-500 font-bold"
                     data-testid="button-connect-lottery"
                   >
                     <Wallet className="w-5 h-5 mr-2" />
@@ -227,7 +227,7 @@ export default function Lottery() {
             <div className="space-y-4">
               <GlassCard className="p-4">
                 <h3 className="font-bold mb-3 flex items-center gap-2">
-                  <Trophy className="w-4 h-4 text-purple-400" />
+                  <Trophy className="w-4 h-4 text-sky-400" />
                   Prize Tiers
                 </h3>
                 <div className="space-y-2">
@@ -237,7 +237,7 @@ export default function Lottery() {
                         <p className="text-sm font-medium">{tier.match}</p>
                         <p className="text-xs text-muted-foreground">Odds: {tier.odds}</p>
                       </div>
-                      <Badge className={i === 0 ? "bg-gradient-to-r from-teal-500 to-purple-500 text-black" : ""}>
+                      <Badge className={i === 0 ? "bg-gradient-to-r from-teal-500 to-sky-500 text-black" : ""}>
                         {tier.prize}
                       </Badge>
                     </div>
@@ -259,7 +259,7 @@ export default function Lottery() {
                       </div>
                       <div className="flex gap-1">
                         {winner.numbers.map(n => (
-                          <span key={n} className="w-6 h-6 rounded-full bg-purple-500/30 flex items-center justify-center text-xs font-mono">
+                          <span key={n} className="w-6 h-6 rounded-full bg-sky-500/30 flex items-center justify-center text-xs font-mono">
                             {n}
                           </span>
                         ))}
@@ -291,7 +291,7 @@ export default function Lottery() {
           </div>
 
           <GlassCard className="p-4 text-center">
-            <Gift className="w-8 h-8 mx-auto mb-2 text-purple-400" />
+            <Gift className="w-8 h-8 mx-auto mb-2 text-sky-400" />
             <h3 className="font-bold mb-2">Hold SIG for Free Tickets!</h3>
             <p className="text-sm text-muted-foreground mb-3">
               Stake 10,000+ SIG to receive 1 free lottery ticket every week.

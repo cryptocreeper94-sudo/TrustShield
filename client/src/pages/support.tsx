@@ -26,7 +26,7 @@ const CATEGORIES = [
 
 const QUICK_LINKS = [
   { icon: Zap, title: "FAQ", description: "Common questions answered", href: "/faq", color: "from-cyan-500 to-blue-500" },
-  { icon: Shield, title: "Documentation", description: "Technical guides & specs", href: "/doc-hub", color: "from-purple-500 to-pink-500" },
+  { icon: Shield, title: "Documentation", description: "Technical guides & specs", href: "/doc-hub", color: "from-sky-500 to-pink-500" },
   { icon: HeartHandshake, title: "Community", description: "Join the conversation", href: "/community-hub", color: "from-cyan-500 to-red-500" },
 ];
 
@@ -119,7 +119,7 @@ export default function SupportPage() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0.5s" }} />
       </div>
 
@@ -144,12 +144,12 @@ export default function SupportPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/30 text-white text-xs">
+            <Badge className="mb-4 px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/30 text-white text-xs">
               <HelpCircle className="w-3 h-3 mr-1.5" />
               We're Here to Help
             </Badge>
             <h1 className="text-4xl md:text-5xl font-display font-black mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 Support Center
               </span>
             </h1>
@@ -194,7 +194,7 @@ export default function SupportPage() {
             >
               <GlassCard glow hover={false}>
                 <div className="p-12 text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-500 flex items-center justify-center mx-auto mb-6">
                     <HelpCircle className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">Sign In Required</h3>
@@ -202,7 +202,7 @@ export default function SupportPage() {
                     Please sign in to submit a support ticket or view your existing tickets. We verify all submissions to prevent spam.
                   </p>
                   <Link href="/login">
-                    <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-8" data-testid="button-login">
+                    <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 text-white px-8" data-testid="button-login">
                       <Sparkles className="w-4 h-4 mr-2" />
                       Sign In to Continue
                     </Button>
@@ -271,7 +271,7 @@ export default function SupportPage() {
                       </p>
                       <Button
                         type="submit"
-                        className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-6"
+                        className="bg-gradient-to-r from-cyan-500 to-sky-500 text-white px-6"
                         disabled={createTicketMutation.isPending || !subject.trim() || !message.trim()}
                         data-testid="button-submit-ticket"
                       >
@@ -308,7 +308,7 @@ export default function SupportPage() {
                 className="lg:col-span-2"
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-sky-500 to-pink-500 flex items-center justify-center">
                     <MessageSquare className="w-4 h-4 text-white" />
                   </div>
                   <h2 className="text-lg font-bold text-white">Your Tickets</h2>
@@ -393,9 +393,9 @@ export default function SupportPage() {
                                   <div className="mt-4 pt-4 border-t border-white/10">
                                     <p className="text-xs text-white/60 mb-3 leading-relaxed">{ticket.message}</p>
                                     {ticket.admin_notes && (
-                                      <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+                                      <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20">
                                         <div className="flex items-center gap-2 mb-2">
-                                          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+                                          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 flex items-center justify-center">
                                             <Sparkles className="w-3 h-3 text-white" />
                                           </div>
                                           <p className="text-[10px] text-cyan-400 font-bold uppercase tracking-wider">Support Response</p>

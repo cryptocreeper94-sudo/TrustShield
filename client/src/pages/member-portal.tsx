@@ -185,7 +185,7 @@ export default function MemberPortal() {
                   <p className="text-xs text-white/60">Trust Score</p>
                 </GlassCard>
                 <GlassCard className="p-4 text-center">
-                  <Users className="w-6 h-6 text-purple-400 mx-auto mb-2" />
+                  <Users className="w-6 h-6 text-sky-400 mx-auto mb-2" />
                   <p className="text-2xl font-bold text-white">{connections.length}</p>
                   <p className="text-xs text-white/60">Connections</p>
                 </GlassCard>
@@ -195,7 +195,7 @@ export default function MemberPortal() {
                   <p className="text-xs text-white/60">Shells</p>
                 </GlassCard>
                 <GlassCard className="p-4 text-center">
-                  <Star className="w-6 h-6 text-purple-400 mx-auto mb-2" />
+                  <Star className="w-6 h-6 text-sky-400 mx-auto mb-2" />
                   <p className="text-2xl font-bold text-white">{(memberCard as any)?.rewardPoints || 0}</p>
                   <p className="text-xs text-white/60">Points</p>
                 </GlassCard>
@@ -325,7 +325,7 @@ export default function MemberPortal() {
                     <div className="flex items-center gap-3">
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
                         conn.type === "business" 
-                          ? "bg-purple-500/20 text-purple-400" 
+                          ? "bg-sky-500/20 text-sky-400" 
                           : "bg-cyan-500/20 text-cyan-400"
                       }`}>
                         {conn.type === "business" ? <Network className="w-6 h-6" /> : <User className="w-6 h-6" />}

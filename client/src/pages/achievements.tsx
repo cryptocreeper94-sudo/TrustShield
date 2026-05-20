@@ -119,8 +119,8 @@ const ALL_ACHIEVEMENTS: Achievement[] = [
 const RARITY_COLORS = {
   common: { bg: "from-gray-500/20 to-gray-600/20", border: "border-gray-500/30", text: "text-gray-400" },
   rare: { bg: "from-blue-500/20 to-cyan-500/20", border: "border-blue-500/30", text: "text-blue-400" },
-  epic: { bg: "from-purple-500/20 to-pink-500/20", border: "border-purple-500/30", text: "text-purple-400" },
-  legendary: { bg: "from-purple-500/20 to-cyan-500/20", border: "border-purple-500/30", text: "text-purple-400" },
+  epic: { bg: "from-sky-500/20 to-pink-500/20", border: "border-sky-500/30", text: "text-sky-400" },
+  legendary: { bg: "from-sky-500/20 to-cyan-500/20", border: "border-sky-500/30", text: "text-sky-400" },
 };
 
 // Global stats
@@ -160,8 +160,8 @@ function AchievementCard({ achievement, isUnlocked = false }: { achievement: Ach
           
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1 text-xs">
-              <Gift className="w-3 h-3 text-purple-400" />
-              <span className="text-purple-400">{achievement.reward}</span>
+              <Gift className="w-3 h-3 text-sky-400" />
+              <span className="text-sky-400">{achievement.reward}</span>
             </div>
             <span className="text-[10px] text-muted-foreground">
               {achievement.totalUnlocked.toLocaleString()} unlocked
@@ -198,18 +198,18 @@ export default function Achievements() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <motion.div 
-                className="p-3 rounded-2xl bg-gradient-to-br from-purple-500/20 to-teal-500/20 border border-purple-500/30"
+                className="p-3 rounded-2xl bg-gradient-to-br from-sky-500/20 to-teal-500/20 border border-sky-500/30"
                 animate={{ 
                   boxShadow: ["0 0 20px rgba(245,158,11,0.2)", "0 0 50px rgba(245,158,11,0.4)", "0 0 20px rgba(245,158,11,0.2)"],
                   rotate: [0, 5, -5, 0]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Trophy className="w-7 h-7 text-purple-400" />
+                <Trophy className="w-7 h-7 text-sky-400" />
               </motion.div>
             </div>
             <h1 className="text-2xl md:text-3xl font-display font-bold mb-2">
-              <span className="text-purple-400">Achievements</span>
+              <span className="text-sky-400">Achievements</span>
             </h1>
             <p className="text-sm text-muted-foreground">
               Complete challenges • Earn rewards • Collect NFT badges
@@ -219,7 +219,7 @@ export default function Achievements() {
           {/* Global Stats - Always visible */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             <GlassCard hover={false} className="p-3 text-center">
-              <Trophy className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+              <Trophy className="w-5 h-5 mx-auto mb-1 text-sky-400" />
               <p className="text-xl font-bold">{isConnected ? "0" : "--"}/{GLOBAL_STATS.totalAchievements}</p>
               <p className="text-[10px] text-muted-foreground">Your Progress</p>
             </GlassCard>
@@ -234,7 +234,7 @@ export default function Achievements() {
               <p className="text-[10px] text-muted-foreground">SIG Rewarded</p>
             </GlassCard>
             <GlassCard hover={false} className="p-3 text-center">
-              <Sparkles className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+              <Sparkles className="w-5 h-5 mx-auto mb-1 text-sky-400" />
               <p className="text-xl font-bold">{isConnected ? "0" : "--"}</p>
               <p className="text-[10px] text-muted-foreground">NFTs Earned</p>
             </GlassCard>
@@ -242,14 +242,14 @@ export default function Achievements() {
 
           {/* Connect prompt */}
           {!isConnected && (
-            <GlassCard glow className="p-4 mb-6 text-center bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-purple-500/20">
-              <Sparkles className="w-8 h-8 mx-auto mb-2 text-purple-400" />
+            <GlassCard glow className="p-4 mb-6 text-center bg-gradient-to-r from-sky-500/10 to-pink-500/10 border-sky-500/20">
+              <Sparkles className="w-8 h-8 mx-auto mb-2 text-sky-400" />
               <h3 className="font-bold mb-1">Track Your Achievements</h3>
               <p className="text-sm text-muted-foreground mb-3">
                 Connect your wallet to track progress and earn rewards as you use Trust Layer.
               </p>
               <Link href="/wallet">
-                <Button className="bg-gradient-to-r from-purple-500 to-cyan-500" data-testid="button-connect-achievements">
+                <Button className="bg-gradient-to-r from-sky-500 to-cyan-500" data-testid="button-connect-achievements">
                   <Wallet className="w-4 h-4 mr-2" />
                   Connect Wallet
                 </Button>

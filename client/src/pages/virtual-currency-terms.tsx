@@ -64,7 +64,7 @@ export default function VirtualCurrencyTerms() {
     <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
       </div>
 
@@ -76,7 +76,7 @@ export default function VirtualCurrencyTerms() {
         >
           <div className="flex items-center gap-4">
             <div>
-              <h1 className="text-3xl font-bold flex items-center gap-3 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" data-testid="text-vc-terms-title">
+              <h1 className="text-3xl font-bold flex items-center gap-3 bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent" data-testid="text-vc-terms-title">
                 <Coins className="w-8 h-8 text-cyan-400" />
                 Virtual Currency Terms
               </h1>
@@ -84,7 +84,7 @@ export default function VirtualCurrencyTerms() {
             </div>
           </div>
 
-          <GlassCard className="p-6 border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-purple-500/5" glow data-testid="card-dwc-conversion-notice">
+          <GlassCard className="p-6 border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-sky-500/5" glow data-testid="card-dwc-conversion-notice">
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-xl bg-cyan-500/20">
                 <ArrowRightLeft className="w-6 h-6 text-cyan-400" />
@@ -121,7 +121,7 @@ export default function VirtualCurrencyTerms() {
               </div>
             </GlassCard>
             <GlassCard className="p-4 flex items-center gap-3" data-testid="card-conversion-tracked">
-              <FileText className="w-8 h-8 text-purple-400" />
+              <FileText className="w-8 h-8 text-sky-400" />
               <div>
                 <h3 className="font-semibold text-white">Tracked Forever</h3>
                 <p className="text-xs text-gray-400">Full audit trail on purchases</p>
@@ -146,11 +146,11 @@ export default function VirtualCurrencyTerms() {
               >
                 <GlassCard className="p-6" data-testid={`card-section-${idx + 1}`}>
                   <div className="flex items-start gap-4">
-                    <div className="p-2 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex-shrink-0">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex-shrink-0">
                       <section.icon className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
-                      <h2 className="text-lg font-semibold mb-3 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">{section.title}</h2>
+                      <h2 className="text-lg font-semibold mb-3 bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">{section.title}</h2>
                       <p className="text-gray-300 text-sm leading-relaxed">{section.content}</p>
                     </div>
                   </div>

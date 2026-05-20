@@ -68,7 +68,7 @@ const PLAYER_HEIGHT = 30;
 const ENEMY_TYPES = {
   basic: { width: 30, height: 24, health: 1, points: 100, color: "#ef4444" },
   fast: { width: 25, height: 20, health: 1, points: 150, color: "#f97316" },
-  tank: { width: 40, height: 32, health: 3, points: 300, color: "#8b5cf6" },
+  tank: { width: 40, height: 32, health: 3, points: 300, color: "#0ea5e9" },
   boss: { width: 60, height: 48, health: 10, points: 1000, color: "#ec4899" },
 };
 
@@ -475,7 +475,7 @@ export default function Galaga() {
       ctx.translate(p.x + p.width / 2, p.y + p.height / 2);
       ctx.rotate(Date.now() / 200);
       
-      const colors = { shield: "#22c55e", rapid: "#f97316", spread: "#8b5cf6" };
+      const colors = { shield: "#22c55e", rapid: "#f97316", spread: "#0ea5e9" };
       ctx.fillStyle = colors[p.type];
       ctx.fillRect(-p.width / 2, -p.height / 2, p.width, p.height);
       
@@ -579,7 +579,7 @@ export default function Galaga() {
     
     // Power-up indicator
     if (gameState.powerUpActive) {
-      const colors = { shield: "#22c55e", rapid: "#f97316", spread: "#8b5cf6" };
+      const colors = { shield: "#22c55e", rapid: "#f97316", spread: "#0ea5e9" };
       ctx.fillStyle = colors[gameState.powerUpActive.type as keyof typeof colors];
       ctx.fillRect(10, CANVAS_HEIGHT - 30, (gameState.powerUpActive.timer / 300) * 100, 10);
       ctx.fillStyle = "#fff";
@@ -590,7 +590,7 @@ export default function Galaga() {
   }, [gameState]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-sky-900 text-white">
       {/* Header */}
       <div className="bg-black/30 backdrop-blur-sm px-4 py-2 sticky top-0 z-50">
         <div className="flex items-center justify-between max-w-md mx-auto">
@@ -641,10 +641,10 @@ export default function Galaga() {
                 </div>
                 
                 {gameState.highScore > 0 && (
-                  <p className="text-purple-400 mb-4">High Score: {gameState.highScore.toLocaleString()}</p>
+                  <p className="text-sky-400 mb-4">High Score: {gameState.highScore.toLocaleString()}</p>
                 )}
                 
-                <Button onClick={startGame} className="bg-purple-600 hover:bg-purple-500 px-8">
+                <Button onClick={startGame} className="bg-sky-600 hover:bg-sky-500 px-8">
                   <Play className="w-4 h-4 mr-2" />
                   Start Game
                 </Button>
@@ -661,7 +661,7 @@ export default function Galaga() {
                 <Pause className="w-12 h-12 mb-4 text-white/50" />
                 <h2 className="text-2xl font-bold mb-4">Paused</h2>
                 <div className="space-y-2">
-                  <Button onClick={resumeGame} className="bg-purple-600 hover:bg-purple-500 px-8 w-full">
+                  <Button onClick={resumeGame} className="bg-sky-600 hover:bg-sky-500 px-8 w-full">
                     Resume
                   </Button>
                   <Button onClick={startGame} variant="outline" className="w-full">
@@ -707,7 +707,7 @@ export default function Galaga() {
                     New High Score!
                   </Badge>
                 )}
-                <Button onClick={startGame} className="bg-purple-600 hover:bg-purple-500 px-8">
+                <Button onClick={startGame} className="bg-sky-600 hover:bg-sky-500 px-8">
                   <RotateCcw className="w-4 h-4 mr-2" />
                   Play Again
                 </Button>

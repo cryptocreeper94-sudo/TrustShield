@@ -25,11 +25,11 @@ import { PulseMiniApp } from "@/components/pulse-mini-app";
 
 const COMMUNITY_COLORS = [
   "from-cyan-500 to-blue-600",
-  "from-purple-500 to-pink-600", 
+  "from-sky-500 to-pink-600", 
   "from-emerald-500 to-teal-600",
-  "from-purple-500 to-cyan-600",
+  "from-sky-500 to-cyan-600",
   "from-rose-500 to-red-600",
-  "from-indigo-500 to-violet-600",
+  "from-indigo-500 to-cyan-600",
 ];
 
 const QUICK_REACTIONS = ["👍", "❤️", "😂", "🔥", "👀", "🎉", "💎", "🚀"];
@@ -205,7 +205,7 @@ function ChannelItem({ channel, selected, onClick }: { channel: any; selected: b
       }`}
       data-testid={`channel-${channel.id}`}
     >
-      <Icon className={`w-4 h-4 ${channel.type === "bot" ? "text-purple-400" : ""}`} />
+      <Icon className={`w-4 h-4 ${channel.type === "bot" ? "text-sky-400" : ""}`} />
       <span className="text-sm flex-1 text-left truncate">{channel.name}</span>
       {channel.isLocked && <Lock className="w-3 h-3 text-gray-500" />}
     </button>
@@ -234,7 +234,7 @@ function MessageBubble({ message, currentUserId, onReply, onReaction, onDelete, 
       animate={{ opacity: 1, y: 0 }}
       className="flex gap-3 px-4 py-2 hover:bg-white/5 rounded-lg group relative"
     >
-      <Avatar className={`w-10 h-10 shrink-0 ${message.isBot ? "bg-purple-500/30 border border-purple-500/50" : "bg-gradient-to-br from-cyan-500 to-purple-500"}`}>
+      <Avatar className={`w-10 h-10 shrink-0 ${message.isBot ? "bg-sky-500/30 border border-sky-500/50" : "bg-gradient-to-br from-cyan-500 to-sky-500"}`}>
         <AvatarFallback className="text-sm">{message.username?.slice(0, 2).toUpperCase() || "??"}</AvatarFallback>
       </Avatar>
       <div className="flex-1 min-w-0">
@@ -246,11 +246,11 @@ function MessageBubble({ message, currentUserId, onReply, onReaction, onDelete, 
           </div>
         )}
         <div className="flex items-center gap-2">
-          <span className={`font-medium text-sm ${message.isBot ? "text-purple-400" : "text-white"}`}>
+          <span className={`font-medium text-sm ${message.isBot ? "text-sky-400" : "text-white"}`}>
             {message.username}
           </span>
           {message.isBot && (
-            <Badge className="h-4 text-[10px] bg-purple-500/20 text-purple-400 border-purple-500/30">BOT</Badge>
+            <Badge className="h-4 text-[10px] bg-sky-500/20 text-sky-400 border-sky-500/30">BOT</Badge>
           )}
           <span className="text-[10px] text-gray-500">{time}</span>
           {message.editedAt && <span className="text-[10px] text-gray-600">(edited)</span>}
@@ -349,11 +349,11 @@ function MessageBubble({ message, currentUserId, onReply, onReaction, onDelete, 
         {!isOwn && onTip && (
           <button 
             onClick={() => onTip(message.userId, message.username, message.id)}
-            className="p-1.5 hover:bg-purple-500/20 rounded-lg transition-colors"
+            className="p-1.5 hover:bg-sky-500/20 rounded-lg transition-colors"
             data-testid={`btn-tip-${message.id}`}
             title="Tip Shells"
           >
-            <Coins className="w-4 h-4 text-gray-400 hover:text-purple-400" />
+            <Coins className="w-4 h-4 text-gray-400 hover:text-sky-400" />
           </button>
         )}
         {!isOwn && onStartDm && (
@@ -720,10 +720,10 @@ export default function CommunityHub() {
               className="flex items-center gap-2 shrink-0 hover:opacity-80 transition-opacity"
               data-testid="button-about-chronochat"
             >
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center">
                 <MessageCircle className="w-4 h-4 text-white" />
               </div>
-              <span className="font-display font-bold text-lg tracking-tight hidden sm:inline bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Chronochat</span>
+              <span className="font-display font-bold text-lg tracking-tight hidden sm:inline bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Chronochat</span>
             </button>
           </div>
           <div className="flex items-center gap-2">
@@ -772,7 +772,7 @@ export default function CommunityHub() {
                 </button>
                 <button 
                   onClick={() => setActiveView("pulse")}
-                  className={`w-12 h-12 rounded-2xl flex flex-col items-center justify-center transition-all group relative ${activeView === "pulse" ? "bg-gradient-to-br from-cyan-500 to-purple-500 text-white ring-2 ring-cyan-500/30" : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"}`}
+                  className={`w-12 h-12 rounded-2xl flex flex-col items-center justify-center transition-all group relative ${activeView === "pulse" ? "bg-gradient-to-br from-cyan-500 to-sky-500 text-white ring-2 ring-cyan-500/30" : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"}`}
                   data-testid="toggle-pulse-view"
                 >
                   <Activity className="w-5 h-5" />
@@ -842,7 +842,7 @@ export default function CommunityHub() {
                       >
                         {createCommunity.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : "Create Community"}
                       </Button>
-                      {!isAuthenticated && <p className="text-xs text-purple-400 text-center">Sign in to create communities</p>}
+                      {!isAuthenticated && <p className="text-xs text-sky-400 text-center">Sign in to create communities</p>}
                     </div>
                   </DialogContent>
                 </Dialog>
@@ -935,7 +935,7 @@ export default function CommunityHub() {
 
                 <div className="p-2 sm:p-3 border-t border-white/5 bg-black/20">
                   <div className="flex items-center gap-2">
-                    <Avatar className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-cyan-500 to-purple-500 flex-shrink-0">
+                    <Avatar className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-cyan-500 to-sky-500 flex-shrink-0">
                       <AvatarFallback className="text-[10px] sm:text-xs">
                         {firebaseUser ? firebaseUser.firstName?.slice(0, 2).toUpperCase() || "ME" : "??"}
                       </AvatarFallback>
@@ -975,12 +975,12 @@ export default function CommunityHub() {
                 <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                   {isAuthenticated && (
                     <div 
-                      className="flex flex-col items-end px-2 py-1 sm:px-3 sm:py-1.5 bg-purple-500/10 border border-purple-500/30 rounded-full flex-shrink-0 group relative cursor-help"
+                      className="flex flex-col items-end px-2 py-1 sm:px-3 sm:py-1.5 bg-sky-500/10 border border-sky-500/30 rounded-full flex-shrink-0 group relative cursor-help"
                       title={`≈ ${((shellsData?.balance || 0) / 100).toFixed(2)} SIG at launch`}
                     >
                       <div className="flex items-center gap-1">
-                        <Coins className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
-                        <span className="text-xs sm:text-sm font-medium text-purple-400" data-testid="shells-balance">
+                        <Coins className="w-3 h-3 sm:w-4 sm:h-4 text-sky-400" />
+                        <span className="text-xs sm:text-sm font-medium text-sky-400" data-testid="shells-balance">
                           {shellsData?.balance?.toLocaleString() || 0}
                         </span>
                       </div>
@@ -1019,7 +1019,7 @@ export default function CommunityHub() {
                   </button>
                   <button 
                     onClick={() => setShowPolls(!showPolls)} 
-                    className={`p-1.5 sm:p-2 hover:bg-white/10 rounded-lg hidden sm:block ${showPolls ? "bg-purple-500/20 text-purple-400" : ""}`}
+                    className={`p-1.5 sm:p-2 hover:bg-white/10 rounded-lg hidden sm:block ${showPolls ? "bg-sky-500/20 text-sky-400" : ""}`}
                     data-testid="btn-polls"
                     title="Channel Polls"
                   >
@@ -1085,27 +1085,27 @@ export default function CommunityHub() {
               {/* Polls Panel */}
               <AnimatePresence>
                 {showPolls && (
-                  <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} className="border-b border-purple-500/30 bg-purple-500/5 overflow-hidden">
+                  <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} className="border-b border-sky-500/30 bg-sky-500/5 overflow-hidden">
                     <div className="p-3 max-h-64 overflow-y-auto">
                       <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2 text-xs text-purple-400">
+                        <div className="flex items-center gap-2 text-xs text-sky-400">
                           <BarChart2 className="w-3 h-3" /> Channel Polls
                         </div>
-                        <Button size="sm" variant="ghost" onClick={() => setCreatePollOpen(true)} className="h-6 text-xs text-purple-400">
+                        <Button size="sm" variant="ghost" onClick={() => setCreatePollOpen(true)} className="h-6 text-xs text-sky-400">
                           <Plus className="w-3 h-3 mr-1" /> New Poll
                         </Button>
                       </div>
                       {pollsData?.polls?.length ? pollsData.polls.map((poll: any) => {
                         const options = JSON.parse(poll.options);
                         return (
-                          <div key={poll.id} className="p-3 bg-white/5 rounded-lg mb-2 border border-purple-500/20">
+                          <div key={poll.id} className="p-3 bg-white/5 rounded-lg mb-2 border border-sky-500/20">
                             <p className="text-white text-sm font-medium mb-2">{poll.question}</p>
                             <div className="space-y-1">
                               {options.map((opt: string, i: number) => (
                                 <button
                                   key={i}
                                   onClick={() => votePoll.mutate({ pollId: poll.id, optionIndex: i })}
-                                  className="w-full text-left px-3 py-1.5 text-xs bg-white/5 hover:bg-purple-500/20 rounded border border-white/10 hover:border-purple-500/30 transition-colors"
+                                  className="w-full text-left px-3 py-1.5 text-xs bg-white/5 hover:bg-sky-500/20 rounded border border-white/10 hover:border-sky-500/30 transition-colors"
                                 >
                                   {opt}
                                 </button>
@@ -1122,7 +1122,7 @@ export default function CommunityHub() {
 
               {/* Create Poll Dialog */}
               <Dialog open={createPollOpen} onOpenChange={setCreatePollOpen}>
-                <DialogContent className="bg-gray-900 border-purple-500/30">
+                <DialogContent className="bg-gray-900 border-sky-500/30">
                   <DialogHeader>
                     <DialogTitle className="text-white">Create Poll</DialogTitle>
                   </DialogHeader>
@@ -1163,7 +1163,7 @@ export default function CommunityHub() {
                     <Button 
                       onClick={() => createPoll.mutate({ question: newPollQuestion, options: newPollOptions.filter(o => o.trim()) })}
                       disabled={!newPollQuestion || newPollOptions.filter(o => o.trim()).length < 2}
-                      className="w-full bg-purple-500 hover:bg-purple-600"
+                      className="w-full bg-sky-500 hover:bg-sky-600"
                     >
                       Create Poll
                     </Button>
@@ -1227,7 +1227,7 @@ export default function CommunityHub() {
                 ) : (
                   <div className="px-4 py-8">
                     <GlassCard className="p-6 text-center max-w-md mx-auto">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/30 flex items-center justify-center">
                         <MessageCircle className="w-8 h-8 text-cyan-400" />
                       </div>
                       <h3 className="text-xl font-bold text-white mb-2">Start the Conversation</h3>
@@ -1266,14 +1266,14 @@ export default function CommunityHub() {
                   </div>
                 )}
                 {pendingAttachment && (
-                  <div className="mb-2 flex items-center gap-2 px-3 py-2 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+                  <div className="mb-2 flex items-center gap-2 px-3 py-2 bg-sky-500/10 border border-sky-500/30 rounded-lg">
                     {pendingAttachment.type.startsWith("image/") ? (
-                      <ImageIcon className="w-4 h-4 text-purple-400 shrink-0" />
+                      <ImageIcon className="w-4 h-4 text-sky-400 shrink-0" />
                     ) : (
-                      <Paperclip className="w-4 h-4 text-purple-400 shrink-0" />
+                      <Paperclip className="w-4 h-4 text-sky-400 shrink-0" />
                     )}
                     <div className="flex-1 min-w-0">
-                      <span className="text-xs text-purple-400">Attachment</span>
+                      <span className="text-xs text-sky-400">Attachment</span>
                       <p className="text-xs text-gray-400 truncate">{pendingAttachment.name}</p>
                     </div>
                     <button onClick={() => setPendingAttachment(null)} className="p-1 hover:bg-white/10 rounded">
@@ -1335,7 +1335,7 @@ export default function CommunityHub() {
                 {membersData?.members?.slice(0, 10).map((member: any) => (
                   <div key={member.id} className="flex items-center gap-2">
                     <div className="relative">
-                      <Avatar className="w-7 h-7 bg-gradient-to-br from-cyan-500 to-purple-500">
+                      <Avatar className="w-7 h-7 bg-gradient-to-br from-cyan-500 to-sky-500">
                         <AvatarFallback className="text-[10px]">{member.username?.slice(0, 2).toUpperCase()}</AvatarFallback>
                       </Avatar>
                       {member.isOnline && (
@@ -1345,7 +1345,7 @@ export default function CommunityHub() {
                     <div className="flex-1 min-w-0">
                       <span className="text-sm text-gray-300 truncate block">{member.username}</span>
                       {member.role === "owner" && (
-                        <Badge className="h-3 text-[8px] bg-purple-500/20 text-purple-400 border-purple-500/30">OWNER</Badge>
+                        <Badge className="h-3 text-[8px] bg-sky-500/20 text-sky-400 border-sky-500/30">OWNER</Badge>
                       )}
                     </div>
                   </div>
@@ -1363,7 +1363,7 @@ export default function CommunityHub() {
         <DialogContent className="bg-gray-900 border-white/10 max-w-sm">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <Coins className="w-5 h-5 text-purple-400" />
+              <Coins className="w-5 h-5 text-sky-400" />
               Tip Shells
             </DialogTitle>
           </DialogHeader>
@@ -1380,7 +1380,7 @@ export default function CommunityHub() {
                     onClick={() => setTipAmount(amount.toString())}
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                       tipAmount === amount.toString()
-                        ? "bg-purple-500 text-white"
+                        ? "bg-sky-500 text-white"
                         : "bg-white/5 text-gray-400 hover:bg-white/10"
                     }`}
                     data-testid={`tip-amount-${amount}`}
@@ -1400,12 +1400,12 @@ export default function CommunityHub() {
             </div>
             <div className="flex items-center justify-between text-sm">
               <span className="text-gray-400">Your balance:</span>
-              <span className="text-purple-400 font-medium">{shellsData?.balance?.toLocaleString() || 0} Shells</span>
+              <span className="text-sky-400 font-medium">{shellsData?.balance?.toLocaleString() || 0} Shells</span>
             </div>
             <Button
               onClick={submitTip}
               disabled={!tipAmount || parseInt(tipAmount) <= 0 || parseInt(tipAmount) > (shellsData?.balance || 0) || tipMutation.isPending}
-              className="w-full bg-purple-500 hover:bg-purple-600"
+              className="w-full bg-sky-500 hover:bg-sky-600"
               data-testid="submit-tip"
             >
               {tipMutation.isPending ? (
@@ -1476,7 +1476,7 @@ export default function CommunityHub() {
         <DialogContent className="bg-gray-900 border-white/10 w-[95vw] max-w-md p-4 sm:p-6 max-h-[85vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-base sm:text-lg">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center">
                 <MessageCircle className="w-5 h-5 text-white" />
               </div>
               About Signal Chat
@@ -1494,7 +1494,7 @@ export default function CommunityHub() {
               </h4>
               <ul className="space-y-1.5 text-gray-400 text-xs sm:text-sm">
                 <li className="flex items-center gap-2">
-                  <Hash className="w-3 h-3 text-purple-400" />
+                  <Hash className="w-3 h-3 text-sky-400" />
                   Community channels & discussions
                 </li>
                 <li className="flex items-center gap-2">
@@ -1502,7 +1502,7 @@ export default function CommunityHub() {
                   Pulse - Social feed & updates
                 </li>
                 <li className="flex items-center gap-2">
-                  <Coins className="w-3 h-3 text-purple-400" />
+                  <Coins className="w-3 h-3 text-sky-400" />
                   Shells tipping & rewards
                 </li>
                 <li className="flex items-center gap-2">
@@ -1512,7 +1512,7 @@ export default function CommunityHub() {
               </ul>
             </div>
             
-            <div className="p-3 rounded-lg bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+            <div className="p-3 rounded-lg bg-gradient-to-br from-cyan-500/10 to-sky-500/10 border border-cyan-500/20">
               <p className="text-xs sm:text-sm text-gray-300">
                 Part of the <span className="text-cyan-400 font-medium">Trust Layer</span> ecosystem
               </p>

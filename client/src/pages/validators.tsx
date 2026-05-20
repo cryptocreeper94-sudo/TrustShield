@@ -207,7 +207,7 @@ export default function Validators() {
                       <div className="flex items-center gap-4">
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
                           validator.isFounder 
-                            ? "bg-gradient-to-br from-purple-500 to-cyan-600" 
+                            ? "bg-gradient-to-br from-sky-500 to-cyan-600" 
                             : "bg-gradient-to-br from-primary/30 to-secondary/30"
                         }`}>
                           {validator.isFounder ? (
@@ -220,7 +220,7 @@ export default function Validators() {
                           <div className="flex items-center gap-2">
                             <span className="font-bold">{validator.name}</span>
                             {validator.isFounder && (
-                              <Badge className="bg-purple-500/20 text-purple-400 text-[10px]">Founder</Badge>
+                              <Badge className="bg-sky-500/20 text-sky-400 text-[10px]">Founder</Badge>
                             )}
                             {validator.status === "active" ? (
                               <Badge className="bg-green-500/20 text-green-400 text-[10px]">
@@ -294,15 +294,15 @@ export default function Validators() {
                 Decentralization Roadmap
               </h3>
               <div className="relative">
-                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-cyan-500 to-purple-500 hidden md:block" />
+                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-500 via-cyan-500 to-sky-500 hidden md:block" />
                 <div className="space-y-6">
                   <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center shrink-0 z-10">
+                    <div className="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center shrink-0 z-10">
                       <Crown className="w-4 h-4 text-white" />
                     </div>
                     <div className="flex-1 pb-4">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="font-bold text-purple-400">Phase 1: Genesis</span>
+                        <span className="font-bold text-sky-400">Phase 1: Genesis</span>
                         <Badge className="bg-green-500/20 text-green-400 text-[10px]">Current</Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">Founders Validators secure the network during launch. Core team operates trusted nodes to ensure stability while the ecosystem grows.</p>
@@ -323,13 +323,13 @@ export default function Validators() {
                     </div>
                   </div>
                   <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-purple-500/30 border-2 border-purple-500 flex items-center justify-center shrink-0 z-10">
-                      <Shield className="w-4 h-4 text-purple-400" />
+                    <div className="w-8 h-8 rounded-full bg-sky-500/30 border-2 border-sky-500 flex items-center justify-center shrink-0 z-10">
+                      <Shield className="w-4 h-4 text-sky-400" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="font-bold text-purple-400">Phase 3: PoSA Hybrid</span>
-                        <Badge className="bg-purple-500/20 text-purple-400 text-[10px]">Future</Badge>
+                        <span className="font-bold text-sky-400">Phase 3: PoSA Hybrid</span>
+                        <Badge className="bg-sky-500/20 text-sky-400 text-[10px]">Future</Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">Transition to Proof of Staked Authority. Any SIG holder can stake to become a validator candidate. Community votes on validator set.</p>
                       <div className="mt-2 text-xs text-white/60">Target: 50+ Decentralized Validators</div>
@@ -359,7 +359,7 @@ export default function Validators() {
                   <div>
                     <h2 className="text-2xl font-bold flex items-center gap-2">
                       Become a Validator
-                      <Badge className="bg-purple-500/20 text-purple-400 animate-pulse">Coming Soon</Badge>
+                      <Badge className="bg-sky-500/20 text-sky-400 animate-pulse">Coming Soon</Badge>
                     </h2>
                     <p className="text-sm text-muted-foreground">Join the network and earn rewards</p>
                   </div>
@@ -388,7 +388,7 @@ export default function Validators() {
                         </div>
                       </div>
                       <div className="flex items-start gap-3 p-3 rounded-lg bg-white/5">
-                        <Clock className="w-5 h-5 text-purple-400 mt-0.5 shrink-0" />
+                        <Clock className="w-5 h-5 text-sky-400 mt-0.5 shrink-0" />
                         <div>
                           <div className="font-semibold text-sm">Uptime</div>
                           <div className="text-xs text-muted-foreground">24/7 availability (can run in background)</div>
@@ -403,14 +403,14 @@ export default function Validators() {
                       </div>
                     </div>
 
-                    <div className="mt-6 p-4 rounded-lg bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/30">
+                    <div className="mt-6 p-4 rounded-lg bg-gradient-to-r from-sky-500/10 to-cyan-500/10 border border-sky-500/30">
                       <h4 className="font-bold text-sm mb-2 flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-purple-400" />
+                        <Sparkles className="w-4 h-4 text-sky-400" />
                         Launch Day Airdrop
                       </h4>
                       <div className="space-y-2 text-xs">
                         <div className="flex justify-between items-center p-2 rounded bg-white/5">
-                          <span className="text-purple-400 font-semibold">Founder Validators (1-5)</span>
+                          <span className="text-sky-400 font-semibold">Founder Validators (1-5)</span>
                           <span className="text-white font-bold">100,000 SIG</span>
                         </div>
                         <div className="flex justify-between items-center p-2 rounded bg-white/5">
@@ -418,7 +418,7 @@ export default function Validators() {
                           <span className="text-white font-bold">50,000 SIG</span>
                         </div>
                         <div className="flex justify-between items-center p-2 rounded bg-white/5">
-                          <span className="text-purple-400 font-semibold">Standard Validators (26+)</span>
+                          <span className="text-sky-400 font-semibold">Standard Validators (26+)</span>
                           <span className="text-white font-bold">10,000 SIG</span>
                         </div>
                       </div>

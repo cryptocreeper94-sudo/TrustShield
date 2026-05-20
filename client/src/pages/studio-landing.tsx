@@ -25,13 +25,13 @@ const features = [
     icon: Bot,
     title: "AI Assistant",
     description: "Get coding help, generate code, and debug with our built-in AI powered by GPT-4",
-    color: "text-purple-400"
+    color: "text-sky-400"
   },
   {
     icon: Layers,
     title: "Project Templates",
     description: "Start fast with React, Node.js, Python, Vue, Next.js, Django, Go, or Rust templates",
-    color: "text-purple-400"
+    color: "text-sky-400"
   },
   {
     icon: Terminal,
@@ -95,7 +95,7 @@ const learningPath = [
     title: "Understand Credits",
     description: "Learn how AI credits work so you can use them efficiently",
     icon: DollarSign,
-    color: "from-purple-500 to-cyan-500",
+    color: "from-sky-500 to-cyan-500",
     link: "/studio/docs#credits",
     time: "5 min",
     priority: "Important"
@@ -105,7 +105,7 @@ const learningPath = [
     title: "Learn Keyboard Shortcuts",
     description: "Master the shortcuts to code faster and use fewer AI prompts",
     icon: Keyboard,
-    color: "from-purple-500 to-pink-500",
+    color: "from-sky-500 to-pink-500",
     link: "#shortcuts",
     time: "10 min",
     priority: "Recommended"
@@ -221,7 +221,7 @@ export default function StudioLanding() {
           >
             <span className="text-white">Welcome to</span>
             <br />
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent">
               Trust Layer Studio
             </span>
           </motion.h1>
@@ -243,10 +243,10 @@ export default function StudioLanding() {
             transition={{ delay: 0.3 }}
             className="max-w-2xl mx-auto mb-8"
           >
-            <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4 flex items-start gap-3 text-left">
-              <AlertTriangle className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+            <div className="bg-sky-500/10 border border-sky-500/30 rounded-xl p-4 flex items-start gap-3 text-left">
+              <AlertTriangle className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-purple-300 font-medium text-sm mb-1">AI Features Use Credits</p>
+                <p className="text-sky-300 font-medium text-sm mb-1">AI Features Use Credits</p>
                 <p className="text-white/60 text-sm">
                   Using the AI assistant costs credits. Learning the basics first means fewer prompts 
                   needed and more efficient use of your credits. We recommend completing the learning 
@@ -446,17 +446,17 @@ export default function StudioLanding() {
                   {/* Editor */}
                   <div className="flex-1 p-4 font-mono text-sm">
                     <div className="text-white/30 mb-1">1</div>
-                    <div><span className="text-purple-400">import</span> {"{"} useState {"}"} <span className="text-purple-400">from</span> <span className="text-green-400">'react'</span>;</div>
+                    <div><span className="text-sky-400">import</span> {"{"} useState {"}"} <span className="text-sky-400">from</span> <span className="text-green-400">'react'</span>;</div>
                     <div className="text-white/30 mt-2 mb-1">2</div>
                     <div></div>
                     <div className="text-white/30 mt-2 mb-1">3</div>
-                    <div><span className="text-purple-400">export default function</span> <span className="text-cyan-400">App</span>() {"{"}</div>
+                    <div><span className="text-sky-400">export default function</span> <span className="text-cyan-400">App</span>() {"{"}</div>
                     <div className="text-white/30 mt-2 mb-1">4</div>
-                    <div className="pl-4"><span className="text-purple-400">const</span> [count, setCount] = <span className="text-cyan-400">useState</span>(0);</div>
+                    <div className="pl-4"><span className="text-sky-400">const</span> [count, setCount] = <span className="text-cyan-400">useState</span>(0);</div>
                     <div className="text-white/30 mt-2 mb-1">5</div>
                     <div className="pl-4"></div>
                     <div className="text-white/30 mt-2 mb-1">6</div>
-                    <div className="pl-4"><span className="text-purple-400">return</span> (</div>
+                    <div className="pl-4"><span className="text-sky-400">return</span> (</div>
                     <div className="text-white/30 mt-2 mb-1">7</div>
                     <div className="pl-8">&lt;<span className="text-cyan-400">button</span> <span className="text-teal-400">onClick</span>={"{"}() =&gt; setCount(c =&gt; c + 1){"}"}&gt;</div>
                   </div>
@@ -464,11 +464,11 @@ export default function StudioLanding() {
                   {/* AI Panel */}
                   <div className="w-64 border-l border-white/5 bg-slate-900/50 p-3">
                     <div className="flex items-center gap-2 text-xs text-white/40 uppercase mb-3">
-                      <Bot className="w-3 h-3 text-purple-400" />
+                      <Bot className="w-3 h-3 text-sky-400" />
                       AI Assistant
                     </div>
-                    <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-3 text-xs">
-                      <div className="text-purple-400 flex items-center gap-1 mb-2">
+                    <div className="bg-sky-500/10 border border-sky-500/20 rounded-lg p-3 text-xs">
+                      <div className="text-sky-400 flex items-center gap-1 mb-2">
                         <Sparkles className="w-3 h-3" />
                         Suggestion
                       </div>
@@ -592,7 +592,7 @@ export default function StudioLanding() {
         <section className="container mx-auto px-4">
           <GlassCard glow>
             <div className="p-8 md:p-12 text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-purple-500/5" />
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-sky-500/5" />
               <div className="relative z-10">
                 <Cloud className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Start Building?</h2>

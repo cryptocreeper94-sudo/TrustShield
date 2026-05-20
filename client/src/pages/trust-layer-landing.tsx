@@ -267,7 +267,7 @@ export default function TrustLayerLanding() {
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/genesis" className="flex items-center gap-2 p-2 cursor-pointer rounded-lg hover:bg-white/5 transition-colors">
-                      <Hash className="w-3.5 h-3.5 text-purple-400" />
+                      <Hash className="w-3.5 h-3.5 text-sky-400" />
                       <span className="text-sm text-white font-medium">Genesis Details</span>
                     </Link>
                   </DropdownMenuItem>
@@ -325,9 +325,9 @@ export default function TrustLayerLanding() {
       </nav>
 
       <section className="pt-24 pb-16 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-sky-500/10" />
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-sky-500/15 rounded-full blur-3xl" />
 
         <div className="container mx-auto max-w-5xl relative z-10">
           <motion.div
@@ -342,7 +342,7 @@ export default function TrustLayerLanding() {
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 leading-tight">
               Your Identity.{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-500">
                 Verified Forever.
               </span>
             </h1>
@@ -355,7 +355,7 @@ export default function TrustLayerLanding() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
               <Button
                 size="lg"
-                className="h-12 px-8 text-base bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-bold shadow-lg shadow-cyan-500/25"
+                className="h-12 px-8 text-base bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-bold shadow-lg shadow-cyan-500/25"
                 onClick={handleGetStarted}
                 data-testid="button-hero-signup"
               >
@@ -396,7 +396,7 @@ export default function TrustLayerLanding() {
       <section className="py-16 px-4 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10">
-            <Badge className="mb-3 bg-purple-500/20 text-purple-400 border-purple-500/30">
+            <Badge className="mb-3 bg-sky-500/20 text-sky-400 border-sky-500/30">
               Membership Benefits
             </Badge>
             <h2 className="text-2xl sm:text-3xl font-display font-bold mb-3">
@@ -418,7 +418,7 @@ export default function TrustLayerLanding() {
               >
                 <GlassCard glow className="h-full p-6">
                   <div className="flex items-start gap-4">
-                    <div className="p-2.5 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/20 flex-shrink-0">
+                    <div className="p-2.5 rounded-lg bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/20 flex-shrink-0">
                       <feature.icon className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div className="min-w-0">
@@ -463,7 +463,7 @@ export default function TrustLayerLanding() {
                 </div>
               </div>
               <Button
-                className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400"
+                className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400"
                 onClick={handleGetStarted}
                 data-testid="button-card-signup"
               >
@@ -510,7 +510,7 @@ export default function TrustLayerLanding() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gradient-to-br from-purple-500/10 via-transparent to-cyan-500/10">
+      <section className="py-16 px-4 bg-gradient-to-br from-sky-500/10 via-transparent to-cyan-500/10">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
             <div>
@@ -567,7 +567,7 @@ export default function TrustLayerLanding() {
                 >
                   <GlassCard className="overflow-hidden hover:border-cyan-500/30 transition-all">
                     <div className="aspect-square relative">
-                      <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
+                      <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center">
                         <span className="text-2xl font-bold text-white/50">{app.name.charAt(0)}</span>
                       </div>
                       {getAppImage(app.id) && (
@@ -641,12 +641,12 @@ export default function TrustLayerLanding() {
 
             <GlassCard glow className="p-6 sm:p-8 flex flex-col h-full">
               <div className="flex items-center gap-3 mb-5">
-                <div className="p-2.5 rounded-lg bg-purple-500/20 border border-purple-500/20 flex-shrink-0">
-                  <Building2 className="w-5 h-5 text-purple-400" />
+                <div className="p-2.5 rounded-lg bg-sky-500/20 border border-sky-500/20 flex-shrink-0">
+                  <Building2 className="w-5 h-5 text-sky-400" />
                 </div>
                 <div className="flex flex-col gap-1">
                   <h3 className="text-xl font-bold">Businesses</h3>
-                  <Badge variant="outline" className="w-fit text-[10px] border-purple-500/30 text-purple-400">
+                  <Badge variant="outline" className="w-fit text-[10px] border-sky-500/30 text-sky-400">
                     Requires Personal Account
                   </Badge>
                 </div>
@@ -672,7 +672,7 @@ export default function TrustLayerLanding() {
               <Link href={isAuthenticated ? "/business-application" : "#"} className="mt-auto">
                 <Button
                   variant="outline"
-                  className="w-full border-purple-500/30 text-purple-400 hover:bg-purple-500/10"
+                  className="w-full border-sky-500/30 text-sky-400 hover:bg-sky-500/10"
                   onClick={(e) => {
                     if (!isAuthenticated) {
                       e.preventDefault();
@@ -700,7 +700,7 @@ export default function TrustLayerLanding() {
           </p>
           <Button
             size="lg"
-            className="h-14 px-10 text-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-bold shadow-lg shadow-cyan-500/25"
+            className="h-14 px-10 text-lg bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-bold shadow-lg shadow-cyan-500/25"
             onClick={handleGetStarted}
             data-testid="button-cta-signup"
           >

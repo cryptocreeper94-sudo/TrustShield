@@ -41,10 +41,10 @@ const WEEKLY_LEADERS: Trader[] = [
 ];
 
 const PRIZES = [
-  { rank: "1st", prize: "10,000 SIG + Golden NFT", color: "from-purple-400 to-teal-500" },
+  { rank: "1st", prize: "10,000 SIG + Golden NFT", color: "from-sky-400 to-teal-500" },
   { rank: "2nd", prize: "5,000 SIG + Silver NFT", color: "from-gray-300 to-gray-400" },
-  { rank: "3rd", prize: "2,500 SIG + Bronze NFT", color: "from-purple-600 to-purple-700" },
-  { rank: "4-10", prize: "500 SIG each", color: "from-purple-400 to-pink-500" },
+  { rank: "3rd", prize: "2,500 SIG + Bronze NFT", color: "from-sky-600 to-sky-700" },
+  { rank: "4-10", prize: "500 SIG each", color: "from-sky-400 to-pink-500" },
 ];
 
 function TopThreePodium() {
@@ -57,8 +57,8 @@ function TopThreePodium() {
         const order = [1, 0, 2];
         const colors = [
           "from-gray-400/30 to-gray-500/10 border-gray-400/50",
-          "from-purple-400/30 to-teal-500/10 border-purple-400/50",
-          "from-purple-600/30 to-purple-700/10 border-purple-600/50",
+          "from-sky-400/30 to-teal-500/10 border-sky-400/50",
+          "from-sky-600/30 to-sky-700/10 border-sky-600/50",
         ];
         const icons = [Medal, Crown, Award];
         const Icon = icons[order[i]];
@@ -101,7 +101,7 @@ function LeaderRow({ trader, index }: { trader: Trader; index: number }) {
       <GlassCard className="p-3 flex items-center gap-3">
         <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm ${
           trader.rank <= 3 
-            ? trader.rank === 1 ? 'bg-purple-500 text-black' : trader.rank === 2 ? 'bg-gray-400 text-black' : 'bg-purple-700 text-white'
+            ? trader.rank === 1 ? 'bg-sky-500 text-black' : trader.rank === 2 ? 'bg-gray-400 text-black' : 'bg-sky-700 text-white'
             : 'bg-white/10'
         }`}>
           {trader.rank}
@@ -171,17 +171,17 @@ export default function Leaderboard() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <motion.div 
-                className="p-3 rounded-2xl bg-gradient-to-br from-purple-400/20 to-teal-500/20 border border-purple-400/30"
+                className="p-3 rounded-2xl bg-gradient-to-br from-sky-400/20 to-teal-500/20 border border-sky-400/30"
                 animate={{ 
                   boxShadow: ["0 0 20px rgba(251,191,36,0.2)", "0 0 50px rgba(251,191,36,0.4)", "0 0 20px rgba(251,191,36,0.2)"]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Trophy className="w-7 h-7 text-purple-400" />
+                <Trophy className="w-7 h-7 text-sky-400" />
               </motion.div>
             </div>
             <h1 className="text-2xl md:text-3xl font-display font-bold mb-2">
-              Trading <span className="bg-gradient-to-r from-purple-400 to-teal-500 bg-clip-text text-transparent">Leaderboard</span>
+              Trading <span className="bg-gradient-to-r from-sky-400 to-teal-500 bg-clip-text text-transparent">Leaderboard</span>
             </h1>
             <p className="text-sm text-muted-foreground mb-4">
               Compete with top traders and win prizes
@@ -263,7 +263,7 @@ export default function Leaderboard() {
           <GlassCard className="p-4 text-center">
             <p className="text-muted-foreground mb-3">Your current rank: <span className="text-white font-bold">#247</span></p>
             <Link href="/trading">
-              <Button className="bg-gradient-to-r from-purple-400 to-teal-500 text-black">
+              <Button className="bg-gradient-to-r from-sky-400 to-teal-500 text-black">
                 <Target className="w-4 h-4 mr-2" />
                 Start Trading to Compete
               </Button>

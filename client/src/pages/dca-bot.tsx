@@ -89,11 +89,11 @@ function StrategyCard({ strategy }: { strategy: DCAStrategy }) {
             <AreaChart data={strategy.chartData}>
               <defs>
                 <linearGradient id={`dca-grad-${strategy.id}`} x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#8b5cf6" stopOpacity={0.5} />
-                  <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0} />
+                  <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.5} />
+                  <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <Area type="monotone" dataKey="value" stroke="#8b5cf6" fill={`url(#dca-grad-${strategy.id})`} />
+              <Area type="monotone" dataKey="value" stroke="#0ea5e9" fill={`url(#dca-grad-${strategy.id})`} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
@@ -206,9 +206,9 @@ export default function DCABot() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <motion.div 
-                className="p-3 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-500/20 border border-primary/30"
+                className="p-3 rounded-2xl bg-gradient-to-br from-primary/20 to-sky-500/20 border border-primary/30"
                 animate={{ 
-                  boxShadow: ["0 0 20px rgba(139,92,246,0.2)", "0 0 50px rgba(139,92,246,0.4)", "0 0 20px rgba(139,92,246,0.2)"]
+                  boxShadow: ["0 0 20px rgba(14,165,233,0.2)", "0 0 50px rgba(14,165,233,0.4)", "0 0 20px rgba(14,165,233,0.2)"]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
@@ -334,7 +334,7 @@ export default function DCABot() {
                   </div>
                   
                   <Button 
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white"
+                    className="w-full bg-gradient-to-r from-sky-500 to-pink-500 text-white"
                     onClick={() => setShowCreate(false)}
                   >
                     <Bot className="w-4 h-4 mr-2" />

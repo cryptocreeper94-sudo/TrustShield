@@ -122,7 +122,7 @@ export default function SyndicateInvite() {
               {(error as Error)?.message || "This invite link is no longer valid or has expired."}
             </p>
             <a href="https://yourlegacy.io" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-gradient-to-r from-cyan-500 to-purple-500" data-testid="button-go-chronicles">
+              <Button className="bg-gradient-to-r from-cyan-500 to-sky-500" data-testid="button-go-chronicles">
                 Explore Chronicles
               </Button>
             </a>
@@ -144,7 +144,7 @@ export default function SyndicateInvite() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", delay: 0.2 }}
-            className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center"
+            className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center"
           >
             <Check className="w-12 h-12 text-white" />
           </motion.div>
@@ -163,7 +163,7 @@ export default function SyndicateInvite() {
       {/* Ambient Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[150px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-pink-500/5 rounded-full blur-[200px]" />
       </div>
 
@@ -202,8 +202,8 @@ export default function SyndicateInvite() {
           {/* Holographic Border Card */}
           <div className="relative group">
             {/* Animated Holographic Border */}
-            <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-2xl opacity-75 blur-sm group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
-            <div className="absolute -inset-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-2xl opacity-50" 
+            <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-2xl opacity-75 blur-sm group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
+            <div className="absolute -inset-[1px] bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-2xl opacity-50" 
               style={{ 
                 backgroundSize: "200% 200%",
                 animation: "gradient-shift 3s ease infinite",
@@ -223,7 +223,7 @@ export default function SyndicateInvite() {
                   transition={{ delay: 0.2 }}
                   className="text-center mb-6"
                 >
-                  <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 px-4 py-1">
+                  <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/30 px-4 py-1">
                     <Sparkles className="w-3 h-3 mr-1" />
                     {invitedBy?.displayName} invited you
                   </Badge>
@@ -236,8 +236,8 @@ export default function SyndicateInvite() {
                   transition={{ type: "spring", delay: 0.3 }}
                   className="relative w-24 h-24 mx-auto mb-6"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-2xl rotate-6 opacity-50" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-2xl -rotate-6 opacity-50" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-sky-500 rounded-2xl rotate-6 opacity-50" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-sky-500 rounded-2xl -rotate-6 opacity-50" />
                   <div className="relative w-full h-full bg-slate-800 rounded-2xl flex items-center justify-center text-5xl border border-slate-700 shadow-2xl">
                     {syndicate?.icon || "⚔️"}
                   </div>
@@ -269,7 +269,7 @@ export default function SyndicateInvite() {
                     <Users className="w-4 h-4" />
                     <span className="text-sm">{syndicate?.memberCount}/{syndicate?.maxMembers} members</span>
                   </div>
-                  <div className="flex items-center gap-1 text-purple-400">
+                  <div className="flex items-center gap-1 text-sky-400">
                     <Crown className="w-4 h-4" />
                     <span className="text-sm">Level {syndicate?.level || 1}</span>
                   </div>
@@ -295,7 +295,7 @@ export default function SyndicateInvite() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="mb-6 p-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl border border-cyan-500/20"
+                    className="mb-6 p-4 bg-gradient-to-r from-cyan-500/10 to-sky-500/10 rounded-xl border border-cyan-500/20"
                   >
                     <div className="flex items-center justify-center gap-2">
                       <Zap className="w-5 h-5 text-cyan-400" />
@@ -318,7 +318,7 @@ export default function SyndicateInvite() {
                     <Button
                       onClick={() => joinMutation.mutate()}
                       disabled={joinMutation.isPending}
-                      className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
+                      className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
                       data-testid="button-join-syndicate"
                     >
                       {joinMutation.isPending ? (
@@ -332,7 +332,7 @@ export default function SyndicateInvite() {
                     <>
                       <Button
                         onClick={handleJoin}
-                        className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
+                        className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
                         data-testid="button-create-parallel-self"
                       >
                         <Sparkles className="w-5 h-5 mr-2" />

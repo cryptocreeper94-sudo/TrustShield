@@ -32,13 +32,13 @@ export default function TrustCooperative() {
         >
           {/* Hero */}
           <motion.div variants={itemVariants} className="text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30">
               <Handshake className="w-4 h-4 text-cyan-400" />
               <span className="text-sm font-medium text-cyan-400">The Trust Cooperative</span>
             </div>
             
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 Not a Platform.
               </span>
               <br />
@@ -88,8 +88,8 @@ export default function TrustCooperative() {
                 </p>
               </div>
               
-              <div className="p-6 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20">
-                <Users className="w-8 h-8 text-purple-400 mb-4" />
+              <div className="p-6 rounded-xl bg-gradient-to-br from-sky-500/10 to-pink-500/10 border border-sky-500/20">
+                <Users className="w-8 h-8 text-sky-400 mb-4" />
                 <h3 className="font-semibold text-lg text-white mb-2">Member-Governed</h3>
                 <p className="text-sm text-muted-foreground">
                   Governance transitions from founding stewardship to full community control. 
@@ -106,8 +106,8 @@ export default function TrustCooperative() {
                 </p>
               </div>
               
-              <div className="p-6 rounded-xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-500/20">
-                <Shield className="w-8 h-8 text-purple-400 mb-4" />
+              <div className="p-6 rounded-xl bg-gradient-to-br from-sky-500/10 to-cyan-500/10 border border-sky-500/20">
+                <Shield className="w-8 h-8 text-sky-400 mb-4" />
                 <h3 className="font-semibold text-lg text-white mb-2">Trust-Based</h3>
                 <p className="text-sm text-muted-foreground">
                   Not a system of laws with loopholes and lawyers. A system of trust where 
@@ -118,9 +118,9 @@ export default function TrustCooperative() {
           </motion.div>
 
           {/* The Fractal Network */}
-          <motion.div variants={itemVariants} className="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-500/20">
+          <motion.div variants={itemVariants} className="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-sky-900/30 to-pink-900/30 border border-sky-500/20">
             <div className="flex items-center gap-3 mb-6">
-              <GitBranch className="w-8 h-8 text-purple-400" />
+              <GitBranch className="w-8 h-8 text-sky-400" />
               <h2 className="font-display text-2xl font-bold text-white">The Fractal Network</h2>
             </div>
             
@@ -150,7 +150,7 @@ export default function TrustCooperative() {
                 <p className="text-xs text-muted-foreground">People you actually know</p>
               </div>
               <div className="p-4 rounded-xl bg-white/5">
-                <Network className="w-6 h-6 text-purple-400 mx-auto mb-2" />
+                <Network className="w-6 h-6 text-sky-400 mx-auto mb-2" />
                 <p className="text-sm font-medium text-white">Regional Networks</p>
                 <p className="text-xs text-muted-foreground">Connected communities</p>
               </div>
@@ -226,7 +226,7 @@ export default function TrustCooperative() {
               That's not a fantasy. That's how trust actually works. We're just building the infrastructure for it.
             </p>
             <Link href="/join">
-              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600" data-testid="button-join-coop">
+              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600" data-testid="button-join-coop">
                 Join the Cooperative
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -243,15 +243,15 @@ export default function TrustCooperative() {
               </div>
             </Link>
             <Link href="/governance-charter">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all cursor-pointer group" data-testid="link-governance-charter">
-                <Users className="w-5 h-5 text-purple-400 mb-2 group-hover:scale-110 transition-transform" />
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-sky-500/30 transition-all cursor-pointer group" data-testid="link-governance-charter">
+                <Users className="w-5 h-5 text-sky-400 mb-2 group-hover:scale-110 transition-transform" />
                 <h4 className="font-semibold text-white text-sm">Governance Charter</h4>
                 <p className="text-xs text-muted-foreground">How we transition to community control</p>
               </div>
             </Link>
             <Link href="/governance-treasury">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all cursor-pointer group" data-testid="link-governance-treasury">
-                <Shield className="w-5 h-5 text-purple-400 mb-2 group-hover:scale-110 transition-transform" />
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-sky-500/30 transition-all cursor-pointer group" data-testid="link-governance-treasury">
+                <Shield className="w-5 h-5 text-sky-400 mb-2 group-hover:scale-110 transition-transform" />
                 <h4 className="font-semibold text-white text-sm">Governance Treasury</h4>
                 <p className="text-xs text-muted-foreground">Multi-sig controlled funds</p>
               </div>

@@ -82,9 +82,9 @@ export default function InvestmentSimulator() {
 
   const priceScenarios = [
     { label: "Conservative", price: 0.05, color: "text-blue-400" },
-    { label: "Moderate", price: 0.15, color: "text-purple-400" },
+    { label: "Moderate", price: 0.15, color: "text-sky-400" },
     { label: "Optimistic", price: 0.50, color: "text-pink-400" },
-    { label: "Moonshot", price: 1.00, color: "text-purple-400" },
+    { label: "Moonshot", price: 1.00, color: "text-sky-400" },
   ];
 
   return (
@@ -92,7 +92,7 @@ export default function InvestmentSimulator() {
       <div 
         className="absolute inset-0 opacity-30"
         style={{
-          background: "radial-gradient(circle at 30% 20%, rgba(168,85,247,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0,200,255,0.15) 0%, transparent 50%)",
+          background: "radial-gradient(circle at 30% 20%, rgba(14,165,233,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0,200,255,0.15) 0%, transparent 50%)",
         }}
       />
       
@@ -107,13 +107,13 @@ export default function InvestmentSimulator() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6">
-            <Calculator className="w-4 h-4 text-purple-400" />
-            <span className="text-purple-300 text-sm font-medium">Investment Simulator</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/30 mb-6">
+            <Calculator className="w-4 h-4 text-sky-400" />
+            <span className="text-sky-300 text-sm font-medium">Investment Simulator</span>
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               What If Calculator
             </span>
           </h1>
@@ -146,7 +146,7 @@ export default function InvestmentSimulator() {
                       variant="outline"
                       size="sm"
                       onClick={() => setInvestment(amount)}
-                      className={`border-white/10 ${investment === amount ? 'bg-purple-500/20 border-purple-500/50' : ''}`}
+                      className={`border-white/10 ${investment === amount ? 'bg-sky-500/20 border-sky-500/50' : ''}`}
                       data-testid={`button-preset-${amount}`}
                     >
                       ${amount}
@@ -155,10 +155,10 @@ export default function InvestmentSimulator() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20" data-testid="display-tier-info">
+              <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20" data-testid="display-tier-info">
                 <div className="flex items-center justify-between">
                   <span className="text-gray-400">Your Tier</span>
-                  <Badge className="bg-gradient-to-r from-cyan-500 to-purple-500" data-testid="badge-tier-name">
+                  <Badge className="bg-gradient-to-r from-cyan-500 to-sky-500" data-testid="badge-tier-name">
                     {calculations.tier.name} (+{calculations.tier.bonus}%)
                   </Badge>
                 </div>
@@ -192,7 +192,7 @@ export default function InvestmentSimulator() {
                     variant="outline"
                     size="sm"
                     onClick={() => setTargetPrice(scenario.price)}
-                    className={`border-white/10 text-xs ${targetPrice === scenario.price ? 'bg-purple-500/20 border-purple-500/50' : ''}`}
+                    className={`border-white/10 text-xs ${targetPrice === scenario.price ? 'bg-sky-500/20 border-sky-500/50' : ''}`}
                     data-testid={`button-scenario-${scenario.label.toLowerCase()}`}
                   >
                     <span className={scenario.color}>${scenario.price}</span>
@@ -223,11 +223,11 @@ export default function InvestmentSimulator() {
               />
             </div>
 
-            <div className="p-6 rounded-xl bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-purple-500/10 border border-purple-500/20 mb-6" data-testid="display-total-tokens">
+            <div className="p-6 rounded-xl bg-gradient-to-r from-sky-500/10 via-pink-500/10 to-sky-500/10 border border-sky-500/20 mb-6" data-testid="display-total-tokens">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <p className="text-gray-400 text-sm">Total SIG Tokens</p>
-                  <p className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent" data-testid="text-total-tokens">
+                  <p className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent" data-testid="text-total-tokens">
                     {calculations.totalTokens.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                   </p>
                 </div>
@@ -240,7 +240,7 @@ export default function InvestmentSimulator() {
                 label="Future Value"
                 value={`$${calculations.futureValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
                 subtext={`@ $${targetPrice.toFixed(2)}/token`}
-                gradient="from-purple-500/10 to-cyan-500/10"
+                gradient="from-sky-500/10 to-cyan-500/10"
               />
               <ResultCard
                 label="Potential Profit"
@@ -250,12 +250,12 @@ export default function InvestmentSimulator() {
               />
             </div>
 
-            <div className="p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20" data-testid="display-multiplier">
+            <div className="p-4 rounded-xl bg-gradient-to-r from-sky-500/10 to-pink-500/10 border border-sky-500/20" data-testid="display-multiplier">
               <div className="flex items-center gap-3">
-                <Rocket className="w-8 h-8 text-purple-400" />
+                <Rocket className="w-8 h-8 text-sky-400" />
                 <div>
                   <p className="text-gray-400 text-sm">Multiplier</p>
-                  <p className="text-3xl font-bold text-purple-400" data-testid="text-multiplier">
+                  <p className="text-3xl font-bold text-sky-400" data-testid="text-multiplier">
                     {calculations.multiplier.toFixed(1)}x
                   </p>
                 </div>
@@ -282,7 +282,7 @@ export default function InvestmentSimulator() {
         <div className="text-center mt-8">
           <Link href="/presale">
             <Button 
-              className="bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 px-8"
+              className="bg-gradient-to-r from-cyan-600 via-sky-600 to-pink-600 px-8"
               data-testid="button-go-to-presale"
             >
               <Sparkles className="w-4 h-4 mr-2" />

@@ -76,8 +76,8 @@ export default function AINFTGenerator() {
   const rarityColors: Record<string, string> = {
     Common: "bg-gray-500/20 text-gray-400",
     Rare: "bg-blue-500/20 text-blue-400",
-    Epic: "bg-purple-500/20 text-purple-400",
-    Legendary: "bg-purple-500/20 text-purple-400",
+    Epic: "bg-sky-500/20 text-sky-400",
+    Legendary: "bg-sky-500/20 text-sky-400",
   };
 
   return (
@@ -101,7 +101,7 @@ export default function AINFTGenerator() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <motion.div 
-                className="p-3 rounded-2xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-pink-500/30"
+                className="p-3 rounded-2xl bg-gradient-to-br from-pink-500/20 to-sky-500/20 border border-pink-500/30"
                 animate={{ 
                   boxShadow: ["0 0 20px rgba(236,72,153,0.2)", "0 0 50px rgba(236,72,153,0.4)", "0 0 20px rgba(236,72,153,0.2)"]
                 }}
@@ -111,7 +111,7 @@ export default function AINFTGenerator() {
               </motion.div>
             </div>
             <h1 className="text-2xl md:text-3xl font-display font-bold mb-2">
-              AI NFT <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Generator</span>
+              AI NFT <span className="bg-gradient-to-r from-pink-400 to-sky-400 bg-clip-text text-transparent">Generator</span>
             </h1>
             <p className="text-sm text-muted-foreground">
               Create unique, one-of-a-kind NFTs with AI
@@ -177,7 +177,7 @@ export default function AINFTGenerator() {
 
                 <GlassCard className="p-4">
                   <h2 className="font-bold mb-4 flex items-center gap-2">
-                    <Palette className="w-4 h-4 text-purple-400" />
+                    <Palette className="w-4 h-4 text-sky-400" />
                     Choose Style
                   </h2>
                   <div className="grid grid-cols-2 gap-2">
@@ -205,7 +205,7 @@ export default function AINFTGenerator() {
 
                 <div className="lg:col-span-2">
                   <Button 
-                    className="w-full h-12 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-lg"
+                    className="w-full h-12 bg-gradient-to-r from-pink-500 to-sky-500 text-white text-lg"
                     onClick={handleGenerate}
                     disabled={!prompt.trim() || isGenerating}
                     data-testid="button-generate-nft"
@@ -238,13 +238,13 @@ export default function AINFTGenerator() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-4"
               >
                 <GlassCard glow className="p-4 aspect-square flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-blue-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-sky-500/10 to-blue-500/10" />
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     className="relative w-full h-full flex items-center justify-center"
                   >
-                    <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 flex items-center justify-center">
+                    <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-pink-500 via-sky-500 to-blue-500 flex items-center justify-center">
                       <Sparkles className="w-24 h-24 text-white/50" />
                     </div>
                     <Badge className={`absolute top-4 right-4 ${rarityColors[generatedNFT.rarity]}`}>
@@ -293,7 +293,7 @@ export default function AINFTGenerator() {
                   </GlassCard>
 
                   <Button 
-                    className="w-full h-12 bg-gradient-to-r from-pink-500 to-purple-500 text-white"
+                    className="w-full h-12 bg-gradient-to-r from-pink-500 to-sky-500 text-white"
                     onClick={() => setStep(3)}
                   >
                     <Zap className="w-5 h-5 mr-2" />
@@ -353,13 +353,13 @@ export default function AINFTGenerator() {
               className="mt-8"
             >
               <h2 className="font-bold mb-4 flex items-center gap-2">
-                <Star className="w-4 h-4 text-purple-400" />
+                <Star className="w-4 h-4 text-sky-400" />
                 Recent Creations
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {GENERATED_EXAMPLES.map((example) => (
                   <GlassCard key={example.id} className="p-3 aspect-square relative overflow-hidden group cursor-pointer">
-                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-sky-500/20 to-blue-500/20" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Sparkles className="w-12 h-12 text-white/20" />
                     </div>

@@ -18,7 +18,7 @@ const miniChartData = Array.from({ length: 20 }, (_, i) => ({
 }));
 
 const portfolioData = [
-  { name: "SIG", value: 45, color: "#8b5cf6" },
+  { name: "SIG", value: 45, color: "#0ea5e9" },
   { name: "stSIG", value: 30, color: "#06b6d4" },
   { name: "LP Tokens", value: 15, color: "#22c55e" },
   { name: "NFTs", value: 10, color: "#f59e0b" },
@@ -110,7 +110,7 @@ export default function DashboardPro() {
           <Link href="/" className="flex items-center gap-2">
             <Shield className="w-7 h-7 text-cyan-400" />
             <span className="font-display font-bold text-lg">Trust Layer</span>
-            <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 text-[9px]">PRO</Badge>
+            <Badge className="bg-gradient-to-r from-sky-500 to-pink-500 text-white border-0 text-[9px]">PRO</Badge>
           </Link>
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="icon" className="relative">
@@ -234,8 +234,8 @@ export default function DashboardPro() {
             <BentoCard colSpan={1} rowSpan={1} delay={0.25} href="/staking">
               <div className="p-4 h-full flex flex-col justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-lg bg-purple-500/20">
-                    <Lock className="w-4 h-4 text-purple-400" />
+                  <div className="p-2 rounded-lg bg-sky-500/20">
+                    <Lock className="w-4 h-4 text-sky-400" />
                   </div>
                 </div>
                 <div>
@@ -265,7 +265,7 @@ export default function DashboardPro() {
               <div className="p-4 h-full flex flex-col">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <Trophy className="w-4 h-4 text-purple-400" />
+                    <Trophy className="w-4 h-4 text-sky-400" />
                     <span className="font-bold">Top Traders</span>
                   </div>
                   <Link href="/leaderboard">
@@ -282,7 +282,7 @@ export default function DashboardPro() {
                       className="flex items-center gap-3 p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
                     >
                       <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                        i === 0 ? 'bg-purple-500 text-black' : i === 1 ? 'bg-gray-400 text-black' : 'bg-purple-700 text-white'
+                        i === 0 ? 'bg-sky-500 text-black' : i === 1 ? 'bg-gray-400 text-black' : 'bg-sky-700 text-white'
                       }`}>
                         {trader.rank}
                       </div>
@@ -308,7 +308,7 @@ export default function DashboardPro() {
                   <p className="font-bold">SIG → USDC</p>
                   <p className="text-xs text-muted-foreground">Best rate: 1 SIG = $0.152</p>
                 </div>
-                <Button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0">
+                <Button className="bg-gradient-to-r from-sky-500 to-pink-500 text-white border-0">
                   <Zap className="w-4 h-4 mr-1" />
                   Swap
                 </Button>
@@ -378,10 +378,10 @@ export default function DashboardPro() {
               <div className="p-4 h-full">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <Target className="w-4 h-4 text-purple-400" />
+                    <Target className="w-4 h-4 text-sky-400" />
                     <span className="font-bold text-sm">Daily Quest</span>
                   </div>
-                  <Badge className="bg-purple-500/20 text-purple-400 text-[9px]">3/5</Badge>
+                  <Badge className="bg-sky-500/20 text-sky-400 text-[9px]">3/5</Badge>
                 </div>
                 <p className="text-xs text-muted-foreground mb-2">Complete 5 swaps to earn 100 SIG</p>
                 <Progress value={60} className="h-2" />
@@ -391,7 +391,7 @@ export default function DashboardPro() {
             <BentoCard colSpan={2} rowSpan={1} delay={0.65} href="/bridge">
               <div className="p-4 h-full flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-cyan-500/20">
+                  <div className="p-2 rounded-lg bg-gradient-to-br from-sky-500/20 to-cyan-500/20">
                     <Globe className="w-5 h-5 text-cyan-400" />
                   </div>
                   <div>

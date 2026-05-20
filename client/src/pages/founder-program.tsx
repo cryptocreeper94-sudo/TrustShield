@@ -125,10 +125,10 @@ export default function FounderProgram() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-teal-500/20 border border-purple-500/30 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-sky-500/20 to-teal-500/20 border border-sky-500/30 mb-6"
           >
-            <Crown className="w-5 h-5 text-purple-400" />
-            <span className="text-purple-400 font-semibold">Limited Time Offer</span>
+            <Crown className="w-5 h-5 text-sky-400" />
+            <span className="text-sky-400 font-semibold">Limited Time Offer</span>
             <Sparkles className="w-4 h-4 text-teal-400" />
           </motion.div>
           
@@ -138,7 +138,7 @@ export default function FounderProgram() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-display font-bold mb-4"
           >
-            <span className="bg-gradient-to-r from-purple-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
               Legacy Founder
             </span>
             <br />
@@ -172,8 +172,8 @@ export default function FounderProgram() {
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           <GlassCard className="p-6 md:p-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-teal-500/20">
-                <Crown className="w-8 h-8 text-purple-400" />
+              <div className="p-3 rounded-xl bg-gradient-to-br from-sky-500/20 to-teal-500/20">
+                <Crown className="w-8 h-8 text-sky-400" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white">Legacy Founder</h2>
@@ -196,7 +196,7 @@ export default function FounderProgram() {
               ))}
             </div>
 
-            <div className="p-4 rounded-xl bg-gradient-to-r from-primary/10 to-purple-500/10 border border-primary/20 mb-6">
+            <div className="p-4 rounded-xl bg-gradient-to-r from-primary/10 to-sky-500/10 border border-primary/20 mb-6">
               <div className="flex items-center gap-3">
                 <Gift className="w-6 h-6 text-primary" />
                 <div>
@@ -247,7 +247,7 @@ export default function FounderProgram() {
                 <Button
                   onClick={handleStripeCheckout}
                   disabled={loading || !email}
-                  className="w-full h-12 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90"
+                  className="w-full h-12 bg-gradient-to-r from-primary to-sky-600 hover:from-primary/90 hover:to-sky-600/90"
                   data-testid="button-stripe-checkout"
                 >
                   <CreditCard className="w-5 h-5 mr-2" />
@@ -258,7 +258,7 @@ export default function FounderProgram() {
                   onClick={handleCryptoCheckout}
                   disabled={loading || !email}
                   variant="outline"
-                  className="w-full h-12 border-purple-500/30 hover:bg-purple-500/10 text-purple-400"
+                  className="w-full h-12 border-sky-500/30 hover:bg-sky-500/10 text-sky-400"
                   data-testid="button-crypto-checkout"
                 >
                   <Bitcoin className="w-5 h-5 mr-2" />
@@ -269,8 +269,8 @@ export default function FounderProgram() {
               <p className="text-xs text-muted-foreground mt-4 text-center">
                 Secure payment powered by Stripe &amp; Coinbase Commerce
               </p>
-              <div className="mt-3 px-3 py-2 rounded-lg bg-purple-500/10 border border-purple-500/20 text-center">
-                <p className="text-[10px] text-purple-400/80 font-medium uppercase tracking-wider">Beta Program — Early Access Pricing</p>
+              <div className="mt-3 px-3 py-2 rounded-lg bg-sky-500/10 border border-sky-500/20 text-center">
+                <p className="text-[10px] text-sky-400/80 font-medium uppercase tracking-wider">Beta Program — Early Access Pricing</p>
               </div>
             </GlassCard>
 
@@ -290,7 +290,7 @@ export default function FounderProgram() {
             { icon: Clock, title: "6 Months = Forever", desc: "After 6 months of access, you're grandfathered in for life" },
           ].map((item, i) => (
             <GlassCard key={i} className="p-6 text-center">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-sky-500/20 flex items-center justify-center mx-auto mb-4">
                 <item.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-semibold text-white mb-2">{item.title}</h3>

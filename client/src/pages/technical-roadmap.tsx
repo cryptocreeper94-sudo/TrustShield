@@ -271,7 +271,7 @@ export default function TechnicalRoadmap() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 bg-clip-text text-transparent">
               Technical Roadmap
             </span>
           </h1>
@@ -304,7 +304,7 @@ export default function TechnicalRoadmap() {
               className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm"
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/30">
                   {phase.icon}
                 </div>
                 <div>
@@ -356,15 +356,15 @@ export default function TechnicalRoadmap() {
           transition={{ delay: 0.6 }}
           className="mt-12 text-center"
         >
-          <div className="bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-cyan-500/30 rounded-2xl p-8">
+          <div className="bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border border-cyan-500/30 rounded-2xl p-8">
             <h2 className="text-2xl font-bold text-white mb-4">Token Generation Event</h2>
-            <p className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-2">
+            <p className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-sky-500 bg-clip-text text-transparent mb-2">
               Coming Soon
             </p>
             <p className="text-slate-400 mb-6">Mainnet launch with full token distribution</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/presale">
-                <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl font-semibold text-white hover:opacity-90 transition" data-testid="button-presale">
+                <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-sky-600 rounded-xl font-semibold text-white hover:opacity-90 transition" data-testid="button-presale">
                   Join Presale
                 </button>
               </Link>

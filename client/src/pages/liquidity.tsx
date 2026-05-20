@@ -57,7 +57,7 @@ function PoolCard({ pool, onAddLiquidity }: { pool: LiquidityPool; onAddLiquidit
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center text-[10px] font-bold border-2 border-background z-10">
                     {pool.tokenA.slice(0, 2)}
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-[10px] font-bold border-2 border-background">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center text-[10px] font-bold border-2 border-background">
                     {pool.tokenB.slice(0, 2)}
                   </div>
                 </div>
@@ -118,7 +118,7 @@ function PositionCard({ position }: { position: Position }) {
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center text-[10px] font-bold border-2 border-background z-10">
                 {position.tokenA.slice(0, 2)}
               </div>
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-[10px] font-bold border-2 border-background">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center text-[10px] font-bold border-2 border-background">
                 {position.tokenB.slice(0, 2)}
               </div>
             </div>
@@ -257,8 +257,8 @@ export default function Liquidity() {
             </p>
           </motion.div>
 
-          <div className="mb-6 p-4 rounded-xl bg-purple-500/10 border border-purple-500/30">
-            <div className="flex items-center justify-center gap-2 text-purple-400">
+          <div className="mb-6 p-4 rounded-xl bg-sky-500/10 border border-sky-500/30">
+            <div className="flex items-center justify-center gap-2 text-sky-400">
               <Info className="w-5 h-5" />
               <span className="font-semibold">Liquidity Pools — Available at Mainnet Launch</span>
             </div>
@@ -291,7 +291,7 @@ export default function Liquidity() {
             </GlassCard>
             <GlassCard hover={false}>
               <div className="p-3 text-center">
-                <Droplets className="w-5 h-5 text-purple-400 mx-auto mb-1" />
+                <Droplets className="w-5 h-5 text-sky-400 mx-auto mb-1" />
                 <div className="text-lg font-bold text-white">{pools.length}</div>
                 <div className="text-[10px] text-muted-foreground">Active Pools</div>
               </div>

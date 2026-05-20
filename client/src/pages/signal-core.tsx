@@ -85,7 +85,7 @@ export default function SignalCore() {
       role: "Vision keeper, veto power on core violations only",
       selection: "Permanent",
       holder: "Crypto Creeper",
-      color: "from-purple-500 to-pink-500"
+      color: "from-sky-500 to-pink-500"
     },
     {
       seat: "Operations Seat",
@@ -106,7 +106,7 @@ export default function SignalCore() {
       role: "Ethical oversight, dispute resolution",
       selection: "Appointed for demonstrated service",
       holder: "To be appointed",
-      color: "from-purple-500 to-cyan-500"
+      color: "from-sky-500 to-cyan-500"
     },
     {
       seat: "Guardian Seat",
@@ -145,21 +145,21 @@ export default function SignalCore() {
         >
           <div className="relative inline-block mb-6">
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-50"
+              className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-full blur-xl opacity-50"
               animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.5, 0.8, 0.5]
               }}
               transition={{ duration: 3, repeat: Infinity }}
             />
-            <div className="relative w-24 h-24 mx-auto bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+            <div className="relative w-24 h-24 mx-auto bg-gradient-to-br from-cyan-500 via-sky-500 to-pink-500 rounded-full flex items-center justify-center">
               <Zap className="w-12 h-12 text-white" />
             </div>
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Signal{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Core
             </span>
           </h1>
@@ -171,12 +171,12 @@ export default function SignalCore() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/30 text-cyan-300">
+            <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/30 text-cyan-300">
               <Lock className="w-3 h-3 mr-1" />
               Permanent & Immutable
             </Badge>
             <Link href="/signal-core/official">
-              <Badge className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30 text-purple-300 cursor-pointer hover:bg-purple-500/30 transition-colors" data-testid="badge-official-document">
+              <Badge className="bg-gradient-to-r from-sky-500/20 to-pink-500/20 border-sky-500/30 text-sky-300 cursor-pointer hover:bg-sky-500/30 transition-colors" data-testid="badge-official-document">
                 <FileText className="w-3 h-3 mr-1" />
                 View Official Document
               </Badge>
@@ -190,9 +190,9 @@ export default function SignalCore() {
           transition={{ delay: 0.1 }}
           className="mb-12"
         >
-          <GlassCard glow className="p-6 sm:p-8 border-purple-500/30">
+          <GlassCard glow className="p-6 sm:p-8 border-sky-500/30">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
                 <AlertTriangle className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -230,13 +230,13 @@ export default function SignalCore() {
               >
                 <GlassCard glow className="p-6 h-full">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center flex-shrink-0">
                       <principle.icon className="w-5 h-5 text-white" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         <h3 className="font-bold text-white">{principle.title}</h3>
-                        <Badge className="bg-purple-500/20 text-purple-300 text-xs">
+                        <Badge className="bg-sky-500/20 text-sky-300 text-xs">
                           <Lock className="w-2 h-2 mr-1" />
                           Immutable
                         </Badge>

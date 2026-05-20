@@ -31,13 +31,13 @@ export default function Referrals() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <motion.div 
-                className="p-2 rounded-xl bg-purple-500/20 border border-purple-500/30"
+                className="p-2 rounded-xl bg-sky-500/20 border border-sky-500/30"
                 animate={{ 
-                  boxShadow: ["0 0 20px rgba(168,85,247,0.2)", "0 0 40px rgba(168,85,247,0.4)", "0 0 20px rgba(168,85,247,0.2)"]
+                  boxShadow: ["0 0 20px rgba(14,165,233,0.2)", "0 0 40px rgba(14,165,233,0.4)", "0 0 20px rgba(14,165,233,0.2)"]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Users className="w-5 h-5 text-purple-400" />
+                <Users className="w-5 h-5 text-sky-400" />
               </motion.div>
               <h1 className="text-2xl md:text-3xl font-display font-bold">
                 Rewards & Referrals

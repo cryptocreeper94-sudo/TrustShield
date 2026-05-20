@@ -152,7 +152,7 @@ const PILLARS = [
     subtitle: "Signal (SIG) Token",
     description: "Full DeFi stack — AMM DEX, liquidity pools, cross-chain bridge (5 networks), NFT marketplace, liquid staking, and AI-powered trading bots.",
     stats: "1B Supply",
-    gradient: "from-purple-500 to-pink-600",
+    gradient: "from-sky-500 to-pink-600",
   },
   {
     icon: Gamepad2,
@@ -160,7 +160,7 @@ const PILLARS = [
     subtitle: "3D Life Simulation",
     description: "A persistent parallel world across Medieval, Wild West, and Modern eras. Emotion-driven AI, political simulation, real economies, and AI-generated storylines.",
     stats: "3 Eras",
-    gradient: "from-purple-500 to-cyan-600",
+    gradient: "from-sky-500 to-cyan-600",
   },
   {
     icon: Building2,
@@ -195,9 +195,9 @@ const PARTNER_TIERS = [
   {
     name: "Strategic Partner",
     icon: Award,
-    color: "from-purple-500 to-pink-500",
-    border: "border-purple-500/40",
-    glow: "shadow-[0_0_50px_rgba(168,85,247,0.3)]",
+    color: "from-sky-500 to-pink-500",
+    border: "border-sky-500/40",
+    glow: "shadow-[0_0_50px_rgba(14,165,233,0.3)]",
     req: "25K+ followers",
     bonus: "25,000 SIG",
     commission: "15%",
@@ -207,8 +207,8 @@ const PARTNER_TIERS = [
   {
     name: "Elite KOL",
     icon: Crown,
-    color: "from-purple-500 to-cyan-500",
-    border: "border-purple-500/40",
+    color: "from-sky-500 to-cyan-500",
+    border: "border-sky-500/40",
     glow: "shadow-[0_0_60px_rgba(245,158,11,0.3)]",
     req: "100K+ followers",
     bonus: "100,000 SIG",
@@ -219,10 +219,10 @@ const PARTNER_TIERS = [
 
 const TOKEN_ALLOCATION = [
   { name: "Treasury Reserve", pct: 50, color: "bg-cyan-500" },
-  { name: "Staking Rewards", pct: 15, color: "bg-purple-500" },
+  { name: "Staking Rewards", pct: 15, color: "bg-sky-500" },
   { name: "Development & Team", pct: 15, color: "bg-blue-500" },
   { name: "Ecosystem Growth", pct: 10, color: "bg-emerald-500" },
-  { name: "Community Rewards", pct: 10, color: "bg-purple-500" },
+  { name: "Community Rewards", pct: 10, color: "bg-sky-500" },
 ];
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } };
@@ -291,9 +291,9 @@ export default function InfluencerShowcasePage() {
   return (
     <div className="min-h-screen bg-[#050508] text-white overflow-x-hidden selection:bg-cyan-500/20 selection:text-cyan-300">
       <GlowOrb color="bg-cyan-500/8" position="top-0 left-1/4" size="w-[500px] h-[500px]" delay={0} />
-      <GlowOrb color="bg-purple-500/8" position="top-1/4 right-0" size="w-[600px] h-[600px]" delay={1} />
+      <GlowOrb color="bg-sky-500/8" position="top-1/4 right-0" size="w-[600px] h-[600px]" delay={1} />
       <GlowOrb color="bg-pink-500/6" position="top-1/2 left-0" size="w-[400px] h-[400px]" delay={2} />
-      <GlowOrb color="bg-purple-500/5" position="bottom-1/4 right-1/4" size="w-[500px] h-[500px]" delay={1.5} />
+      <GlowOrb color="bg-sky-500/5" position="bottom-1/4 right-1/4" size="w-[500px] h-[500px]" delay={1.5} />
       <GlowOrb color="bg-cyan-500/5" position="bottom-0 left-1/3" size="w-[600px] h-[600px]" delay={0.5} />
 
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#050508]/80 backdrop-blur-2xl">
@@ -309,7 +309,7 @@ export default function InfluencerShowcasePage() {
               </Button>
             </Link>
             <Link href="/influencer-partnership">
-              <Button size="sm" variant="outline" className="h-8 text-xs border-purple-500/30 text-purple-300 hover:bg-purple-500/10 font-semibold px-3" data-testid="button-nav-apply">
+              <Button size="sm" variant="outline" className="h-8 text-xs border-sky-500/30 text-sky-300 hover:bg-sky-500/10 font-semibold px-3" data-testid="button-nav-apply">
                 <Megaphone className="w-3 h-3 mr-1.5" /> Apply Now
               </Button>
             </Link>
@@ -322,13 +322,13 @@ export default function InfluencerShowcasePage() {
         <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div initial="hidden" animate="visible" variants={stagger} className="text-center">
             <motion.div variants={fadeUp}>
-              <Badge className="mb-6 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 border-cyan-500/30 px-5 py-2 text-sm" data-testid="badge-ecosystem">
+              <Badge className="mb-6 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-300 border-cyan-500/30 px-5 py-2 text-sm" data-testid="badge-ecosystem">
                 <Sparkles className="w-3.5 h-3.5 mr-2" /> {totalApps} Live Applications
               </Badge>
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-7xl font-display font-black mb-6 leading-[1.1] tracking-tight">
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent">
                 One Ecosystem.
               </span>
               <br />
@@ -343,7 +343,7 @@ export default function InfluencerShowcasePage() {
 
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <Link href="/influencer-partnership">
-                <Button size="lg" className="h-12 px-8 text-base bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold shadow-[0_0_40px_rgba(168,85,247,0.3)] border-0" data-testid="button-hero-apply">
+                <Button size="lg" className="h-12 px-8 text-base bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500 text-white font-bold shadow-[0_0_40px_rgba(14,165,233,0.3)] border-0" data-testid="button-hero-apply">
                   <Megaphone className="w-5 h-5 mr-2" /> Partner With Us
                 </Button>
               </Link>
@@ -415,11 +415,11 @@ export default function InfluencerShowcasePage() {
         <div className="container mx-auto max-w-6xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-8">
-              <Badge className="mb-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 border-purple-500/30">
+              <Badge className="mb-4 bg-gradient-to-r from-sky-500/20 to-pink-500/20 text-sky-300 border-sky-500/30">
                 <Globe className="w-3 h-3 mr-1.5" /> {totalApps} Verified Apps
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-display font-bold mb-3">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                   Full Ecosystem Directory
                 </span>
               </h2>
@@ -456,7 +456,7 @@ export default function InfluencerShowcasePage() {
                                   className="group/app flex items-center gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/5 hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all cursor-pointer"
                                   data-testid={`app-link-${app.name.toLowerCase().replace(/\s+/g, '-')}`}
                                 >
-                                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-white/5 flex items-center justify-center shrink-0">
+                                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500/10 to-sky-500/10 border border-white/5 flex items-center justify-center shrink-0">
                                     <span className="text-xs font-bold text-cyan-400">{app.name.charAt(0)}</span>
                                   </div>
                                   <div className="min-w-0 flex-1">
@@ -490,11 +490,11 @@ export default function InfluencerShowcasePage() {
         <div className="container mx-auto max-w-6xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-12">
-              <Badge className="mb-4 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-300 border-purple-500/30">
+              <Badge className="mb-4 bg-gradient-to-r from-sky-500/20 to-cyan-500/20 text-sky-300 border-sky-500/30">
                 <Wallet className="w-3 h-3 mr-1.5" /> SIG Token
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-display font-bold mb-3">
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
                   Signal (SIG) Tokenomics
                 </span>
               </h2>
@@ -533,7 +533,7 @@ export default function InfluencerShowcasePage() {
                       </div>
                       <div>
                         <p className="text-xs text-white/30 uppercase tracking-wider mb-1">Pre-Launch Currency</p>
-                        <p className="text-xl font-bold font-display bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Shells</p>
+                        <p className="text-xl font-bold font-display bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">Shells</p>
                       </div>
                     </div>
                   </div>
@@ -580,11 +580,11 @@ export default function InfluencerShowcasePage() {
         <div className="container mx-auto max-w-6xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-12">
-              <Badge className="mb-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 border-purple-500/30">
+              <Badge className="mb-4 bg-gradient-to-r from-sky-500/20 to-pink-500/20 text-sky-300 border-sky-500/30">
                 <Crown className="w-3 h-3 mr-1.5" /> KOL & Influencer Program
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-display font-bold mb-3">
-                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-sky-400 bg-clip-text text-transparent">
                   Partner With Us
                 </span>
               </h2>
@@ -596,7 +596,7 @@ export default function InfluencerShowcasePage() {
                 <motion.div key={i} variants={fadeUp} className={`relative ${tier.popular ? 'md:-mt-3 md:mb-3' : ''}`}>
                   {tier.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                      <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 px-4 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+                      <Badge className="bg-gradient-to-r from-sky-500 to-pink-500 text-white border-0 px-4 shadow-[0_0_20px_rgba(14,165,233,0.4)]">
                         <Sparkles className="w-3 h-3 mr-1" /> Most Popular
                       </Badge>
                     </div>
@@ -634,7 +634,7 @@ export default function InfluencerShowcasePage() {
 
             <motion.div variants={fadeUp} className="text-center">
               <Link href="/influencer-partnership">
-                <Button size="lg" className="h-13 px-10 text-base bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold shadow-[0_0_50px_rgba(168,85,247,0.3)] border-0" data-testid="button-apply-now">
+                <Button size="lg" className="h-13 px-10 text-base bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500 text-white font-bold shadow-[0_0_50px_rgba(14,165,233,0.3)] border-0" data-testid="button-apply-now">
                   <Megaphone className="w-5 h-5 mr-2" /> Apply for Partnership
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -713,13 +713,13 @@ export default function InfluencerShowcasePage() {
             transition={{ duration: 0.8 }}
           >
             <GlassCard glow className="text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-sky-500/5 to-pink-500/5 pointer-events-none" />
               <div className="relative z-10 p-8 sm:p-12">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center mx-auto mb-6 shadow-[0_0_40px_rgba(6,182,212,0.3)]">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center mx-auto mb-6 shadow-[0_0_40px_rgba(6,182,212,0.3)]">
                   <Rocket className="w-8 h-8 text-white" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-display font-black mb-4">
-                  <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                     Ready to Partner?
                   </span>
                 </h2>
@@ -728,7 +728,7 @@ export default function InfluencerShowcasePage() {
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Link href="/influencer-partnership">
-                    <Button size="lg" className="h-13 px-10 text-base bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold shadow-[0_0_40px_rgba(168,85,247,0.3)] border-0" data-testid="button-cta-apply">
+                    <Button size="lg" className="h-13 px-10 text-base bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500 text-white font-bold shadow-[0_0_40px_rgba(14,165,233,0.3)] border-0" data-testid="button-cta-apply">
                       <Megaphone className="w-5 h-5 mr-2" /> Apply Now
                     </Button>
                   </Link>

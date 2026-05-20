@@ -37,8 +37,8 @@ interface BlogPost {
 
 const categoryColors: Record<string, string> = {
   blockchain: "from-cyan-500 to-blue-500",
-  defi: "from-purple-500 to-pink-500",
-  signal: "from-purple-500 to-cyan-500",
+  defi: "from-sky-500 to-pink-500",
+  signal: "from-sky-500 to-cyan-500",
   security: "from-red-500 to-rose-500",
   education: "from-green-500 to-emerald-500",
   general: "from-gray-500 to-slate-500",
@@ -223,7 +223,7 @@ export default function BlogPost() {
           
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 flex items-center justify-center">
                 <User className="w-6 h-6 text-white" />
               </div>
               <div>

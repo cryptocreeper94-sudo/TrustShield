@@ -166,8 +166,8 @@ export default function Explorer() {
             <div>
               <h1 className="text-lg font-bold text-white">TrustLayerScan</h1>
               <div className="flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-                <span className="text-[10px] text-purple-400">Testnet</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+                <span className="text-[10px] text-sky-400">Testnet</span>
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function Explorer() {
             <GlassCard hover={false}>
               <div className="p-3 md:p-4 h-full flex flex-col justify-center overflow-hidden">
                 <div className="flex items-center gap-1 mb-1 flex-wrap">
-                  <Server className="w-3 h-3 text-purple-400/60 shrink-0" />
+                  <Server className="w-3 h-3 text-sky-400/60 shrink-0" />
                   <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse shrink-0" />
                   <InfoTooltip content="Trust Layer uses Proof-of-Authority consensus. The Founders Validator runs enterprise-grade infrastructure for maximum uptime." label="Network info" />
                 </div>

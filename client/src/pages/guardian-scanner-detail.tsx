@@ -214,7 +214,7 @@ function CandlestickChart({ timeRange }: { timeRange: string }) {
       {/* TradingView-style header */}
       <div className="absolute top-2 left-2 z-10 text-[10px] text-white/60">
         <span className="text-cyan-400">◎</span> PENGUIN/SOL on PumpSwap · 15 · dexscreener.com
-        <span className="ml-2 px-1.5 py-0.5 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-[9px] font-medium">Example Analysis</span>
+        <span className="ml-2 px-1.5 py-0.5 bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded text-[9px] font-medium">Example Analysis</span>
       </div>
       
       {/* Price overlay */}
@@ -350,7 +350,7 @@ function GuardianScorePanel({ token }: { token: TokenDetail }) {
         <div className="flex items-center gap-2">
           <Shield className={`w-5 h-5 ${riskColor}`} />
           <span className="text-sm font-bold text-white">Guardian Score</span>
-          <span className="px-1.5 py-0.5 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-[9px] font-medium">Example</span>
+          <span className="px-1.5 py-0.5 bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded text-[9px] font-medium">Example</span>
         </div>
         <div className={`text-2xl font-bold ${riskColor}`}>{score}</div>
       </div>
@@ -407,11 +407,11 @@ function MLPredictionPanel({ prediction }: { prediction: TokenDetail["mlPredicti
   const Icon = config.icon;
 
   return (
-    <div className="rounded-xl p-4 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-white/10">
+    <div className="rounded-xl p-4 bg-gradient-to-br from-sky-500/10 to-cyan-500/10 border border-white/10">
       <div className="flex items-center gap-2 mb-3">
-        <Brain className="w-5 h-5 text-purple-400" />
+        <Brain className="w-5 h-5 text-sky-400" />
         <span className="text-sm font-bold text-white">ML Prediction</span>
-        <span className="px-1.5 py-0.5 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-[9px] font-medium">Example</span>
+        <span className="px-1.5 py-0.5 bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded text-[9px] font-medium">Example</span>
       </div>
       
       <div className="flex items-center gap-3 mb-3">
@@ -773,7 +773,7 @@ export default function GuardianScannerDetail() {
               {token.logo ? (
                 <img src={token.logo} alt={token.symbol} className="w-12 h-12 rounded-full" />
               ) : (
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-lg font-bold text-white">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center text-lg font-bold text-white">
                   {token.symbol.slice(0, 2)}
                 </div>
               )}
@@ -781,7 +781,7 @@ export default function GuardianScannerDetail() {
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-lg font-bold text-white truncate">{token.symbol}</span>
                   <span className="text-xs text-white/40">/ SOL</span>
-                  <Badge className="bg-purple-500/20 text-purple-400 text-[10px]">
+                  <Badge className="bg-sky-500/20 text-sky-400 text-[10px]">
                     <Zap className="w-2.5 h-2.5 mr-0.5" />
                     200
                   </Badge>
@@ -940,7 +940,7 @@ export default function GuardianScannerDetail() {
             {/* Trade Button */}
             <button
               onClick={() => setShowSwapModal(true)}
-              className="w-full py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-purple-500 text-white hover:opacity-90 transition-opacity"
+              className="w-full py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-sky-500 text-white hover:opacity-90 transition-opacity"
               data-testid="trade-btn"
             >
               Trade {token.symbol}

@@ -50,7 +50,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     id: "token",
     title: "Token & Tokenomics",
     icon: Coins,
-    color: "#a855f7",
+    color: "#38bdf8",
     items: [
       {
         question: "What is the total supply of Signal?",
@@ -249,7 +249,7 @@ export default function FAQ() {
               Support Center
             </Badge>
             <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">Frequently Asked Questions</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400">Frequently Asked Questions</span>
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Everything you need to know about Trust Layer, Signal, and the ecosystem.

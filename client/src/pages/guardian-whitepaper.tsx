@@ -55,7 +55,7 @@ const CERTIFICATION_TIERS = [
     price: "$499",
     duration: "5-7 days",
     icon: ShieldCheck,
-    color: "from-purple-500 to-purple-700",
+    color: "from-sky-500 to-sky-700",
     description: "Full automated + AI security analysis with professional PDF report",
     features: [
       "Full automated security analysis",
@@ -123,8 +123,8 @@ export default function GuardianWhitepaperPage() {
   return (
     <div className="min-h-screen bg-slate-950">
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-900/20 via-transparent to-transparent" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
         
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
@@ -133,11 +133,11 @@ export default function GuardianWhitepaperPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-300 border-sky-500/30">
               Security Documentation
             </Badge>
             <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 Guardian Security System
               </span>
             </h1>
@@ -155,7 +155,7 @@ export default function GuardianWhitepaperPage() {
           >
             <GlassCard glow className="p-8">
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center flex-shrink-0">
                   <Shield className="w-7 h-7 text-white" />
                 </div>
                 <div>
@@ -170,7 +170,7 @@ export default function GuardianWhitepaperPage() {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <div className="text-3xl font-bold text-purple-400 mb-2">6</div>
+                  <div className="text-3xl font-bold text-sky-400 mb-2">6</div>
                   <div className="text-sm text-white/60">Security Analysis Pillars</div>
                 </div>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
@@ -192,7 +192,7 @@ export default function GuardianWhitepaperPage() {
             className="mb-16"
           >
             <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-              <FileText className="w-6 h-6 text-purple-400" />
+              <FileText className="w-6 h-6 text-sky-400" />
               Audit Process
             </h2>
             
@@ -207,7 +207,7 @@ export default function GuardianWhitepaperPage() {
                   <GlassCard className="p-6">
                     <div className="flex flex-col md:flex-row md:items-start gap-4">
                       <div className="flex items-center gap-4 md:w-1/4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center font-bold text-white text-lg">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center font-bold text-white text-lg">
                           {phase.phase}
                         </div>
                         <div>
@@ -321,7 +321,7 @@ export default function GuardianWhitepaperPage() {
                 >
                   <GlassCard className="p-4 h-full">
                     <div className="flex items-center gap-3 mb-2">
-                      <category.icon className="w-5 h-5 text-purple-400" />
+                      <category.icon className="w-5 h-5 text-sky-400" />
                       <h3 className="font-semibold text-white">{category.name}</h3>
                     </div>
                     <p className="text-sm text-white/60">{category.description}</p>
@@ -339,7 +339,7 @@ export default function GuardianWhitepaperPage() {
           >
             <GlassCard glow className="p-8">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <BookOpen className="w-6 h-6 text-purple-400" />
+                <BookOpen className="w-6 h-6 text-sky-400" />
                 Methodology
               </h2>
               
@@ -384,7 +384,7 @@ export default function GuardianWhitepaperPage() {
             transition={{ delay: 0.6 }}
             className="text-center"
           >
-            <GlassCard glow className="p-8 bg-gradient-to-br from-purple-900/30 to-pink-900/30">
+            <GlassCard glow className="p-8 bg-gradient-to-br from-sky-900/30 to-pink-900/30">
               <h2 className="text-2xl font-bold text-white mb-4">Ready to Secure Your Protocol?</h2>
               <p className="text-white/70 mb-6 max-w-xl mx-auto">
                 Join the growing list of projects that trust Guardian Security for their
@@ -392,7 +392,7 @@ export default function GuardianWhitepaperPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/guardian-certification">
-                  <Button size="lg" className="bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90" data-testid="button-request-audit">
+                  <Button size="lg" className="bg-gradient-to-r from-sky-500 to-pink-500 hover:opacity-90" data-testid="button-request-audit">
                     <Shield className="w-5 h-5 mr-2" />
                     Request Audit
                   </Button>

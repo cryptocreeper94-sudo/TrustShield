@@ -31,8 +31,8 @@ interface BlogPost {
 
 const categoryColors: Record<string, string> = {
   blockchain: "from-cyan-500 to-blue-500",
-  defi: "from-purple-500 to-pink-500",
-  signal: "from-purple-500 to-cyan-500",
+  defi: "from-sky-500 to-pink-500",
+  signal: "from-sky-500 to-cyan-500",
   security: "from-red-500 to-rose-500",
   education: "from-green-500 to-emerald-500",
   general: "from-gray-500 to-slate-500",
@@ -57,7 +57,7 @@ function BlogCard({ post, featured = false }: { post: BlogPost; featured?: boole
                 {post.category}
               </Badge>
               {post.featured && (
-                <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
+                <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/30">
                   <Sparkles className="w-3 h-3 mr-1" />
                   Featured
                 </Badge>
@@ -131,7 +131,7 @@ export default function Blog() {
       <div 
         className="absolute inset-0 opacity-30"
         style={{
-          background: "radial-gradient(circle at 30% 20%, rgba(0,200,255,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(168,85,247,0.15) 0%, transparent 50%)",
+          background: "radial-gradient(circle at 30% 20%, rgba(0,200,255,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(14,165,233,0.15) 0%, transparent 50%)",
         }}
       />
       
@@ -147,7 +147,7 @@ export default function Blog() {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Learn & Discover
             </span>
           </h1>
@@ -214,7 +214,7 @@ export default function Blog() {
             {featuredPosts.length > 0 && (
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                  <TrendingUp className="w-6 h-6 text-purple-400" />
+                  <TrendingUp className="w-6 h-6 text-sky-400" />
                   Featured Articles
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">

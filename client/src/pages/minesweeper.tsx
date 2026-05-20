@@ -652,11 +652,11 @@ export default function Minesweeper() {
         </div>
 
         {isDemo && (
-          <div className="bg-purple-500/20 border border-purple-500/30 rounded-xl p-3 mb-6 text-center text-sm">
-            <p className="text-purple-200">
+          <div className="bg-sky-500/20 border border-sky-500/30 rounded-xl p-3 mb-6 text-center text-sm">
+            <p className="text-sky-200">
               <Sparkles className="w-4 h-4 inline mr-1" />
               <strong>Demo Mode</strong> - Playing with free demo coins!{" "}
-              <button onClick={() => setShowLoginModal(true)} className="underline ml-2 text-purple-200 hover:text-white" data-testid="button-sign-up">Sign up</button> to save your winnings.
+              <button onClick={() => setShowLoginModal(true)} className="underline ml-2 text-sky-200 hover:text-white" data-testid="button-sign-up">Sign up</button> to save your winnings.
             </p>
           </div>
         )}

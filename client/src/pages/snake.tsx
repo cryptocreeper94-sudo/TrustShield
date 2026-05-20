@@ -240,7 +240,7 @@ export default function Snake() {
 
               {gameState.highScore > 0 && (
                 <div className="text-center">
-                  <p className="text-purple-400">High Score: {gameState.highScore}</p>
+                  <p className="text-sky-400">High Score: {gameState.highScore}</p>
                 </div>
               )}
 
