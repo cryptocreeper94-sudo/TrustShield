@@ -1,57 +1,47 @@
-# TrustShield Sentinel — v1.0.0
+# TrustShield
 
-> $([char]0x1F512) **Patent Pending:** The core deterministic governance capabilities (Lume-V) within this repository are protected under U.S. Provisional Patent Application **No. 64/032,339** (Filed April 7, 2026).
+**AI Agent Certification & Enterprise Security Infrastructure — powered by the Trust Layer.**
 
-**TrustShield Sentinel** is the foundational security layer for the enterprise ecosystem. It provides zero-trust identity verification, cross-process IPC communication with Lume Cortex, and an integrated Ecosystem Hub.
+Scan URLs, certify AI agents, audit smart contracts, and monitor the entire DarkWave ecosystem. 99 peer-reviewed research papers. 18 domains actively protected. 5 provisional patents.
 
-**Live:** [trustshield.tech](https://trustshield.tech) · **Download:** [TrustShield Setup 1.0.0.exe](https://github.com/cryptocreeper94-sudo/TrustShield/releases/latest)
+## Downloads
 
----
+| Platform | Link |
+|----------|------|
+| 🖥️ Windows | [TrustShield Setup 1.0.0.exe](https://github.com/cryptocreeper94-sudo/TrustShield/releases/latest) |
+| 📱 Android | [Download APK](https://expo.dev/artifacts/eas/7DWBLv9z2zBxYmKCX99cVv.apk) |
 
-## What's New in v1.0.0
+🏪 Google Play & Apple App Store — Coming Soon
 
-- 🛡️ Zero-trust persistent tray Sentinel application (Electron)
-- 🔌 Native IPC bridge integration with Lume Cortex
-- 🌐 Ecosystem Hub for launching Lume Cortex, TrustGen 3D, and Enterprise Ledger
-- 🔐 Decentralized identity verification without local HTTP tokens
-- 🎨 Enterprise blue/cyan aesthetic for the central dashboard
+## Features
 
----
+- 🛡️ **AI Agent Certification** — Verify, certify, and monitor AI agent behavior with cryptographic proof
+- 🔍 **URL & Domain Scanner** — Instant security analysis checking SSL, headers, threat vectors, and trust signals
+- 📊 **Smart Contract Audits** — Honeypot detection, mint authority checks, liquidity lock verification
+- 🌐 **Protected Infrastructure** — Actively monitors 18 DarkWave ecosystem domains
+- 🖥️ **Desktop App** — Full Electron-based security console for Windows
+- 📱 **Mobile App** — Native Android companion for on-the-go monitoring
 
-## Lume-OS Integration
+## Protected Domains
 
-This application is registered with **Lume Cortex** — the deterministic meta-operating system governing the Trust Layer ecosystem.
+lumeauto.tech · lumescan.tech · darkwavestudios.io · dwtl.io · axiomstudio.dev · trustgen.design · trustvault.studio · trustshield.tech · meridiancanon.com · verdaraultra.com · hydrocore.dev · lume42.com · tlid.io · dwsc.io · manheim.tlid.io · emp.tlid.io · pulse.darkwavestudios.io · axiomstudio.tech
 
-| Property | Value |
-|---|---|
-| **Cortex Bridge** | `cortex-bridge.js` |
-| **Lume-V Wrapper** | `lume-v.wrapper.lume` |
-| **Ecosystem** | trust-layer-42 (42 apps · 42 papers) |
-| **Cortex Endpoint** | lume-cortex.onrender.com |
+## System Requirements
 
-## Stack
+- **Windows**: 10/11 (x64)
+- **Android**: 7.0+ (API 24)
 
-| Layer | Tech |
-|---|---|
-| React 19 + Vite 7 | | Express + TypeScript | | PostgreSQL (Drizzle ORM) | | Trust Layer SSO | | Render |
+## Tech Stack
 
-## Development
+- **Desktop**: Electron + React + Vite + TailwindCSS
+- **Mobile**: Expo SDK 54 + React Native
+- **Backend**: Express + Drizzle ORM
+- **Ledger**: Trust Layer Ledger (TLL) — Proof-of-Authority
 
-``bash
-npm install
-npm run dev
-``
+## License
 
----
+Proprietary — DarkWave Studios LLC © 2026
 
-## Intellectual Property
-
-**Patent Pending:**
-- U.S. Pat. App. No. 64/032,339 — Lume-V
-- U.S. Pat. App. No. 64/047,512 — Lume Core
-- U.S. Pat. App. No. 64/047,467 — Axiom
-- U.S. Pat. App. No. 64/047,496 — Lume-X
-- U.S. Pat. App. No. 64/047,536 — Synthetic Organisms
-- U.S. Pat. App. No. 64/056,378 — Meridian Wireless Energy Routing
-
-© 2026 DarkWave Studios LLC. All rights reserved.
+- [trustshield.tech](https://trustshield.tech)
+- [darkwavestudios.io](https://darkwavestudios.io)
+- U.S. Provisional Patents: 64/032,339 · 64/047,512 · 64/047,467 · 64/047,496 · 64/047,536
