@@ -448,6 +448,33 @@ export default function TrustShieldHome() {
         </div>
       </section>
 
+      {/* Downloads */}
+      <section className="py-16 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-mono text-cyan-400/60 uppercase tracking-widest mb-3">Get TrustShield</p>
+          <h2 className="text-2xl md:text-3xl font-black mb-8">Download</h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://github.com/cryptocreeper94-sudo/TrustShield/releases/latest"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 text-white font-bold text-sm hover:opacity-90 transition-opacity"
+            >
+              <Server className="w-4 h-4" />
+              Windows Desktop (.exe)
+            </a>
+            <a
+              href="https://expo.dev/artifacts/eas/7DWBLv9z2zBxYmKCX99cVv.apk"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/[0.04] border border-white/10 text-white font-bold text-sm hover:bg-white/[0.08] transition-colors"
+            >
+              <Scan className="w-4 h-4" />
+              Android (.apk)
+            </a>
+          </div>
+          <p className="text-[10px] text-white/20 mt-4 font-mono">Google Play & Apple App Store — Coming Soon</p>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
