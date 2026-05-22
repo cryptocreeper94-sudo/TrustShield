@@ -26,9 +26,12 @@ function runClientScan(url: string): ScanResult {
   const isHttps = url.startsWith("https://");
   const domain = url.replace(/^https?:\/\//, "").split("/")[0];
   const isTrusted = [
-    "google.com","github.com","axiom42.com","darkwavestudios.io","dwtl.io",
-    "trustshield.tech","axiomstudio.dev","lume-lang.com","dwsc.io","microsoft.com",
+    "google.com","github.com","darkwavestudios.io","dwtl.io",
+    "trustshield.tech","axiomstudio.dev","axiomstudio.tech","dwsc.io","microsoft.com",
     "apple.com","amazon.com","cloudflare.com","vercel.com","render.com",
+    "lumeauto.tech","lumescan.tech","trustgen.design","trustvault.studio",
+    "tlid.io","meridiancanon.com","verdaraultra.com","hydrocore.dev",
+    "lume42.com","pulse.darkwavestudios.io","manheim.tlid.io","emp.tlid.io",
   ].some(d => domain.includes(d));
 
   const headers = [
@@ -72,10 +75,12 @@ function PatentFooter() {
           {[
             { name: "DarkWave Studios", href: "https://darkwavestudios.io" },
             { name: "Trust Layer", href: "https://dwtl.io" },
-            { name: "Axiom42", href: "https://axiom42.com" },
             { name: "Axiom Studio", href: "https://axiomstudio.dev" },
-            { name: "Lume", href: "https://lume-lang.com" },
-            { name: "Strata", href: "https://strata.tlid.io" },
+            { name: "Lume Auto", href: "https://lumeauto.tech" },
+            { name: "Lume Scan", href: "https://lumescan.tech" },
+            { name: "TrustGen 3D", href: "https://trustgen.design" },
+            { name: "TrustVault", href: "https://trustvault.studio" },
+            { name: "Lume42 Labs", href: "https://lume42.com" },
           ].map(l => (
             <a key={l.name} href={l.href} target="_blank" rel="noopener noreferrer"
               className="text-[10px] text-white/25 hover:text-cyan-400/60 transition-colors"
@@ -209,10 +214,31 @@ export default function TrustShieldHome() {
   ];
 
   const stats = [
-    { value: "42", label: "Ecosystem Apps Protected" },
-    { value: "73", label: "Research Papers Published" },
+    { value: "18", label: "Ecosystem Domains Protected" },
+    { value: "99", label: "Research Papers Published" },
     { value: "30+", label: "Security Vectors Scanned" },
     { value: "5", label: "Provisional Patents" },
+  ];
+
+  const protectedSites = [
+    { name: "Lume Auto", domain: "lumeauto.tech", type: "Consumer Platform" },
+    { name: "Lume Scan", domain: "lumescan.tech", type: "Consumer Platform" },
+    { name: "DarkWave Studios", domain: "darkwavestudios.io", type: "Corporate" },
+    { name: "Trust Layer", domain: "dwtl.io", type: "Infrastructure" },
+    { name: "Axiom Studio", domain: "axiomstudio.dev", type: "AI Platform" },
+    { name: "TrustGen 3D", domain: "trustgen.design", type: "Creative Suite" },
+    { name: "TrustVault", domain: "trustvault.studio", type: "Media Vault" },
+    { name: "TrustShield", domain: "trustshield.tech", type: "Security" },
+    { name: "Meridian Canon", domain: "meridiancanon.com", type: "Consumer Platform" },
+    { name: "Verdara Ultra", domain: "verdaraultra.com", type: "Consumer Platform" },
+    { name: "HydroCore", domain: "hydrocore.dev", type: "R&D" },
+    { name: "Lume42 Labs", domain: "lume42.com", type: "R&D" },
+    { name: "TLID Identity", domain: "tlid.io", type: "Infrastructure" },
+    { name: "DWSC Research", domain: "dwsc.io", type: "Research" },
+    { name: "Manheim CEP", domain: "manheim.tlid.io", type: "Enterprise" },
+    { name: "EMP Demo", domain: "emp.tlid.io", type: "Enterprise" },
+    { name: "DW Pulse", domain: "pulse.darkwavestudios.io", type: "Analytics" },
+    { name: "Axiom Studio", domain: "axiomstudio.tech", type: "AI Platform" },
   ];
 
   return (
@@ -320,6 +346,42 @@ export default function TrustShieldHome() {
               <div className="text-[10px] text-white/30 uppercase tracking-widest mt-1">{s.label}</div>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Protected Infrastructure */}
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-xs font-mono text-emerald-400/60 uppercase tracking-widest mb-3">Active Monitoring</p>
+            <h2 className="text-2xl md:text-3xl font-black">Protected Infrastructure</h2>
+            <p className="text-white/30 mt-3 max-w-lg mx-auto text-sm">
+              TrustShield actively monitors, certifies, and protects every domain in the DarkWave ecosystem.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {protectedSites.map((site, i) => (
+              <motion.a
+                key={i}
+                href={`https://${site.domain}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.03 }}
+                className="group bg-white/[0.02] border border-white/5 rounded-xl p-3 hover:border-emerald-500/30 hover:bg-emerald-500/[0.03] transition-all text-center"
+              >
+                <div className="flex items-center justify-center gap-1.5 mb-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[9px] font-mono text-emerald-400/70 uppercase tracking-wider">Live</span>
+                </div>
+                <p className="text-xs font-semibold text-white/80 group-hover:text-white transition-colors truncate">{site.name}</p>
+                <p className="text-[9px] text-white/25 font-mono truncate mt-0.5">{site.domain}</p>
+                <span className="inline-block mt-1.5 text-[8px] px-1.5 py-0.5 rounded-full bg-white/5 text-white/30 border border-white/5">{site.type}</span>
+              </motion.a>
+            ))}
+          </div>
         </div>
       </section>
 
