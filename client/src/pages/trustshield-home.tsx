@@ -174,6 +174,7 @@ export default function TrustShieldHome() {
   const [scanUrl, setScanUrl] = useState("");
   const [scanning, setScanning] = useState(false);
   const [result, setResult] = useState<ScanResult | null>(null);
+  const [activeVideo, setActiveVideo] = useState<'male' | 'female'>('male');
 
   const handleScan = useCallback(() => {
     let url = scanUrl.trim();
@@ -327,6 +328,48 @@ export default function TrustShieldHome() {
 
           {/* Scan Results */}
           {result && <ScanResults result={result} />}
+        </div>
+      </section>
+
+      {/* Promotional Video Section */}
+      <section className="w-full max-w-[1000px] mx-auto px-6 mb-16 mt-8 relative z-10">
+        <div className="flex flex-col items-center gap-5 mb-6">
+          <h2 className="text-2xl font-black text-white m-0">Platform Overview</h2>
+          <div className="flex bg-[#0e0e16]/70 rounded-xl p-1 border border-white/5">
+            <button 
+              className={`bg-transparent border-none px-6 py-2.5 text-[13px] font-semibold rounded-lg cursor-pointer transition-all ${activeVideo === 'male' ? 'bg-cyan-500/15 text-cyan-400' : 'text-white/40 hover:text-white/70'}`}
+              onClick={() => setActiveVideo('male')}
+            >
+              Technical Deep-Dive
+            </button>
+            <button 
+              className={`bg-transparent border-none px-6 py-2.5 text-[13px] font-semibold rounded-lg cursor-pointer transition-all ${activeVideo === 'female' ? 'bg-cyan-500/15 text-cyan-400' : 'text-white/40 hover:text-white/70'}`}
+              onClick={() => setActiveVideo('female')}
+            >
+              Workflow &amp; Experience
+            </button>
+          </div>
+        </div>
+        <div className="w-full aspect-[16/9] bg-black rounded-2xl overflow-hidden border border-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+          {activeVideo === 'male' ? (
+            <video 
+              key="male"
+              controls 
+              preload="metadata" 
+              className="w-full h-full object-cover"
+            >
+              <source src="/assets/trustshield_marketing_male.mp4" type="video/mp4" />
+            </video>
+          ) : (
+            <video 
+              key="female"
+              controls 
+              preload="metadata" 
+              className="w-full h-full object-cover"
+            >
+              <source src="/assets/trustshield_marketing_female.mp4" type="video/mp4" />
+            </video>
+          )}
         </div>
       </section>
 
