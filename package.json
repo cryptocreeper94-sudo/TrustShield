@@ -1,10 +1,10 @@
 {
   "name": "trustshield",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "license": "MIT",
   "main": "electron/main.js",
-  "scripts": {
+  "scripts": {"eas-build-pre-build": "npm install && npx cap sync android",
     "dev:client": "vite dev --port 5000",
     "dev": "dotenv -e .env -- cross-env NODE_ENV=development tsx server/index.ts",
     "build": "tsx script/build.ts",
@@ -38,6 +38,8 @@
     }
   },
   "dependencies": {
+    "@capacitor/android": "^8.4.0",
+    "@capacitor/core": "^8.4.0",
     "@google-cloud/storage": "^7.18.0",
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",
@@ -168,6 +170,7 @@
     "zod-validation-error": "^3.5.4"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.4.0",
     "@replit/vite-plugin-cartographer": "^0.4.4",
     "@replit/vite-plugin-dev-banner": "^0.1.1",
     "@replit/vite-plugin-runtime-error-modal": "^0.0.4",
@@ -182,6 +185,7 @@
     "@types/react-dom": "^19.2.0",
     "@types/ws": "^8.5.13",
     "@vitejs/plugin-react": "^5.0.4",
+    "astral-regex": "^2.0.0",
     "autoprefixer": "^10.4.21",
     "drizzle-kit": "^0.31.4",
     "electron": "^42.1.0",
