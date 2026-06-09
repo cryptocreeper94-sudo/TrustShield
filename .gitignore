@@ -25,3 +25,5 @@ dist/win-unpacked/
 dist/*.exe
 dist/*.exe.blockmap
 dist/*.yml
+
+dist/
